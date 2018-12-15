@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ngx-skeleton-loader'`, () => {
+  it(`should have as title 'ngx-skeleton-loader-demo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ngx-skeleton-loader');
+    expect(app.title).toEqual('ngx-skeleton-loader-demo');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ngx-skeleton-loader!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ngx-skeleton-loader-demo!');
   });
 });

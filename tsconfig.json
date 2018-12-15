@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-skeleton-loader": [
+        "dist/ngx-skeleton-loader"
+      ],
+      "ngx-skeleton-loader/*": [
+        "dist/ngx-skeleton-loader/*"
+      ]
+    }
   }
 }
