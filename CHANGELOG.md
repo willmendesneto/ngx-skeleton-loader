@@ -7,7 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Fixing build script
+
+## [0.0.1][] - 2018-12-16
+
 ### Added
 
 - Created `ngx-skeleton-loader`
 - Created test automation for the module
+
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v0.0.1

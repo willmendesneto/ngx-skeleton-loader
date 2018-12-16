@@ -76,7 +76,7 @@ After that, you can use the `featureToggle` components in your templates, passin
 
 ### Publish
 
-this project is using `np` package to publish, which makes things straightforward. EX: `np <patch|minor|major> --contents=dist`
+this project is using `np` package to publish, which makes things straightforward. EX: `np <patch|minor|major> --contents=dist/ngx-skeleton-loader`
 
 > For more details, [please check np package on npmjs.com](https://www.npmjs.com/package/np)
 

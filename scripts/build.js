@@ -14,15 +14,9 @@ const changePakackageVersionWithNewVersion = (packageNameDirectory, version) => 
 };
 
 try {
-  changePakackageVersionWithNewVersion(
-    `${__dirname}/../dist/${NG_MODULE_NAME}/package.json`,
-    version,
-  );
+  changePakackageVersionWithNewVersion(`${__dirname}/../dist/${NG_MODULE_NAME}`, version);
 
-  changePakackageVersionWithNewVersion(
-    `${__dirname}/../projects/${NG_MODULE_NAME}/package.json`,
-    version,
-  );
+  changePakackageVersionWithNewVersion(`${__dirname}/../projects/${NG_MODULE_NAME}`, version);
 } catch (error) {
   throw error;
   process.exit();
