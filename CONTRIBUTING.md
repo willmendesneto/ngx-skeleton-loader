@@ -31,4 +31,4 @@ npm test
 
 - Please detail the affected browser(s) and operating system(s)
 - Please be sure to state which version of node **and** npm you're using
-- Please use try to simulate your bug based on [the demo on Stackblitz](https://stackblitz.com/edit/ngx-skeleton-loader-sample)!
+- Please use try to simulate your bug based on [the demo on Stackblitz](https://ngx-skeleton-loader-sample.stackblitz.io)!

@@ -28,7 +28,7 @@ It's totally transparent for you and you can integrate easier in your applicatio
 
 ## Demo
 
-Try out our [demo on Stackblitz](https://stackblitz.com/edit/ngx-skeleton-loader-sample)!
+Try out our [demo on Stackblitz](https://ngx-skeleton-loader-sample.stackblitz.io)!
 
 ## Install
 

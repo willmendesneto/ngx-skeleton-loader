@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Fixing Stackblitz link demo link
+
 ## [1.1.0][] - 2018-12-17
 
 ### Added
@@ -57,7 +61,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [1.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.0.1
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.2...HEAD
 [1.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.0.2
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.0...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.0
