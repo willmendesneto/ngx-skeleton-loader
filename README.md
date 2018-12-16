@@ -1,27 +1,93 @@
-# NgxSkeletonLoader
+# NGX Skeleton loader
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+[![Dependency Status](https://david-dm.org/willmendesneto/ngx-skeleton-loader.svg)](https://david-dm.org/willmendesneto/ngx-skeleton-loader)
 
-## Development server
+[![NPM](https://nodei.co/npm/ngx-skeleton-loader.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/ngx-skeleton-loader)
+[![NPM](https://nodei.co/npm-dl/ngx-skeleton-loader.png?height=3&months=3)](https://npmjs.org/ngx-skeleton-loader)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Why skeletons?
 
-## Code scaffolding
+> This is a common concept, but why use this directive instead solve it via server-side rendering?
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The idea of this component is make the process transparent and easier. So the main point is integrate this component with other tooling process, such as:
 
-## Build
+- Server-side rendering;
+- Progressive rendering;
+- Any other that you like :)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+It's totally transparent for you and you can integrate easier in your application, improving your user experience 🎉
 
-## Running unit tests
+- [Demo](#demo)
+- [Install](#install)
+- [Setup](#setup)
+- [Development](#development)
+- [Contribute](#contribute)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Demo
 
-## Running end-to-end tests
+Try out our [demo on Stackblitz](https://stackblitz.com/edit/ngx-skeleton-loader-sample)!
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Install
 
-## Further help
+You can get it on NPM installing `ngx-skeleton-loader` module as a project dependency.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```shell
+npm install ngx-skeleton-loader --save
+```
+
+## Setup
+
+You'll need to add `NgxSkeletonLoaderModule` to your application module. So that, the `<ngx-skeleton-loeader>` components will be accessible in your application.
+
+```typescript
+@NgModule({
+  declarations: [
+    YourAppComponent
+  ],
+  imports: [
+    NgxSkeletonLoaderModule,
+    ...
+  ],
+  providers: [],
+  bootstrap: [YourAppComponent]
+})
+
+export class YourAppComponent {}
+
+```
+
+After that, you can use the `featureToggle` components in your templates, passing the configuration data into the component itself.
+
+- `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
+
+```html
+<div class="item"><ngx-skeleton-loader count="5" appearance="circle"> </ngx-skeleton-loader></div>
+```
+
+## Development
+
+### Run demo locally
+
+1. This project uses [Angular CLI](https://cli.angular.io/) as base. That means you just need to run `npm start` and access the link `http://localhost:4200` in your browser
+
+### Run tests
+
+1. Run `npm test` for run tests. In case you want to test using watch, please use `npm run tdd`
+
+### Publish
+
+this project is using `np` package to publish, which makes things straightforward. EX: `np <patch|minor|major> --contents=dist`
+
+> For more details, [please check np package on npmjs.com](https://www.npmjs.com/package/np)
+
+## Contribute
+
+For contributions, please follow the instructions in [CONTRIBUTING.md](https://github.com/willmendesneto/ngx-skeleton-loader/blob/master/CONTRIBUTING.md) file.
+
+## Author
+
+**Wilson Mendes (willmendesneto)**
+
+- <https://plus.google.com/+WilsonMendes>
+- <https://twitter.com/willmendesneto>
+- <http://github.com/willmendesneto>

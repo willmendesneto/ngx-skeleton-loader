@@ -7,9 +7,10 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 })
 export class NgxSkeletonLoaderComponent implements OnInit {
   @Input()
-  count: number = 1;
+  count = 1;
+
   @Input()
-  appearance: string = '';
+  appearance = '';
 
   @Input() theme: { [k: string]: string } = {};
 

@@ -1,15 +1,21 @@
 {
   "name": "ngx-skeleton-loader-demo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "bundlesize": "bundlesize",
+    "build:pkg": "ng build ngx-skeleton-loader",
+    "update-library-version": "node ./scripts/build.js",
+    "postversion": "git push && git push --tags",
+    "prepublish": "npm run build && npm run build:pkg && npm run update-library-version",
+    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && npm run build:pkg && npm run update-library-version && cp -f CHANGELOG.md dist/ngx-skeleton-loader && git add ."
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~7.1.0",
     "@angular/common": "~7.1.0",
@@ -30,9 +36,11 @@
     "@angular/cli": "~7.1.3",
     "@angular/compiler-cli": "~7.1.0",
     "@angular/language-service": "~7.1.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "bundlesize": "^0.17.0",
+    "changelog-verify": "^1.1.0",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -47,6 +55,13 @@
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.6"
-  }
+    "typescript": "~3.1.6",
+    "version-changelog": "^3.1.0"
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/ngx-skeleton-loader/bundles/ngx-skeleton-loader.umd.min.js",
+      "maxSize": "985B"
+    }
+  ]
 }
