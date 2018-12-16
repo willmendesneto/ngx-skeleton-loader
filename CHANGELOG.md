@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Updated
 
 - Decreased bundle size
+- New gif showing `ngx-skeleton-loader` in action
 
 ## [1.0.2][] - 2018-12-16
 
