@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added Circle CI integration
 - Added Coveralls integration
 - Added GitHub templates
+- Added `CODE_OF_CONDUCT.md` with the Code of conduct
 
 ### Updated
 
