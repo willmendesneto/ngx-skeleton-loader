@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Added github urls into `package.json`
+
 ## [1.0.2][] - 2018-12-16
 
 ### Fixed
@@ -39,7 +43,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.2...HEAD
 [1.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.0.1
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.2...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.2...HEAD
 [1.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.0.2

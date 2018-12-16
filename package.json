@@ -17,6 +17,22 @@
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && npm run build:pkg && npm run update-library-version && git add ."
   },
   "private": false,
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "ngx",
+    "skeleton",
+    "loader",
+    "ngx-skeleton-loader"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willmendesneto/ngx-skeleton-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/willmendesneto/ngx-skeleton-loader/issues"
+  },
+  "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme",
   "dependencies": {
     "@angular/animations": "~7.1.0",
     "@angular/common": "~7.1.0",
