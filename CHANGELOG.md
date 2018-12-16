@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Added Coveralls integration
 - Added GitHub templates
 - Added `CODE_OF_CONDUCT.md` with the Code of conduct
+- Added unit tests for skeletons and demo components
 
 ### Updated
 
