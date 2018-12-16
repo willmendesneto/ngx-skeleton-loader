@@ -9,25 +9,32 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- Added github urls into `package.json`
+- Added GitHub urls into `package.json`
+- Added Circle CI integration
+- Added Coveralls integration
+- Added GitHub templates
+
+### Updated
+
+- Decreased bundle size
 
 ## [1.0.2][] - 2018-12-16
 
 ### Fixed
 
-- Adding markdown files in dist folder in build time
+- Added markdown files in dist folder in build time
 
 ## [1.0.1][] - 2018-12-16
 
 ### Fixed
 
-- Adding markdown files in dist folder in build time
+- Added markdown files in dist folder in build time
 
 ## [1.0.0][] - 2018-12-16
 
 ### Fixed
 
-- Fixing build script
+- Fixed build script
 
 ## [0.0.1][] - 2018-12-16
 

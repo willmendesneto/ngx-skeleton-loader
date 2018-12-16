@@ -14,7 +14,8 @@
     "update-library-version": "node ./scripts/build.js && cp -f *.md dist/ngx-skeleton-loader",
     "postversion": "git push && git push --tags",
     "prepublish": "npm run build && npm run build:pkg && npm run update-library-version",
-    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && npm run build:pkg && npm run update-library-version && git add ."
+    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && npm run build:pkg && npm run update-library-version && git add .",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls && rm -rf coverage"
   },
   "private": false,
   "license": "MIT",
@@ -59,6 +60,7 @@
     "bundlesize": "^0.17.0",
     "changelog-verify": "^1.1.0",
     "codelyzer": "~4.5.0",
+    "coveralls": "^3.0.2",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",
