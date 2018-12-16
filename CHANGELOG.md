@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Adding markdown files in dist folder in build time
+
 ## [1.0.0][] - 2018-12-16
 
 ### Fixed
@@ -22,7 +26,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v0.0.1...HEAD
 [0.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v0.0.1
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.0.0

@@ -11,10 +11,10 @@
     "e2e": "ng e2e",
     "bundlesize": "bundlesize",
     "build:pkg": "ng build ngx-skeleton-loader",
-    "update-library-version": "node ./scripts/build.js",
+    "update-library-version": "node ./scripts/build.js && cp -f *.md dist/ngx-skeleton-loader",
     "postversion": "git push && git push --tags",
     "prepublish": "npm run build && npm run build:pkg && npm run update-library-version",
-    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && npm run build:pkg && npm run update-library-version && cp -f CHANGELOG.md dist/ngx-skeleton-loader && git add ."
+    "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && npm run build:pkg && npm run update-library-version && git add ."
   },
   "private": false,
   "dependencies": {
