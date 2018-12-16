@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --watch=false --no-progress -cc",
+    "test": "ng test --watch=false --no-progress --code-coverage",
     "tdd": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -78,7 +78,7 @@
   "bundlesize": [
     {
       "path": "./dist/ngx-skeleton-loader/bundles/ngx-skeleton-loader.umd.min.js",
-      "maxSize": "985B"
+      "maxSize": "899B"
     }
   ]
 }
