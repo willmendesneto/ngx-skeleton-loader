@@ -12,8 +12,6 @@
 
 ## Why skeletons?
 
-> This is a common concept, but why use this directive instead solve it via server-side rendering?
-
 The idea of this component is make the process transparent and easier. So the main point is integrate this component with other tooling process, such as:
 
 - Server-side rendering;
