@@ -25,10 +25,9 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
     </div>
   `,
 })
-class ContainerComponent {}
+class ContainerComponent { }
 
 describe('NgxSkeletonLoaderComponent', () => {
-  let component: NgxSkeletonLoaderComponent;
   let fixture: any;
 
   beforeEach(async(() => {

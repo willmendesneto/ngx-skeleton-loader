@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Adding badges for stackblitz, bundlephobia and license
+
+### Updated
+
+- Updating Angular CLI to 7.3.8
+
 ## [1.1.1][] - 2018-12-17
 
 ### Fixed
@@ -65,7 +73,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [1.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.0.2
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.0...HEAD
 [1.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.0
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.1...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.1...HEAD
 [1.1.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.1
