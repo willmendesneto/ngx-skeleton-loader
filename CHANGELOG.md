@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Adding badges for stackblitz, bundlephobia and license
 
+### Updated
+
+- Removing unnecessary CSS styles for skeleton
+
 ## [1.1.1][] - 2018-12-17
 
 ### Fixed
