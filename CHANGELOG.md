@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [1.1.2][] - 2019-01-07
+
 ### Added
 
 - Adding badges for stackblitz, bundlephobia and license
@@ -75,3 +77,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [1.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.1...HEAD
 [1.1.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.1
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.2
