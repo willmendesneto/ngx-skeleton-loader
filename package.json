@@ -1,6 +1,6 @@
 {
   "name": "ngx-skeleton-loader-demo",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -80,7 +80,7 @@
   "bundlesize": [
     {
       "path": "./dist/ngx-skeleton-loader/bundles/ngx-skeleton-loader.umd.min.js",
-      "maxSize": "899B"
+      "maxSize": "871B"
     }
   ]
 }
