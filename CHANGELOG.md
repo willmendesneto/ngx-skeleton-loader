@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [1.2.0][] - 2019-04-19
+
 ### Updated
 
 - Updating Angular CLI to 7.3.8
@@ -83,5 +85,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [1.1.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.1
 
 
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.2...HEAD
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.2
