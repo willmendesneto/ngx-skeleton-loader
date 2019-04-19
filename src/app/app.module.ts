@@ -5,9 +5,14 @@ import { AppComponent } from './app.component';
 import { NgxSkeletonLoaderModule } from '../../projects/ngx-skeleton-loader/src/lib/ngx-skeleton-loader.module';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, NgxSkeletonLoaderModule],
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    NgxSkeletonLoaderModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

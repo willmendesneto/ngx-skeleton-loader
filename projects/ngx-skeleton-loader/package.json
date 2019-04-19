@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme",
   "peerDependencies": {
-    "@angular/common": "^7.1.0",
-    "@angular/core": "^7.1.0"
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0"
   }
 }
