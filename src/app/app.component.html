@@ -1,26 +1,32 @@
 <h1>NGX Skeleton Loader</h1>
 <h2>Line skeletons</h2>
 
-<div class="item"><ngx-skeleton-loader count="5"></ngx-skeleton-loader></div>
+<div class="item">
+  <ngx-skeleton-loader count="5"></ngx-skeleton-loader>
+</div>
 
 <h2>Line skeletons with theming</h2>
 <div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    [theme]="{ 'border-radius': '0', height: '50px' }"
-  ></ngx-skeleton-loader>
+  <ngx-skeleton-loader count="5" [theme]="{ 'border-radius': '0', height: '50px' }"></ngx-skeleton-loader>
+</div>
+
+<h2>Line skeletons with theming - Changing Colors</h2>
+<p>You can use the same colors for the other examples</p>
+<div class="item-with-background">
+  <ngx-skeleton-loader count="5"
+    [theme]="{ 'border-radius': '5px', height: '50px', 'background-color': '#992929', border: '1px solid white' }">
+  </ngx-skeleton-loader>
 </div>
 
 <h2>Circle skeletons</h2>
-<div class="item"><ngx-skeleton-loader count="5" appearance="circle"> </ngx-skeleton-loader></div>
+<div class="item">
+  <ngx-skeleton-loader count="5" appearance="circle"> </ngx-skeleton-loader>
+</div>
 
 <h2>Circle skeletons with theming</h2>
 <div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    appearance="circle"
-    [theme]="{ width: '70px', height: '70px', 'border-radius': '10px' }"
-  >
+  <ngx-skeleton-loader count="5" appearance="circle"
+    [theme]="{ width: '70px', height: '70px', 'border-radius': '10px' }">
   </ngx-skeleton-loader>
 </div>
 
@@ -34,52 +40,42 @@
     </div>
     <div class="gravatar-title">
       <div>
-        <ngx-skeleton-loader
-          [theme]="{
+        <ngx-skeleton-loader [theme]="{
             width: '200px',
             'border-radius': '0',
             height: '15px',
             'margin-bottom': '10px'
-          }"
-        ></ngx-skeleton-loader>
+          }"></ngx-skeleton-loader>
       </div>
       <div>
-        <ngx-skeleton-loader
-          [theme]="{ width: '170px', 'border-radius': '0', height: '15px' }"
-        ></ngx-skeleton-loader>
+        <ngx-skeleton-loader [theme]="{ width: '170px', 'border-radius': '0', height: '15px' }"></ngx-skeleton-loader>
       </div>
     </div>
   </div>
   <div class="second-section-wrapper">
     <div class="wrapper">
-      <ngx-skeleton-loader
-        [theme]="{
+      <ngx-skeleton-loader [theme]="{
           width: '80%',
           'border-radius': '0',
           height: '15px',
           'margin-bottom': '10px'
-        }"
-      ></ngx-skeleton-loader>
+        }"></ngx-skeleton-loader>
     </div>
     <div class="wrapper">
-      <ngx-skeleton-loader
-        [theme]="{
+      <ngx-skeleton-loader [theme]="{
           width: '90%',
           'border-radius': '0',
           height: '15px',
           'margin-bottom': '10px'
-        }"
-      ></ngx-skeleton-loader>
+        }"></ngx-skeleton-loader>
     </div>
     <div class="wrapper">
-      <ngx-skeleton-loader
-        [theme]="{
+      <ngx-skeleton-loader [theme]="{
           width: '60%',
           'border-radius': '0',
           height: '15px',
           'margin-bottom': '10px'
-        }"
-      ></ngx-skeleton-loader>
+        }"></ngx-skeleton-loader>
     </div>
   </div>
 </div>
