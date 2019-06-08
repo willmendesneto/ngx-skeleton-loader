@@ -2,7 +2,7 @@ version: 2
 
 docker_defaults: &docker_defaults
   docker:
-    - image: circleci/node:8.11.1-browsers
+    - image: circleci/node:11.15.0-browsers
   working_directory: ~/project/repo
 
 attach_workspace: &attach_workspace
