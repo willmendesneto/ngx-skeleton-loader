@@ -1,24 +1,8 @@
 {
   "name": "ngx-skeleton-loader",
   "version": "1.2.0",
-  "license": "MIT",
-  "keywords": [
-    "angular",
-    "ngx",
-    "skeleton",
-    "loader",
-    "ngx-skeleton-loader"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/willmendesneto/ngx-skeleton-loader.git"
-  },
-  "bugs": {
-    "url": "https://github.com/willmendesneto/ngx-skeleton-loader/issues"
-  },
-  "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme",
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0"
   }
 }
