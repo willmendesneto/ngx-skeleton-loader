@@ -1,5 +1,13 @@
 .loader {
   box-sizing: border-box;
+  /**
+  * `overflow` and `position` are required steps to make sure
+  * the component respects the specified dimensions
+  * given via `theme` object @Input attribute
+  */
+  overflow: hidden;
+  position: relative;
+
   animation: progress 2s ease-in-out infinite;
   background: rgb(239, 241, 246) no-repeat;
   background-image: linear-gradient(

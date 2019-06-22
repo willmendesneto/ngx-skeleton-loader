@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Fixing component dimensions via theme
+
 ## [1.2.1][] - 2019-06-08
 
 ### Updated
