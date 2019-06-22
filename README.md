@@ -94,6 +94,5 @@ For any type of contribution, please follow the instructions in [CONTRIBUTING.md
 
 **Wilson Mendes (willmendesneto)**
 
-- <https://plus.google.com/+WilsonMendes>
 - <https://twitter.com/willmendesneto>
 - <http://github.com/willmendesneto>
