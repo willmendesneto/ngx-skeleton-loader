@@ -46,11 +46,16 @@ npm install ngx-skeleton-loader --save
 You'll need to add `NgxSkeletonLoaderModule` to your application module. So that, the `<ngx-skeleton-loader>` components will be accessible in your application.
 
 ```typescript
+...
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+...
+
 @NgModule({
   declarations: [
     YourAppComponent
   ],
   imports: [
+    ...
     NgxSkeletonLoaderModule,
     ...
   ],
