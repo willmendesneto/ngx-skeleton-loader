@@ -67,7 +67,7 @@ export class YourAppComponent {}
 
 ```
 
-After that, you can use the `featureToggle` components in your templates, passing the configuration data into the component itself.
+After that, you can use the `ngx-skeleton-loader` components in your templates, passing the configuration data into the component itself.
 
 - `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
 
