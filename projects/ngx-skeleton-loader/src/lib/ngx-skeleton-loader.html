@@ -1,7 +1,7 @@
 <span
-  *ngFor="let item of items"
+  *ngFor="let skeleton of skeletonItems"
   class="loader"
-  [ngClass]="{ circle: appearance === 'circle' }"
-  [ngStyle]="styles"
+  [ngClass]="{ circle: skeleton.appearance === 'circle' }"
+  [ngStyle]="skeleton.style"
 >
 </span>

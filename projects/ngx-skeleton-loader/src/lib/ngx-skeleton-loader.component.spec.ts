@@ -1,5 +1,5 @@
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 
 import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
 
@@ -19,6 +19,15 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader
           appearance="circle"
           [theme]="{ width: '70px', height: '70px', 'border-radius': '10px' }"
+        >
+        </ngx-skeleton-loader>
+      </div>
+
+      <div class="skeletons-with-multi-theming">
+        <ngx-skeleton-loader
+          count="3"
+          [appearance]="['circle', '']"
+          [theme]="[{ width: '70px', height: '70px', 'border-radius': '10px' }, { width: '50px', height: '50px', 'border-radius': '5px' }]"
         >
         </ngx-skeleton-loader>
       </div>
@@ -68,6 +77,26 @@ describe('NgxSkeletonLoaderComponent', () => {
       ).attributes as NamedNodeMap;
 
       expect(skeletonWithTheming.getNamedItem('style').value).toBe(
+        'width: 70px; height: 70px; border-radius: 10px;',
+      );
+    });
+  });
+
+  describe('when skeleton is created with multiple theming', () => {
+    it('should render skeletons with styles based on theme and appearance attributes', () => {
+      const elements = fixture.nativeElement.querySelectorAll('.skeletons-with-multi-theming .loader');
+
+      expect(elements.length).toBe(3);
+      expect(elements[0]).toHaveClass('circle');
+      expect(elements[0].attributes.getNamedItem('style').value).toBe(
+        'width: 70px; height: 70px; border-radius: 10px;',
+      );
+      expect(elements[1]).not.toHaveClass('circle');
+      expect(elements[1].attributes.getNamedItem('style').value).toBe(
+        'width: 50px; height: 50px; border-radius: 5px;',
+      );
+      expect(elements[2]).toHaveClass('circle');
+      expect(elements[2].attributes.getNamedItem('style').value).toBe(
         'width: 70px; height: 70px; border-radius: 10px;',
       );
     });

@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { NgxSkeletonAppearance } from './models/appearance';
+import { NgxSkeleton } from './models/skeleton';
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -6,20 +9,22 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
   styleUrls: ['./ngx-skeleton-loader.scss'],
 })
 export class NgxSkeletonLoaderComponent implements OnInit {
-  @Input()
-  count = 1;
+  @Input() public count: number = 1;
+  @Input() public appearance: NgxSkeletonAppearance | NgxSkeletonAppearance[] = ''
+  @Input() public theme: { [k: string]: string } | { [k: string]: string }[] = {};
 
-  @Input()
-  appearance = '';
+  public skeletonItems: NgxSkeleton[] = [];
 
-  @Input() theme: { [k: string]: string } = {};
-
-  styles: { [k: string]: any } = {};
-
-  items: Array<any> = [];
-
-  ngOnInit() {
-    this.styles = this.theme || {};
-    this.items.length = this.count;
+  public ngOnInit(): void {
+    for (let i = 0; i < this.count; i++) {
+      this.skeletonItems.push({
+        style: !Array.isArray(this.theme) ? this.theme : this.theme[i] || this.theme[0] || {},
+        appearance: !Array.isArray(this.appearance)
+          ? this.appearance
+          : this.appearance[i] === ''
+            ? ''
+            : this.appearance[i] || this.appearance[0] || '',
+      });
+    }
   }
 }
