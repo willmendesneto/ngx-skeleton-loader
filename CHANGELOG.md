@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [1.2.3][] - 2020-02-25
+
 ### Fixed
 
 - Solving peerDependency warning when installing library in an Angular 9 project
@@ -101,7 +103,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [1.1.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.1
 
 
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.2...HEAD
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.3...HEAD
+[1.2.3]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.2...v1.2.0

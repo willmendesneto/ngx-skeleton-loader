@@ -1,6 +1,6 @@
 {
   "name": "ngx-skeleton-loader-demo",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
