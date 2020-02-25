@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Solving peerDependency warning when installing library in an Angular 9 project
+
 ## [1.2.2][] - 2019-06-22
 
 ### Fixed
