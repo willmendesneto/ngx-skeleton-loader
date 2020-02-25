@@ -7,15 +7,13 @@
 
 **What kind of change does this PR introduce?** _(check one with "x")_
 
-```
-[ ] Bugfix
-[ ] Feature
-[ ] Code style update (formatting, local variables)
-[ ] Refactoring (no functional changes, no api changes)
-[ ] Build related changes
-[ ] CI related changes
-[ ] Other. Please describe:
-```
+- [ ] Bugfix
+- [ ] Feature
+- [ ] Code style update (formatting, local variables)
+- [ ] Refactoring (no functional changes, no api changes)
+- [ ] Build related changes
+- [ ] CI related changes
+- [ ] Other. Please describe:
 
 If it is a Bugfix, please describe the root cause and what could have been done to prevent it…
 
@@ -25,10 +23,8 @@ If it is a Bugfix, please describe the root cause and what could have been done 
 
 **Does this PR introduce a breaking change?** _(check one with "x")_
 
-```
-[ ] Yes
-[ ] No
-```
+- [ ] Yes
+- [ ] No
 
 If this PR contains a breaking change, please describe the impact and migration
 path for existing applications: …
