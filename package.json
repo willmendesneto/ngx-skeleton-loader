@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "bundlesize": "bundlesize",
-    "build:pkg": "ng build ngx-skeleton-loader",
+    "build:pkg": "ng build ngx-skeleton-loader --prod",
     "update-library-version": "node ./scripts/build.js && cp -f *.md dist/ngx-skeleton-loader",
     "postversion": "git push && git push --tags",
     "prepublish": "npm run build && npm run build:pkg && npm run update-library-version",
