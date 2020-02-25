@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Updated
 
 - Updating Github templates
+- Updating Angular CLI to v9
 
 ## [1.2.3][] - 2020-02-25
 
