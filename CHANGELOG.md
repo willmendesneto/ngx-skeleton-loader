@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Changing angular library configuration to prod
+
 ## [1.2.4][] - 2020-02-25
 
 ### Updated
@@ -108,9 +112,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [1.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.1...HEAD
 [1.1.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.1
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.4...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.4...HEAD
 [1.2.4]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.1...v1.2.2
