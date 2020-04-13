@@ -1,8 +1,25 @@
 {
   "name": "ngx-skeleton-loader",
+  "description": "Make beautiful, animated loading skeletons that automatically adapt to your Angular apps",
   "version": "1.2.6",
   "peerDependencies": {
     "@angular/common": ">=8.0.0",
     "@angular/core": ">=8.0.0"
-  }
+  },
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "ngx",
+    "skeleton",
+    "loader",
+    "ngx-skeleton-loader"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willmendesneto/ngx-skeleton-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/willmendesneto/ngx-skeleton-loader/issues"
+  },
+  "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme"
 }

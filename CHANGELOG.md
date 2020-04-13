@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Updated
 
 - Decreasing bundle size after disable Ivy in production build
+- Adding description, keywords and github information on `package.json` files
 
 ## [1.2.6][] - 2020-02-26
 
