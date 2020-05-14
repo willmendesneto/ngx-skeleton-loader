@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Upgrading NodeJS to v12.16.2
 
+### Added
+
+- Supporting enabling/disabling animations
+
 ## [1.2.7][] - 2020-04-13
 
 ### Updated

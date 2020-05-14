@@ -8,15 +8,24 @@
   overflow: hidden;
   position: relative;
 
-  animation: progress 2s ease-in-out infinite;
   background: rgb(239, 241, 246) no-repeat;
-  background-image: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0)
-  );
-  background-size: 200px 100%;
+
+  /**
+  * Added only when `animation` attribute is `true`
+  * at component level. So that we can load the
+  * animations only if needed
+  */
+  &.animation {
+    animation: progress 2s ease-in-out infinite;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0)
+    );
+    background-size: 200px 100%;
+  }
+
   border-radius: 4px;
   width: 100%;
   height: 20px;

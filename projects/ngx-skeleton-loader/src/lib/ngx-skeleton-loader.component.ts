@@ -10,7 +10,10 @@ export class NgxSkeletonLoaderComponent implements OnInit {
   count = 1;
 
   @Input()
-  appearance = '';
+  appearance: 'circle' | '' = '';
+
+  @Input()
+  animation: boolean = true;
 
   @Input() theme: { [k: string]: string } = {};
 
