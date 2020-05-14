@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Updated
+
+- Upgrading NodeJS to v12.16.2
+
 ## [1.2.7][] - 2020-04-13
 
 ### Updated
@@ -138,7 +142,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [1.2.5]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.2.5
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.6...HEAD
 [1.2.6]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.2.6
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.7...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.7...HEAD
 [1.2.7]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.2.7
