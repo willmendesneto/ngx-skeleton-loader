@@ -71,6 +71,28 @@ describe('NgxSkeletonLoaderComponent', () => {
     );
   });
 
+  it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
+    expect(
+      fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length
+    ).toBe(10);
+    expect(
+      fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length
+    ).toBe(10);
+    expect(
+      fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length
+    ).toBe(10);
+    expect(
+      fixture.nativeElement.querySelectorAll('[aria-valuetext="Loading..."]')
+        .length
+    ).toBe(10);
+    expect(
+      fixture.nativeElement.querySelectorAll('[role="progressbar"]').length
+    ).toBe(10);
+    expect(
+      fixture.nativeElement.querySelectorAll('[tabindex="0"]').length
+    ).toBe(10);
+  });
+
   it('should use progress as default animation if `animation` is not passed as component attribute', () => {
     expect(
       fixture.nativeElement.querySelectorAll(

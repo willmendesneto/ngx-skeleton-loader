@@ -1,6 +1,12 @@
 <span
   *ngFor="let item of items"
   class="loader"
+  aria-busy="true"
+  aria-valuemin="0"
+  aria-valuemax="100"
+  aria-valuetext="Loading..."
+  role="progressbar"
+  tabindex="0"
   [ngClass]="{
     circle: appearance === 'circle',
     progress: animation === 'progress',
