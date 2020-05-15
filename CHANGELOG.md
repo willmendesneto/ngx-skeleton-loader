@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+- Supporting for new animation `progress-dark` to enable users when using theme with darker color schema
 - Supporting for different animations 🎉
 
 Now we can define the animation we want to use in `<ngx-skeleton-loader>` component via `animation` input. It's a string that can defined the animation used during the loading, having as options:
