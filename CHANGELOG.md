@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Updated
 
 - Upgrading NodeJS to v12.16.2
+- Updating documentation with `animation` attribute
 
 ### Added
 

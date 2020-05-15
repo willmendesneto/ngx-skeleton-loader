@@ -77,6 +77,37 @@ After that, you can use the `ngx-skeleton-loader` components in your templates, 
 </div>
 ```
 
+## Animations
+
+You can also define which CSS animation you want to use - even not use any, if it's the case - in your skeleton loader by passing the options in your component via `[animation]` attribute.
+
+### Options
+
+- `false`: it will disable the animation;
+- `progress` - _default_: it will use it `progress` as animation;
+- `pulse`: it will use `pulse` as animation;
+
+> `progress` is the default animation, used as the single one previously. If you don't pass the animation attribute, it defaults to `progress`.
+
+```html
+<!--
+If you need to change all the background wrapper
+you need to apply the style changes on the 
+`ngx-skeleton-loader` component wrapper
+-->
+<div class="item">
+  <!-- Disables the animation -->
+  <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+  <!-- Uses `progress` as animation -->
+  <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
+  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <!-- Uses `pulse` as animation -->
+  <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
+</div>
+```
+
+> You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html)
+
 ## Theming
 
 You can also define different styles for the skeleton loader by passing an object with the css styles - in dashed case - into the component via `[theme]` attribute.
@@ -85,7 +116,7 @@ You can also define different styles for the skeleton loader by passing an objec
 <!--
 If you need to change all the background wrapper
 you need to apply the style changes on the 
-`ngx-skeleton-loader`component wrapper
+`ngx-skeleton-loader` component wrapper
 -->
 
 <div style="background: #FF0001; padding: 10px;">
