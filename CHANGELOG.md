@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.0.0][] - 2020-05-15
+
 ### Updated
 
 - Upgrading NodeJS to v12.16.2
@@ -181,3 +183,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [1.2.6]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.2.6
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.7...HEAD
 [1.2.7]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.2.7
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.0.0
