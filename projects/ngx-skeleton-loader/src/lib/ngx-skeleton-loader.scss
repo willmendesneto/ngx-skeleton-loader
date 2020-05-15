@@ -17,6 +17,10 @@
   display: inline-block;
   margin-bottom: 10px;
 
+  // More details about CSS `will-change` property
+  // in https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
+  will-change: transform;
+
   &:after,
   &:before {
     box-sizing: border-box;
@@ -38,15 +42,28 @@
   * at component level. So that we can load the
   * animations only if needed
   */
-  &.progress {
+  &.progress,
+  &.progress-dark {
     animation: progress 2s ease-in-out infinite;
+    background-size: 200px 100%;
+  }
+
+  &.progress {
     background-image: linear-gradient(
       90deg,
       rgba(255, 255, 255, 0),
       rgba(255, 255, 255, 0.6),
       rgba(255, 255, 255, 0)
     );
-    background-size: 200px 100%;
+  }
+
+  &.progress-dark {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 0, 0, 0.2),
+      transparent
+    );
   }
 
   /**

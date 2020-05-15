@@ -13,7 +13,7 @@ export class NgxSkeletonLoaderComponent implements OnInit {
   appearance: 'circle' | '' = '';
 
   @Input()
-  animation: 'progress' | 'pulse' | 'false' = 'progress';
+  animation: 'progress' | 'progress-dark' | 'pulse' | 'false' = 'progress';
 
   @Input() theme: { [k: string]: string } = {};
 
@@ -21,7 +21,7 @@ export class NgxSkeletonLoaderComponent implements OnInit {
 
   ngOnInit() {
     this.items.length = this.count;
-    const allowedAnimations = ['progress', 'pulse', 'false'];
+    const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
     if (!allowedAnimations.includes(this.animation)) {
       // Shows error message only in Development
       if (isDevMode()) {

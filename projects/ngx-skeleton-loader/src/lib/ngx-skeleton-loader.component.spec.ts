@@ -23,6 +23,10 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
       </div>
 
+      <div class="skeletons-animation-progress-dark">
+        <ngx-skeleton-loader animation="progress-dark"></ngx-skeleton-loader>
+      </div>
+
       <div class="skeletons-animation-invalid-option">
         <ngx-skeleton-loader animation="invalid-option"></ngx-skeleton-loader>
       </div>
@@ -63,7 +67,7 @@ describe('NgxSkeletonLoaderComponent', () => {
     expect(console.error).toHaveBeenCalledTimes(1);
     expect(console.error).toHaveBeenCalledWith(
       // tslint:disable-next-line: max-line-length
-      `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: progress, pulse, false. Forcing default to "progress".`
+      `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: progress, progress-dark, pulse, false. Forcing default to "progress".`
     );
   });
 
@@ -118,6 +122,16 @@ describe('NgxSkeletonLoaderComponent', () => {
       expect(
         fixture.nativeElement.querySelectorAll(
           '.skeletons-animation-pulse .loader.pulse'
+        ).length
+      ).toBe(1);
+    });
+  });
+
+  describe('When skeleton is created using `progress-dark` as animation', () => {
+    it('should add progress-dark animation styles based on animation class on the skeleton components', () => {
+      expect(
+        fixture.nativeElement.querySelectorAll(
+          '.skeletons-animation-progress-dark .loader.progress-dark'
         ).length
       ).toBe(1);
     });

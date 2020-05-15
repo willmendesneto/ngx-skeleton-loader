@@ -13,8 +13,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.intervalId = setInterval(() => {
-      this.animation = this.animation === 'pulse' ? 'progress' : 'pulse';
-    }, 2000);
+      this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
+    }, 5000);
   }
 
   ngOnDestroy() {
