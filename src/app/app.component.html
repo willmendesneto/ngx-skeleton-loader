@@ -178,3 +178,28 @@
     }"
   ></ngx-skeleton-loader>
 </div>
+
+<h3>Skeleton using `progress-dark` animation</h3>
+
+<div class="item">
+  <ngx-skeleton-loader
+    count="5"
+    animation="progress-dark"
+    appearance="circle"
+  ></ngx-skeleton-loader>
+</div>
+
+<div class="item-with-background">
+  <ngx-skeleton-loader
+    count="2"
+    [animation]="animation"
+    [theme]="{
+      'border-radius': '5px',
+      height: '50px',
+      'background-color': '#323232',
+      border: '1px solid #323232',
+      'animation-duration': '2s'
+    }"
+  >
+  </ngx-skeleton-loader>
+</div>
