@@ -1,7 +1,11 @@
 <span
   *ngFor="let item of items"
   class="loader"
-  [ngClass]="{ circle: appearance === 'circle', animation: !!animation }"
-  [ngStyle]="styles"
+  [ngClass]="{
+    circle: appearance === 'circle',
+    progress: animation === 'progress',
+    pulse: animation === 'pulse'
+  }"
+  [ngStyle]="theme"
 >
 </span>

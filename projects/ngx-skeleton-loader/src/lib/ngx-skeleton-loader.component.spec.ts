@@ -1,5 +1,5 @@
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 
 import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
 
@@ -11,8 +11,20 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-appearance-no-animation">
-        <ngx-skeleton-loader [animation]="false"></ngx-skeleton-loader>
+      <div class="skeletons-animation-no-animation">
+        <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+      </div>
+
+      <div class="skeletons-animation-pulse">
+        <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
+      </div>
+
+      <div class="skeletons-animation-progress">
+        <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
+      </div>
+
+      <div class="skeletons-animation-invalid-option">
+        <ngx-skeleton-loader animation="invalid-option"></ngx-skeleton-loader>
       </div>
 
       <div class="skeletons-with-count">
@@ -39,12 +51,29 @@ describe('NgxSkeletonLoaderComponent', () => {
   let fixture: any;
 
   beforeEach(async(() => {
+    spyOn(console, 'error');
     fixture = TestBed.configureTestingModule({
       declarations: [ContainerComponent, NgxSkeletonLoaderComponent],
       schemas: [NO_ERRORS_SCHEMA],
     }).createComponent(ContainerComponent);
     fixture.detectChanges();
   }));
+
+  it('should console errors if `animation` is an invalid option and is running in development mode', () => {
+    expect(console.error).toHaveBeenCalledTimes(1);
+    expect(console.error).toHaveBeenCalledWith(
+      // tslint:disable-next-line: max-line-length
+      `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: progress, pulse, false. Forcing default to "progress".`
+    );
+  });
+
+  it('should use progress as default animation if `animation` is not passed as component attribute', () => {
+    expect(
+      fixture.nativeElement.querySelectorAll(
+        '.skeletons-defaults .loader.progress'
+      ).length
+    ).toBe(1);
+  });
 
   describe('When skeleton is created using default settings', () => {
     it('should render a single skeleton', () => {
@@ -78,7 +107,27 @@ describe('NgxSkeletonLoaderComponent', () => {
     it('should NOT add progress animation styles based on animation class on the skeleton components', () => {
       expect(
         fixture.nativeElement.querySelectorAll(
-          '.skeletons-appearance-no-animation .loader:not(.animation)'
+          '.skeletons-animation-no-animation .loader:not(.animation)'
+        ).length
+      ).toBe(1);
+    });
+  });
+
+  describe('When skeleton is created using `pulse` as animation', () => {
+    it('should add pulse animation styles based on animation class on the skeleton components', () => {
+      expect(
+        fixture.nativeElement.querySelectorAll(
+          '.skeletons-animation-pulse .loader.pulse'
+        ).length
+      ).toBe(1);
+    });
+  });
+
+  describe('When skeleton is created using `progress` as animation', () => {
+    it('should add progress animation styles based on animation class on the skeleton components', () => {
+      expect(
+        fixture.nativeElement.querySelectorAll(
+          '.skeletons-animation-progress .loader.progress'
         ).length
       ).toBe(1);
     });

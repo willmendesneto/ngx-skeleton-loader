@@ -72,7 +72,9 @@ After that, you can use the `ngx-skeleton-loader` components in your templates, 
 - `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
 
 ```html
-<div class="item"><ngx-skeleton-loader count="5" appearance="circle"> </ngx-skeleton-loader></div>
+<div class="item">
+  <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+</div>
 ```
 
 ## Theming
@@ -80,16 +82,13 @@ After that, you can use the `ngx-skeleton-loader` components in your templates, 
 You can also define different styles for the skeleton loader by passing an object with the css styles - in dashed case - into the component via `[theme]` attribute.
 
 ```html
-
 <!--
 If you need to change all the background wrapper
 you need to apply the style changes on the 
 `ngx-skeleton-loader`component wrapper
 -->
 
-<div
-  style="background: #FF0001; padding: 10px;"
->
+<div style="background: #FF0001; padding: 10px;">
   <ngx-skeleton-loader
     count="5"
     [theme]="{ 
@@ -100,7 +99,6 @@ you need to apply the style changes on the
     }"
   ></ngx-skeleton-loader>
 </div>
-
 ```
 
 > You should change the styles on the skeleton wrapper element in case you need to change the background color. You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html)

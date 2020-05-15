@@ -5,26 +5,6 @@
   <ngx-skeleton-loader count="5"></ngx-skeleton-loader>
 </div>
 
-<h2>Skeletons without animation</h2>
-
-<div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    [animation]="false"
-    appearance="circle"
-  ></ngx-skeleton-loader>
-</div>
-
-<div class="item">
-  <ngx-skeleton-loader
-    count="3"
-    [animation]="false"
-    [theme]="{
-      height: '50px'
-    }"
-  ></ngx-skeleton-loader>
-</div>
-
 <h2>Line skeletons with theming</h2>
 <div class="item">
   <ngx-skeleton-loader
@@ -33,11 +13,16 @@
   ></ngx-skeleton-loader>
 </div>
 
-<h2>Line skeletons with theming - Changing Colors</h2>
+<h2>Line skeletons with theming - Changing Colors and Switching Animations</h2>
 <p>You can use the same colors for the other examples</p>
+<p>
+  Also, this example will be switching between `<b>pulse</b>` and
+  `<b>progress</b>` animations
+</p>
 <div class="item-with-background">
   <ngx-skeleton-loader
     count="5"
+    [animation]="animation"
     [theme]="{
       'border-radius': '5px',
       height: '50px',
@@ -124,4 +109,67 @@
       ></ngx-skeleton-loader>
     </div>
   </div>
+</div>
+
+<h2>Animations</h2>
+
+<h3>Skeletons without animation</h3>
+
+<div class="item">
+  <ngx-skeleton-loader
+    count="5"
+    animation="false"
+    appearance="circle"
+  ></ngx-skeleton-loader>
+</div>
+
+<div class="item">
+  <ngx-skeleton-loader
+    count="3"
+    animation="false"
+    [theme]="{
+      height: '50px'
+    }"
+  ></ngx-skeleton-loader>
+</div>
+
+<h3>Skeleton using `progress` animation</h3>
+
+<div class="item">
+  <ngx-skeleton-loader
+    count="5"
+    animation="progress"
+    appearance="circle"
+  ></ngx-skeleton-loader>
+</div>
+
+<div class="item">
+  <ngx-skeleton-loader
+    count="3"
+    animation="progress"
+    [theme]="{
+      height: '50px'
+    }"
+  ></ngx-skeleton-loader>
+</div>
+
+<h3>Skeleton using `pulse` animation</h3>
+
+<div class="item">
+  <ngx-skeleton-loader
+    count="5"
+    animation="pulse"
+    appearance="circle"
+  ></ngx-skeleton-loader>
+</div>
+
+<div class="item">
+  <ngx-skeleton-loader
+    count="3"
+    animation="pulse"
+    [theme]="{
+      height: '50px',
+      'background-color': '#C64949'
+    }"
+  ></ngx-skeleton-loader>
 </div>

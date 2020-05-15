@@ -1,5 +1,6 @@
 .loader {
   box-sizing: border-box;
+
   /**
   * `overflow` and `position` are required steps to make sure
   * the component respects the specified dimensions
@@ -9,22 +10,6 @@
   position: relative;
 
   background: rgb(239, 241, 246) no-repeat;
-
-  /**
-  * Added only when `animation` attribute is `true`
-  * at component level. So that we can load the
-  * animations only if needed
-  */
-  &.animation {
-    animation: progress 2s ease-in-out infinite;
-    background-image: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0)
-    );
-    background-size: 200px 100%;
-  }
 
   border-radius: 4px;
   width: 100%;
@@ -37,19 +22,62 @@
     box-sizing: border-box;
   }
 
+  /**
+  * Added only when `appearance` attribute is `circle`
+  * at component level. So that we can use it only if needed
+  */
   &.circle {
     width: 40px;
     height: 40px;
     margin: 5px;
     border-radius: 50%;
   }
+
+  /**
+  * Added only when `animation` attribute is `progress`
+  * at component level. So that we can load the
+  * animations only if needed
+  */
+  &.progress {
+    animation: progress 2s ease-in-out infinite;
+    background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0)
+    );
+    background-size: 200px 100%;
+  }
+
+  /**
+  * Added only when `animation` attribute is `pulse`
+  * at component level. So that we can load the
+  * animations only if needed
+  */
+  &.pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
 }
 
+// CSS Animation Keyframes
 @keyframes progress {
   0% {
     background-position: -200px 0;
   }
   100% {
     background-position: calc(200px + 100%) 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
   }
 }

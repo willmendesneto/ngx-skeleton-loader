@@ -13,7 +13,38 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- Supporting enabling/disabling animations
+- Supporting for different animations 🎉
+
+Now we can define the animation we want to use in `<ngx-skeleton-loader>` component via `animation` input. It's a string that can defined the animation used during the loading, having as options:
+
+- `false`: it will disable the animation;
+- `progress` - _default_: it will use it `progress` as animation;
+- `pulse`: it will use `pulse` as animation;
+
+> `progress` is the default animation, used as the single one previously. If you don't pass the animation attribute, it defaults to `progress`.
+
+```html
+<div class="item">
+  <!-- Disables the animation -->
+  <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+  <!-- Uses `progress` as animation -->
+  <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
+  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <!-- Uses `pulse` as animation -->
+  <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
+</div>
+```
+
+- Supporting enabling/disabling animations.
+  Now the users will be able to enable/disable animations by using `animation` input. It's a string with `false` as value that the component receives to check if it should not load progress animation.
+
+> It works only to disable it. In case you want to keep enable it
+
+```js
+<div class="item">
+  <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+</div>
+```
 
 ## [1.2.7][] - 2020-04-13
 

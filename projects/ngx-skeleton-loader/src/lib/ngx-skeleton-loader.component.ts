@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, isDevMode } from '@angular/core';
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -13,16 +13,25 @@ export class NgxSkeletonLoaderComponent implements OnInit {
   appearance: 'circle' | '' = '';
 
   @Input()
-  animation: boolean = true;
+  animation: 'progress' | 'pulse' | 'false' = 'progress';
 
   @Input() theme: { [k: string]: string } = {};
-
-  styles: { [k: string]: any } = {};
 
   items: Array<any> = [];
 
   ngOnInit() {
-    this.styles = this.theme || {};
     this.items.length = this.count;
+    const allowedAnimations = ['progress', 'pulse', 'false'];
+    if (!allowedAnimations.includes(this.animation)) {
+      // Shows error message only in Development
+      if (isDevMode()) {
+        console.error(
+          `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: ${allowedAnimations.join(
+            ', '
+          )}. Forcing default to "progress".`
+        );
+      }
+      this.animation = 'progress';
+    }
   }
 }

@@ -57,6 +57,7 @@ jobs:
       - run:
           name: Running unit tests
           command: |
+            sudo npm run lint
             sudo npm test
             sudo npm run coveralls
   bundle_size:
