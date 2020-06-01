@@ -40,7 +40,7 @@
   "bundlesize": [
     {
       "path": "./dist/ngx-skeleton-loader/bundles/ngx-skeleton-loader.umd.min.js",
-      "maxSize": "1.18KB"
+      "maxSize": "1.22KB"
     }
   ],
   "dependencies": {

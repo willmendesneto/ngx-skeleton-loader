@@ -75,6 +75,22 @@
     animation: pulse 1.5s ease-in-out infinite;
     animation-delay: 0.5s;
   }
+
+  // Removing animation if user enabled the `Reduce Motion` option
+  // via operational system and/or browser
+  // More details about `prefers-reduced-motion` in https://web.dev/prefers-reduced-motion/
+  @media (prefers-reduced-motion: reduce) {
+    &.pulse,
+    &.progress-dark,
+    &.progress {
+      animation: none;
+    }
+
+    &.progress,
+    &.progress-dark {
+      background-image: none;
+    }
+  }
 }
 
 // CSS Animation Keyframes

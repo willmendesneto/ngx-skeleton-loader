@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Using `prefers-reduced-motion` to respect user’s OS option to `Reduce Motion`. More details about `prefers-reduced-motion` in https://web.dev/prefers-reduced-motion/
+
 ## [2.1.0][] - 2020-06-01
 
 ### Updated
@@ -192,7 +196,5 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [1.2.7]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.2.7
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.0.0...HEAD
 [2.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.0.0
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.1.0...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.1.0...HEAD
 [2.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.1.0
