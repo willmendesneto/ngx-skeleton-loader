@@ -12,6 +12,7 @@
     "ngx",
     "skeleton",
     "loader",
+    "ghost",
     "ngx-skeleton-loader"
   ],
   "repository": {
