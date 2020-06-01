@@ -17,7 +17,7 @@
     "prepublish": "npm run build && npm run build:pkg && npm run update-library-version",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && npm run build:pkg && npm run update-library-version && git add .",
     "coveralls": "cat ./coverage/ngx-skeleton-loader/lcov.info | ./node_modules/.bin/coveralls && rm -rf coverage",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc"
   },
   "private": false,
   "license": "MIT",
