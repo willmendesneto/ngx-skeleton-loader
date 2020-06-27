@@ -134,6 +134,59 @@ you need to apply the style changes on the
 </div>
 ```
 
+### ⚠️ This is here only as a documentation, but it's not encouraged to be used. Please consider use it with caution ⚠️
+
+Also, you can use CSS to add theme styles into your component. However, there are some implications:
+
+- You're using `:host` in your stylesheet, which means **you are aware of any possible problem `:host` can create for your app at that level since it's based on [`:host` DOM style scoping](https://developer.mozilla.org/en-US/docs/Web/CSS/:host)**
+- You're adding stylesheet based on `<ngx-skeleton-loader>` internal classes. It means that **class naming changes on module's side will be breaking changes for your application as well**.
+
+As an example, your Component file is like this
+
+```typescript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "my-ngx-skeleton-loader-with-theming",
+  templateUrl: "./my-ngx-skeleton-loader-with-theming.component.html",
+  styleUrls: ["./my-ngx-skeleton-loader-with-theming.component.css"],
+})
+export class MyNGXSkeletonLoaderWithThemingComponent {
+  /* ... code goes here*/
+}
+```
+
+And your componennt HTML code is
+
+```html
+<!--
+file: my-ngx-skeleton-loader-with-theming.component.html
+
+As an example, it's not using themes via [theme] attributes.
+-->
+
+<ngx-skeleton-loader
+    count="5"
+    animation="pulse"
+  ></ngx-skeleton-loader>
+```
+
+You can apply theme changes in our stylesheet. At the end it will be
+
+```css
+/* file: `my-ngx-skeleton-loader-with-theming.component.css`
+ *
+ * You can find more details about `:host` at
+ * Angular Component Style Docs https://angular.io/guide/component-styles#host
+ */
+:host >>> ngx-skeleton-loader .loader {
+  border-radius: 5px;
+  height: 50px;
+  background-color: #992929;
+  border: 1px solid white;
+}
+```
+
 > You should change the styles on the skeleton wrapper element in case you need to change the background color. You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html)
 
 ## Development
