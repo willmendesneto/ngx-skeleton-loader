@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- For compatibility with IE11 by using indexOf instead of `includes`
+
 ### Updated
 
 - Updating `npm run postinstall` command to follow the new rules from update.angular.io website

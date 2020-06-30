@@ -22,7 +22,7 @@ export class NgxSkeletonLoaderComponent implements OnInit {
   ngOnInit() {
     this.items.length = this.count;
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
-    if (allowedAnimations.indexOf(this.animation)===-1) {
+    if (allowedAnimations.indexOf(this.animation) === -1) {
       // Shows error message only in Development
       if (isDevMode()) {
         console.error(
