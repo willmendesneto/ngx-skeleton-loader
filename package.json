@@ -27,7 +27,12 @@
     "skeleton",
     "ghost",
     "loader",
-    "ngx-skeleton-loader"
+    "ngx-skeleton-loader",
+    "facebook-loading",
+    "loading",
+    "skeleton-loader",
+    "skeleton-animation",
+    "animation"
   ],
   "repository": {
     "type": "git",
