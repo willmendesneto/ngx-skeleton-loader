@@ -2,42 +2,57 @@
 
 <h2>Skeleton Loader Simulation</h2>
 
-<div class="item">
-  <ngx-skeleton-loader
-    *ngIf="!contentLoaded"
-    count="5"
-    animation="pulse"
-    appearance="circle"
-  ></ngx-skeleton-loader>
+<p>
+  Here is a simulation of a skeleton for an user card component. This skeleton
+  will be replaces in few seconds for an image.
+</p>
+<br />
+<br />
 
-  <div *ngIf="contentLoaded" class="content-loaded">
-    <img
-      src="http://lorempixel.com/40/40/"
-      alt=""
-      class="content-loaded-image"
-    />
-    <img
-      src="http://lorempixel.com/40/40/"
-      alt=""
-      class="content-loaded-image"
-    />
-    <img
-      src="http://lorempixel.com/40/40/"
-      alt=""
-      class="content-loaded-image"
-    />
-    <img
-      src="http://lorempixel.com/40/40/"
-      alt=""
-      class="content-loaded-image"
-    />
-    <img
-      src="http://lorempixel.com/40/40/"
-      alt=""
-      class="content-loaded-image"
-    />
+<div class="fb-item">
+  <div class="first-section-wrapper">
+    <div class="gravatar">
+      <ngx-skeleton-loader
+        *ngIf="!contentLoaded"
+        appearance="circle"
+        [theme]="{ width: '80px', height: '80px' }"
+      >
+      </ngx-skeleton-loader>
+
+      <div *ngIf="contentLoaded" class="content-loaded">
+        <img
+          src="//lorempixel.com/80/80/"
+          alt=""
+          class="content-loaded-image"
+        />
+      </div>
+    </div>
+    <div class="gravatar-title">
+      <div>
+        <ngx-skeleton-loader
+          *ngIf="!contentLoaded"
+          [theme]="{
+            width: '200px',
+            'border-radius': '0',
+            height: '15px',
+            'margin-bottom': '10px'
+          }"
+        ></ngx-skeleton-loader>
+        <p *ngIf="contentLoaded" class="gravatar-title-name">Wilson Mendes</p>
+      </div>
+      <div>
+        <ngx-skeleton-loader
+          *ngIf="!contentLoaded"
+          [theme]="{ width: '170px', 'border-radius': '0', height: '15px' }"
+        ></ngx-skeleton-loader>
+        <p *ngIf="contentLoaded" class="gravatar-description">Hi! It's me</p>
+      </div>
+    </div>
   </div>
 </div>
+
+<br />
+<br />
 
 <hr />
 

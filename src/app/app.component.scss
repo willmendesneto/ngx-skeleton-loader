@@ -55,10 +55,27 @@ body {
 
 .content-loaded {
   .content-loaded-image {
-    width: 40px;
-    height: 40px;
+    display: inline-block;
+    width: 80px;
+    height: 80px;
     background-color: rgb(174, 174, 174);
     margin: 5px;
     border-radius: 50%;
   }
+}
+
+.gravatar-title-name {
+  margin-top: 0;
+  width: 200px;
+  border-radius: 0;
+  height: 15px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.gravatar-description {
+  width: 170px;
+  border-radius: 0;
+  height: 15px;
+  font-size: 12px;
 }
