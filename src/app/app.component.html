@@ -1,4 +1,46 @@
 <h1>NGX Skeleton Loader</h1>
+
+<h2>Skeleton Loader Simulation</h2>
+
+<div class="item">
+  <ngx-skeleton-loader
+    *ngIf="!contentLoaded"
+    count="5"
+    animation="pulse"
+    appearance="circle"
+  ></ngx-skeleton-loader>
+
+  <div *ngIf="contentLoaded" class="content-loaded">
+    <img
+      src="http://lorempixel.com/40/40/"
+      alt=""
+      class="content-loaded-image"
+    />
+    <img
+      src="http://lorempixel.com/40/40/"
+      alt=""
+      class="content-loaded-image"
+    />
+    <img
+      src="http://lorempixel.com/40/40/"
+      alt=""
+      class="content-loaded-image"
+    />
+    <img
+      src="http://lorempixel.com/40/40/"
+      alt=""
+      class="content-loaded-image"
+    />
+    <img
+      src="http://lorempixel.com/40/40/"
+      alt=""
+      class="content-loaded-image"
+    />
+  </div>
+</div>
+
+<hr />
+
 <h2>Line skeletons</h2>
 
 <div class="item">

@@ -11,10 +11,18 @@
     "angular",
     "ngx",
     "skeleton",
-    "loader",
     "ghost",
-    "ngx-skeleton-loader"
+    "loader",
+    "ngx-skeleton-loader",
+    "facebook-loading",
+    "loading",
+    "skeleton-loader",
+    "skeleton-animation",
+    "animation"
   ],
+  "dependencies": {
+    "perf-marks": "^1.13.1"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/willmendesneto/ngx-skeleton-loader.git"

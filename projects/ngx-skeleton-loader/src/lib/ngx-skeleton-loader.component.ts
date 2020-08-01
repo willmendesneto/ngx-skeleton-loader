@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, isDevMode } from '@angular/core';
+import { Component, OnInit, Input, isDevMode, OnDestroy, AfterViewInit } from '@angular/core';
+import { start, end } from 'perf-marks/marks';
 
 @Component({
   selector: 'ngx-skeleton-loader',
   templateUrl: './ngx-skeleton-loader.html',
   styleUrls: ['./ngx-skeleton-loader.scss'],
 })
-export class NgxSkeletonLoaderComponent implements OnInit {
+export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input()
   count = 1;
 
@@ -20,6 +21,9 @@ export class NgxSkeletonLoaderComponent implements OnInit {
   items: Array<any> = [];
 
   ngOnInit() {
+    start('NgxSkeletonLoader:Rendered');
+    start('NgxSkeletonLoader:Loaded');
+
     this.items.length = this.count;
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
     if (allowedAnimations.indexOf(this.animation) === -1) {
@@ -33,5 +37,13 @@ export class NgxSkeletonLoaderComponent implements OnInit {
       }
       this.animation = 'progress';
     }
+  }
+
+  ngAfterViewInit() {
+    end('NgxSkeletonLoader:Rendered');
+  }
+
+  ngOnDestroy() {
+    end('NgxSkeletonLoader:Loaded');
   }
 }

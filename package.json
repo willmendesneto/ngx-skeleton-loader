@@ -45,7 +45,7 @@
   "bundlesize": [
     {
       "path": "./dist/ngx-skeleton-loader/bundles/ngx-skeleton-loader.umd.min.js",
-      "maxSize": "1.22KB"
+      "maxSize": "1.31KB"
     }
   ],
   "dependencies": {
@@ -57,6 +57,7 @@
     "@angular/platform-browser": "~9.1.9",
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
+    "perf-marks": "^1.13.1",
     "rxjs": "~6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.3"

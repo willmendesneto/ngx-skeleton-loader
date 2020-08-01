@@ -52,3 +52,13 @@ body {
   background: #121212;
   padding: 10px;
 }
+
+.content-loaded {
+  .content-loaded-image {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(174, 174, 174);
+    margin: 5px;
+    border-radius: 50%;
+  }
+}
