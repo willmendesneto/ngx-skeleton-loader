@@ -32,7 +32,10 @@ It's totally transparent for you and you can integrate easier in your applicatio
 
 ## Demo
 
-Try out our [demo on Stackblitz](https://ngx-skeleton-loader-sample.stackblitz.io)!
+Try out our demos on Stackblitz!
+
+- [Usage: animations, appearance, and themes](https://ngx-skeleton-loader-sample.stackblitz.io)
+- [User Card Component Loading simulation using NGX Skeleton Loader](https://ngx-skeleton-loader-user-card-component-sample.stackblitz.io)
 
 ## Install
 
@@ -187,7 +190,7 @@ You can apply theme changes in our stylesheet. At the end it will be
 }
 ```
 
-> You should change the styles on the skeleton wrapper element in case you need to change the background color. You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html)
+> You should change the styles on the skeleton wrapper element in case you need to change the background color. You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html) or check it out a content load simulation [in this Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-user-card-component-sample?file=app%2Fapp.component.html)
 
 ## Development
 
