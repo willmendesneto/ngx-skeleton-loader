@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Adding User Timing API to track component render and content loader time
+
 ### Updated
 
 - Updating examples with new skeleton simulation
+- Adding Stackblitz link for user card skeleton loading demo
 
 ## [2.2.1][] - 2020-06-30
 
