@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.4.0][] - 2020-08-01
+
 ### Added
 
 - Adding User Timing API to track component render and content loader time
@@ -236,3 +238,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.2.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.2.1
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.3.0...HEAD
 [2.3.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.3.0
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.0...HEAD
+[2.4.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.0
