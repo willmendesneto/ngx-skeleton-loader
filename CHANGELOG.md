@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.4.2][] - 2020-08-01
+
 ### Updated
 
 - Bumping `perf-marks` to latest version
@@ -252,3 +254,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.4.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.1...HEAD
 [2.4.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.1
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.2...HEAD
+[2.4.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.2
