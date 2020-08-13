@@ -59,7 +59,7 @@ describe('NgxSkeletonLoaderComponent', () => {
     spyOn(console, 'error');
     fixture = TestBed.configureTestingModule({
       declarations: [ContainerComponent, NgxSkeletonLoaderComponent],
-      providers: [{ provide: PLATFORM_ID, useValue: 'browser'}],
+      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
       schemas: [NO_ERRORS_SCHEMA],
     }).createComponent(ContainerComponent);
     fixture.detectChanges();
@@ -188,9 +188,13 @@ describe('NgxSkeletonLoaderComponent', () => {
       const spyStart = jasmine.createSpy('start', perfMarks.start);
       const spyEnd = jasmine.createSpy('start', perfMarks.end);
 
-
-      const ngxSkeletonLoaderComponent = TestBed.createComponent<NgxSkeletonLoaderComponent>(NgxSkeletonLoaderComponent).componentInstance;
-      spyOn<NgxSkeletonLoaderComponent, 'isBrowser'>(ngxSkeletonLoaderComponent, 'isBrowser').and.returnValue(false);
+      const ngxSkeletonLoaderComponent = TestBed.createComponent<
+        NgxSkeletonLoaderComponent
+      >(NgxSkeletonLoaderComponent).componentInstance;
+      spyOn<NgxSkeletonLoaderComponent, 'isBrowser'>(
+        ngxSkeletonLoaderComponent,
+        'isBrowser'
+      ).and.returnValue(false);
 
       expect(spyStart).not.toHaveBeenCalled();
       expect(spyEnd).not.toHaveBeenCalled();
