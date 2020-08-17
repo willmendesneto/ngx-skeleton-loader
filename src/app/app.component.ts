@@ -13,7 +13,6 @@ export class AppComponent implements OnInit, OnDestroy {
   intervalId;
 
   ngOnInit() {
-
     setTimeout(() => {
       this.contentLoaded = true;
     }, 2000);

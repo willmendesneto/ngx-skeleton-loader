@@ -21,8 +21,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
 
   items: Array<any> = [];
 
-  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {
-  }
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {}
 
   ngOnInit() {
     if (this.isBrowser()) {
@@ -37,8 +36,8 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       if (isDevMode()) {
         console.error(
           `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: ${allowedAnimations.join(
-            ', '
-          )}. Forcing default to "progress".`
+            ', ',
+          )}. Forcing default to "progress".`,
         );
       }
       this.animation = 'progress';
