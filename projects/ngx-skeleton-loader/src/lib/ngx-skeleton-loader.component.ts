@@ -20,11 +20,14 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   @Input() theme: { [k: string]: string } = {};
 
   items: Array<any> = [];
+  isBrowser: boolean;
 
-  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {}
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
   ngOnInit() {
-    if (this.isBrowser()) {
+    if (this.isBrowser) {
       start('NgxSkeletonLoader:Rendered');
       start('NgxSkeletonLoader:Loaded');
     }
@@ -45,18 +48,14 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngAfterViewInit() {
-    if (this.isBrowser()) {
+    if (this.isBrowser) {
       end('NgxSkeletonLoader:Rendered');
     }
   }
 
   ngOnDestroy() {
-    if (this.isBrowser()) {
+    if (this.isBrowser) {
       end('NgxSkeletonLoader:Loaded');
     }
-  }
-
-  isBrowser(): boolean {
-    return isPlatformBrowser(this.platformId);
   }
 }

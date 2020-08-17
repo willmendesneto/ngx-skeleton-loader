@@ -1,4 +1,4 @@
-import { Component, NO_ERRORS_SCHEMA, PLATFORM_ID } from '@angular/core';
+import { Component, PLATFORM_ID } from '@angular/core';
 import { async as waitForAsync, TestBed } from '@angular/core/testing';
 import { start, end } from 'perf-marks/marks';
 
@@ -58,7 +58,6 @@ describe('NgxSkeletonLoaderComponent', () => {
       fixture = TestBed.configureTestingModule({
         declarations: [ContainerComponent, NgxSkeletonLoaderComponent],
         providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
-        schemas: [NO_ERRORS_SCHEMA],
       }).createComponent(ContainerComponent);
       fixture.detectChanges();
     }),
@@ -141,9 +140,9 @@ describe('NgxSkeletonLoaderComponent', () => {
   });
 
   describe('When rendering server side', () => {
-    let spyStart;
-    let spyEnd;
-    let ngxSkeletonLoaderComponent;
+    let spyStart: jasmine.Spy;
+    let spyEnd: jasmine.Spy;
+    let ngxSkeletonLoaderComponent: NgxSkeletonLoaderComponent;
 
     beforeEach(() => {
       spyStart = jasmine.createSpy('start', start);
@@ -151,8 +150,7 @@ describe('NgxSkeletonLoaderComponent', () => {
 
       ngxSkeletonLoaderComponent = TestBed.createComponent<NgxSkeletonLoaderComponent>(NgxSkeletonLoaderComponent)
         .componentInstance;
-
-      spyOn<NgxSkeletonLoaderComponent, 'isBrowser'>(ngxSkeletonLoaderComponent, 'isBrowser').and.returnValue(false);
+      ngxSkeletonLoaderComponent.isBrowser = false;
     });
 
     it('should not call perf-marks render and load marks', () => {
