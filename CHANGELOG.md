@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.4.4][] - 2020-08-21
+
 ### Fixed
 
 - Remove check requirements if perf-marks is running in a browser or not in Angular apps 🔥
@@ -273,3 +275,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.4.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.2
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.3...HEAD
 [2.4.3]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.3
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.4...HEAD
+[2.4.4]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.4
