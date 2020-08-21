@@ -1,6 +1,5 @@
 import { Component, PLATFORM_ID } from '@angular/core';
 import { async as waitForAsync, TestBed } from '@angular/core/testing';
-import { start, end } from 'perf-marks/marks';
 
 import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
 
@@ -136,30 +135,6 @@ describe('NgxSkeletonLoaderComponent', () => {
         .attributes as NamedNodeMap;
 
       expect(skeletonWithTheming.getNamedItem('style').value).toBe('width: 70px; height: 70px; border-radius: 10px;');
-    });
-  });
-
-  describe('When rendering server side', () => {
-    let spyStart: jasmine.Spy;
-    let spyEnd: jasmine.Spy;
-    let ngxSkeletonLoaderComponent: NgxSkeletonLoaderComponent;
-
-    beforeEach(() => {
-      spyStart = jasmine.createSpy('start', start);
-      spyEnd = jasmine.createSpy('start', end);
-
-      ngxSkeletonLoaderComponent = TestBed.createComponent<NgxSkeletonLoaderComponent>(NgxSkeletonLoaderComponent)
-        .componentInstance;
-      ngxSkeletonLoaderComponent.isBrowser = false;
-    });
-
-    it('should not call perf-marks render and load marks', () => {
-      ngxSkeletonLoaderComponent.ngOnInit();
-      ngxSkeletonLoaderComponent.ngAfterViewInit();
-      ngxSkeletonLoaderComponent.ngOnDestroy();
-
-      expect(spyStart).not.toHaveBeenCalled();
-      expect(spyEnd).not.toHaveBeenCalled();
     });
   });
 });

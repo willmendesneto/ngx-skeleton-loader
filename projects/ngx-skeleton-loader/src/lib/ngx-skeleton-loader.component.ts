@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, isDevMode, OnDestroy, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Input, isDevMode, OnDestroy, AfterViewInit } from '@angular/core';
 import { start, end } from 'perf-marks/marks';
 
 @Component({
@@ -19,8 +19,6 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   @Input() theme: { [k: string]: string } = {};
 
   items: Array<any> = [];
-
-  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {}
 
   ngOnInit() {
     start('NgxSkeletonLoader:Rendered');
