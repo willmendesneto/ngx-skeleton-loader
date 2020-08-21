@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, isDevMode, OnDestroy, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { start, end } from 'perf-marks/marks';
-import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -20,17 +19,12 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   @Input() theme: { [k: string]: string } = {};
 
   items: Array<any> = [];
-  isBrowser: boolean;
 
-  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
+  constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {}
 
   ngOnInit() {
-    if (this.isBrowser) {
-      start('NgxSkeletonLoader:Rendered');
-      start('NgxSkeletonLoader:Loaded');
-    }
+    start('NgxSkeletonLoader:Rendered');
+    start('NgxSkeletonLoader:Loaded');
 
     this.items.length = this.count;
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
@@ -48,14 +42,10 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngAfterViewInit() {
-    if (this.isBrowser) {
-      end('NgxSkeletonLoader:Rendered');
-    }
+    end('NgxSkeletonLoader:Rendered');
   }
 
   ngOnDestroy() {
-    if (this.isBrowser) {
-      end('NgxSkeletonLoader:Loaded');
-    }
+    end('NgxSkeletonLoader:Loaded');
   }
 }

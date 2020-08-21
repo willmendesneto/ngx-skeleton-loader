@@ -6,7 +6,7 @@ import { NgxSkeletonLoaderModule } from '../../projects/ngx-skeleton-loader/src/
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, NgxSkeletonLoaderModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), NgxSkeletonLoaderModule],
   providers: [],
   bootstrap: [AppComponent],
 })

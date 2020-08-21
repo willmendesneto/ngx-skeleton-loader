@@ -7,8 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Remove check requirements if perf-marks is running in a browser or not in Angular apps 🔥
+
 ### Added
 
+- Adding Angular Universal support for examples. Now we can run `npm run dev:ssr` and access `http://localhost:4200/index.html` and the page will run using angular universal 💪
 - Adding `.prettierrc` file with some of the code styling rules
 
 ## [2.4.3][] - 2020-08-13

@@ -21,7 +21,7 @@
     "animation"
   ],
   "dependencies": {
-    "perf-marks": "^1.13.2"
+    "perf-marks": "^1.13.4"
   },
   "repository": {
     "type": "git",
