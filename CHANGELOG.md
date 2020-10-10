@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.5.0][] - 2020-10-10
+
 ### Fixed
 
 - Fixing bundle size command on CircleCI pipeline
@@ -287,3 +289,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.4.3]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.3
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.4...HEAD
 [2.4.4]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.4
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.5.0...HEAD
+[2.5.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.5.0
