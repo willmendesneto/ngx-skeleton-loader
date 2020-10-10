@@ -44,7 +44,7 @@
   */
   &.progress,
   &.progress-dark {
-    animation: progress 2s ease-in-out infinite;
+    animation: progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     background-size: 200px 100%;
   }
 
@@ -72,7 +72,7 @@
   * animations only if needed
   */
   &.pulse {
-    animation: pulse 1.5s ease-in-out infinite;
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 0.5s;
   }
 

@@ -65,8 +65,11 @@ jobs:
     steps:
       - *attach_workspace
       - run:
+          environment:
+            NG_CLI_ANALYTICS: "false"
           name: Checking bundle size
           command: |
+            sudo NG_CLI_ANALYTICS="false" npm rebuild
             sudo npm run build:pkg
             sudo npm run bundlesize
   # end_to_end:
