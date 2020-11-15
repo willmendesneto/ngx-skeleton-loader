@@ -83,6 +83,38 @@ After that, you can use the `ngx-skeleton-loader` components in your templates, 
 </div>
 ```
 
+### Using `NgxSkeletonLoaderModule.forRoot()`
+
+Also, you can import the module in your app by calling `NgxSkeletonLoaderModule.forRoot()` when adding it. So it will be available across your Angular application.
+
+```typescript
+...
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+...
+
+@NgModule({
+  declarations: [
+    YourAppComponent
+  ],
+  imports: [
+    ...
+    NgxSkeletonLoaderModule.forRoot(),
+    ...
+  ],
+  providers: [],
+  bootstrap: [YourAppComponent]
+})
+
+export class YourAppComponent {}
+
+```
+
+```html
+<div class="item">
+  <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+</div>
+```
+
 ## Animations
 
 You can also define which CSS animation you want to use - even not use any, if it's the case - in your skeleton loader by passing the options in your component via `[animation]` attribute.
@@ -149,19 +181,19 @@ Also, you can use CSS to add theme styles into your component. However, there ar
 As an example, your Component file is like this
 
 ```typescript
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "my-ngx-skeleton-loader-with-theming",
-  templateUrl: "./my-ngx-skeleton-loader-with-theming.component.html",
-  styleUrls: ["./my-ngx-skeleton-loader-with-theming.component.css"],
+  selector: 'my-ngx-skeleton-loader-with-theming',
+  templateUrl: './my-ngx-skeleton-loader-with-theming.component.html',
+  styleUrls: ['./my-ngx-skeleton-loader-with-theming.component.css'],
 })
 export class MyNGXSkeletonLoaderWithThemingComponent {
   /* ... code goes here*/
 }
 ```
 
-And your componennt HTML code is
+And your component HTML code is
 
 ```html
 <!--
@@ -170,10 +202,7 @@ file: my-ngx-skeleton-loader-with-theming.component.html
 As an example, it's not using themes via [theme] attributes.
 -->
 
-<ngx-skeleton-loader
-    count="5"
-    animation="pulse"
-  ></ngx-skeleton-loader>
+<ngx-skeleton-loader count="5" animation="pulse"></ngx-skeleton-loader>
 ```
 
 You can apply theme changes in our stylesheet. At the end it will be

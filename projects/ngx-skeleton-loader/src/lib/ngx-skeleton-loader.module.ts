@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
 import { CommonModule } from '@angular/common';
 
@@ -7,4 +7,11 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   exports: [NgxSkeletonLoaderComponent],
 })
-export class NgxSkeletonLoaderModule {}
+
+export class NgxSkeletonLoaderModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: NgxSkeletonLoaderModule,
+    };
+  }
+}
