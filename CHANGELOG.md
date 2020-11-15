@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Adding `NgxSkeletonLoaderModule.forRoot()` method. Usage:
+
+```js
+import { NgModule } from '@angular/core';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+// ... list of other app dependencies
+
+import { AppComponent } from './app.component';
+// ... list of other app components/modules
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [NgxSkeletonLoaderModule.forRoot()],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
 ## [2.5.0][] - 2020-10-10
 
 ### Fixed
@@ -289,7 +310,5 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.4.3]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.3
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.4...HEAD
 [2.4.4]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.4
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.5.0...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.5.0...HEAD
 [2.5.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.5.0
