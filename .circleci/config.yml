@@ -43,6 +43,9 @@ workflows:
       - bundle_size:
           requires:
             - build
+      - build_ssr:
+          requires:
+            - build
       # - end_to_end:
       #     requires:
       #         - build
@@ -60,6 +63,17 @@ jobs:
             sudo npm run lint
             sudo npm test
             sudo npm run coveralls
+  build_ssr:
+    <<: *docker_defaults
+    steps:
+      - *attach_workspace
+      - run:
+          environment:
+            NG_CLI_ANALYTICS: "false"
+          name: Building for Angular Universal
+          command: |
+            sudo NG_CLI_ANALYTICS="false" npm rebuild
+            sudo npm run build:ssr
   bundle_size:
     <<: *docker_defaults
     steps:
