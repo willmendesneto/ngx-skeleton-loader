@@ -67,7 +67,7 @@
     "perf-marks": "^1.14.0",
     "rxjs": "~6.6.3",
     "tslib": "^1.14.1",
-    "zone.js": "~0.11.1"
+    "zone.js": "~0.11.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.7",
