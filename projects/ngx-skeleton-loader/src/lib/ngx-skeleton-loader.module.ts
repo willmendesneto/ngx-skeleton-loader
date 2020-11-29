@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class NgxSkeletonLoaderModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<NgxSkeletonLoaderModule> {
     return {
       ngModule: NgxSkeletonLoaderModule,
     };
