@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.6.1][] - 2020-11-30
+
 ### Fixed
 
 - Solving `forRoot()` types error `Generic type 'ModuleWithProviders<T>' requires 1 type argument(s)`. Closes https://github.com/willmendesneto/ngx-skeleton-loader/issues/51
@@ -320,3 +322,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.5.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.5.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.0...HEAD
 [2.6.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.0
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.1...HEAD
+[2.6.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.1
