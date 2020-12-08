@@ -44,26 +44,47 @@
   */
   &.progress,
   &.progress-dark {
-    animation: progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    background-size: 200px 100%;
+    &:after,
+    &:before {
+      box-sizing: border-box;
+    }
+    // position: relative;
+    // this adds GPU acceleration
+    transform: translate3d(0, 0, 0);
+
+    &:before {
+      animation: progress 2s ease-in-out infinite;
+      background-size: 200px 100%;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 100%;
+      content: '';
+    }
   }
 
   &.progress {
-    background-image: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0.6),
-      rgba(255, 255, 255, 0)
-    );
+    &:before {
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.6),
+        rgba(255, 255, 255, 0)
+      );
+    }
   }
 
   &.progress-dark {
-    background-image: linear-gradient(
-      90deg,
-      transparent,
-      rgba(0, 0, 0, 0.2),
-      transparent
-    );
+    &:before {
+      background-image: linear-gradient(
+        90deg,
+        transparent,
+        rgba(0, 0, 0, 0.2),
+        transparent
+      );
+    }
   }
 
   /**
@@ -96,10 +117,10 @@
 // CSS Animation Keyframes
 @keyframes progress {
   0% {
-    background-position: -200px 0;
+    transform: translate3d(-200px, 0, 0);
   }
   100% {
-    background-position: calc(200px + 100%) 0;
+    transform: translate3d(calc(200px + 100vw), 0, 0);
   }
 }
 

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Removing Lighthouse "Avoid non-composited animations" issue. Lighthouse shows warnings from ngx-skeleton-loader.scss -file (progress).
+
+- "Avoid non-composited animations":
+- "Animations which are not composited can be janky and contribute to CLS"
+
+To solve that, instead of using CSS `background-position` the module is now using CSS `translate3d`, which improves the animation by using GPU instead of CPU. Issue fixed and performance boost added 🎉
+
 ## [2.6.1][] - 2020-11-30
 
 ### Fixed
@@ -322,7 +331,5 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.5.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.5.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.0...HEAD
 [2.6.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.0
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.1...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.1...HEAD
 [2.6.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.1
