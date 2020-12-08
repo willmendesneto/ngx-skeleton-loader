@@ -1,7 +1,7 @@
 {
   "name": "ngx-skeleton-loader-demo",
   "description": "Make beautiful, animated loading skeletons that automatically adapt to your Angular apps",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
