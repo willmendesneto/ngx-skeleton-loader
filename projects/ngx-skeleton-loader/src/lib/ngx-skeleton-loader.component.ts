@@ -12,10 +12,13 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   count = 1;
 
   @Input()
+  loadingText = 'Loading...';
+
+  @Input()
   appearance: 'circle' | '' = '';
 
   @Input()
-  animation: 'progress' | 'progress-dark' | 'pulse' | 'false' = 'progress';
+  animation: 'progress' | 'progress-dark' | 'pulse' | 'false' | false = 'progress';
 
   @Input() theme: { [k: string]: string } = {};
 
@@ -27,7 +30,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
 
     this.items.length = this.count;
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
-    if (allowedAnimations.indexOf(this.animation) === -1) {
+    if (allowedAnimations.indexOf(String(this.animation)) === -1) {
       // Shows error message only in Development
       if (isDevMode()) {
         console.error(

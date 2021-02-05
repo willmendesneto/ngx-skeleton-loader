@@ -114,13 +114,18 @@ export class YourAppComponent {}
 </div>
 ```
 
+## WAI-ARIA values
+
+- loadingText - _default_ `Loading...`: attribute that defines the text value for `aria-valuetext` attribute. Defaults to "Loading..."
+
 ## Animations
 
 You can also define which CSS animation you want to use - even not use any, if it's the case - in your skeleton loader by passing the options in your component via `[animation]` attribute.
 
 ### Options
 
-- `false`: it will disable the animation;
+- `"false"` (as string): it will disable the animation;
+- `false` (as boolean): it will disable the animation. Animation will receive `false` as string when attribute field it's not using binding. Component now can receive `false` (boolean), "false" (string), or any other animation type via binding;
 - `progress` - _default_: it will use it `progress` as animation;
 - `progress-dark`: it will use it `progress-dark` as animation. Recommended if your color schema is darken;
 - `pulse`: it will use `pulse` as animation;
@@ -136,6 +141,9 @@ you need to apply the style changes on the
 <div class="item">
   <!-- Disables the animation -->
   <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+  <!-- Disables the animation, but receiving boolean value from binding -->
+  <!-- Via binding it can receive `false` (boolean), "false" (string), or any other animation type -->
+  <ngx-skeleton-loader [animation]="classAttributeWithBooleanFalseValue"></ngx-skeleton-loader>
   <!-- Uses `progress` as animation -->
   <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
   <ngx-skeleton-loader></ngx-skeleton-loader>

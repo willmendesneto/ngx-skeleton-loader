@@ -7,9 +7,38 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Adding new `loadingText` attribute to be used as WAI-ARIA `aria-valuetext`. In this case, it will render the component using "Please wait ...". Otherwise, it defaults to "Loading..."
+
+```html
+<!-- Passing loading text to be used as WAI-ARIA `aria-valuetext` -->
+<!-- In this case, it will render the component using "Please wait ..." -->
+<!-- Otherwise, it defaults to "Loading..." -->
+<div class="skeleton-with-specific-loading-text">
+  <ngx-skeleton-loader loadingText="Please wait ..."></ngx-skeleton-loader>
+</div>
+```
+
 ### Updated
 
 - Using OnPush as changeDetection mechanism into ngx-skeleton-loader component
+- Adding ability to pass `false` as string or boolean (coming from variable value via binding) on `animation` attribute in `ngx-skeleton-loader` component configuration. animation will receive `false` as string when attribute field it's not using binding. Component now can receive `false` (boolean), "false" (string), or any other animation type via binding.
+
+```html
+<div class="item">
+  <!-- Disables the animation -->
+  <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+  <!-- Disables the animation, but receiving boolean value from binding -->
+  <!-- Via binding it can receive `false` (boolean), "false" (string), or any other animation type -->
+  <ngx-skeleton-loader [animation]="classAttributeWithBooleanFalseValue"></ngx-skeleton-loader>
+  <!-- Uses `progress` as animation -->
+  <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
+  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <!-- Uses `pulse` as animation -->
+  <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
+</div>
+```
 
 ## [2.6.2][] - 2020-12-08
 

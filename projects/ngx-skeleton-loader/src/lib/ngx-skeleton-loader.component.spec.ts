@@ -11,8 +11,16 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader></ngx-skeleton-loader>
       </div>
 
+      <div class="skeleton-with-specific-loading-text">
+        <ngx-skeleton-loader loadingText="Loading. Please wait ..."></ngx-skeleton-loader>
+      </div>
+
       <div class="skeletons-animation-no-animation">
         <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+      </div>
+
+      <div class="skeletons-animation-no-animation-via-binding">
+        <ngx-skeleton-loader [animation]="animationWithFalsePassedViaBinding"></ngx-skeleton-loader>
       </div>
 
       <div class="skeletons-animation-pulse">
@@ -46,7 +54,9 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
     </div>
   `,
 })
-class ContainerComponent {}
+class ContainerComponent {
+  animationWithFalsePassedViaBinding = false;
+}
 
 describe('NgxSkeletonLoaderComponent', () => {
   let fixture: any;
@@ -71,12 +81,12 @@ describe('NgxSkeletonLoaderComponent', () => {
   });
 
   it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
-    expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(10);
-    expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(10);
-    expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(10);
-    expect(fixture.nativeElement.querySelectorAll('[aria-valuetext="Loading..."]').length).toBe(10);
-    expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(10);
-    expect(fixture.nativeElement.querySelectorAll('[tabindex="0"]').length).toBe(10);
+    expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(12);
+    expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(12);
+    expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(12);
+    expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(12);
+    expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(12);
+    expect(fixture.nativeElement.querySelectorAll('[tabindex="0"]').length).toBe(12);
   });
 
   it('should use progress as default animation if `animation` is not passed as component attribute', () => {
@@ -86,6 +96,12 @@ describe('NgxSkeletonLoaderComponent', () => {
   describe('When skeleton is created using default settings', () => {
     it('should render a single skeleton', () => {
       expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader').length).toBe(1);
+    });
+  });
+
+  describe('When skeleton is created passing loading text to be used as WAI-ARIA `aria-valuetext`', () => {
+    it('should render a single skeleton', () => {
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuetext="Loading. Please wait ..."]').length).toBe(1);
     });
   });
 
@@ -105,6 +121,13 @@ describe('NgxSkeletonLoaderComponent', () => {
     it('should NOT add progress animation styles based on animation class on the skeleton components', () => {
       expect(
         fixture.nativeElement.querySelectorAll('.skeletons-animation-no-animation .loader:not(.animation)').length,
+      ).toBe(1);
+    });
+
+    it('should NOT add progress animation styles based on animation class if animation value is passed via binding', () => {
+      expect(
+        fixture.nativeElement.querySelectorAll('.skeletons-animation-no-animation-via-binding .loader:not(.animation)')
+          .length,
       ).toBe(1);
     });
   });
