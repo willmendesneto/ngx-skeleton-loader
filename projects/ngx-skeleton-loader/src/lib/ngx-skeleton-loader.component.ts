@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, isDevMode, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, isDevMode, OnDestroy, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { start, end } from 'perf-marks/marks';
 
 @Component({
   selector: 'ngx-skeleton-loader',
   templateUrl: './ngx-skeleton-loader.html',
   styleUrls: ['./ngx-skeleton-loader.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input()
