@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.7.0][] - 2021-02-06
+
 ### Added
 
 - Adding new `loadingText` attribute to be used as WAI-ARIA `aria-valuetext`. In this case, it will render the component using "Please wait ...". Otherwise, it defaults to "Loading..."
@@ -370,3 +372,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.6.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.1
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.2...HEAD
 [2.6.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.2
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.7.0...HEAD
+[2.7.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.7.0
