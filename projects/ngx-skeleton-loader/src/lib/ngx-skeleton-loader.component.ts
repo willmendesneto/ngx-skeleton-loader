@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, isDevMode, OnDestroy, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { start, end } from 'perf-marks/marks';
+
+declare const ngDevMode: boolean | undefined;
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -32,7 +34,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
     if (allowedAnimations.indexOf(String(this.animation)) === -1) {
       // Shows error message only in Development
-      if (isDevMode()) {
+      if (typeof ngDevMode === 'undefined' || ngDevMode) {
         console.error(
           `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: ${allowedAnimations.join(
             ', ',
