@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app-server",
     "module": "commonjs",
+    "strictNullChecks": false,
     "types": [
       "node"
     ]

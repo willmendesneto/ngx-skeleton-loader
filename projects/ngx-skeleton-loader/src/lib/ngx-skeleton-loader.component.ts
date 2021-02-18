@@ -10,6 +10,8 @@ import { start, end } from 'perf-marks/marks';
 export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDestroy {
   // tslint:disable-next-line: variable-name
   static ngAcceptInputType_count: number | string;
+  // tslint:disable-next-line: variable-name
+  static ngAcceptInputType_animation: boolean | string;
 
   @Input()
   count = 1;
