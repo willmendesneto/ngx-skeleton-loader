@@ -16,6 +16,15 @@
     "paths": {
       "ngx-skeleton-loader": ["dist/ngx-skeleton-loader"],
       "ngx-skeleton-loader/*": ["dist/ngx-skeleton-loader/*"]
-    }
+    },
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }

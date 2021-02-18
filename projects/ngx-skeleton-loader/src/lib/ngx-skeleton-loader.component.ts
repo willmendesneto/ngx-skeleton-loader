@@ -24,11 +24,13 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
 
   items: Array<any> = [];
 
+  static ngAcceptInputType_count: number | string;
+
   ngOnInit() {
     start('NgxSkeletonLoader:Rendered');
     start('NgxSkeletonLoader:Loaded');
 
-    this.items.length = this.count;
+    this.items.length = +this.count;
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
     if (allowedAnimations.indexOf(String(this.animation)) === -1) {
       // Shows error message only in Development

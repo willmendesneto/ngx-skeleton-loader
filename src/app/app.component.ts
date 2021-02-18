@@ -10,15 +10,18 @@ export class AppComponent implements OnInit, OnDestroy {
 
   animation = 'pulse';
   contentLoaded = false;
-  intervalId;
+  count = 2;
+
+  intervalId: number | null = null;
 
   ngOnInit() {
     setTimeout(() => {
       this.contentLoaded = true;
     }, 2000);
 
-    this.intervalId = setInterval(() => {
+    this.intervalId = window.setInterval(() => {
       this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
+      this.count = this.count === 2 ? 5 : 2;
     }, 5000);
   }
 
