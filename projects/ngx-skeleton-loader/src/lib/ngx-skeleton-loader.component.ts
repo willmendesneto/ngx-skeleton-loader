@@ -8,6 +8,9 @@ import { start, end } from 'perf-marks/marks';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDestroy {
+  // tslint:disable-next-line: variable-name
+  static ngAcceptInputType_count: number | string;
+
   @Input()
   count = 1;
 
@@ -20,11 +23,13 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   @Input()
   animation: 'progress' | 'progress-dark' | 'pulse' | 'false' | false = 'progress';
 
-  @Input() theme: { [k: string]: string } = {};
+  // This is required since ngStyle is using `any` as well
+  // More details in https://angular.io/api/common/NgStyle
+  // tslint:disable-next-line: no-any
+  @Input() theme: { [k: string]: any } = {};
 
+  // tslint:disable-next-line: no-any
   items: Array<any> = [];
-
-  static ngAcceptInputType_count: number | string;
 
   ngOnInit() {
     start('NgxSkeletonLoader:Rendered');

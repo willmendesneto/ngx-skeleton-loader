@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Using `ngAcceptInputType_count` for template checking in count input. That solves issue https://github.com/willmendesneto/ngx-skeleton-loader/issues/59. You can find more details about it in https://angular.io/guide/template-typecheck
+
+### Updated
+
+- Updating `perf-marks` to `v1.14.1`
+- Adding strict mode support in module
+- Updating types for `theme` to match with `ngStyle`. More details in https://angular.io/api/common/NgStyle#properties
+
 ## [2.7.0][] - 2021-02-06
 
 ### Added
@@ -372,7 +382,5 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.6.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.1
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.2...HEAD
 [2.6.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.2
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.7.0...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.7.0...HEAD
 [2.7.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.7.0

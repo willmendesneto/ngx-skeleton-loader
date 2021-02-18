@@ -16,6 +16,7 @@ import { NgxSkeletonLoaderModule } from './ngx-skeleton-loader.module';
 class ContainerComponent {}
 
 describe('NgxSkeletonLoaderModule.forRoot() method', () => {
+  // tslint:disable-next-line: no-any
   let fixture: any;
 
   beforeEach(

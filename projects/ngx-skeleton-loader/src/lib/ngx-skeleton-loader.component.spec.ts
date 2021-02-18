@@ -59,6 +59,7 @@ class ContainerComponent {
 }
 
 describe('NgxSkeletonLoaderComponent', () => {
+  // tslint:disable-next-line: no-any
   let fixture: any;
 
   beforeEach(
