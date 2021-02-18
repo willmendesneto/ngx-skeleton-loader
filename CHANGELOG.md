@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.8.0][] - 2021-02-18
+
 ### Fixed
 
 - Using `ngAcceptInputType_count` for template checking in count input. That solves issue https://github.com/willmendesneto/ngx-skeleton-loader/issues/59. You can find more details about it in https://angular.io/guide/template-typecheck
@@ -385,3 +387,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.6.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.2
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.7.0...HEAD
 [2.7.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.7.0
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.8.0...HEAD
+[2.8.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.8.0
