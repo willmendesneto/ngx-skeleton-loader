@@ -158,7 +158,9 @@ describe('NgxSkeletonLoaderComponent', () => {
       const skeletonWithTheming = fixture.nativeElement.querySelector('.skeletons-with-theming .loader.circle')
         .attributes as NamedNodeMap;
 
-      expect(skeletonWithTheming.getNamedItem('style').value).toBe('width: 70px; height: 70px; border-radius: 10px;');
+      expect((skeletonWithTheming.getNamedItem('style') as Attr).value).toBe(
+        'width: 70px; height: 70px; border-radius: 10px;',
+      );
     });
   });
 });
