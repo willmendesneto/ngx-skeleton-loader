@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.9.0][] - 2021-02-19
+
 ### Added
 
 - Adding validation for @Input attributes that needs internal manipulation. After these changes:
@@ -402,3 +404,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.7.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.7.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.8.0...HEAD
 [2.8.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.8.0
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.9.0...HEAD
+[2.9.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.0
