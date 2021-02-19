@@ -76,6 +76,8 @@
   Also, this example will be switching between `<b>pulse</b>` and
   `<b>progress-dark</b>` animations
 </p>
+<p>Current value: <b>{{animation}}</b></p>
+
 <div class="item-with-background">
   <ngx-skeleton-loader
     count="5"
@@ -104,6 +106,22 @@
     [theme]="{
       width: '70px',
       height: '70px',
+      'border-radius': '10px'
+    }"
+  >
+  </ngx-skeleton-loader>
+</div>
+
+<h2>Circle skeletons with mixing theming and `ngStyle` via `[theme]` input</h2>
+<p>Width and height will be switching between 50px and 100px every 5 seconds</p>
+<p>Current value: <b>{{widthHeightSizeInPixels}}px</b></p>
+<div class="item">
+  <ngx-skeleton-loader
+    count="5"
+    appearance="circle"
+    [theme]="{
+      'width.px': widthHeightSizeInPixels,
+      'height.px': widthHeightSizeInPixels,
       'border-radius': '10px'
     }"
   >
@@ -245,6 +263,13 @@
     appearance="circle"
   ></ngx-skeleton-loader>
 </div>
+
+<h3>Skeleton switching values for `animation` and `count` @Input</h3>
+<p>Current values:</p>
+<ul>
+  <li>Count: <b>{{count}}</b></li>
+  <li>Animation: <b>{{animation}}</b></li>
+</ul>
 
 <div class="item-with-background">
   <ngx-skeleton-loader

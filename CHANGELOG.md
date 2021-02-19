@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Adding validation for @Input attributes that needs internal manipulation. After these changes:
+  - if `count` is not a numeric value, it will use the default value as `1`
+  - if `animation` is not a valid attribute, it will use the default value as `progress`
+  - PS: The other values alredy have a fallback, so nothing to worry here
+
+### Updated
+
+- Adding `ngOnChange` to validate `count` input in case of changes via binding
+
 ## [2.8.0][] - 2021-02-18
 
 ### Fixed
@@ -387,7 +398,5 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.6.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.2
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.7.0...HEAD
 [2.7.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.7.0
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.8.0...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.8.0...HEAD
 [2.8.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.8.0
