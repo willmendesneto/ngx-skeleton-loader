@@ -13,10 +13,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   - if `count` is not a numeric value, it will use the default value as `1`
   - if `animation` is not a valid attribute, it will use the default value as `progress`
   - PS: The other values alredy have a fallback, so nothing to worry here
+- Adding error feedback for `appearance` attribute in case of wrong configuration. Now it will show a error message on the console in case of receiving a wrong value
 
 ### Updated
 
 - Adding `ngOnChange` to validate `count` input in case of changes via binding
+- Updating `README.md` with information about `appearance` and `theme` usage.
 
 ## [2.8.0][] - 2021-02-18
 

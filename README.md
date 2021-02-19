@@ -118,6 +118,15 @@ export class YourAppComponent {}
 
 - loadingText - _default_ `Loading...`: attribute that defines the text value for `aria-valuetext` attribute. Defaults to "Loading..."
 
+## Appearance
+
+You can also define which appearance want to use in your skeleton loader by passing the options in your component via `[appearance]` attribute.
+
+### Options
+
+- `''` - _default_: it will use it `''` as appearance. At the end, it will render like a line, but line is not a expected appearance to be passed;
+- `circle`: it will use `circle` as appearance. Great for avatar skeletons, for example :);
+
 ## Animations
 
 You can also define which CSS animation you want to use - even not use any, if it's the case - in your skeleton loader by passing the options in your component via `[animation]` attribute.
@@ -173,6 +182,24 @@ you need to apply the style changes on the
       height: '50px',
       'background-color': '#992929',
       border: '1px solid white'
+    }"
+  ></ngx-skeleton-loader>
+</div>
+```
+
+The [theme] attribute now accepts the same configuration as `ngStyle` as well. That means you can manage to use like you're doing with the built-in directive, having a pleasure and beautiful experience
+
+```html
+<!--
+Note that we are using a combination of styles and ngStyle inside theme object,
+having `height.px` receiving a number and `background-color` receiving a HEX Color
+-->
+<div style="background: #FF0001; padding: 10px;">
+  <ngx-skeleton-loader
+    count="5"
+    [theme]="{ 
+      'height.px': 50,
+      'background-color': '#992929'
     }"
   ></ngx-skeleton-loader>
 </div>

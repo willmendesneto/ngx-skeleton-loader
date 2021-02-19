@@ -43,6 +43,10 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader [count]="invalidValueIncount"></ngx-skeleton-loader>
       </div>
 
+      <div class="skeletons-appearance-invalid-option">
+        <ngx-skeleton-loader appearance="invalid-appearance"></ngx-skeleton-loader>
+      </div>
+
       <div class="skeletons-with-count">
         <ngx-skeleton-loader count="2"></ngx-skeleton-loader>
       </div>
@@ -78,8 +82,8 @@ describe('NgxSkeletonLoaderComponent', () => {
     }),
   );
 
-  it('should console 2 errors if `animation` and `count` receives invalid options and is running in development mode', () => {
-    expect(console.error).toHaveBeenCalledTimes(2);
+  it('should console 3 errors if `animation`, `appearance` and `count` receives invalid options and is running in development mode', () => {
+    expect(console.error).toHaveBeenCalledTimes(3);
   });
 
   it('should console errors if `animation` is an invalid option and is running in development mode', () => {
@@ -89,20 +93,27 @@ describe('NgxSkeletonLoaderComponent', () => {
     );
   });
 
-  it('should console errors if `animation` is an invalid option and is running in development mode', () => {
+  it('should console errors if `count` is an invalid option and is running in development mode', () => {
     expect(console.error).toHaveBeenCalledWith(
       // tslint:disable-next-line: max-line-length
       `\`NgxSkeletonLoaderComponent\` need to receive 'count' a numeric value. Forcing default to "1".`,
     );
   });
 
+  it('should console errors if `appearance` is an invalid option and is running in development mode', () => {
+    expect(console.error).toHaveBeenCalledWith(
+      // tslint:disable-next-line: max-line-length
+      `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or empty string. Forcing default to "''".`,
+    );
+  });
+
   it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
-    expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(13);
-    expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(13);
-    expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(13);
-    expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(13);
-    expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(13);
-    expect(fixture.nativeElement.querySelectorAll('[tabindex="0"]').length).toBe(13);
+    expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(14);
+    expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(14);
+    expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(14);
+    expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(14);
+    expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(14);
+    expect(fixture.nativeElement.querySelectorAll('[tabindex="0"]').length).toBe(14);
   });
 
   it('should use progress as default animation if `animation` is not passed as component attribute', () => {
