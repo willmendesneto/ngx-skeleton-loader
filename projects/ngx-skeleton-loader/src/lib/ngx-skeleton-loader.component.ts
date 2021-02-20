@@ -93,7 +93,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
     // Checking if the fields that require validation are available and if they were changed
     // In case were not changed, we stop the function. Otherwise, `validateInputValues` will be called.
     if (
-      ['count', 'animation'].find(
+      ['count', 'animation', 'appearance'].find(
         key =>
           changes[key] && (changes[key].isFirstChange() || changes[key].previousValue === changes[key].currentValue),
       )
