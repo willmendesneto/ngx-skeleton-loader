@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.9.1][] - 2021-02-20
+
 ### Fixed
 
 - Adding `appearance` attribute to be checked via `ngOnChanges`
@@ -414,3 +416,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.8.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.8.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.9.0...HEAD
 [2.9.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.0
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.9.1...HEAD
+[2.9.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.1
