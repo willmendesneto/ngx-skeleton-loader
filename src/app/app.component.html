@@ -1,3 +1,7 @@
+<a href="https://github.com/willmendesneto/ngx-skeleton-loader">
+	<h1>ngx-skeleton-loader</h1>
+</a>
+
 <h1>NGX Skeleton Loader</h1>
 
 <h2>Skeleton Loader Simulation</h2>
@@ -12,276 +16,209 @@
 <div class="fb-item">
   <div class="first-section-wrapper">
     <div class="gravatar">
-      <ngx-skeleton-loader
-        *ngIf="!contentLoaded"
-        appearance="circle"
-        [theme]="{ width: '80px', height: '80px' }"
-      >
+      <ngx-skeleton-loader *ngIf="!contentLoaded" appearance="circle"
+        [theme]="{ width: '80px', height: '80px' }">
       </ngx-skeleton-loader>
 
       <div *ngIf="contentLoaded" class="content-loaded">
         <img
-          src="//lorempixel.com/80/80/"
-          alt=""
-          class="content-loaded-image"
-        />
-      </div>
+        src="//user-images.githubusercontent.com/1252570/96255429-9e7e7a00-1002-11eb-9471-1e7fdfc139cd.png"
+        alt=""
+        class="content-loaded-image"
+      />
     </div>
-    <div class="gravatar-title">
-      <div>
-        <ngx-skeleton-loader
-          *ngIf="!contentLoaded"
-          [theme]="{
-            width: '200px',
-            'border-radius': '0',
-            height: '15px',
-            'margin-bottom': '10px'
-          }"
-        ></ngx-skeleton-loader>
-        <p *ngIf="contentLoaded" class="gravatar-title-name">Wilson Mendes</p>
       </div>
-      <div>
-        <ngx-skeleton-loader
-          *ngIf="!contentLoaded"
-          [theme]="{ width: '170px', 'border-radius': '0', height: '15px' }"
-        ></ngx-skeleton-loader>
-        <p *ngIf="contentLoaded" class="gravatar-description">Hi! It's me</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<br />
-<br />
-
-<hr />
-
-<h2>Line skeletons</h2>
-
-<div class="item">
-  <ngx-skeleton-loader count="5"></ngx-skeleton-loader>
-</div>
-
-<h2>Line skeletons with theming</h2>
-<div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    [theme]="{ 'border-radius': '0', height: '50px' }"
-  ></ngx-skeleton-loader>
-</div>
-
-<h2>Line skeletons with theming - Changing Colors and Switching Animations</h2>
-<p>You can use the same colors for the other examples</p>
-<p>
-  Also, this example will be switching between `<b>pulse</b>` and
-  `<b>progress-dark</b>` animations
-</p>
-<p>Current value: <b>{{animation}}</b></p>
-
-<div class="item-with-background">
-  <ngx-skeleton-loader
-    count="5"
-    [animation]="animation"
-    [theme]="{
-      'border-radius': '5px',
-      height: '50px',
-      'background-color': '#323232',
-      border: '1px solid #323232',
-      'animation-duration': '2s'
-    }"
-  >
-  </ngx-skeleton-loader>
-</div>
-
-<h2>Circle skeletons</h2>
-<div class="item">
-  <ngx-skeleton-loader count="5" appearance="circle"> </ngx-skeleton-loader>
-</div>
-
-<h2>Circle skeletons with theming</h2>
-<div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    appearance="circle"
-    [theme]="{
-      width: '70px',
-      height: '70px',
-      'border-radius': '10px'
-    }"
-  >
-  </ngx-skeleton-loader>
-</div>
-
-<h2>Circle skeletons with mixing theming and `ngStyle` via `[theme]` input</h2>
-<p>Width and height will be switching between 50px and 100px every 5 seconds</p>
-<p>Current value: <b>{{widthHeightSizeInPixels}}px</b></p>
-<div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    appearance="circle"
-    [theme]="{
-      'width.px': widthHeightSizeInPixels,
-      'height.px': widthHeightSizeInPixels,
-      'border-radius': '10px'
-    }"
-  >
-  </ngx-skeleton-loader>
-</div>
-
-<h2>Facebook skeleton example</h2>
-
-<div class="fb-item">
-  <div class="first-section-wrapper">
-    <div class="gravatar">
-      <ngx-skeleton-loader
-        appearance="circle"
-        [theme]="{ width: '80px', height: '80px' }"
-      >
-      </ngx-skeleton-loader>
-    </div>
-    <div class="gravatar-title">
-      <div>
-        <ngx-skeleton-loader
-          [theme]="{
-            width: '200px',
-            'border-radius': '0',
-            height: '15px',
-            'margin-bottom': '10px'
-          }"
-        ></ngx-skeleton-loader>
-      </div>
-      <div>
-        <ngx-skeleton-loader
-          [theme]="{ width: '170px', 'border-radius': '0', height: '15px' }"
-        ></ngx-skeleton-loader>
-      </div>
-    </div>
-  </div>
-  <div class="second-section-wrapper">
-    <div class="wrapper">
-      <ngx-skeleton-loader
-        [theme]="{
-          width: '80%',
+      <div class="gravatar-title">
+        <div>
+          <ngx-skeleton-loader *ngIf="!contentLoaded" [theme]="{
+          width: '200px',
           'border-radius': '0',
           height: '15px',
           'margin-bottom': '10px'
-        }"
-      ></ngx-skeleton-loader>
-    </div>
-    <div class="wrapper">
-      <ngx-skeleton-loader
-        [theme]="{
-          width: '90%',
-          'border-radius': '0',
-          height: '15px',
-          'margin-bottom': '10px'
-        }"
-      ></ngx-skeleton-loader>
-    </div>
-    <div class="wrapper">
-      <ngx-skeleton-loader
-        [theme]="{
-          width: '60%',
-          'border-radius': '0',
-          height: '15px',
-          'margin-bottom': '10px'
-        }"
-      ></ngx-skeleton-loader>
+        }"></ngx-skeleton-loader>
+          <p *ngIf="contentLoaded" class="gravatar-title-name">Wilson Mendes</p>
+        </div>
+        <div>
+          <ngx-skeleton-loader *ngIf="!contentLoaded"
+            [theme]="{ width: '170px', 'border-radius': '0', height: '15px' }"></ngx-skeleton-loader>
+          <p *ngIf="contentLoaded" class="gravatar-description">Hi! It's me</p>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<h2>Animations</h2>
+  <br />
+  <br />
 
-<h3>Skeletons without animation</h3>
+  <hr />
 
-<div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    animation="false"
-    appearance="circle"
-  ></ngx-skeleton-loader>
-</div>
+  <h2>Line skeletons</h2>
 
-<div class="item">
-  <ngx-skeleton-loader
-    count="3"
-    animation="false"
-    [theme]="{
-      height: '50px'
-    }"
-  ></ngx-skeleton-loader>
-</div>
+  <div class="item">
+    <ngx-skeleton-loader count="5"></ngx-skeleton-loader>
+  </div>
 
-<h3>Skeleton using `progress` animation</h3>
+  <h2>Line skeletons with theming</h2>
+  <div class="item">
+    <ngx-skeleton-loader count="5" [theme]="{ 'border-radius': '0', height: '50px' }"></ngx-skeleton-loader>
+  </div>
 
-<div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    animation="progress"
-    appearance="circle"
-  ></ngx-skeleton-loader>
-</div>
+  <h2>Line skeletons with theming - Changing Colors and Switching Animations</h2>
+  <p>You can use the same colors for the other examples</p>
+  <p>
+    Also, this example will be switching between `<b>pulse</b>` and
+    `<b>progress-dark</b>` animations
+  </p>
+  <p>Current value: <b>{{animation}}</b></p>
 
-<div class="item">
-  <ngx-skeleton-loader
-    count="3"
-    animation="progress"
-    [theme]="{
-      height: '50px'
-    }"
-  ></ngx-skeleton-loader>
-</div>
+  <div class="item-with-background">
+    <ngx-skeleton-loader count="5" [animation]="animation" [theme]="{
+    'border-radius': '5px',
+    height: '50px',
+    'background-color': '#323232',
+    border: '1px solid #323232',
+    'animation-duration': '2s'
+  }">
+    </ngx-skeleton-loader>
+  </div>
 
-<h3>Skeleton using `pulse` animation</h3>
+  <h2>Circle skeletons</h2>
+  <div class="item">
+    <ngx-skeleton-loader count="5" appearance="circle"> </ngx-skeleton-loader>
+  </div>
 
-<div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    animation="pulse"
-    appearance="circle"
-  ></ngx-skeleton-loader>
-</div>
+  <h2>Circle skeletons with theming</h2>
+  <div class="item">
+    <ngx-skeleton-loader count="5" appearance="circle" [theme]="{
+    width: '70px',
+    height: '70px',
+    'border-radius': '10px'
+  }">
+    </ngx-skeleton-loader>
+  </div>
 
-<div class="item">
-  <ngx-skeleton-loader
-    count="3"
-    animation="pulse"
-    [theme]="{
-      height: '50px',
-      'background-color': '#C64949'
-    }"
-  ></ngx-skeleton-loader>
-</div>
+  <h2>Circle skeletons with mixing theming and `ngStyle` via `[theme]` input</h2>
+  <p>Width and height will be switching between 50px and 100px every 5 seconds</p>
+  <p>Current value: <b>{{widthHeightSizeInPixels}}px</b></p>
+  <div class="item">
+    <ngx-skeleton-loader count="5" appearance="circle" [theme]="{
+    'width.px': widthHeightSizeInPixels,
+    'height.px': widthHeightSizeInPixels,
+    'border-radius': '10px'
+  }">
+    </ngx-skeleton-loader>
+  </div>
 
-<h3>Skeleton using `progress-dark` animation</h3>
+  <h2>Facebook skeleton example</h2>
 
-<div class="item">
-  <ngx-skeleton-loader
-    count="5"
-    animation="progress-dark"
-    appearance="circle"
-  ></ngx-skeleton-loader>
-</div>
+  <div class="fb-item">
+    <div class="first-section-wrapper">
+      <div class="gravatar">
+        <ngx-skeleton-loader appearance="circle" [theme]="{ width: '80px', height: '80px' }">
+        </ngx-skeleton-loader>
+      </div>
+      <div class="gravatar-title">
+        <div>
+          <ngx-skeleton-loader [theme]="{
+          width: '200px',
+          'border-radius': '0',
+          height: '15px',
+          'margin-bottom': '10px'
+        }"></ngx-skeleton-loader>
+        </div>
+        <div>
+          <ngx-skeleton-loader [theme]="{ width: '170px', 'border-radius': '0', height: '15px' }">
+          </ngx-skeleton-loader>
+        </div>
+      </div>
+    </div>
+    <div class="second-section-wrapper">
+      <div class="wrapper">
+        <ngx-skeleton-loader [theme]="{
+        width: '80%',
+        'border-radius': '0',
+        height: '15px',
+        'margin-bottom': '10px'
+      }"></ngx-skeleton-loader>
+      </div>
+      <div class="wrapper">
+        <ngx-skeleton-loader [theme]="{
+        width: '90%',
+        'border-radius': '0',
+        height: '15px',
+        'margin-bottom': '10px'
+      }"></ngx-skeleton-loader>
+      </div>
+      <div class="wrapper">
+        <ngx-skeleton-loader [theme]="{
+        width: '60%',
+        'border-radius': '0',
+        height: '15px',
+        'margin-bottom': '10px'
+      }"></ngx-skeleton-loader>
+      </div>
+    </div>
+  </div>
 
-<h3>Skeleton switching values for `animation` and `count` @Input</h3>
-<p>Current values:</p>
-<ul>
-  <li>Count: <b>{{count}}</b></li>
-  <li>Animation: <b>{{animation}}</b></li>
-</ul>
+  <h2>Animations</h2>
 
-<div class="item-with-background">
-  <ngx-skeleton-loader
-    [count]="count"
-    [animation]="animation"
-    [theme]="{
-      'border-radius': '5px',
-      height: '50px',
-      'background-color': '#323232',
-      border: '1px solid #323232',
-      'animation-duration': '2s'
-    }"
-  >
-  </ngx-skeleton-loader>
-</div>
+  <h3>Skeletons without animation</h3>
+
+  <div class="item">
+    <ngx-skeleton-loader count="5" animation="false" appearance="circle"></ngx-skeleton-loader>
+  </div>
+
+  <div class="item">
+    <ngx-skeleton-loader count="3" animation="false" [theme]="{
+    height: '50px'
+  }"></ngx-skeleton-loader>
+  </div>
+
+  <h3>Skeleton using `progress` animation</h3>
+
+  <div class="item">
+    <ngx-skeleton-loader count="5" animation="progress" appearance="circle"></ngx-skeleton-loader>
+  </div>
+
+  <div class="item">
+    <ngx-skeleton-loader count="3" animation="progress" [theme]="{
+    height: '50px'
+  }"></ngx-skeleton-loader>
+  </div>
+
+  <h3>Skeleton using `pulse` animation</h3>
+
+  <div class="item">
+    <ngx-skeleton-loader count="5" animation="pulse" appearance="circle"></ngx-skeleton-loader>
+  </div>
+
+  <div class="item">
+    <ngx-skeleton-loader count="3" animation="pulse" [theme]="{
+    height: '50px',
+    'background-color': '#C64949'
+  }"></ngx-skeleton-loader>
+  </div>
+
+  <h3>Skeleton using `progress-dark` animation</h3>
+
+  <div class="item">
+    <ngx-skeleton-loader count="5" animation="progress-dark" appearance="circle"></ngx-skeleton-loader>
+  </div>
+
+  <h3>Skeleton switching values for `animation` and `count` @Input</h3>
+  <p>Current values:</p>
+  <ul>
+    <li>Count: <b>{{count}}</b></li>
+    <li>Animation: <b>{{animation}}</b></li>
+  </ul>
+
+  <div class="item-with-background">
+    <ngx-skeleton-loader [count]="count" [animation]="animation" [theme]="{
+    'border-radius': '5px',
+    height: '50px',
+    'background-color': '#323232',
+    border: '1px solid #323232',
+    'animation-duration': '2s'
+  }">
+    </ngx-skeleton-loader>
+  </div>
