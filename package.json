@@ -65,7 +65,7 @@
     "@nguniversal/express-engine": "^9.1.1",
     "express": "^4.15.2",
     "perf-marks": "^1.14.1",
-    "rxjs": "~6.6.6",
+    "rxjs": "~6.6.7",
     "tslib": "^1.14.1",
     "zone.js": "~0.11.4"
   },
