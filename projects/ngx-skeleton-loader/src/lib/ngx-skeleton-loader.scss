@@ -61,7 +61,7 @@
       left: 0;
       width: 200px;
       height: 100%;
-      content: '';
+      content: "";
     }
   }
 
@@ -78,12 +78,7 @@
 
   &.progress-dark {
     &:before {
-      background-image: linear-gradient(
-        90deg,
-        transparent,
-        rgba(0, 0, 0, 0.2),
-        transparent
-      );
+      background-image: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.2), transparent);
     }
   }
 

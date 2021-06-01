@@ -10,6 +10,17 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { start, end } from 'perf-marks/marks';
+import { NgxSkeletonLoaderConfigService } from './ngx-skeleton-loader-config.service';
+import {
+  Animation,
+  Appearance,
+  defaultAnimation,
+  defaultAppearance,
+  defaultCount,
+  defaultLoadingText,
+  defaultTheme,
+  Theme,
+} from './ngx-skeleton-loader-config.types';
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -24,24 +35,23 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   static ngAcceptInputType_animation: boolean | string;
 
   @Input()
-  count = 1;
+  count: number = this.configService.config.count ?? defaultCount;
 
   @Input()
-  loadingText = 'Loading...';
+  loadingText: string = this.configService.config.loadingText ?? defaultLoadingText;
 
   @Input()
-  appearance: 'circle' | '' = '';
+  appearance: Appearance = this.configService.config.appearance ?? defaultAppearance;
 
   @Input()
-  animation: 'progress' | 'progress-dark' | 'pulse' | 'false' | false = 'progress';
+  animation: Animation = this.configService.config.animation ?? defaultAnimation;
 
-  // This is required since ngStyle is using `any` as well
-  // More details in https://angular.io/api/common/NgStyle
-  // tslint:disable-next-line: no-any
-  @Input() theme: { [k: string]: any } = {};
+  @Input() theme: Theme = this.configService.config.theme ?? defaultTheme;
 
   // tslint:disable-next-line: no-any
   items: Array<any> = [];
+
+  constructor(private configService: NgxSkeletonLoaderConfigService) {}
 
   ngOnInit() {
     start('NgxSkeletonLoader:Rendered');
@@ -61,7 +71,6 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       }
       this.count = 1;
     }
-
     this.items.length = this.count;
 
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
@@ -77,11 +86,11 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       this.animation = 'progress';
     }
 
-    if (['circle', ''].indexOf(String(this.appearance)) === -1) {
+    if (['circle', 'line', ''].indexOf(String(this.appearance)) === -1) {
       // Shows error message only in Development
       if (isDevMode()) {
         console.error(
-          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or empty string. Forcing default to "''".`,
+          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or empty string. Forcing default to "''".`,
         );
       }
       this.appearance = '';
