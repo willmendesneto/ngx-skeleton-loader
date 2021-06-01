@@ -11,16 +11,7 @@ import {
 } from '@angular/core';
 import { start, end } from 'perf-marks/marks';
 import { NgxSkeletonLoaderConfigService } from './ngx-skeleton-loader-config.service';
-import {
-  Animation,
-  Appearance,
-  defaultAnimation,
-  defaultAppearance,
-  defaultCount,
-  defaultLoadingText,
-  defaultTheme,
-  Theme,
-} from './ngx-skeleton-loader-config.types';
+import { NgxSkeletonLoaderConfig } from './ngx-skeleton-loader-config.types';
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -35,18 +26,19 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   static ngAcceptInputType_animation: boolean | string;
 
   @Input()
-  count: number = this.configService.config.count ?? defaultCount;
+  count: NgxSkeletonLoaderConfig['count'] = this.configService.config.count;
 
   @Input()
-  loadingText: string = this.configService.config.loadingText ?? defaultLoadingText;
+  loadingText: NgxSkeletonLoaderConfig['loadingText'] = this.configService.config.loadingText;
 
   @Input()
-  appearance: Appearance = this.configService.config.appearance ?? defaultAppearance;
+  appearance: NgxSkeletonLoaderConfig['appearance'] = this.configService.config.appearance;
 
   @Input()
-  animation: Animation = this.configService.config.animation ?? defaultAnimation;
+  animation: NgxSkeletonLoaderConfig['animation'] = this.configService.config.animation;
 
-  @Input() theme: Theme = this.configService.config.theme ?? defaultTheme;
+  @Input()
+  theme: NgxSkeletonLoaderConfig['theme'] = this.configService.config.theme;
 
   // tslint:disable-next-line: no-any
   items: Array<any> = [];
@@ -71,7 +63,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       }
       this.count = 1;
     }
-    this.items.length = this.count;
+    this.items.length = this.count || 1;
 
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
     if (allowedAnimations.indexOf(String(this.animation)) === -1) {

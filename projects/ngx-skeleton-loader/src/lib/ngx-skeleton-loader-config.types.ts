@@ -1,25 +1,24 @@
-export type Appearance = 'circle' | 'line' | '';
-export const defaultAppearance: Appearance = '';
+import { InjectionToken } from '@angular/core';
 
-export type Animation = 'progress' | 'progress-dark' | 'pulse' | 'false' | false;
-export const defaultAnimation: Animation = 'progress';
-
-export interface Theme {
-  // This is required since ngStyle is using `any` as well
-  // More details in https://angular.io/api/common/NgStyle
-  // tslint:disable-next-line: no-any
-  [k: string]: any;
+export interface NgxSkeletonLoaderConfig {
+  appearance?: 'circle' | 'line' | '';
+  animation?: 'progress' | 'progress-dark' | 'pulse' | 'false' | false;
+  theme?: {
+    // This is required since ngStyle is using `any` as well
+    // More details in https://angular.io/api/common/NgStyle
+    // tslint:disable-next-line: no-any
+    [k: string]: any;
+  };
+  loadingText?: string;
+  count?: number;
 }
-export const defaultTheme: Theme = {};
 
-export const defaultLoadingText = 'Loading...';
-export const defaultCount = 1;
+export const DEFAULT_NGX_SKELETON_LOADER_CONFIG = {
+  appearance: 'line',
+  animation: 'progress',
+  theme: {},
+  loadingText: 'Loading...',
+  count: 1,
+} as NgxSkeletonLoaderConfig;
 
-export class NgxSkeletonLoaderConfig {
-  appearance?: Appearance = defaultAppearance;
-  animation?: Animation = defaultAnimation;
-  theme?: Theme = defaultTheme;
-  loadingText?: string = defaultLoadingText;
-  count?: number = defaultCount;
-}
-export const defaultConfig: NgxSkeletonLoaderConfig = new NgxSkeletonLoaderConfig();
+export const NGX_SKELETON_LOADER_CONFIG = new InjectionToken<NgxSkeletonLoaderConfig>('ngx-skeleton-loader.config');
