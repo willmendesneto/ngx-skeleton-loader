@@ -81,7 +81,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       }
       this.count = 1;
     }
-    this.items.length = this.count || 1;
+    this.items.length = this.count ?? 1;
 
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
     if (allowedAnimations.indexOf(String(this.animation)) === -1) {
