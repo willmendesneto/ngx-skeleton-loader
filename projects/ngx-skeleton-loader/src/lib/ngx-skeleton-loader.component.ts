@@ -8,10 +8,11 @@ import {
   ChangeDetectionStrategy,
   OnChanges,
   SimpleChanges,
+  Optional,
+  Inject,
 } from '@angular/core';
 import { start, end } from 'perf-marks/marks';
-import { NgxSkeletonLoaderConfigService } from './ngx-skeleton-loader-config.service';
-import { NgxSkeletonLoaderConfig } from './ngx-skeleton-loader-config.types';
+import { NgxSkeletonLoaderConfig, NgxSkeletonLoaderConfigTheme, NGX_SKELETON_LOADER_CONFIG } from './ngx-skeleton-loader-config.types';
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -26,24 +27,41 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   static ngAcceptInputType_animation: boolean | string;
 
   @Input()
-  count: NgxSkeletonLoaderConfig['count'] = this.configService.config.count;
+  count: NgxSkeletonLoaderConfig['count'];
 
   @Input()
-  loadingText: NgxSkeletonLoaderConfig['loadingText'] = this.configService.config.loadingText;
+  loadingText: NgxSkeletonLoaderConfig['loadingText'];
 
   @Input()
-  appearance: NgxSkeletonLoaderConfig['appearance'] = this.configService.config.appearance;
+  appearance: NgxSkeletonLoaderConfig['appearance'];
 
   @Input()
-  animation: NgxSkeletonLoaderConfig['animation'] = this.configService.config.animation;
+  animation: NgxSkeletonLoaderConfig['animation'];
 
   @Input()
-  theme: NgxSkeletonLoaderConfig['theme'] = this.configService.config.theme;
+  theme: NgxSkeletonLoaderConfigTheme;
 
   // tslint:disable-next-line: no-any
-  items: Array<any> = [];
+  items: Array<any>;
 
-  constructor(private configService: NgxSkeletonLoaderConfigService) {}
+  private config: NgxSkeletonLoaderConfig;
+
+  constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() config: NgxSkeletonLoaderConfig) {
+    this.config = {
+      appearance: 'line',
+      animation: 'progress',
+      theme: {},
+      loadingText: 'Loading...',
+      count: 1,
+      ...config
+    };
+    this.count = this.config.count;
+    this.loadingText = this.config.loadingText;
+    this.appearance = this.config.appearance;
+    this.animation = this.config.animation;
+    this.theme = this.config.theme ?? null;
+    this.items = [];
+  }
 
   ngOnInit() {
     start('NgxSkeletonLoader:Rendered');
