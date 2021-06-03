@@ -87,7 +87,7 @@ After that, you can use the `ngx-skeleton-loader` components in your templates, 
 
 Also, you can import the module in your app by calling `NgxSkeletonLoaderModule.forRoot()` when adding it. So it will be available across your Angular application.
 
-Importing the module this way also allows you to globally configure the default values for the `ngx-skeleton-loader` components in your application.
+Importing the module this way also allows you to globally configure the default values for the `ngx-skeleton-loader` components in your application, in case you need some different default values for your app.
 
 ```typescript
 ...
@@ -129,7 +129,7 @@ You can also define which appearance want to use in your skeleton loader by pass
 ### Options
 
 - `''` - _default_: it will use it `''` as appearance. At the end, it will render like a line;
-- `'line'`: it will render like a line. This is the same behavior than passing an empty string;
+- `line`: it will render like a line. This is the same behavior as passing an empty string;
 - `circle`: it will use `circle` as appearance. Great for avatar skeletons, for example :);
 
 ## Animations
