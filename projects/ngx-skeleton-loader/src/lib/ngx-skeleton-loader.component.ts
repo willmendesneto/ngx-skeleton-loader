@@ -31,16 +31,16 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   static ngAcceptInputType_animation: boolean | string;
 
   @Input()
-  count: NonNullable<NgxSkeletonLoaderConfig['count']>;
+  count: NgxSkeletonLoaderConfig['count'];
 
   @Input()
-  loadingText: NonNullable<NgxSkeletonLoaderConfig['loadingText']>;
+  loadingText: NgxSkeletonLoaderConfig['loadingText'];
 
   @Input()
-  appearance: NonNullable<NgxSkeletonLoaderConfig['appearance']>;
+  appearance: NgxSkeletonLoaderConfig['appearance'];
 
   @Input()
-  animation: NonNullable<NgxSkeletonLoaderConfig['animation']>;
+  animation: NgxSkeletonLoaderConfig['animation'];
 
   @Input()
   theme: NgxSkeletonLoaderConfigTheme;
