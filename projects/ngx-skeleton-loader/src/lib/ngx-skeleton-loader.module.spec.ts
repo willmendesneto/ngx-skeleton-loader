@@ -15,7 +15,7 @@ import { NgxSkeletonLoaderModule } from './ngx-skeleton-loader.module';
 })
 class ContainerComponent {}
 
-describe('NgxSkeletonLoaderModule.forRoot() method', () => {
+describe('NgxSkeletonLoaderModule method', () => {
   // tslint:disable-next-line: no-any
   let fixture: any;
 
@@ -53,5 +53,23 @@ describe('NgxSkeletonLoaderModule.forRoot() method', () => {
   it('should NOT call console.info() method', () => {
     // tslint:disable-next-line: no-console
     expect(console.info).toHaveBeenCalledTimes(0);
+  });
+});
+
+describe('NgxSkeletonLoaderModule.forRoot() method', () => {
+  // tslint:disable-next-line: no-any
+  let fixture: any;
+
+  beforeEach(waitForAsync(() => {
+    fixture = TestBed.configureTestingModule({
+      imports: [NgxSkeletonLoaderModule.forRoot({ appearance: 'circle', count: 3 })],
+      declarations: [ContainerComponent],
+      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
+    }).createComponent(ContainerComponent);
+    fixture.detectChanges();
+  }));
+
+  it('should render the component properly using given forRoot() config', () => {
+    expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader.circle').length).toBe(3);
   });
 });

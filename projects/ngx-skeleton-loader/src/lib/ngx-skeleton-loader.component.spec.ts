@@ -1,5 +1,6 @@
 import { Component, PLATFORM_ID } from '@angular/core';
 import { async as waitForAsync, TestBed } from '@angular/core/testing';
+import { NGX_SKELETON_LOADER_CONFIG } from './ngx-skeleton-loader-config.types';
 
 import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
 
@@ -59,6 +60,10 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader appearance="circle" [theme]="{ width: '70px', height: '70px', 'border-radius': '10px' }">
         </ngx-skeleton-loader>
       </div>
+
+      <div class="skeletons-with-provided-config">
+        <ngx-skeleton-loader></ngx-skeleton-loader>
+      </div>
     </div>
   `,
 })
@@ -108,12 +113,12 @@ describe('NgxSkeletonLoaderComponent', () => {
   });
 
   it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
-    expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(14);
-    expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(14);
-    expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(14);
-    expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(14);
-    expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(14);
-    expect(fixture.nativeElement.querySelectorAll('[tabindex="0"]').length).toBe(14);
+    expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(15);
+    expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(15);
+    expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(15);
+    expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(15);
+    expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(15);
+    expect(fixture.nativeElement.querySelectorAll('[tabindex="0"]').length).toBe(15);
   });
 
   it('should use progress as default animation if `animation` is not passed as component attribute', () => {
@@ -188,5 +193,27 @@ describe('NgxSkeletonLoaderComponent', () => {
         'width: 70px; height: 70px; border-radius: 10px;',
       );
     });
+  });
+});
+
+describe('NgxSkeletonLoaderComponent2', () => {
+  // tslint:disable-next-line: no-any
+  let fixture: any;
+
+  beforeEach(
+    waitForAsync(() => {
+      fixture = TestBed.configureTestingModule({
+        declarations: [ContainerComponent, NgxSkeletonLoaderComponent],
+        providers: [
+          { provide: PLATFORM_ID, useValue: 'browser' },
+          { provide: NGX_SKELETON_LOADER_CONFIG, useValue: { appearance: 'circle', count: 3 }}
+        ],
+      }).createComponent(ContainerComponent);
+      fixture.detectChanges();
+    }),
+  );
+
+  it('should render skeleton with the provided config', () => {
+    expect(fixture.nativeElement.querySelectorAll('.skeletons-with-provided-config .loader.circle').length).toBe(3);
   });
 });
