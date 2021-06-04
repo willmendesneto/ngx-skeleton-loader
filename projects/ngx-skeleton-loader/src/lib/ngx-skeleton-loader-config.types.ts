@@ -8,11 +8,11 @@ export type NgxSkeletonLoaderConfigTheme = {
 } | null;
 
 export interface NgxSkeletonLoaderConfig {
-  appearance?: 'circle' | 'line' | '';
-  animation?: 'progress' | 'progress-dark' | 'pulse' | 'false' | false;
-  theme?: NgxSkeletonLoaderConfigTheme;
-  loadingText?: string;
-  count?: number;
+  appearance: 'circle' | 'line' | '';
+  animation: 'progress' | 'progress-dark' | 'pulse' | 'false' | false;
+  theme: NgxSkeletonLoaderConfigTheme;
+  loadingText: string;
+  count: number;
 }
 
 export const NGX_SKELETON_LOADER_CONFIG = new InjectionToken<NgxSkeletonLoaderConfig>('ngx-skeleton-loader.config');

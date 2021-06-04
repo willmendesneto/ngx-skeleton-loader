@@ -12,7 +12,11 @@ import {
   Inject,
 } from '@angular/core';
 import { start, end } from 'perf-marks/marks';
-import { NgxSkeletonLoaderConfig, NgxSkeletonLoaderConfigTheme, NGX_SKELETON_LOADER_CONFIG } from './ngx-skeleton-loader-config.types';
+import {
+  NgxSkeletonLoaderConfig,
+  NgxSkeletonLoaderConfigTheme,
+  NGX_SKELETON_LOADER_CONFIG,
+} from './ngx-skeleton-loader-config.types';
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -27,16 +31,16 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   static ngAcceptInputType_animation: boolean | string;
 
   @Input()
-  count: NgxSkeletonLoaderConfig['count'];
+  count: NonNullable<NgxSkeletonLoaderConfig['count']>;
 
   @Input()
-  loadingText: NgxSkeletonLoaderConfig['loadingText'];
+  loadingText: NonNullable<NgxSkeletonLoaderConfig['loadingText']>;
 
   @Input()
-  appearance: NgxSkeletonLoaderConfig['appearance'];
+  appearance: NonNullable<NgxSkeletonLoaderConfig['appearance']>;
 
   @Input()
-  animation: NgxSkeletonLoaderConfig['animation'];
+  animation: NonNullable<NgxSkeletonLoaderConfig['animation']>;
 
   @Input()
   theme: NgxSkeletonLoaderConfigTheme;
@@ -44,22 +48,12 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   // tslint:disable-next-line: no-any
   items: Array<any>;
 
-  private config: NgxSkeletonLoaderConfig;
-
-  constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() config: NgxSkeletonLoaderConfig) {
-    this.config = {
-      appearance: 'line',
-      animation: 'progress',
-      theme: {},
-      loadingText: 'Loading...',
-      count: 1,
-      ...config
-    };
-    this.count = this.config.count;
-    this.loadingText = this.config.loadingText;
-    this.appearance = this.config.appearance;
-    this.animation = this.config.animation;
-    this.theme = this.config.theme ?? null;
+  constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() config?: NgxSkeletonLoaderConfig) {
+    this.appearance = config?.appearance ?? 'line';
+    this.animation = config?.animation ?? 'progress';
+    this.theme = config?.theme ?? null;
+    this.loadingText = config?.loadingText ?? 'Loading...';
+    this.count = config?.count ?? 1;
     this.items = [];
   }
 
@@ -81,7 +75,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       }
       this.count = 1;
     }
-    this.items.length = this.count ?? 1;
+    this.items.length = this.count;
 
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
     if (allowedAnimations.indexOf(String(this.animation)) === -1) {

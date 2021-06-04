@@ -10,7 +10,7 @@ import { NgxSkeletonLoaderConfig, NGX_SKELETON_LOADER_CONFIG } from './ngx-skele
   exports: [NgxSkeletonLoaderComponent],
 })
 export class NgxSkeletonLoaderModule {
-  static forRoot(config?: NgxSkeletonLoaderConfig): ModuleWithProviders<NgxSkeletonLoaderModule> {
+  static forRoot(config?: Partial<NgxSkeletonLoaderConfig>): ModuleWithProviders<NgxSkeletonLoaderModule> {
     return {
       ngModule: NgxSkeletonLoaderModule,
       providers: [{ provide: NGX_SKELETON_LOADER_CONFIG, useValue: config }],
