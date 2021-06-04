@@ -49,11 +49,12 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   items: Array<any>;
 
   constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() config?: NgxSkeletonLoaderConfig) {
-    this.appearance = config?.appearance ?? 'line';
-    this.animation = config?.animation ?? 'progress';
-    this.theme = config?.theme ?? null;
-    this.loadingText = config?.loadingText ?? 'Loading...';
-    this.count = config?.count ?? 1;
+    const { appearance = 'line', animation = 'progress', theme = null, loadingText = 'Loading...', count = 1 } = config || {};
+    this.appearance = appearance;
+    this.animation = animation;
+    this.theme = theme;
+    this.loadingText = loadingText;
+    this.count = count;
     this.items = [];
   }
 
