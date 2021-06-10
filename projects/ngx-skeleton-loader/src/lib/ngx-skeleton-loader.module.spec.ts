@@ -26,7 +26,7 @@ describe('NgxSkeletonLoaderModule method', () => {
       spyOn(console, 'warn');
       spyOn(console, 'info');
       fixture = TestBed.configureTestingModule({
-        imports: [NgxSkeletonLoaderModule],
+        imports: [NgxSkeletonLoaderModule.forRoot({ appearance: 'circle', count: 3 })],
         declarations: [ContainerComponent],
         providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
       }).createComponent(ContainerComponent);
@@ -34,8 +34,8 @@ describe('NgxSkeletonLoaderModule method', () => {
     }),
   );
 
-  it('should render the component properly', () => {
-    expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader.progress').length).toBe(1);
+  it('should render the component properly using given forRoot() config', () => {
+    expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader.circle').length).toBe(3);
   });
 
   it('should NOT call console.error() method', () => {
@@ -53,23 +53,5 @@ describe('NgxSkeletonLoaderModule method', () => {
   it('should NOT call console.info() method', () => {
     // tslint:disable-next-line: no-console
     expect(console.info).toHaveBeenCalledTimes(0);
-  });
-});
-
-describe('NgxSkeletonLoaderModule.forRoot() method', () => {
-  // tslint:disable-next-line: no-any
-  let fixture: any;
-
-  beforeEach(waitForAsync(() => {
-    fixture = TestBed.configureTestingModule({
-      imports: [NgxSkeletonLoaderModule.forRoot({ appearance: 'circle', count: 3 })],
-      declarations: [ContainerComponent],
-      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
-    }).createComponent(ContainerComponent);
-    fixture.detectChanges();
-  }));
-
-  it('should render the component properly using given forRoot() config', () => {
-    expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader.circle').length).toBe(3);
   });
 });
