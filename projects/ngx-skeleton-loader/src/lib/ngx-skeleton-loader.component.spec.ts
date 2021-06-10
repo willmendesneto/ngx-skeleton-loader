@@ -90,18 +90,18 @@ describe('NgxSkeletonLoaderComponent', () => {
       }),
     );
 
-    it('should console 3 errors if `animation`, `appearance` and `count` receives invalid options and is running in development mode', () => {
+    it('should console 3 errors if `animation`, `appearance` and `count` receives invalid options in development mode', () => {
       expect(console.error).toHaveBeenCalledTimes(3);
     });
 
-    it('should console errors if `animation` is an invalid option and is running in development mode', () => {
+    it('should console errors if `animation` is an invalid option in development mode', () => {
       expect(console.error).toHaveBeenCalledWith(
         // tslint:disable-next-line: max-line-length
         `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: progress, progress-dark, pulse, false. Forcing default to "progress".`,
       );
     });
 
-    it('should console errors if `count` is an invalid option and is running in development mode', () => {
+    it('should console errors if `count` is an invalid option in development mode', () => {
       expect(console.error).toHaveBeenCalledWith(
         // tslint:disable-next-line: max-line-length
         `\`NgxSkeletonLoaderComponent\` need to receive 'count' a numeric value. Forcing default to "1".`,

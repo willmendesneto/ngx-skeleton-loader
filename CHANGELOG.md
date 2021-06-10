@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Adding module configuration support via `forRoot()` method. Now you can add configure your module via `forRoot()`. You can now set the default of `appearance`, `animation`, `theme`, `loadingText`, `count` and/or `items`.E.G.
+
+```ts
+
+@NgModule({
+  // ...
+  imports: [NgxSkeletonLoaderModule.forRoot({ appearance: 'circle', count: 3 )],
+  // ...
+})
+```
+
 ## [2.9.2][] - 2021-04-11
 
 ### Updated
@@ -428,7 +441,5 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.9.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.9.1...HEAD
 [2.9.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.1
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.9.2...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.9.2...HEAD
 [2.9.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.2
