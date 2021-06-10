@@ -15,7 +15,7 @@ import { NgxSkeletonLoaderModule } from './ngx-skeleton-loader.module';
 })
 class ContainerComponent {}
 
-describe('NgxSkeletonLoaderModule.forRoot() method', () => {
+describe('NgxSkeletonLoaderModule method', () => {
   // tslint:disable-next-line: no-any
   let fixture: any;
 
@@ -26,7 +26,7 @@ describe('NgxSkeletonLoaderModule.forRoot() method', () => {
       spyOn(console, 'warn');
       spyOn(console, 'info');
       fixture = TestBed.configureTestingModule({
-        imports: [NgxSkeletonLoaderModule],
+        imports: [NgxSkeletonLoaderModule.forRoot({ appearance: 'circle', count: 3 })],
         declarations: [ContainerComponent],
         providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
       }).createComponent(ContainerComponent);
@@ -34,8 +34,8 @@ describe('NgxSkeletonLoaderModule.forRoot() method', () => {
     }),
   );
 
-  it('should render the component properly', () => {
-    expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader.progress').length).toBe(1);
+  it('should render the component properly using given forRoot() config', () => {
+    expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader.circle').length).toBe(3);
   });
 
   it('should NOT call console.error() method', () => {

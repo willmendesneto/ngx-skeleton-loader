@@ -87,6 +87,8 @@ After that, you can use the `ngx-skeleton-loader` components in your templates, 
 
 Also, you can import the module in your app by calling `NgxSkeletonLoaderModule.forRoot()` when adding it. So it will be available across your Angular application.
 
+Importing the module this way also allows you to globally configure the default values for the `ngx-skeleton-loader` components in your application, in case you need some different default values for your app.
+
 ```typescript
 ...
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
@@ -98,7 +100,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
   ],
   imports: [
     ...
-    NgxSkeletonLoaderModule.forRoot(),
+    NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...' }),
     ...
   ],
   providers: [],
@@ -112,6 +114,7 @@ export class YourAppComponent {}
 ```html
 <div class="item">
   <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+  <!-- above line will produce the rendering of 5 circles with the pulse animation and the aria-valuetext attribute set with "This item is actually loading..." -->
 </div>
 ```
 
@@ -125,7 +128,8 @@ You can also define which appearance want to use in your skeleton loader by pass
 
 ### Options
 
-- `''` - _default_: it will use it `''` as appearance. At the end, it will render like a line, but line is not a expected appearance to be passed;
+- `''` - _default_: it will use it `''` as appearance. At the end, it will render like a line;
+- `line`: it will render like a line. This is the same behavior as passing an empty string;
 - `circle`: it will use `circle` as appearance. Great for avatar skeletons, for example :);
 
 ## Animations

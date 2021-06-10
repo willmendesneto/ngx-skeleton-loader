@@ -8,8 +8,15 @@ import {
   ChangeDetectionStrategy,
   OnChanges,
   SimpleChanges,
+  Optional,
+  Inject,
 } from '@angular/core';
 import { start, end } from 'perf-marks/marks';
+import {
+  NgxSkeletonLoaderConfig,
+  NgxSkeletonLoaderConfigTheme,
+  NGX_SKELETON_LOADER_CONFIG,
+} from './ngx-skeleton-loader-config.types';
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -24,24 +31,32 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   static ngAcceptInputType_animation: boolean | string;
 
   @Input()
-  count = 1;
+  count: NgxSkeletonLoaderConfig['count'];
 
   @Input()
-  loadingText = 'Loading...';
+  loadingText: NgxSkeletonLoaderConfig['loadingText'];
 
   @Input()
-  appearance: 'circle' | '' = '';
+  appearance: NgxSkeletonLoaderConfig['appearance'];
 
   @Input()
-  animation: 'progress' | 'progress-dark' | 'pulse' | 'false' | false = 'progress';
+  animation: NgxSkeletonLoaderConfig['animation'];
 
-  // This is required since ngStyle is using `any` as well
-  // More details in https://angular.io/api/common/NgStyle
-  // tslint:disable-next-line: no-any
-  @Input() theme: { [k: string]: any } = {};
+  @Input()
+  theme: NgxSkeletonLoaderConfigTheme;
 
   // tslint:disable-next-line: no-any
-  items: Array<any> = [];
+  items: Array<any>;
+
+  constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() config?: NgxSkeletonLoaderConfig) {
+    const { appearance = 'line', animation = 'progress', theme = null, loadingText = 'Loading...', count = 1 } = config || {};
+    this.appearance = appearance;
+    this.animation = animation;
+    this.theme = theme;
+    this.loadingText = loadingText;
+    this.count = count;
+    this.items = [];
+  }
 
   ngOnInit() {
     start('NgxSkeletonLoader:Rendered');
@@ -61,7 +76,6 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       }
       this.count = 1;
     }
-
     this.items.length = this.count;
 
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
@@ -77,11 +91,11 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       this.animation = 'progress';
     }
 
-    if (['circle', ''].indexOf(String(this.appearance)) === -1) {
+    if (['circle', 'line', ''].indexOf(String(this.appearance)) === -1) {
       // Shows error message only in Development
       if (isDevMode()) {
         console.error(
-          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or empty string. Forcing default to "''".`,
+          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or empty string. Forcing default to "''".`,
         );
       }
       this.appearance = '';
