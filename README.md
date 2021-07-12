@@ -121,6 +121,7 @@ export class YourAppComponent {}
 ## WAI-ARIA values
 
 - loadingText - _default_ `Loading...`: attribute that defines the text value for `aria-valuetext` attribute. Defaults to "Loading..."
+- `aria-label` - _default_ `loading`: you can add `ariaLabel` as input of the component to set a different value.
 
 ## Appearance
 
