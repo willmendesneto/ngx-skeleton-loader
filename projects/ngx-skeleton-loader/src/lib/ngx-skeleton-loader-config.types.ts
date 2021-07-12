@@ -13,6 +13,7 @@ export interface NgxSkeletonLoaderConfig {
   theme: NgxSkeletonLoaderConfigTheme;
   loadingText: string;
   count: number;
+  ariaLabel: string;
 }
 
 export const NGX_SKELETON_LOADER_CONFIG = new InjectionToken<NgxSkeletonLoaderConfig>('ngx-skeleton-loader.config');
