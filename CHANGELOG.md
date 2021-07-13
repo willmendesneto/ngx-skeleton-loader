@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [2.10.1][] - 2021-07-13
+
 ### Fixed
 
 - Ensures every ARIA progressbar node has an accessible name. This is caused by missing aria-label on the `<span>` element.
@@ -453,3 +455,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.9.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.2
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.10.0...HEAD
 [2.10.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.10.0
+
+
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.10.1...HEAD
+[2.10.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.10.1
