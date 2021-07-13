@@ -1,6 +1,7 @@
 <span
   *ngFor="let item of items"
   class="loader"
+  [attr.aria-label]="ariaLabel"
   aria-busy="true"
   aria-valuemin="0"
   aria-valuemax="100"

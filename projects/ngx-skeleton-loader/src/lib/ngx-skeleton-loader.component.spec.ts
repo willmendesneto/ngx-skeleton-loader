@@ -122,6 +122,7 @@ describe('NgxSkeletonLoaderComponent', () => {
       expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(15);
       expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(15);
       expect(fixture.nativeElement.querySelectorAll('[tabindex="0"]').length).toBe(15);
+      expect(fixture.nativeElement.querySelectorAll('[aria-label="loading"]').length).toBe(15);
     });
 
     it('should use progress as default animation if `animation` is not passed as component attribute', () => {

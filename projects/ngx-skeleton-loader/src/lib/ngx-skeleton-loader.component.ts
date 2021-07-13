@@ -43,19 +43,31 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   animation: NgxSkeletonLoaderConfig['animation'];
 
   @Input()
+  ariaLabel: NgxSkeletonLoaderConfig['ariaLabel'];
+
+  @Input()
   theme: NgxSkeletonLoaderConfigTheme;
 
   // tslint:disable-next-line: no-any
   items: Array<any>;
 
   constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() config?: NgxSkeletonLoaderConfig) {
-    const { appearance = 'line', animation = 'progress', theme = null, loadingText = 'Loading...', count = 1 } = config || {};
+    const {
+      appearance = 'line',
+      animation = 'progress',
+      theme = null,
+      loadingText = 'Loading...',
+      count = 1,
+      ariaLabel = 'loading',
+    } = config || {};
+
     this.appearance = appearance;
     this.animation = animation;
     this.theme = theme;
     this.loadingText = loadingText;
     this.count = count;
     this.items = [];
+    this.ariaLabel = ariaLabel;
   }
 
   ngOnInit() {
