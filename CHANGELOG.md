@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+#### Breaking Change
+
+- Adding mechanism to prevents calling `forRoot()` more than once if module is loaded asynchronously in a submodule. This is required in order to avoid issues in consumers. To avoid that, consumers should load the module once on the main module instead - if loading submodules async.
+
 ## [2.10.1][] - 2021-07-13
 
 ### Fixed
@@ -455,7 +461,5 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.9.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.2
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.10.0...HEAD
 [2.10.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.10.0
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.10.1...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.10.1...HEAD
 [2.10.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.10.1

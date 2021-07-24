@@ -54,4 +54,13 @@ describe('NgxSkeletonLoaderModule method', () => {
     // tslint:disable-next-line: no-console
     expect(console.info).toHaveBeenCalledTimes(0);
   });
+
+  describe('When the module loaded twice asynchronously in a submodule', () => {
+    it('should throw an error if the module was previously loaded', () => {
+      expect(() => new NgxSkeletonLoaderModule(new NgxSkeletonLoaderModule())).toThrowError(
+        // tslint:disable-next-line: max-line-length
+        '`NgxSkeletonLoaderModule` is already loaded and it might cause issues. To avoid that, import the module only once in your app.',
+      );
+    });
+  });
 });
