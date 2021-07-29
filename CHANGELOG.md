@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [4.0.0][] - 2021-07-28
+
 ### Fixed
 
 #### Breaking Change
@@ -475,5 +477,6 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.10.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.10.1
 
 
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v3.0.0
