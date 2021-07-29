@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+#### Breaking Change
+
+- Rolling back "Adding mechanism to prevents calling `forRoot()` more than once if module is loaded asynchronously in a submodule.". Unfortunately, this was affecting consumers and it needed to be reverted to avoid friction in other applications.
+
+If you need to have this feature in place, the suggestion is to create a specific module in your app and apply the changes on your application.
+
 ## [3.0.0][] - 2021-07-23
 
 ### Added
