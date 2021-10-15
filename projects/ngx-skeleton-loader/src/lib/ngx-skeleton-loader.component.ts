@@ -2,7 +2,6 @@ import {
   Component,
   OnInit,
   Input,
-  isDevMode,
   OnDestroy,
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -17,6 +16,13 @@ import {
   NgxSkeletonLoaderConfigTheme,
   NGX_SKELETON_LOADER_CONFIG,
 } from './ngx-skeleton-loader-config.types';
+
+// Caretaker note: we have still left the `typeof` condition in order to avoid
+// creating a breaking change for projects that still use the View Engine.
+// The `ngDevMode` is always available when Ivy is enabled.
+// This will be evaluated during compilation into `const NG_DEV_MODE = false`,
+// thus Terser will be able to tree-shake `console.error` calls and `perf-marks/marks` package.
+const NG_DEV_MODE = typeof ngDevMode === 'undefined' || !!ngDevMode;
 
 @Component({
   selector: 'ngx-skeleton-loader',
@@ -71,8 +77,10 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngOnInit() {
-    start('NgxSkeletonLoader:Rendered');
-    start('NgxSkeletonLoader:Loaded');
+    if (NG_DEV_MODE) {
+      start('NgxSkeletonLoader:Rendered');
+      start('NgxSkeletonLoader:Loaded');
+    }
 
     this.validateInputValues();
   }
@@ -81,7 +89,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
     // Checking if it's receiving a numeric value (string having ONLY numbers or if it's a number)
     if (!/^\d+$/.test(`${this.count}`)) {
       // Shows error message only in Development
-      if (isDevMode()) {
+      if (NG_DEV_MODE) {
         console.error(
           `\`NgxSkeletonLoaderComponent\` need to receive 'count' a numeric value. Forcing default to "1".`,
         );
@@ -93,7 +101,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
     if (allowedAnimations.indexOf(String(this.animation)) === -1) {
       // Shows error message only in Development
-      if (isDevMode()) {
+      if (NG_DEV_MODE) {
         console.error(
           `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: ${allowedAnimations.join(
             ', ',
@@ -105,7 +113,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
 
     if (['circle', 'line', ''].indexOf(String(this.appearance)) === -1) {
       // Shows error message only in Development
-      if (isDevMode()) {
+      if (NG_DEV_MODE) {
         console.error(
           `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or empty string. Forcing default to "''".`,
         );
@@ -131,10 +139,14 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngAfterViewInit() {
-    end('NgxSkeletonLoader:Rendered');
+    if (NG_DEV_MODE) {
+      end('NgxSkeletonLoader:Rendered');
+    }
   }
 
   ngOnDestroy() {
-    end('NgxSkeletonLoader:Loaded');
+    if (NG_DEV_MODE) {
+      end('NgxSkeletonLoader:Loaded');
+    }
   }
 }
