@@ -1,5 +1,5 @@
 import { Component, PLATFORM_ID } from '@angular/core';
-import { async as waitForAsync, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync as waitForAsync } from '@angular/core/testing';
 import { NGX_SKELETON_LOADER_CONFIG } from './ngx-skeleton-loader-config.types';
 
 import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
