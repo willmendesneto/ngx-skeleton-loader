@@ -16,7 +16,7 @@ import { NgxSkeletonLoaderModule } from './ngx-skeleton-loader.module';
 class ContainerComponent {}
 
 describe('NgxSkeletonLoaderModule method', () => {
-  // tslint:disable-next-line: no-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let fixture: any;
 
   beforeEach(
@@ -51,7 +51,7 @@ describe('NgxSkeletonLoaderModule method', () => {
   });
 
   it('should NOT call console.info() method', () => {
-    // tslint:disable-next-line: no-console
+    // eslint-disable-next-line no-console
     expect(console.info).toHaveBeenCalledTimes(0);
   });
 });

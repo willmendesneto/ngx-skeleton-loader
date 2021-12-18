@@ -3,7 +3,7 @@ import { InjectionToken } from '@angular/core';
 export type NgxSkeletonLoaderConfigTheme = {
   // This is required since ngStyle is using `any` as well
   // More details in https://angular.io/api/common/NgStyle
-  // tslint:disable-next-line: no-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [k: string]: any;
 } | null;
 

@@ -73,7 +73,7 @@ class ContainerComponent {
 }
 
 describe('NgxSkeletonLoaderComponent', () => {
-  // tslint:disable-next-line: no-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let fixture: any;
   beforeEach(() => {
     spyOn(console, 'error');
@@ -96,21 +96,21 @@ describe('NgxSkeletonLoaderComponent', () => {
 
     it('should console errors if `animation` is an invalid option in development mode', () => {
       expect(console.error).toHaveBeenCalledWith(
-        // tslint:disable-next-line: max-line-length
+        // eslint-disable-next-line max-len
         `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: progress, progress-dark, pulse, false. Forcing default to "progress".`,
       );
     });
 
     it('should console errors if `count` is an invalid option in development mode', () => {
       expect(console.error).toHaveBeenCalledWith(
-        // tslint:disable-next-line: max-line-length
+        // eslint-disable-next-line max-len
         `\`NgxSkeletonLoaderComponent\` need to receive 'count' a numeric value. Forcing default to "1".`,
       );
     });
 
     it('should console errors if `appearance` is an invalid option and is running in development mode', () => {
       expect(console.error).toHaveBeenCalledWith(
-        // tslint:disable-next-line: max-line-length
+        // eslint-disable-next-line max-len
         `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or empty string. Forcing default to "''".`,
       );
     });
