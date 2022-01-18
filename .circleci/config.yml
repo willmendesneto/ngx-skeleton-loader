@@ -62,7 +62,8 @@ jobs:
           command: |
             sudo npm run lint
             sudo npm test
-            sudo npm run coveralls
+  # To be added back in later
+  # sudo npm run coveralls
   build_ssr:
     <<: *docker_defaults
     steps:
