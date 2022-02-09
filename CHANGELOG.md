@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Updated
+
+> Thanks @yharaskrik
+
+#### Breaking Change
+
+Bundle distribution are now `esm2020`, `fesm2015` and `fesm2020`. UMD and CommonJS versions were support were removed from Angular CLI directly. So the next version for the package will be a major version to cover these changes accordingly.
+
+- Updating package bundle distribution
+- Updating `@angular/cli` to v13
+- Applying project changes to v13
+- Updating bundlesize check to point to `fesm2020`
+
 ## [4.0.0][] - 2021-07-28
 
 ### Fixed
@@ -475,8 +488,6 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [2.10.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.10.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.10.1...HEAD
 [2.10.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.10.1
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v4.0.0...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v4.0.0...HEAD
 [4.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v3.0.0
