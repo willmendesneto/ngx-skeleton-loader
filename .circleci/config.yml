@@ -2,7 +2,7 @@ version: 2
 
 docker_defaults: &docker_defaults
   docker:
-    - image: circleci/node:14.11.0-browsers
+    - image: circleci/node:14.18.2-browsers
   working_directory: ~/project/repo
 
 attach_workspace: &attach_workspace
@@ -62,7 +62,8 @@ jobs:
           command: |
             sudo npm run lint
             sudo npm test
-            sudo npm run coveralls
+  # To be added back in later
+  # sudo npm run coveralls
   build_ssr:
     <<: *docker_defaults
     steps:
