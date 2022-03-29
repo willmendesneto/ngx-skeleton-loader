@@ -111,7 +111,7 @@ describe('NgxSkeletonLoaderComponent', () => {
     it('should console errors if `appearance` is an invalid option and is running in development mode', () => {
       expect(console.error).toHaveBeenCalledWith(
         // eslint-disable-next-line max-len
-        `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or empty string. Forcing default to "''".`,
+        `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or customContent or empty string. Forcing default to "''".`,
       );
     });
 
