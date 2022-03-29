@@ -1,19 +1,44 @@
-<span
-  *ngFor="let item of items"
-  class="loader"
-  [attr.aria-label]="ariaLabel"
-  aria-busy="true"
-  aria-valuemin="0"
-  aria-valuemax="100"
-  [attr.aria-valuetext]="loadingText"
-  role="progressbar"
-  tabindex="0"
-  [ngClass]="{
+<div *ngIf="appearance  !== 'customContent'" >
+  <span
+    *ngFor="let item of items"
+    class="loader"
+    [attr.aria-label]="ariaLabel"
+    aria-busy="true"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    [attr.aria-valuetext]="loadingText"
+    role="progressbar"
+    tabindex="0"
+    [ngClass]="{
     circle: appearance === 'circle',
-    progress: animation === 'progress',
-    'progress-dark': animation === 'progress-dark',
-    pulse: animation === 'pulse'
-  }"
-  [ngStyle]="theme"
->
-</span>
+      progress: animation === 'progress',
+      'progress-dark': animation === 'progress-dark',
+      pulse: animation === 'pulse'
+    }"
+    [ngStyle]="theme"
+  >
+  </span>
+</div>
+
+<div  *ngIf="appearance  === 'customContent'" >
+  <div
+    class="loader customContent"
+    [attr.aria-label]="ariaLabel"
+    aria-busy="true"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    [attr.aria-valuetext]="loadingText"
+    role="progressbar"
+    tabindex="0"
+    [ngClass]="{
+        progress: animation === 'progress',
+        'progress-dark': animation === 'progress-dark',
+        pulse: animation === 'pulse'
+      }"
+    [ngStyle]="theme"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>
+
+

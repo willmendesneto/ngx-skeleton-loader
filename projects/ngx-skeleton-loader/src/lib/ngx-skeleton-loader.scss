@@ -114,6 +114,12 @@
   }
 }
 
+//For customContent mark height to 100% and remove the background
+.customContent {
+  height:  100%;
+  background: none;
+}
+
 // CSS Animation Keyframes
 @keyframes progress {
   0% {

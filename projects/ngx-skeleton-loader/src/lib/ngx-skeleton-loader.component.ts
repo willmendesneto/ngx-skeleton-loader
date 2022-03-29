@@ -103,11 +103,11 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       this.animation = 'progress';
     }
 
-    if (['circle', 'line', ''].indexOf(String(this.appearance)) === -1) {
+    if (['circle', 'line', 'customContent', ''].indexOf(String(this.appearance)) === -1) {
       // Shows error message only in Development
       if (isDevMode()) {
         console.error(
-          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or empty string. Forcing default to "''".`,
+          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or customContent or empty string. Forcing default to "''".`,
         );
       }
       this.appearance = '';
