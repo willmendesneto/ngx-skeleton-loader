@@ -11,7 +11,6 @@ import {
 import {
   NGX_SKELETON_LOADER_CONFIG,
   NgxSkeletonLoaderConfig,
-  NgxSkeletonLoaderConfigTheme
 } from "../ngx-skeleton-loader-config.types";
 import { NgxSkeletonLoaderComponent } from "../ngx-skeleton-loader.component";
 
@@ -20,9 +19,9 @@ import { NgxSkeletonLoaderComponent } from "../ngx-skeleton-loader.component";
 })
 export class SkeletonLoaderDirective implements OnChanges {
 
-  @Input() skeletonStyle: NgxSkeletonLoaderConfigTheme = {};
-  @Input() skeletonCount: number = 1;
-  @Input() skeletonType: 'line' | 'circle' = 'line';
+  @Input() skeletonStyle: NgxSkeletonLoaderConfig['theme'] = {};
+  @Input() skeletonCount: NgxSkeletonLoaderConfig['count'] = 1;
+  @Input() skeletonType: NgxSkeletonLoaderConfig['appearance'] = 'line';
   @Input() skeletonShow: boolean = false;
   @Input() skeletonUseParent: boolean = false; // experimental
   defaultHeight = '25px';
