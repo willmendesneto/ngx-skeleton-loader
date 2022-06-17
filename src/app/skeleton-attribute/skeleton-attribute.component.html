@@ -1,0 +1,140 @@
+<hr>
+<div class="p-5">
+  <h3>Skeleton as an Attribute</h3>
+  <p>Dynamically replaces the component with Skeleton Loading. Reduces the amount of dummy layout code.</p>
+  <button (click)="toggleLoading()" class="btn btn-dark">Toggle Loading</button>
+  <div class="item mt-2">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Skeleton Loader Attribute</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a [skeletonShow]="loading"
+                 [skeletonStyle]="{
+                     backgroundColor: 'rgba(85,149,245,0.5)',
+                     height: '30px',
+                     marginRight: '10px',
+                     marginTop: '10px'
+                   }"
+                 class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a [skeletonShow]="loading"
+                 [skeletonStyle]="{
+                     backgroundColor: 'rgba(85,149,245,0.5)',
+                     height: '30px',
+                     marginRight: '10px',
+                     marginTop: '10px'
+                   }"
+                 class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a [skeletonShow]="loading"
+                 [skeletonStyle]="{
+                     backgroundColor: 'rgba(85,149,245,0.5)',
+                     height: '30px',
+                     marginRight: '10px',
+                     marginTop: '10px'
+                   }"
+                 class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                 aria-expanded="false">
+                Dropdown
+              </a>
+              <ul
+                class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a [skeletonShow]="loading"
+                 [skeletonStyle]="{
+                     backgroundColor: 'rgba(85,149,245,0.5)',
+                     height: '30px',
+                     marginRight: '10px',
+                     marginTop: '10px'
+                   }"
+                 class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input [skeletonShow]="loading"
+                   [skeletonStyle]="{
+                     backgroundColor: 'rgba(85,149,245,0.5)',
+                     height: '30px',
+                     marginRight: '10px',
+                     marginTop: '10px'
+                   }"
+                   class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button
+              [skeletonShow]="loading"
+              [skeletonStyle]="{
+                     backgroundColor: 'rgba(85,149,245,0.5)',
+                     marginTop: '10px',
+                     height: '30px'
+                   }"
+              class="btn btn-outline-light" type="submit">Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <br>
+    <div class="container">
+    <div class="row row-cols-3">
+      <div class="col">
+        <ng-container *ngTemplateOutlet="cards"></ng-container>
+      </div>
+      <div class="col">
+        <ng-container *ngTemplateOutlet="cards"></ng-container>
+      </div>
+      <div class="col">
+        <ng-container *ngTemplateOutlet="cards"></ng-container>
+      </div>
+      <div class="col mt-3">
+        <app-picture-cards
+          imgUrl="https://www.w3schools.com/w3images/avatar2.png"
+          name="Dinesh Srini"
+          title="Developer"
+          [loading]="loading"
+        ></app-picture-cards>
+      </div>
+      <div class="col mt-3">
+        <app-picture-cards
+          imgUrl="https://cdn-icons-png.flaticon.com/512/219/219966.png"
+          name="Sarah White"
+          title="Manager"
+          [loading]="loading"
+        ></app-picture-cards>
+      </div>
+      <div class="col mt-3">
+        <app-picture-cards
+          imgUrl="https://www.shareicon.net/data/128x128/2016/09/15/829452_user_512x512.png"
+          name="Emily Blunt"
+          title="Vice President"
+          [loading]="loading"
+        ></app-picture-cards>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<ng-template #cards>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title" [skeletonShow]="loading">Special title treatment</h5>
+      <p class="card-text" [skeletonShow]="loading">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary" [skeletonShow]="loading">Go somewhere</a>
+    </div>
+  </div>
+</ng-template>

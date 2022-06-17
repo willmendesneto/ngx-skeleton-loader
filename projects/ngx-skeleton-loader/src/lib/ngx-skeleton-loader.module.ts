@@ -8,7 +8,7 @@ import { SkeletonLoaderDirective } from './directives/skeleton-loader.directive'
 @NgModule({
   declarations: [NgxSkeletonLoaderComponent, SkeletonLoaderDirective],
   imports: [CommonModule],
-  exports: [NgxSkeletonLoaderComponent],
+  exports: [NgxSkeletonLoaderComponent, SkeletonLoaderDirective],
 })
 export class NgxSkeletonLoaderModule {
   static forRoot(config?: Partial<NgxSkeletonLoaderConfig>): ModuleWithProviders<NgxSkeletonLoaderModule> {

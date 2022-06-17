@@ -67,10 +67,11 @@ export class SkeletonLoaderDirective implements OnChanges {
       nativeElement.style.display = 'none';
 
       comp.instance.theme = {
+        // Maintain the same order for preserving Style precedence
         ...this.config?.theme,
+        ...this.skeletonStyle,
         height,
         width,
-        ...this.skeletonStyle,
       };
       comp.instance.count = this.skeletonCount;
       comp.instance.appearance = this.skeletonType;
@@ -95,13 +96,20 @@ export class SkeletonLoaderDirective implements OnChanges {
     if (height === 0 || height === '0px') {
       height = this.defaultHeight;
     }
-    if (width === '0px' || width === 0) {
+    if (width === 0 || width === '0px') {
       width = this.defaultWidth;
     }
     if (this.skeletonType === 'circle') {
-      const minValue = Math.min(parseFloat(height), parseFloat(width));
-      height = minValue;
-      width = minValue;
+      let minValue = Math.min(parseFloat(height), parseFloat(width));
+      if (this.skeletonStyle?.height || this.skeletonStyle?.width) {
+        const inputHW = Math.max(
+          isNaN(parseFloat(this.skeletonStyle?.height)) ? 0 : parseFloat(this.skeletonStyle?.height),
+          isNaN(parseFloat(this.skeletonStyle?.width)) ? 0 : parseFloat(this.skeletonStyle?.width));
+        minValue = inputHW === 0 ? minValue : inputHW;
+      }
+      // We removed the units in the beginning of the circle condition so adding it back.
+      height = minValue + 'px';
+      width = minValue + 'px';
     }
     return { height, width };
   }

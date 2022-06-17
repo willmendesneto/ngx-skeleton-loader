@@ -169,6 +169,68 @@ you need to apply the style changes on the
 
 > You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html)
 
+## Using Skeleton as Attribute
+
+Dynamically computes the target component's height & width, and replaces with Skeleton Loader.
+This can reduces the amount of dummy layout code.
+
+**Attribute:**
+
+| name                 | values                                                                | comment                                                                        |
+|----------------------|-----------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| `skeletonShow`       | boolean<br/> - `true` <br/> - `false` (default)                       | Displays the skeleton                                                          |
+| `skeletonType`       | string <br/> - `line` (default)<br/> - `circle`                       | Displays the line or circle                                                    |
+| `skeletonStyle`      | ngStyle or theme object <br/> `{height: '10px', marginRight: '10px'}` | Appends to the Global Theme defined in the app.module.ts in the `forRoot(...)` |
+| `skeletonCount`      | Integer - Default is 1                                                | Repeats the loader component                                                   |
+| `skeletonUseParent`  | boolean<br/> - `true` <br/> - `false` (default)                       | *(Experimental)* - Uses  parent height and width                               | 
+
+
+**Template:**
+```html
+    <!-- Requires Bootstrap 5 to be installed for the following example to work -->
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        <div class="d-flex flex-row bd-highlight mb-3">
+          <div class="pe-3">
+            <img src="..."
+                 [skeletonShow]="loading"
+                 [skeletonType]="'circle'"
+                 class="rounded-circle" alt="..." width="80px">
+          </div>
+          <div class="d-flex flex-column mt-3">
+            <h5 class="card-title" [skeletonShow]="loading" [skeletonStyle]="{display: 'block'}">Dinesh Srinivasan</h5>
+            <p class="card-text" [skeletonShow]="loading" [skeletonStyle]="{display: 'block'}">Engineering Manager</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title" [skeletonShow]="loading">Card title</h5>
+        <p class="card-text" [skeletonShow]="loading">Some quick example text to build on the card title and make up the
+          bulk of the card's
+          content.</p>
+        <a href="#" class="btn btn-primary" [skeletonShow]="loading">Go somewhere</a>
+      </div>
+    </div>
+```
+**Typescript file**
+```ts
+@Component({...})
+export class PictureCardsComponent implements OnInit {
+    
+  loading: boolean = false;
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
+}
+```
+**Output**
+
+![](https://user-images.githubusercontent.com/17984781/174203986-b58b7fb5-7ac9-4e4f-b213-c58fed57ac63.gif)
+
 ## Theming
 
 You can also define different styles for the skeleton loader by passing an object with the css styles - in dashed case - into the component via `[theme]` attribute.
