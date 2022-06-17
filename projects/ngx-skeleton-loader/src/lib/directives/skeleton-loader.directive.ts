@@ -6,7 +6,7 @@ import {
   Input,
   OnChanges,
   Optional,
-  VERSION, ViewContainerRef
+  ViewContainerRef
 } from '@angular/core';
 import {
   NGX_SKELETON_LOADER_CONFIG,
@@ -50,18 +50,8 @@ export class SkeletonLoaderDirective implements OnChanges {
 
     if (this.skeletonShow) {
 
-      let comp;
-
-      if (Number.parseInt(VERSION.major) >= 13) {
-        comp = this.vr.createComponent(NgxSkeletonLoaderComponent);
-      } else {
-        // Support for older version of Angular
-        let factory = this.componentFactoryResolver.resolveComponentFactory(
-          NgxSkeletonLoaderComponent
-        );
-        comp = this.vr.createComponent(factory);
-      }
-
+      let comp = this.vr.createComponent(NgxSkeletonLoaderComponent);
+      
       nativeElement.style.display = 'none';
 
       comp.instance.theme = {
