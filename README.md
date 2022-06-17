@@ -228,7 +228,7 @@ export class PictureCardsComponent implements OnInit {
 ```
 **Output**
 
-![](https://user-images.githubusercontent.com/17984781/174203986-b58b7fb5-7ac9-4e4f-b213-c58fed57ac63.gif)
+![](https://user-images.githubusercontent.com/17984781/174218744-bdf8090f-37ad-438a-b6d2-8e5954ffd3c8.gif)
 
 ## Theming
 

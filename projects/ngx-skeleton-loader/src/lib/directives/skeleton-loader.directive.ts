@@ -19,7 +19,7 @@ import { NgxSkeletonLoaderComponent } from "../ngx-skeleton-loader.component";
 })
 export class SkeletonLoaderDirective implements OnChanges {
 
-  @Input() skeletonStyle: NgxSkeletonLoaderConfig['theme'] = {};
+  @Input() skeletonStyle: NgxSkeletonLoaderConfig['theme'] = { display: 'block'};
   @Input() skeletonCount: NgxSkeletonLoaderConfig['count'] = 1;
   @Input() skeletonType: NgxSkeletonLoaderConfig['appearance'] = 'line';
   @Input() skeletonShow: boolean = false;
@@ -85,7 +85,7 @@ export class SkeletonLoaderDirective implements OnChanges {
   } {
     let height = this.skeletonStyle?.height
       ? this.skeletonStyle.height
-      : replaceElement.offsetHeight + 'px';
+      : replaceElement.offsetHeight - ( replaceElement.offsetHeight * (10 / 100)) + 'px'; // reduce 10% height to prevent content jumping
 
     let width = this.skeletonStyle?.width
       ? this.skeletonStyle.width
@@ -105,6 +105,7 @@ export class SkeletonLoaderDirective implements OnChanges {
           isNaN(parseFloat(this.skeletonStyle?.width)) ? 0 : parseFloat(this.skeletonStyle?.width));
         minValue = inputHW === 0 ? minValue : inputHW;
       }
+      minValue = minValue - ( minValue * (5 / 100)); // reduce 5% height to prevent content jumping
       // We removed the units in the beginning of the circle condition so adding it back.
       height = minValue + 'px';
       width = minValue + 'px';
