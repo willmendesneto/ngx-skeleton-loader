@@ -6,7 +6,7 @@ import {
   Input,
   OnChanges,
   Optional,
-  Renderer2, VERSION, ViewContainerRef
+  VERSION, ViewContainerRef
 } from '@angular/core';
 import {
   NGX_SKELETON_LOADER_CONFIG,
@@ -32,7 +32,6 @@ export class SkeletonLoaderDirective implements OnChanges {
     private componentFactoryResolver: ComponentFactoryResolver,
     private vr: ViewContainerRef,
     private el: ElementRef,
-    private renderer: Renderer2,
     @Inject(NGX_SKELETON_LOADER_CONFIG)
     @Optional()
     private config?: NgxSkeletonLoaderConfig
@@ -47,12 +46,12 @@ export class SkeletonLoaderDirective implements OnChanges {
       // This is an experimental feature -  remove this when it causes unexpected behavior
       replaceElement = this.el.nativeElement.parentElement;
     }
-    ;
+
     const { height, width } = this.computeDimensions(replaceElement);
 
     if (this.skeletonShow) {
 
-      let comp = null;
+      let comp;
 
       if (Number.parseInt(VERSION.major) >= 13) {
         comp = this.vr.createComponent(NgxSkeletonLoaderComponent);
