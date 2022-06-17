@@ -171,8 +171,7 @@ you need to apply the style changes on the
 
 ## Using Skeleton as Attribute
 
-Dynamically computes the target component's height & width, and replaces with Skeleton Loader.
-This can reduces the amount of dummy layout code.
+Dynamically computes the target component's height & width, and replaces it with Skeleton Loader. This reduces the amount of dummy layout codes.
 
 **Attribute:**
 
