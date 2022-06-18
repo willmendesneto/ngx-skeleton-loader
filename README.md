@@ -175,13 +175,13 @@ Dynamically computes the target component's height & width, and replaces it with
 
 **Attribute:**
 
-| name                 | values                                                                | comment                                                                        |
-|----------------------|-----------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| `skeletonShow`       | boolean<br/> - `true` <br/> - `false` (default)                       | Displays the skeleton                                                          |
-| `skeletonType`       | string <br/> - `line` (default)<br/> - `circle`                       | Displays the line or circle                                                    |
-| `skeletonStyle`      | ngStyle or theme object <br/> `{height: '10px', marginRight: '10px'}` | Appends to the Global Theme defined in the app.module.ts in the `forRoot(...)` |
-| `skeletonCount`      | Integer - Default is 1                                                | Repeats the loader component                                                   |
-| `skeletonUseParent`  | boolean<br/> - `true` <br/> - `false` (default)                       | *(Experimental)* - Uses  parent height and width                               | 
+| name                | values                                                                | comment                                                                        |
+|---------------------|-----------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| `ngxSkeletonShow`   | boolean<br/> - `true` <br/> - `false` (default)                       | Displays the skeleton                                                          |
+| `ngxSkeletonType`      | string <br/> - `line` (default)<br/> - `circle`                       | Displays the line or circle                                                    |
+| `ngxSkeletonStyle`     | ngStyle or theme object <br/> `{height: '10px', marginRight: '10px'}` | Appends to the Global Theme defined in the app.module.ts in the `forRoot(...)` |
+| `ngxSkeletonCount`     | Integer - Default is 1                                                | Repeats the loader component                                                   |
+| `ngxSkeletonUseParent` | boolean<br/> - `true` <br/> - `false` (default)                       | *(Experimental)* - Uses  parent height and width                               | 
 
 
 **Template:**
@@ -193,22 +193,22 @@ Dynamically computes the target component's height & width, and replaces it with
         <div class="d-flex flex-row bd-highlight mb-3">
           <div class="pe-3">
             <img src="..."
-                 [skeletonShow]="loading"
-                 [skeletonType]="'circle'"
+                 [ngxSkeletonShow]="loading"
+                 [ngxSkeletonType]="'circle'"
                  class="rounded-circle" alt="..." width="80px">
           </div>
           <div class="d-flex flex-column mt-3">
-            <h5 class="card-title" [skeletonShow]="loading" [skeletonStyle]="{display: 'block'}">Dinesh Srinivasan</h5>
-            <p class="card-text" [skeletonShow]="loading" [skeletonStyle]="{display: 'block'}">Engineering Manager</p>
+            <h5 class="card-title" [ngxSkeletonShow]="loading" [ngxSkeletonStyle]="{display: 'block'}">Dinesh Srini</h5>
+            <p class="card-text" [ngxSkeletonShow]="loading" [ngxSkeletonStyle]="{display: 'block'}">Engineering Manager</p>
           </div>
         </div>
       </div>
       <div class="card-body">
-        <h5 class="card-title" [skeletonShow]="loading">Card title</h5>
-        <p class="card-text" [skeletonShow]="loading">Some quick example text to build on the card title and make up the
+        <h5 class="card-title" [ngxSkeletonShow]="loading">Card title</h5>
+        <p class="card-text" [ngxSkeletonShow]="loading">Some quick example text to build on the card title and make up the
           bulk of the card's
           content.</p>
-        <a href="#" class="btn btn-primary" [skeletonShow]="loading">Go somewhere</a>
+        <a href="#" class="btn btn-primary" [ngxSkeletonShow]="loading">Go somewhere</a>
       </div>
     </div>
 ```
