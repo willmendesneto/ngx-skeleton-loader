@@ -15,15 +15,15 @@ import {
 import { NgxSkeletonLoaderComponent } from "../ngx-skeleton-loader.component";
 
 @Directive({
-  selector: '[skeletonShow], [skeletonStyle], [skeletonCount], [skeletonType], [skeletonUseParent]',
+  selector: '[ngxSkeletonShow], [ngxSkeletonStyle], [ngxSkeletonCount], [ngxSkeletonType], [ngxSkeletonUseParent]',
 })
 export class SkeletonLoaderDirective implements OnChanges {
 
-  @Input() skeletonStyle: NgxSkeletonLoaderConfig['theme'] = { display: 'block'};
-  @Input() skeletonCount: NgxSkeletonLoaderConfig['count'] = 1;
-  @Input() skeletonType: NgxSkeletonLoaderConfig['appearance'] = 'line';
-  @Input() skeletonShow: boolean = false;
-  @Input() skeletonUseParent: boolean = false; // experimental
+  @Input() ngxSkeletonStyle: NgxSkeletonLoaderConfig['theme'] = { display: 'block'};
+  @Input() ngxSkeletonCount: NgxSkeletonLoaderConfig['count'] = 1;
+  @Input() ngxSkeletonType: NgxSkeletonLoaderConfig['appearance'] = 'line';
+  @Input() ngxSkeletonShow: boolean = false;
+  @Input() ngxSkeletonUseParent: boolean = false; // experimental
   defaultHeight = '25px';
   defaultWidth = '100%';
 
@@ -41,28 +41,28 @@ export class SkeletonLoaderDirective implements OnChanges {
     const nativeElement = this.el.nativeElement;
     let replaceElement = this.el.nativeElement;
 
-    if (this.skeletonUseParent) {
+    if (this.ngxSkeletonUseParent) {
       // This is an experimental feature -  remove this when it causes unexpected behavior
       replaceElement = this.el.nativeElement.parentElement;
     }
 
     const { height, width } = this.computeDimensions(replaceElement);
 
-    if (this.skeletonShow) {
+    if (this.ngxSkeletonShow) {
 
       let comp = this.vr.createComponent(NgxSkeletonLoaderComponent);
-      
+
       nativeElement.style.display = 'none';
 
       comp.instance.theme = {
         // Maintain the same order for preserving Style precedence
         ...this.config?.theme,
-        ...this.skeletonStyle,
+        ...this.ngxSkeletonStyle,
         height,
         width,
       };
-      comp.instance.count = this.skeletonCount;
-      comp.instance.appearance = this.skeletonType;
+      comp.instance.count = this.ngxSkeletonCount;
+      comp.instance.appearance = this.ngxSkeletonType;
     } else {
       this.vr.clear();
       nativeElement.style.display = '';
@@ -73,12 +73,12 @@ export class SkeletonLoaderDirective implements OnChanges {
     height: string;
     width: string;
   } {
-    let height = this.skeletonStyle?.height
-      ? this.skeletonStyle.height
+    let height = this.ngxSkeletonStyle?.height
+      ? this.ngxSkeletonStyle.height
       : replaceElement.offsetHeight - ( replaceElement.offsetHeight * (10 / 100)) + 'px'; // reduce 10% height to prevent content jumping
 
-    let width = this.skeletonStyle?.width
-      ? this.skeletonStyle.width
+    let width = this.ngxSkeletonStyle?.width
+      ? this.ngxSkeletonStyle.width
       : replaceElement.offsetWidth + 'px';
 
     if (height === 0 || height === '0px') {
@@ -87,12 +87,12 @@ export class SkeletonLoaderDirective implements OnChanges {
     if (width === 0 || width === '0px') {
       width = this.defaultWidth;
     }
-    if (this.skeletonType === 'circle') {
+    if (this.ngxSkeletonType === 'circle') {
       let minValue = Math.min(parseFloat(height), parseFloat(width));
-      if (this.skeletonStyle?.height || this.skeletonStyle?.width) {
+      if (this.ngxSkeletonStyle?.height || this.ngxSkeletonStyle?.width) {
         const inputHW = Math.max(
-          isNaN(parseFloat(this.skeletonStyle?.height)) ? 0 : parseFloat(this.skeletonStyle?.height),
-          isNaN(parseFloat(this.skeletonStyle?.width)) ? 0 : parseFloat(this.skeletonStyle?.width));
+          isNaN(parseFloat(this.ngxSkeletonStyle?.height)) ? 0 : parseFloat(this.ngxSkeletonStyle?.height),
+          isNaN(parseFloat(this.ngxSkeletonStyle?.width)) ? 0 : parseFloat(this.ngxSkeletonStyle?.width));
         minValue = inputHW === 0 ? minValue : inputHW;
       }
       minValue = minValue - ( minValue * (5 / 100)); // reduce 5% height to prevent content jumping

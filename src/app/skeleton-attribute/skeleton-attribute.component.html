@@ -14,33 +14,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a [skeletonShow]="loading"
-                 [skeletonStyle]="{
-                     backgroundColor: 'rgba(85,149,245,0.5)',
-                     height: '30px',
-                     marginRight: '10px',
-                     marginTop: '10px'
-                   }"
+              <a [ngxSkeletonShow]="loading"
+                 [ngxSkeletonStyle]="menuStyle"
                  class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a [skeletonShow]="loading"
-                 [skeletonStyle]="{
-                     backgroundColor: 'rgba(85,149,245,0.5)',
-                     height: '30px',
-                     marginRight: '10px',
-                     marginTop: '10px'
-                   }"
+              <a [ngxSkeletonShow]="loading"
+                 [ngxSkeletonStyle]="menuStyle"
                  class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item dropdown">
-              <a [skeletonShow]="loading"
-                 [skeletonStyle]="{
-                     backgroundColor: 'rgba(85,149,245,0.5)',
-                     height: '30px',
-                     marginRight: '10px',
-                     marginTop: '10px'
-                   }"
+              <a [ngxSkeletonShow]="loading"
+                 [ngxSkeletonStyle]="menuStyle"
                  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">
                 Dropdown
@@ -56,32 +41,18 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a [skeletonShow]="loading"
-                 [skeletonStyle]="{
-                     backgroundColor: 'rgba(85,149,245,0.5)',
-                     height: '30px',
-                     marginRight: '10px',
-                     marginTop: '10px'
-                   }"
+              <a [ngxSkeletonShow]="loading"
+                 [ngxSkeletonStyle]="menuStyle"
                  class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
           </ul>
           <form class="d-flex">
-            <input [skeletonShow]="loading"
-                   [skeletonStyle]="{
-                     backgroundColor: 'rgba(85,149,245,0.5)',
-                     height: '30px',
-                     marginRight: '10px',
-                     marginTop: '10px'
-                   }"
+            <input [ngxSkeletonShow]="loading"
+                   [ngxSkeletonStyle]="menuStyle"
                    class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button
-              [skeletonShow]="loading"
-              [skeletonStyle]="{
-                     backgroundColor: 'rgba(85,149,245,0.5)',
-                     marginTop: '10px',
-                     height: '30px'
-                   }"
+              [ngxSkeletonShow]="loading"
+              [ngxSkeletonStyle]="menuStyle"
               class="btn btn-outline-light" type="submit">Search
             </button>
           </form>
@@ -104,7 +75,7 @@
         <app-picture-cards
           imgUrl="https://www.w3schools.com/w3images/avatar2.png"
           name="Dinesh Srini"
-          title="Developer"
+          title="Engineering Manager"
           [loading]="loading"
         ></app-picture-cards>
       </div>
@@ -132,9 +103,9 @@
 <ng-template #cards>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title" [skeletonShow]="loading">Special title treatment</h5>
-      <p class="card-text" [skeletonShow]="loading">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary" [skeletonShow]="loading">Go somewhere</a>
+      <h5 class="card-title" [ngxSkeletonShow]="loading">Special title treatment</h5>
+      <p class="card-text" [ngxSkeletonShow]="loading">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary" [ngxSkeletonShow]="loading">Go somewhere</a>
     </div>
   </div>
 </ng-template>
