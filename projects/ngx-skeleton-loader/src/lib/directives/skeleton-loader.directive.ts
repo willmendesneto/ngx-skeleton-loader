@@ -5,13 +5,9 @@ import {
   Inject,
   Input,
   OnChanges,
-  Optional,
   ViewContainerRef
 } from '@angular/core';
-import {
-  NGX_SKELETON_LOADER_CONFIG,
-  NgxSkeletonLoaderConfig,
-} from "../ngx-skeleton-loader-config.types";
+import { NGX_SKELETON_LOADER_CONFIG, NgxSkeletonLoaderConfig, } from "../ngx-skeleton-loader-config.types";
 import { NgxSkeletonLoaderComponent } from "../ngx-skeleton-loader.component";
 
 @Directive({
@@ -19,7 +15,7 @@ import { NgxSkeletonLoaderComponent } from "../ngx-skeleton-loader.component";
 })
 export class SkeletonLoaderDirective implements OnChanges {
 
-  @Input() ngxSkeletonStyle: NgxSkeletonLoaderConfig['theme'] = { display: 'block'};
+  @Input() ngxSkeletonStyle: NgxSkeletonLoaderConfig['theme'] = { display: 'block' };
   @Input() ngxSkeletonCount: NgxSkeletonLoaderConfig['count'] = 1;
   @Input() ngxSkeletonType: NgxSkeletonLoaderConfig['appearance'] = 'line';
   @Input() ngxSkeletonShow: boolean = false;
@@ -31,9 +27,7 @@ export class SkeletonLoaderDirective implements OnChanges {
     private componentFactoryResolver: ComponentFactoryResolver,
     private vr: ViewContainerRef,
     private el: ElementRef,
-    @Inject(NGX_SKELETON_LOADER_CONFIG)
-    @Optional()
-    private config?: NgxSkeletonLoaderConfig
+    @Inject(NGX_SKELETON_LOADER_CONFIG) private config?: NgxSkeletonLoaderConfig
   ) {
   }
 
@@ -75,7 +69,7 @@ export class SkeletonLoaderDirective implements OnChanges {
   } {
     let height = this.ngxSkeletonStyle?.height
       ? this.ngxSkeletonStyle.height
-      : replaceElement.offsetHeight - ( replaceElement.offsetHeight * (10 / 100)) + 'px'; // reduce 10% height to prevent content jumping
+      : replaceElement.offsetHeight - (replaceElement.offsetHeight * (10 / 100)) + 'px'; // reduce 10% height to prevent content jumping
 
     let width = this.ngxSkeletonStyle?.width
       ? this.ngxSkeletonStyle.width
@@ -95,7 +89,7 @@ export class SkeletonLoaderDirective implements OnChanges {
           isNaN(parseFloat(this.ngxSkeletonStyle?.width)) ? 0 : parseFloat(this.ngxSkeletonStyle?.width));
         minValue = inputHW === 0 ? minValue : inputHW;
       }
-      minValue = minValue - ( minValue * (5 / 100)); // reduce 5% height to prevent content jumping
+      minValue = minValue - (minValue * (5 / 100)); // reduce 5% height to prevent content jumping
       // We removed the units in the beginning of the circle condition so adding it back.
       height = minValue + 'px';
       width = minValue + 'px';
