@@ -1,10 +1,12 @@
+import { NgForOf } from '@angular/common';
 import {
   ComponentFactoryResolver,
   Directive,
   ElementRef,
+  Host,
   Inject,
   Input,
-  OnChanges,
+  OnChanges, Optional,
   ViewContainerRef
 } from '@angular/core';
 import { NGX_SKELETON_LOADER_CONFIG, NgxSkeletonLoaderConfig, } from "../ngx-skeleton-loader-config.types";
@@ -27,7 +29,7 @@ export class SkeletonLoaderDirective implements OnChanges {
     private componentFactoryResolver: ComponentFactoryResolver,
     private vr: ViewContainerRef,
     private el: ElementRef,
-    @Inject(NGX_SKELETON_LOADER_CONFIG) private config?: NgxSkeletonLoaderConfig
+    @Optional() @Inject(NGX_SKELETON_LOADER_CONFIG) private config?: NgxSkeletonLoaderConfig
   ) {
   }
 
