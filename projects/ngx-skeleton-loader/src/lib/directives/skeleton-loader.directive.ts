@@ -1,9 +1,7 @@
-import { NgForOf } from '@angular/common';
 import {
   ComponentFactoryResolver,
   Directive,
   ElementRef,
-  Host,
   Inject,
   Input,
   OnChanges, Optional,
