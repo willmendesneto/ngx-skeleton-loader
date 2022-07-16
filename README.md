@@ -275,7 +275,7 @@ You can apply theme changes in our stylesheet. At the end it will be
 
 ### Publish
 
-this project is using `np` package to publish, which makes things straightforward. EX: `np <patch|minor|major> --contents=dist/ngx-skeleton-loader`
+this project is using `np` package to publish, which makes things straightforward. EX: `npx np <patch|minor|major> --no-yarn --no-cleanup --contents=dist/ngx-skeleton-loader`
 
 > For more details, [please check np package on npmjs.com](https://www.npmjs.com/package/np)
 
