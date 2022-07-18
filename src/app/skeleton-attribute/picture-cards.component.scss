@@ -1,0 +1,74 @@
+h5 {
+  display: block;
+  font-size: 20px;
+  margin-block-start: .5em;
+  margin-block-end: .5em;
+}
+
+p {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+
+  .card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+  }
+
+  .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+  }
+}
+
+.rounded-circle {
+  height: 80px;
+  width: 80px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.bd-highlight {
+  background-color: #faf4f4;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+  justify-content: start;
+}
+
+.flex-column {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pe-3 {
+  padding-right: 1.6em;
+}
+
+.mt-3 {
+  margin-top: 1.6em;
+}
+
+.mb-3 {
+  margin-bottom: 0.5em;
+}
+

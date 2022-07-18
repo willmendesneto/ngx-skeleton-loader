@@ -183,6 +183,15 @@ Dynamically computes the target component's height & width, and replaces it with
 | `ngxSkeletonCount`     | Integer - Default is 1                                                | Repeats the loader component                                                   |
 | `ngxSkeletonUseParent` | boolean<br/> - `true` <br/> - `false` (default)                       | *(Experimental)* - Uses  parent height and width                               | 
 
+**Pipe:**
+
+`skeletonRepeat` - An utility pipe substitutes with a dummy array when the actual array is not available.
+
+```html
+<div ngFor="let i in items | skeletonRepeat=10">
+  
+</div>
+```
 
 **Template:**
 ```html
