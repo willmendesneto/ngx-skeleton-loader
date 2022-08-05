@@ -35,7 +35,7 @@ describe('NgxSkeletonLoaderModule method', () => {
   );
 
   it('should render the component properly using given forRoot() config', () => {
-    expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader.circle').length).toBe(3);
+    expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .skeleton-loader.circle').length).toBe(3);
   });
 
   it('should NOT call console.error() method', () => {
