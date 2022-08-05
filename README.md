@@ -253,7 +253,7 @@ You can apply theme changes in our stylesheet. At the end it will be
  * You can find more details about `:host` at
  * Angular Component Style Docs https://angular.io/guide/component-styles#host
  */
-:host >>> ngx-skeleton-loader .loader {
+:host >>> ngx-skeleton-loader .skeleton-loader {
   border-radius: 5px;
   height: 50px;
   background-color: #992929;
