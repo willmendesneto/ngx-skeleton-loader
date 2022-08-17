@@ -88,6 +88,11 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       }
       this.count = 1;
     }
+
+    //Force count to 1 when customContent is used
+    if (this.appearance === 'customContent'){
+      this.count = 1;
+    }
     this.items.length = this.count;
 
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
