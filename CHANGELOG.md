@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Updated
+
+- Adding Publishing setup using NPX
+- Replacing CSS class namespace from `.loader` to `.skeleton-loader`
+
+#### Breaking Change
+
+The CSS class used as namespace was changed. Previously, it was called `.loader` and now is `.skeleton-loader`. It might cause some issues in cases of `:host` DOM style scoping usage. For the sake of semantic versioning, please bear in mind this scenario in case of `:host` usage.
+
 ## [5.0.0][] - 2022-02-08
 
 ### Updated
@@ -493,7 +502,5 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v4.0.0...HEAD
 [4.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v3.0.0...v4.0.0
 [3.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v3.0.0
-
-
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v5.0.0...HEAD
+[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v5.0.0...HEAD
 [5.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v5.0.0
