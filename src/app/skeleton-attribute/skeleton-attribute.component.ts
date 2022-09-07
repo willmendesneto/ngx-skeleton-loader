@@ -8,7 +8,7 @@ import {
   templateUrl: './skeleton-attribute.component.html',
   styleUrls: ['./skeleton-attribute.component.scss']
 })
-export class SkeletonAttributeComponent implements OnInit {
+export class SkeletonAttributeComponent {
 
   loading: boolean = true;
   menuStyle: NgxSkeletonLoaderConfigTheme = {
@@ -18,12 +18,6 @@ export class SkeletonAttributeComponent implements OnInit {
     marginTop: 'auto',
     top: '22%'
   };
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   toggleLoading() {
     this.loading = !this.loading;

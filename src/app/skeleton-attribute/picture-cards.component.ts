@@ -30,7 +30,7 @@ import { Component, Input, OnInit } from '@angular/core';
   `,
   styleUrls:['./picture-cards.component.scss']
 })
-export class PictureCardsComponent implements OnInit {
+export class PictureCardsComponent {
 
   @Input()
   imgUrl: string = '';
@@ -40,11 +40,5 @@ export class PictureCardsComponent implements OnInit {
   title: string = '';
   @Input()
   loading: boolean = false;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
 
 }

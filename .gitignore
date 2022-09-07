@@ -47,4 +47,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/projects/ngx-skeleton-loader/node_modules/
