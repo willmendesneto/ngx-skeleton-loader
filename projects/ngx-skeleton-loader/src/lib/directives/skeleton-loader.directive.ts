@@ -63,7 +63,10 @@ export class SkeletonLoaderDirective implements OnChanges {
     }
   }
 
-  private computeDimensions(replaceElement: any): {
+  private computeDimensions(replaceElement: {
+    offsetHeight: number;
+    offsetWidth: number;
+  }): {
     height: string;
     width: string;
   } {
