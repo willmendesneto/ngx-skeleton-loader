@@ -91,8 +91,6 @@ export class SkeletonLoaderDirective implements OnChanges {
           parseFloat(this.ngxSkeletonStyle?.height ?? 0),
           parseFloat(this.ngxSkeletonStyle?.width ?? 0)
         );
-          isNaN(parseFloat(this.ngxSkeletonStyle?.height)) ? 0 : parseFloat(this.ngxSkeletonStyle?.height),
-          isNaN(parseFloat(this.ngxSkeletonStyle?.width)) ? 0 : parseFloat(this.ngxSkeletonStyle?.width));
         minValue = inputHW === 0 ? minValue : inputHW;
       }
       minValue = minValue - (minValue * (5 / 100)); // reduce 5% height to prevent content jumping
