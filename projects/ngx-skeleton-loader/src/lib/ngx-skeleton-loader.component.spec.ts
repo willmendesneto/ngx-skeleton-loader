@@ -137,12 +137,12 @@ describe('NgxSkeletonLoaderComponent', () => {
     });
 
     it('should use progress as default animation if `animation` is not passed as component attribute', () => {
-      expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader.progress').length).toBe(1);
+      expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .skeleton-loader.progress').length).toBe(1);
     });
 
     describe('When skeleton is created using default settings', () => {
       it('should render a single skeleton', () => {
-        expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .loader').length).toBe(1);
+        expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .skeleton-loader').length).toBe(1);
       });
     });
 
@@ -154,13 +154,13 @@ describe('NgxSkeletonLoaderComponent', () => {
 
     describe('When skeleton is created with count', () => {
       it('should render skeleton based on given count attribute', () => {
-        expect(fixture.nativeElement.querySelectorAll('.skeletons-with-count .loader').length).toBe(2);
+        expect(fixture.nativeElement.querySelectorAll('.skeletons-with-count .skeleton-loader').length).toBe(2);
       });
     });
 
     describe('When skeleton is created with circle appearance', () => {
       it('should add styles based on circle class on the skeleton components', () => {
-        expect(fixture.nativeElement.querySelectorAll('.skeletons-appearance-circle .loader.circle').length).toBe(1);
+        expect(fixture.nativeElement.querySelectorAll('.skeletons-appearance-circle .skeleton-loader.circle').length).toBe(1);
       });
     });
 
@@ -173,14 +173,14 @@ describe('NgxSkeletonLoaderComponent', () => {
     describe('When skeleton is created without animation', () => {
       it('should NOT add progress animation styles based on animation class on the skeleton components', () => {
         expect(
-          fixture.nativeElement.querySelectorAll('.skeletons-animation-no-animation .loader:not(.animation)').length,
+          fixture.nativeElement.querySelectorAll('.skeletons-animation-no-animation .skeleton-loader:not(.animation)').length,
         ).toBe(1);
       });
 
       it('should NOT add progress animation styles based on animation class if animation value is passed via binding', () => {
         expect(
           fixture.nativeElement.querySelectorAll(
-            '.skeletons-animation-no-animation-via-binding .loader:not(.animation)',
+            '.skeletons-animation-no-animation-via-binding .skeleton-loader:not(.animation)',
           ).length,
         ).toBe(1);
       });
@@ -188,27 +188,27 @@ describe('NgxSkeletonLoaderComponent', () => {
 
     describe('When skeleton is created using `pulse` as animation', () => {
       it('should add pulse animation styles based on animation class on the skeleton components', () => {
-        expect(fixture.nativeElement.querySelectorAll('.skeletons-animation-pulse .loader.pulse').length).toBe(1);
+        expect(fixture.nativeElement.querySelectorAll('.skeletons-animation-pulse .skeleton-loader.pulse').length).toBe(1);
       });
     });
 
     describe('When skeleton is created using `progress-dark` as animation', () => {
       it('should add progress-dark animation styles based on animation class on the skeleton components', () => {
         expect(
-          fixture.nativeElement.querySelectorAll('.skeletons-animation-progress-dark .loader.progress-dark').length,
+          fixture.nativeElement.querySelectorAll('.skeletons-animation-progress-dark .skeleton-loader.progress-dark').length,
         ).toBe(1);
       });
     });
 
     describe('When skeleton is created using `progress` as animation', () => {
       it('should add progress animation styles based on animation class on the skeleton components', () => {
-        expect(fixture.nativeElement.querySelectorAll('.skeletons-animation-progress .loader.progress').length).toBe(1);
+        expect(fixture.nativeElement.querySelectorAll('.skeletons-animation-progress .skeleton-loader.progress').length).toBe(1);
       });
     });
 
     describe('When skeleton is created with theming', () => {
       it('should render skeleton with styles based on theme attribute', () => {
-        const skeletonWithTheming = fixture.nativeElement.querySelector('.skeletons-with-theming .loader.circle')
+        const skeletonWithTheming = fixture.nativeElement.querySelector('.skeletons-with-theming .skeleton-loader.circle')
           .attributes as NamedNodeMap;
 
         expect((skeletonWithTheming.getNamedItem('style') as Attr).value).toBe(
@@ -233,7 +233,7 @@ describe('NgxSkeletonLoaderComponent', () => {
     );
 
     it('should render skeleton with the provided config', () => {
-      expect(fixture.nativeElement.querySelectorAll('.skeletons-with-provided-config .loader.circle').length).toBe(3);
+      expect(fixture.nativeElement.querySelectorAll('.skeletons-with-provided-config .skeleton-loader.circle').length).toBe(3);
     });
   });
 });
