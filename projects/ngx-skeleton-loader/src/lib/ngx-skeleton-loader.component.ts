@@ -89,17 +89,15 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       this.count = 1;
     }
 
-    //Force count to 1 when customContent is used
-if (this.appearance === 'custom-content'){
-	// Shows error message only in Development
-	if (isDevMode() && this.count !== 1) {
-		console.error(
-			`\`NgxSkeletonLoaderComponent\` enforces elements with "custom-content" appearance as DOM nodes. Forcing "count" to "1".`,
-		);
-		this.count = 1;
-	}
-}
-      this.count = 1;
+    //Force count to 1 when custom-content is used
+    if (this.appearance === 'custom-content') {
+      // Shows error message only in Development
+      if (isDevMode() && this.count !== 1) {
+        console.error(
+          `\`NgxSkeletonLoaderComponent\` enforces elements with "custom-content" appearance as DOM nodes. Forcing "count" to "1".`,
+        );
+        this.count = 1;
+      }
     }
     this.items.length = this.count;
 
@@ -120,7 +118,7 @@ if (this.appearance === 'custom-content'){
       // Shows error message only in Development
       if (isDevMode()) {
         console.error(
-          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or customContent or empty string. Forcing default to "''".`,
+          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or custom-content or empty string. Forcing default to "''".`,
         );
       }
       this.appearance = '';
