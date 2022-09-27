@@ -116,7 +116,7 @@ if (this.appearance === 'custom-content'){
       this.animation = 'progress';
     }
 
-    if (['circle', 'line', 'customContent', ''].indexOf(String(this.appearance)) === -1) {
+    if (['circle', 'line', 'custom-content', ''].indexOf(String(this.appearance)) === -1) {
       // Shows error message only in Development
       if (isDevMode()) {
         console.error(
