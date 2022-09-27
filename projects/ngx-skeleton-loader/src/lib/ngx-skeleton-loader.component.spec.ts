@@ -166,7 +166,7 @@ describe('NgxSkeletonLoaderComponent', () => {
 
     describe('When skeleton is created with custom-content appearance', () => {
       it('should use the content inside', () => {
-        expect(fixture.nativeElement.querySelector('.skeletons-appearance-custom-content .loader.customContent').innerHTML.length).toBeGreaterThan(0);
+        expect(fixture.nativeElement.querySelector('.skeletons-appearance-custom-content .skeleton-loader.custom-content').innerHTML.length).toBeGreaterThan(0);
       });
     });
 
