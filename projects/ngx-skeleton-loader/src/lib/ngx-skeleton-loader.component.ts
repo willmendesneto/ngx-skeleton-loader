@@ -90,7 +90,15 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
     }
 
     //Force count to 1 when customContent is used
-    if (this.appearance === 'customContent'){
+if (this.appearance === 'custom-content'){
+	// Shows error message only in Development
+	if (isDevMode() && this.count !== 1) {
+		console.error(
+			`\`NgxSkeletonLoaderComponent\` enforces elements with "custom-content" appearance as DOM nodes. Forcing "count" to "1".`,
+		);
+		this.count = 1;
+	}
+}
       this.count = 1;
     }
     this.items.length = this.count;
