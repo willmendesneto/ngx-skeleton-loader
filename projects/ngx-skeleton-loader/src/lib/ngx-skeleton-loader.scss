@@ -112,6 +112,12 @@
       background-image: none;
     }
   }
+
+  //For custom-content mark height to 100% and remove the background
+  .custom-content {
+    height:  100%;
+    background: none;
+  }
 }
 
 // CSS Animation Keyframes
