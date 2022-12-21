@@ -1,8 +1,8 @@
-version: 2
+version: 2.1
 
 docker_defaults: &docker_defaults
   docker:
-    - image: circleci/node:14.18.2-browsers
+    - image: cimg/node:14.20.0-browsers
   working_directory: ~/project/repo
 
 attach_workspace: &attach_workspace
@@ -49,6 +49,8 @@ workflows:
       # - end_to_end:
       #     requires:
       #         - build
+orbs:
+  browser-tools: circleci/browser-tools@1.4.0
 jobs:
   build:
     <<: *docker_defaults
@@ -57,11 +59,14 @@ jobs:
     <<: *docker_defaults
     steps:
       - *attach_workspace
+      - browser-tools/install-chrome
       - run:
           name: Running unit tests
           command: |
-            sudo npm run lint
-            sudo npm test
+            npm run lint
+            npm test
+          environment:
+            CHROME_BIN: /usr/bin/google-chrome
   # To be added back in later
   # sudo npm run coveralls
   build_ssr:
