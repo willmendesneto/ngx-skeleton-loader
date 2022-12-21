@@ -200,6 +200,5 @@
         }
       }
     }
-  },
-  "defaultProject": "ngx-skeleton-loader-demo"
+  }
 }
