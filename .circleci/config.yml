@@ -3,6 +3,9 @@ version: 2.1
 docker_defaults: &docker_defaults
   docker:
     - image: cimg/node:14.20.0-browsers
+      environment:
+        NG_CLI_ANALYTICS: false
+
   working_directory: ~/project/repo
 
 attach_workspace: &attach_workspace
@@ -74,24 +77,20 @@ jobs:
     steps:
       - *attach_workspace
       - run:
-          environment:
-            NG_CLI_ANALYTICS: "false"
           name: Building for Angular Universal
           command: |
-            sudo NG_CLI_ANALYTICS="false" npm rebuild
-            sudo npm run build:ssr
+            npm rebuild
+            npm run build:ssr
   bundle_size:
     <<: *docker_defaults
     steps:
       - *attach_workspace
       - run:
-          environment:
-            NG_CLI_ANALYTICS: "false"
           name: Checking bundle size
           command: |
-            sudo NG_CLI_ANALYTICS="false" npm rebuild
-            sudo npm run build:pkg
-            sudo npm run bundlesize
+            npm rebuild
+            npm run build:pkg
+            npm run bundlesize
   # end_to_end:
   #     <<: *docker_defaults
   #     steps:
