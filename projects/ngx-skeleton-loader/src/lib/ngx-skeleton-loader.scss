@@ -97,18 +97,26 @@
     animation-delay: 0.5s;
   }
 
+  //For custom-content mark height to 100% and remove the background
+  &.custom-content {
+    height: 100%;
+    background: none;
+  }
+
   // Removing animation if user enabled the `Reduce Motion` option
   // via operational system and/or browser
   // More details about `prefers-reduced-motion` in https://web.dev/prefers-reduced-motion/
   @media (prefers-reduced-motion: reduce) {
     &.pulse,
     &.progress-dark,
+    &.custom-content,
     &.progress {
       animation: none;
     }
 
     &.progress,
-    &.progress-dark {
+    &.progress-dark,
+    &.custom-content {
       background-image: none;
     }
   }

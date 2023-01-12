@@ -132,6 +132,7 @@ You can also define which appearance want to use in your skeleton loader by pass
 - `''` - _default_: it will use it `''` as appearance. At the end, it will render like a line;
 - `line`: it will render like a line. This is the same behavior as passing an empty string;
 - `circle`: it will use `circle` as appearance. Great for avatar skeletons, for example :);
+- `custom-content`: it will NOT add any appearance. Great for custom content, such as SVG, internal components and such;
 
 ## Animations
 

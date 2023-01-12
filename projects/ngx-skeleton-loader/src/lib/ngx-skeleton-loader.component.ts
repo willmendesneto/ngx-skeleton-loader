@@ -88,6 +88,17 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       }
       this.count = 1;
     }
+
+    //Force count to 1 when custom-content is used
+    if (this.appearance === 'custom-content') {
+      // Shows error message only in Development
+      if (isDevMode() && this.count !== 1) {
+        console.error(
+          `\`NgxSkeletonLoaderComponent\` enforces elements with "custom-content" appearance as DOM nodes. Forcing "count" to "1".`,
+        );
+        this.count = 1;
+      }
+    }
     this.items.length = this.count;
 
     const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
@@ -103,11 +114,11 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
       this.animation = 'progress';
     }
 
-    if (['circle', 'line', ''].indexOf(String(this.appearance)) === -1) {
+    if (['circle', 'line', 'custom-content', ''].indexOf(String(this.appearance)) === -1) {
       // Shows error message only in Development
       if (isDevMode()) {
         console.error(
-          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or empty string. Forcing default to "''".`,
+          `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or custom-content or empty string. Forcing default to "''".`,
         );
       }
       this.appearance = '';
