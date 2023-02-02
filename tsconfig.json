@@ -9,16 +9,26 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"],
+    "target": "ES2022",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
-      "ngx-skeleton-loader": ["dist/ngx-skeleton-loader"],
-      "ngx-skeleton-loader/*": ["dist/ngx-skeleton-loader/*"]
+      "ngx-skeleton-loader": [
+        "dist/ngx-skeleton-loader"
+      ],
+      "ngx-skeleton-loader/*": [
+        "dist/ngx-skeleton-loader/*"
+      ]
     },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
+    "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
