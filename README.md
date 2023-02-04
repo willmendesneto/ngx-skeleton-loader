@@ -124,7 +124,7 @@ export class YourAppComponent {}
 
 This method is also accepting the option of having a global theme and local theme inputs. You can enable it by passing `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* ...list of CSS atributes */} })` in your module. Quite simple, right? 😄
 
-By using that configuration in yuor application, you should also be aware that:
+By using that configuration in your application, you should also be aware that:
 
 - By default, every `<ngx-skeleton-loader>` component will use `theme` coming from `NgxSkeletonLoaderModule.forRoot()` as the source of truth
 - If there's any CSS attribute on the component locally which overrides the CSS spec, it combines both themes, but overriding global CSS attributes in favor of local ones.
@@ -149,7 +149,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
         // ... list of CSS theme attributes
         height: '30px',
       },
-    }),,
+    }),
     ...
   ],
   providers: [],

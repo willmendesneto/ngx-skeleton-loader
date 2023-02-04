@@ -9,8 +9,49 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
+- Adding support for extending global theme added via `NgxSkeletonLoaderModule.forRoot({ theme: /* ...list of CSS atributes */} })`
+
+By default when using `NgxSkeletonLoaderModule.forRoot({ theme: /* ...list of CSS atributes */} })` the application is using this value as source of truth, overriding any local theming passed to `<ngx-skeleton-loader>` component via `[theme]` input.
+
+By using `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* ...list of CSS atributes */} })` in your application, you should also be aware that:
+
+- By default, every `<ngx-skeleton-loader>` component will use `theme` coming from `NgxSkeletonLoaderModule.forRoot()` as the source of truth
+- If there's any CSS attribute on the component locally which overrides the CSS spec, it combines both themes, but overriding global CSS attributes in favor of local ones.
+
+```html
+<!-- 
+  // ... E.G: App is using this configuration below
+
+  NgxSkeletonLoaderModule.forRoot({
+    theme: {
+      // Enabliong theme combination
+      extendsFromRoot: true,
+      // ... list of CSS theme attributes
+      height: '30px',
+    },
+  }),
+-->
+
+<div class="item">
+  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <!-- above line will produce a skeleton component using `height: 30px;`" -->
+  <ngx-skeleton-loader [theme]="{background: 'blue'}"></ngx-skeleton-loader>
+  <!-- above line will produce a skeleton component using `height: 30px; background: blue;`" -->
+  <ngx-skeleton-loader [theme]="{height: '50px', background: 'red'}"></ngx-skeleton-loader>
+  <!-- above line will produce a skeleton component using `height: 50px; background: red;`" -->
+</div>
+```
+
 - Adding new `custom-content` appearance. From now on, consumers can now add their own content inside `<ng-skeleton-loader></ng-skeleton-loader>` component. So that, they can add some custom content, such as SVG, as an example
 - Adding examples for `custom-content` usage
+
+### Updated
+
+- Updagrading module to Angular v15
+
+### Fixed
+
+- Removing build warnings
 
 ## [6.0.0][] - 2022-08-18
 
