@@ -118,6 +118,59 @@ export class YourAppComponent {}
 </div>
 ```
 
+#### Extending `theme` via `NgxSkeletonLoaderModule.forRoot()`
+
+> By default when using `NgxSkeletonLoaderModule.forRoot({ theme: /* ...list of CSS atributes */} })` the application is using this value as source of truth, overriding any local theming passed to `<ngx-skeleton-loader>` component via `[theme]` input. Check these steps in case you need to change this behaviour in your app
+
+This method is also accepting the option of having a global theme and local theme inputs. You can enable it by passing `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* ...list of CSS atributes */} })` in your module. Quite simple, right? 😄
+
+By using that configuration in yuor application, you should also be aware that:
+
+- By default, every `<ngx-skeleton-loader>` component will use `theme` coming from `NgxSkeletonLoaderModule.forRoot()` as the source of truth
+- If there's any CSS attribute on the component locally which overrides the CSS spec, it combines both themes, but overriding global CSS attributes in favor of local ones.
+
+As an example:
+
+```typescript
+...
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+...
+
+@NgModule({
+  declarations: [
+    YourAppComponent
+  ],
+  imports: [
+    ...
+    NgxSkeletonLoaderModule.forRoot({
+      theme: {
+        // Enabliong theme combination
+        extendsFromRoot: true,
+        // ... list of CSS theme attributes
+        height: '30px',
+      },
+    }),,
+    ...
+  ],
+  providers: [],
+  bootstrap: [YourAppComponent]
+})
+
+export class YourAppComponent {}
+
+```
+
+```html
+<div class="item">
+  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <!-- above line will produce a skeleton component using `height: 30px;`" -->
+  <ngx-skeleton-loader [theme]="{background: 'blue'}"></ngx-skeleton-loader>
+  <!-- above line will produce a skeleton component using `height: 30px; background: red;`" -->
+  <ngx-skeleton-loader [theme]="{height: '50px', background: 'red'}"></ngx-skeleton-loader>
+  <!-- above line will produce a skeleton component using `height: 50px; background: red;`" -->
+</div>
+```
+
 ## WAI-ARIA values
 
 - loadingText - _default_ `Loading...`: attribute that defines the text value for `aria-valuetext` attribute. Defaults to "Loading..."

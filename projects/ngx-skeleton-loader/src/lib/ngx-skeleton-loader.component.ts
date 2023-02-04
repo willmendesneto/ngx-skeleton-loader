@@ -51,7 +51,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   items: Array<any>;
 
-  constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() config?: NgxSkeletonLoaderConfig) {
+  constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() private config?: NgxSkeletonLoaderConfig) {
     const {
       appearance = 'line',
       animation = 'progress',
@@ -122,6 +122,11 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
         );
       }
       this.appearance = '';
+    }
+
+    if (Boolean(this.config?.theme?.extendsFromRoot) && this.theme !== null) {
+      // Shows error message only in Development
+      this.theme = { ...this.config!.theme, ...this.theme };
     }
   }
 
