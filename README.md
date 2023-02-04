@@ -165,7 +165,7 @@ export class YourAppComponent {}
   <ngx-skeleton-loader></ngx-skeleton-loader>
   <!-- above line will produce a skeleton component using `height: 30px;`" -->
   <ngx-skeleton-loader [theme]="{background: 'blue'}"></ngx-skeleton-loader>
-  <!-- above line will produce a skeleton component using `height: 30px; background: red;`" -->
+  <!-- above line will produce a skeleton component using `height: 30px; background: blue;`" -->
   <ngx-skeleton-loader [theme]="{height: '50px', background: 'red'}"></ngx-skeleton-loader>
   <!-- above line will produce a skeleton component using `height: 50px; background: red;`" -->
 </div>
