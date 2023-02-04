@@ -8,7 +8,12 @@ import { NgxSkeletonLoaderModule } from '../../projects/ngx-skeleton-loader/src/
   declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    NgxSkeletonLoaderModule.forRoot()
+    NgxSkeletonLoaderModule.forRoot({
+      theme: {
+        extendsFromRoot: true,
+        height: '30px',
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
