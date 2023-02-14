@@ -9,8 +9,8 @@
   role="progressbar"
   tabindex="0"
   [ngClass]="{
-  'custom-content': appearance === 'custom-content',
-  circle: appearance === 'circle',
+    'custom-content': appearance === 'custom-content',
+    circle: appearance === 'circle',
     progress: animation === 'progress',
     'progress-dark': animation === 'progress-dark',
     pulse: animation === 'pulse'
@@ -19,7 +19,3 @@
 >
   <ng-content *ngIf="appearance  === 'custom-content'"></ng-content>
 </div>
-
-
-
-
