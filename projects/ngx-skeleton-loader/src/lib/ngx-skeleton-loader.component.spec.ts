@@ -136,7 +136,7 @@ describe('NgxSkeletonLoaderComponent', () => {
       expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(16);
       expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(16);
       expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(16);
-      expect(fixture.nativeElement.querySelectorAll('[tabindex="0"]').length).toBe(16);
+      expect(fixture.nativeElement.querySelectorAll('[tabindex="-1"]').length).toBe(16);
       expect(fixture.nativeElement.querySelectorAll('[aria-label="loading"]').length).toBe(16);
     });
 
