@@ -90,7 +90,6 @@ class ContainerComponent {
 }
 
 describe('NgxSkeletonLoaderComponent', () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let fixture: any;
   beforeEach(() => {
     spyOn(console, 'error');

@@ -25,9 +25,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
-  // eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle,id-blacklist,id-match
   static ngAcceptInputType_count: number | string;
-  // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
   static ngAcceptInputType_animation: boolean | string;
 
   @Input()
@@ -48,7 +46,6 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   @Input()
   theme: NgxSkeletonLoaderConfigTheme;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   items: Array<any>;
 
   constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() private config?: NgxSkeletonLoaderConfig) {
