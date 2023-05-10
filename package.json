@@ -47,7 +47,7 @@
   "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme",
   "bundlesize": [
     {
-      "path": "./dist/ngx-skeleton-loader/fesm2020/ngx-skeleton-loader.mjs",
+      "path": "./dist/ngx-skeleton-loader/fesm2022/ngx-skeleton-loader.mjs",
       "maxSize": "2.9KB"
     }
   ],
