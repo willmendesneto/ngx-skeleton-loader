@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Updated
+
+- Updating project to support Angular v16;
+- Updating NodeJS version to v18;
+- Updating peerDependencies to point to latest `@angular/*` packages;
+
+### Removed
+
+- Removing `perf-marks` dependency library;
+
 ## [7.0.0][] - 2023-02-04
 
 ### Added
@@ -556,7 +566,5 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [5.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v5.0.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v6.0.0...HEAD
 [6.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v6.0.0
-
-
 [Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v7.0.0...HEAD
 [7.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v7.0.0
