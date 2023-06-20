@@ -3,15 +3,12 @@ import {
   OnInit,
   Input,
   isDevMode,
-  OnDestroy,
-  AfterViewInit,
   ChangeDetectionStrategy,
   OnChanges,
   SimpleChanges,
   Optional,
   Inject,
 } from '@angular/core';
-import { start, end } from 'perf-marks/marks';
 import {
   NgxSkeletonLoaderConfig,
   NgxSkeletonLoaderConfigTheme,
@@ -24,7 +21,7 @@ import {
   styleUrls: ['./ngx-skeleton-loader.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
+export class NgxSkeletonLoaderComponent implements OnInit, OnChanges {
   static ngAcceptInputType_count: number | string;
   static ngAcceptInputType_animation: boolean | string;
 
@@ -68,9 +65,6 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
   }
 
   ngOnInit() {
-    start('NgxSkeletonLoader:Rendered');
-    start('NgxSkeletonLoader:Loaded');
-
     this.validateInputValues();
   }
 
@@ -141,13 +135,5 @@ export class NgxSkeletonLoaderComponent implements OnInit, AfterViewInit, OnDest
     }
 
     this.validateInputValues();
-  }
-
-  ngAfterViewInit() {
-    end('NgxSkeletonLoader:Rendered');
-  }
-
-  ngOnDestroy() {
-    end('NgxSkeletonLoader:Loaded');
   }
 }

@@ -21,7 +21,6 @@
     "animation"
   ],
   "dependencies": {
-    "perf-marks": "^1.13.4",
     "tslib": "^2.0.0"
   },
   "repository": {
