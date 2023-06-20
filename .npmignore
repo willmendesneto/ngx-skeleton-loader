@@ -2,3 +2,7 @@
 # System Files
 .DS_Store
 Thumbs.db
+
+# Folders
+.github/
+.prettierignore
