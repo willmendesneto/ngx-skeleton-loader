@@ -110,11 +110,11 @@
     &.pulse,
     &.progress-dark,
     &.custom-content,
-    &.progress {
+    &.progress::before  {
       animation: none;
     }
 
-    &.progress,
+    &.progress::before,
     &.progress-dark,
     &.custom-content {
       background-image: none;
