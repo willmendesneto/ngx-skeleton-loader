@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Fixing CSS reduce motion in MacOS;
+
 ## [8.0.0][] - 2023-06-20
 
 ### Updated
@@ -568,6 +572,8 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [5.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v5.0.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v6.0.0...HEAD
 [6.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v6.0.0
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.0...HEAD
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.2...HEAD
+[8.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.1...v8.0.2
+[8.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.0...v8.0.1
 [8.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v7.0.0...v8.0.0
 [7.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v7.0.0
