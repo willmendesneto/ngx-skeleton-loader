@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Fixing `README.md` docs
+
 ## [8.0.1][] - 2023-08-30
 
 ### Fixed
