@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [8.1.0][] - 2023-09-12
+
 ### Fixed
 
 - fixing issue with optional chaining not being supported on apps using Angular CLI <=v11;
@@ -588,7 +590,8 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [5.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v5.0.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v6.0.0...HEAD
 [6.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v6.0.0
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.2...HEAD
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.1.0...HEAD
+[8.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.2...v8.1.0
 [8.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.1...v8.0.2
 [8.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.2...v8.0.1
 [8.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.1...v8.0.2
