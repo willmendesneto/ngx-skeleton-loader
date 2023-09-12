@@ -115,11 +115,11 @@ export class NgxSkeletonLoaderComponent implements OnInit, OnChanges {
       this.appearance = '';
     }
 
-    // Optional chaining is only supported on Angular CLI v12
+    // This code is not using optional chaining since it's only supported on Angular CLI v12
     //  - more details in this comment https://github.com/angular/angular-cli/issues/20471#issuecomment-815599616
-    // So the main issue here is on the consumer's side.
-    // Options are use v6.0.0 or upgrade your Angular CLI to >= v12, as described in https://github.com/willmendesneto/ngx-skeleton-loader/issues/150#issuecomment-1638612329
-    if (Boolean(this.config?.theme?.extendsFromRoot) && this.theme !== null) {
+    // Which raises issues on the consumer's side. E.G: https://github.com/willmendesneto/ngx-skeleton-loader/issues/150#issuecomment-1638612329
+    const { theme } = this.config || {};
+    if (!!theme && !!theme.extendsFromRoot && this.theme !== null) {
       // Shows error message only in Development
       this.theme = { ...this.config!.theme, ...this.theme };
     }

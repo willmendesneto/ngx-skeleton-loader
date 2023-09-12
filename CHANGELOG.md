@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- fixing issue with optional chaining not being supported on apps using Angular CLI <=v11;
+
+### Updated
+
+- Updated input values validation in order to remove optional chaining. Instead, the code is now using object destructuring to get config theme value;
+
 ## [8.0.2][] - 2023-09-11
 
 ### Fixed
