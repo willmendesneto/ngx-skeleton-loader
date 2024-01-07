@@ -79,7 +79,7 @@ After that, you can use the `ngx-skeleton-loader` components in your templates, 
 
 ```html
 <div class="item">
-  <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+  <ngx-skeleton-loader count="5" appearance="circle" />
 </div>
 ```
 
@@ -113,7 +113,7 @@ export class YourAppComponent {}
 
 ```html
 <div class="item">
-  <ngx-skeleton-loader count="5" appearance="circle"></ngx-skeleton-loader>
+  <ngx-skeleton-loader count="5" appearance="circle" />
   <!-- above line will produce the rendering of 5 circles with the pulse animation and the aria-valuetext attribute set with "This item is actually loading..." -->
 </div>
 ```
@@ -162,14 +162,27 @@ export class YourAppComponent {}
 
 ```html
 <div class="item">
-  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <ngx-skeleton-loader />
   <!-- above line will produce a skeleton component using `height: 30px;`" -->
-  <ngx-skeleton-loader [theme]="{background: 'blue'}"></ngx-skeleton-loader>
+  <ngx-skeleton-loader [theme]="{background: 'blue'}" />
   <!-- above line will produce a skeleton component using `height: 30px; background: blue;`" -->
-  <ngx-skeleton-loader [theme]="{height: '50px', background: 'red'}"></ngx-skeleton-loader>
+  <ngx-skeleton-loader [theme]="{height: '50px', background: 'red'}" />
   <!-- above line will produce a skeleton component using `height: 50px; background: red;`" -->
 </div>
 ```
+
+## Angular 17+ Deferrable Views example
+
+```html
+<div class="item">
+  @defer {
+    <my-item-view />
+  } @placeholder (minimum 1000ms) {
+    <ngx-skeleton-loader />
+  }
+</div>
+```
+
 
 ## WAI-ARIA values
 
@@ -209,15 +222,15 @@ you need to apply the style changes on the
 -->
 <div class="item">
   <!-- Disables the animation -->
-  <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+  <ngx-skeleton-loader animation="false" />
   <!-- Disables the animation, but receiving boolean value from binding -->
   <!-- Via binding it can receive `false` (boolean), "false" (string), or any other animation type -->
-  <ngx-skeleton-loader [animation]="classAttributeWithBooleanFalseValue"></ngx-skeleton-loader>
+  <ngx-skeleton-loader [animation]="classAttributeWithBooleanFalseValue" />
   <!-- Uses `progress` as animation -->
-  <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
-  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <ngx-skeleton-loader animation="progress" />
+  <ngx-skeleton-loader />
   <!-- Uses `pulse` as animation -->
-  <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
+  <ngx-skeleton-loader animation="pulse" />
 </div>
 ```
 
@@ -243,7 +256,7 @@ you need to apply the style changes on the
       'background-color': '#992929',
       border: '1px solid white'
     }"
-  ></ngx-skeleton-loader>
+  />
 </div>
 ```
 
@@ -261,7 +274,7 @@ having `height.px` receiving a number and `background-color` receiving a HEX Col
       'height.px': 50,
       'background-color': '#992929'
     }"
-  ></ngx-skeleton-loader>
+  />
 </div>
 ```
 
@@ -296,7 +309,7 @@ file: my-ngx-skeleton-loader-with-theming.component.html
 As an example, it's not using themes via [theme] attributes.
 -->
 
-<ngx-skeleton-loader count="5" animation="pulse"></ngx-skeleton-loader>
+<ngx-skeleton-loader count="5" animation="pulse" />
 ```
 
 You can apply theme changes in our stylesheet. At the end it will be
