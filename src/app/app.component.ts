@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, Inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -15,16 +16,24 @@ export class AppComponent implements OnInit, OnDestroy {
 
   intervalId: number | null = null;
 
-  ngOnInit() {
-    setTimeout(() => {
-      this.contentLoaded = true;
-    }, 2000);
+  platformId: Object;
 
-    this.intervalId = window.setInterval(() => {
-      this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
-      this.count = this.count === 2 ? 5 : 2;
-      this.widthHeightSizeInPixels = this.widthHeightSizeInPixels === 50 ? 100 : 50;
-    }, 5000);
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    this.platformId = platformId;
+  }
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.setTimeout(() => {
+        this.contentLoaded = true;
+      }, 2000);
+
+      this.intervalId = window.setInterval(() => {
+        this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
+        this.count = this.count === 2 ? 5 : 2;
+        this.widthHeightSizeInPixels = this.widthHeightSizeInPixels === 50 ? 100 : 50;
+      }, 5000);
+    }
   }
 
   ngOnDestroy() {

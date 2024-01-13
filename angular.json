@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-skeleton-loader-demo:build"
+            "buildTarget": "ngx-skeleton-loader-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-skeleton-loader-demo:build:production"
+              "buildTarget": "ngx-skeleton-loader-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-skeleton-loader-demo:build"
+            "buildTarget": "ngx-skeleton-loader-demo:build"
           }
         },
         "test": {
@@ -138,7 +138,7 @@
           "defaultConfiguration": ""
         },
         "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
           "options": {
             "browserTarget": "ngx-skeleton-loader-demo:build",
             "serverTarget": "ngx-skeleton-loader-demo:server"
@@ -151,7 +151,7 @@
           }
         },
         "prerender": {
-          "builder": "@nguniversal/builders:prerender",
+          "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "browserTarget": "ngx-skeleton-loader-demo:build:production",
             "serverTarget": "ngx-skeleton-loader-demo:server:production",
