@@ -45,10 +45,16 @@ export class NgxSkeletonLoaderComponent implements OnInit, OnChanges {
 
   items: Array<any>;
 
+  ngxSkeletonLoaderClasses: Record<string, boolean>;
+
+  @Input('custom-animation')
+  customAnimation: string | null;
+
   constructor(@Inject(NGX_SKELETON_LOADER_CONFIG) @Optional() private config?: NgxSkeletonLoaderConfig) {
     const {
       appearance = 'line',
       animation = 'progress',
+      customAnimation = null,
       theme = null,
       loadingText = 'Loading...',
       count = 1,
@@ -56,12 +62,24 @@ export class NgxSkeletonLoaderComponent implements OnInit, OnChanges {
     } = config || {};
 
     this.appearance = appearance;
-    this.animation = animation;
+    this.animation = customAnimation || animation;
+    this.customAnimation = customAnimation;
     this.theme = theme;
     this.loadingText = loadingText;
     this.count = count;
     this.items = [];
     this.ariaLabel = ariaLabel;
+    this.ngxSkeletonLoaderClasses = {
+      'custom-content': appearance === 'custom-content',
+      circle: appearance === 'circle',
+      progress: animation === 'progress',
+      'progress-dark': animation === 'progress-dark',
+      pulse: animation === 'pulse',
+      ...(customAnimation && {[customAnimation]: customAnimation !== null})
+    }
+
+
+    console.log('>>>>', customAnimation, count, this.ngxSkeletonLoaderClasses)
   }
 
   ngOnInit() {
@@ -92,17 +110,29 @@ export class NgxSkeletonLoaderComponent implements OnInit, OnChanges {
     }
     this.items.length = this.count;
 
-    const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false'];
-    if (allowedAnimations.indexOf(String(this.animation)) === -1) {
+    if(typeof this.customAnimation === 'string') {
+      this.ngxSkeletonLoaderClasses = {
+        'custom-content': this.appearance === 'custom-content',
+        circle: this.appearance === 'circle',
+        progress: this.animation === 'progress' && this.customAnimation === null,
+        'progress-dark': this.animation === 'progress-dark' && this.customAnimation === null,
+        pulse: this.animation === 'pulse' && this.customAnimation === null,
+        ...(this.customAnimation && { [this.customAnimation]: this.customAnimation !== null })
+      }
+      this.animation = this.customAnimation;
+    }
+
+    const allowedAnimations = ['progress', 'progress-dark', 'pulse', 'false', this.customAnimation];
+    if (allowedAnimations.indexOf(String(this.animation)) === -1 || (!!this.customAnimation && this.animation !== this.customAnimation)) {
       // Shows error message only in Development
       if (isDevMode()) {
         console.error(
           `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: ${allowedAnimations.join(
             ', ',
-          )}. Forcing default to "progress".`,
+          )}. Forcing default to "${this.customAnimation || 'progress'}".`,
         );
       }
-      this.animation = 'progress';
+      this.animation = this.customAnimation || 'progress';
     }
 
     if (['circle', 'line', 'custom-content', ''].indexOf(String(this.appearance)) === -1) {
@@ -130,7 +160,7 @@ export class NgxSkeletonLoaderComponent implements OnInit, OnChanges {
     // Checking if the fields that require validation are available and if they were changed
     // In case were not changed, we stop the function. Otherwise, `validateInputValues` will be called.
     if (
-      ['count', 'animation', 'appearance'].find(
+      ['count', 'animation', 'appearance', 'customAnimation'].find(
         key =>
           changes[key] && (changes[key].isFirstChange() || changes[key].previousValue === changes[key].currentValue),
       )

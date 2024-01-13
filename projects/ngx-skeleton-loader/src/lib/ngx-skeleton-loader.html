@@ -8,13 +8,7 @@
   [attr.aria-valuetext]="loadingText"
   role="progressbar"
   tabindex="-1"
-  [ngClass]="{
-    'custom-content': appearance === 'custom-content',
-    circle: appearance === 'circle',
-    progress: animation === 'progress',
-    'progress-dark': animation === 'progress-dark',
-    pulse: animation === 'pulse'
-  }"
+  [ngClass]="ngxSkeletonLoaderClasses"
   [ngStyle]="theme"
 >
   <ng-content *ngIf="appearance  === 'custom-content'"></ng-content>

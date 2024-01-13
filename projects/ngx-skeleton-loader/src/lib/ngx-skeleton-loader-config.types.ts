@@ -10,7 +10,8 @@ export type NgxSkeletonLoaderConfigTheme = {
 
 export interface NgxSkeletonLoaderConfig {
   appearance: 'circle' | 'line' | 'custom-content' | '';
-  animation: 'progress' | 'progress-dark' | 'pulse' | 'false' | false;
+  animation: 'progress' | 'progress-dark' | 'pulse' | 'false' | false | string;
+  customAnimation: string | null;
   theme: NgxSkeletonLoaderConfigTheme;
   loadingText: string;
   count: number;
