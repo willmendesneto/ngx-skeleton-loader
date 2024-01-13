@@ -202,7 +202,7 @@
 <h3>Skeletons without animation</h3>
 
 <div class="item">
-  <ngx-skeleton-loader count="5" animation="false" appearance="circle" />
+  <ngx-skeleton-loader count="5" animation="false" appearance="circle" [theme]="{ height: '40px' }" />
 </div>
 
 <div class="item">
@@ -218,7 +218,7 @@
 <h3>Skeleton using `progress` animation</h3>
 
 <div class="item">
-  <ngx-skeleton-loader count="5" animation="progress" appearance="circle" />
+  <ngx-skeleton-loader count="5" animation="progress" appearance="circle" [theme]="{ height: '40px' }" />
 </div>
 
 <div class="item">
@@ -234,7 +234,7 @@
 <h3>Skeleton using `pulse` animation</h3>
 
 <div class="item">
-  <ngx-skeleton-loader count="5" animation="pulse" appearance="circle" />
+  <ngx-skeleton-loader count="5" animation="pulse" appearance="circle" [theme]="{ height: '40px' }" />
 </div>
 
 <div class="item">
@@ -251,14 +251,14 @@
 <h3>Skeleton using `progress-dark` animation</h3>
 
 <div class="item">
-  <ngx-skeleton-loader count="5" animation="progress-dark" appearance="circle" />
+  <ngx-skeleton-loader count="5" animation="progress-dark" appearance="circle" [theme]="{ height: '40px' }" />
 </div>
 
 <h3>Skeleton using custom-content (SVG for example)</h3>
 
 <div class="item">
   <div style="width: 50%">
-    <ngx-skeleton-loader appearance="custom-content">
+    <ngx-skeleton-loader appearance="custom-content" [theme]="{ height: '250px' }">
       <svg viewBox="0 0 312 103" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="312" height="102" fill="white" />
         <path
