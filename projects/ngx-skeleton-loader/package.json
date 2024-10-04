@@ -30,5 +30,6 @@
   "bugs": {
     "url": "https://github.com/willmendesneto/ngx-skeleton-loader/issues"
   },
-  "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme"
+  "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme",
+  "sideEffects": false
 }

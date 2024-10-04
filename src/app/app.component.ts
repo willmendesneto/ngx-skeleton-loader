@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { NgxSkeletonLoaderConfig } from 'ngx-skeleton-loader';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'ngx-skeleton-loader-demo';
 
-  animation = 'pulse';
+  animation: NgxSkeletonLoaderConfig['animation'] = 'pulse';
   contentLoaded = false;
   count = 2;
   widthHeightSizeInPixels = 50;

@@ -5,8 +5,7 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
 import { NgxSkeletonLoaderConfig, NGX_SKELETON_LOADER_CONFIG } from './ngx-skeleton-loader-config.types';
 
 @NgModule({
-  declarations: [NgxSkeletonLoaderComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, NgxSkeletonLoaderComponent],
   exports: [NgxSkeletonLoaderComponent],
 })
 export class NgxSkeletonLoaderModule {
