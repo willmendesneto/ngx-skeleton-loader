@@ -8,7 +8,6 @@
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts",
     "src/main.server.ts",
     "src/app/app.server.module.ts",
     "server.ts"

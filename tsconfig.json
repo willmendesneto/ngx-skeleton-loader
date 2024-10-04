@@ -1,34 +1,39 @@
+/**
+ * The TypeScript configuration file for the project.
+ * This file specifies the compiler options and other settings used by the TypeScript compiler.
+ * It includes options for module resolution, target ECMAScript version, type root directories, and more.
+ * The `angularCompilerOptions` section also configures settings specific to the Angular compiler.
+ */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "paths": {
+      "ngx-skeleton-loader": [
+        "./dist/ngx-skeleton-loader"
+      ]
+    },
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
-    "module": "esnext",
-    "moduleResolution": "node",
     "experimentalDecorators": true,
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "module": "esnext",
     "lib": [
-      "es2018",
+      "ES2022",
       "dom"
     ],
-    "paths": {
-      "ngx-skeleton-loader": [
-        "dist/ngx-skeleton-loader"
-      ],
-      "ngx-skeleton-loader/*": [
-        "dist/ngx-skeleton-loader/*"
-      ]
-    },
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

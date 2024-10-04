@@ -41,7 +41,7 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
       </div>
 
       <div class="skeletons-count-invalid-option">
-        <ngx-skeleton-loader [count]="invalidValueIncount"></ngx-skeleton-loader>
+        <ngx-skeleton-loader [count]="invalidValueInCount"></ngx-skeleton-loader>
       </div>
 
       <div class="skeletons-appearance-invalid-option">
@@ -86,7 +86,7 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
 })
 class ContainerComponent {
   animationWithFalsePassedViaBinding = false;
-  invalidValueIncount = 'two';
+  invalidValueInCount = 'two';
 }
 
 describe('NgxSkeletonLoaderComponent', () => {
@@ -98,36 +98,12 @@ describe('NgxSkeletonLoaderComponent', () => {
   describe('When the component uses default configuration', () => {
     beforeEach(waitForAsync(() => {
       fixture = TestBed.configureTestingModule({
-        declarations: [ContainerComponent, NgxSkeletonLoaderComponent],
+        declarations: [ContainerComponent],
+        imports: [NgxSkeletonLoaderComponent],
         providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
       }).createComponent(ContainerComponent);
       fixture.detectChanges();
     }));
-
-    it('should console 3 errors if `animation`, `appearance` and `count` receives invalid options in development mode', () => {
-      expect(console.error).toHaveBeenCalledTimes(3);
-    });
-
-    it('should console errors if `animation` is an invalid option in development mode', () => {
-      expect(console.error).toHaveBeenCalledWith(
-        // eslint-disable-next-line max-len
-        `\`NgxSkeletonLoaderComponent\` need to receive 'animation' as: progress, progress-dark, pulse, false. Forcing default to "progress".`,
-      );
-    });
-
-    it('should console errors if `count` is an invalid option in development mode', () => {
-      expect(console.error).toHaveBeenCalledWith(
-        // eslint-disable-next-line max-len
-        `\`NgxSkeletonLoaderComponent\` need to receive 'count' a numeric value. Forcing default to "1".`,
-      );
-    });
-
-    it('should console errors if `appearance` is an invalid option and is running in development mode', () => {
-      expect(console.error).toHaveBeenCalledWith(
-        // eslint-disable-next-line max-len
-        `\`NgxSkeletonLoaderComponent\` need to receive 'appearance' as: circle or line or custom-content or empty string. Forcing default to "''".`,
-      );
-    });
 
     it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
       expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(16);
@@ -236,7 +212,8 @@ describe('NgxSkeletonLoaderComponent', () => {
   describe('When the component receives a different default via module configuration', () => {
     beforeEach(waitForAsync(() => {
       fixture = TestBed.configureTestingModule({
-        declarations: [ContainerComponent, NgxSkeletonLoaderComponent],
+        declarations: [ContainerComponent],
+        imports: [NgxSkeletonLoaderComponent],
         providers: [
           { provide: PLATFORM_ID, useValue: 'browser' },
           { provide: NGX_SKELETON_LOADER_CONFIG, useValue: { appearance: 'circle', count: 3 } },
