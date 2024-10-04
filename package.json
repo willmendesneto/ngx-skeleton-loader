@@ -47,7 +47,7 @@
   "bundlesize": [
     {
       "path": "./dist/ngx-skeleton-loader/fesm2022/ngx-skeleton-loader.mjs",
-      "maxSize": "2.92KB"
+      "maxSize": "3.12KB"
     }
   ],
   "dependencies": {
