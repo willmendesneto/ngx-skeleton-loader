@@ -1,6 +1,6 @@
 # How to start
 
-**Note** requires node v10.x.x or higher and npm 6.x.x.
+**Note** requires node v20.x.x or higher and npm 10.x.x.
 
 ```bash
 git clone https://github.com/willmendesneto/ngx-skeleton-loader.git
