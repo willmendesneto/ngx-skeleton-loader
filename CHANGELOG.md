@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+- Adding `PUBLISHING_HOTFIX.md` file describing all the steps to cover a hotfix in older version of NGX-Skeleton-Loader module
+
 ## [9.0.0][] - 2024-01-13
 ### Updated
 
