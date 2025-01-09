@@ -354,5 +354,5 @@ For any type of contribution, please follow the instructions in [CONTRIBUTING.md
 
 **Wilson Mendes (willmendesneto)**
 
-- <https://twitter.com/willmendesneto>
+- <https://instagram.com/willmendesneto>
 - <http://github.com/willmendesneto>
