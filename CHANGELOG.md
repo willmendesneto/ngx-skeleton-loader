@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [10.0.0][] - 2025-01-24
+
 ### Removed
 - Removing warnings in dev mode in favor of typed angular signals integration. It should not affect consumers in general, but it will be released as a major version, since this project follows the SEMVER standards
 
@@ -610,7 +612,8 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [5.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v5.0.0
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v6.0.0...HEAD
 [6.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v6.0.0
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v9.0.0...HEAD
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v10.0.0...HEAD
+[10.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v9.0.0...v10.0.0
 [9.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v9.0.0...v9.0.0
 [9.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.1.0...v9.0.0
 [8.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.2...v8.1.0

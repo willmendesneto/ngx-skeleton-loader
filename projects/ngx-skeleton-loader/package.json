@@ -1,7 +1,7 @@
 {
   "name": "ngx-skeleton-loader",
   "description": "Make beautiful, animated loading skeletons that automatically adapt to your Angular apps",
-  "version": "9.0.0",
+  "version": "10.0.0",
   "peerDependencies": {
     "@angular/common": ">=18.0.0",
     "@angular/core": ">=18.0.0"
