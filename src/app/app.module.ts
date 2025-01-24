@@ -1,13 +1,15 @@
+import { APP_ID, NgModule, provideZoneChangeDetection } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NgxSkeletonLoaderModule } from '../../projects/ngx-skeleton-loader/src/lib/ngx-skeleton-loader.module';
+import {
+  NgxSkeletonLoaderModule
+} from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     NgxSkeletonLoaderModule.forRoot({
       theme: {
         extendsFromRoot: true,
@@ -15,7 +17,10 @@ import { NgxSkeletonLoaderModule } from '../../projects/ngx-skeleton-loader/src/
       },
     }),
   ],
-  providers: [],
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    { provide: APP_ID,  useValue: 'serverApp' }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

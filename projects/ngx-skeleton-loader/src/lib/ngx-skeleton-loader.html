@@ -1,23 +1,25 @@
-@for (item of items; track item) {
+@let appearanceValue = appearance();
+@let animationValue = animation();
+@for (item of items(); track item) {
   <div
     class="skeleton-loader"
-    [attr.aria-label]="ariaLabel"
+    [attr.aria-label]="ariaLabel()"
     aria-busy="true"
     aria-valuemin="0"
     aria-valuemax="100"
-    [attr.aria-valuetext]="loadingText"
+    [attr.aria-valuetext]="loadingText()"
     role="progressbar"
     tabindex="-1"
     [ngClass]="{
-      'custom-content': appearance === 'custom-content',
-      circle: appearance === 'circle',
-      progress: animation === 'progress',
-      'progress-dark': animation === 'progress-dark',
-      pulse: animation === 'pulse'
+      'custom-content': appearanceValue === 'custom-content',
+      circle: appearanceValue === 'circle',
+      progress: animationValue === 'progress',
+      'progress-dark': animationValue === 'progress-dark',
+      pulse: animationValue === 'pulse'
     }"
-    [ngStyle]="theme"
+    [ngStyle]="styles()"
     >
-    @if (appearance  === 'custom-content') {
+    @if (appearanceValue  === 'custom-content') {
       <ng-content></ng-content>
     }
   </div>
