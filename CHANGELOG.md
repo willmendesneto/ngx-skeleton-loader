@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Removed
+- Removing warnings in dev mode in favor of typed angular signals integration. It should not affect consumers in general, but it will be released as a major version, since this project follows the SEMVER standards
+
+### Updated
+
+> Thanks to @lekhmanrus
+
+- Upgrading `@angular/*` packages to v19 - https://github.com/willmendesneto/ngx-skeleton-loader/pull/179
+- Implementing Angular Signals integration - https://github.com/willmendesneto/ngx-skeleton-loader/pull/179
+- Making NGX-Skeleton-Loader Standalone Compliant - Closes https://github.com/willmendesneto/ngx-skeleton-loader/issues/183
+
 ### Added
 - Adding `PUBLISHING_HOTFIX.md` file describing all the steps to cover a hotfix in older version of NGX-Skeleton-Loader module
 
@@ -600,6 +611,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 [unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v6.0.0...HEAD
 [6.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v6.0.0
 [Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v9.0.0...HEAD
+[9.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v9.0.0...v9.0.0
 [9.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.1.0...v9.0.0
 [8.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.2...v8.1.0
 [8.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.1...v8.0.2
