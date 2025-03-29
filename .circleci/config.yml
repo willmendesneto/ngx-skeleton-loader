@@ -80,7 +80,7 @@ jobs:
           name: Building for Angular Universal
           command: |
             npm rebuild
-            npm run build:ssr
+            npm run build
   bundle_size:
     <<: *docker_defaults
     steps:

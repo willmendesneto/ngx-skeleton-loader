@@ -7,9 +7,9 @@ import {
 } from 'ngx-skeleton-loader';
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
+    AppComponent,
     NgxSkeletonLoaderModule.forRoot({
       theme: {
         extendsFromRoot: true,
@@ -21,6 +21,5 @@ import {
     provideZoneChangeDetection({ eventCoalescing: true }),
     { provide: APP_ID,  useValue: 'serverApp' }
   ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}

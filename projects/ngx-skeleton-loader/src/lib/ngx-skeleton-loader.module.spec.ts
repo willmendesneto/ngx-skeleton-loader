@@ -1,9 +1,11 @@
 import { Component, PLATFORM_ID } from '@angular/core';
-import { TestBed, waitForAsync as waitForAsync } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NgxSkeletonLoaderModule } from './ngx-skeleton-loader.module';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/prefer-standalone
+  standalone: false,
   selector: 'ngx-container',
   template: `
     <div>
@@ -37,8 +39,8 @@ describe('NgxSkeletonLoaderModule method', () => {
           },
         }),
       ],
-      declarations: [ContainerComponent],
       providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
+      declarations: [ContainerComponent],
     }).createComponent(ContainerComponent);
     fixture.detectChanges();
   }));
