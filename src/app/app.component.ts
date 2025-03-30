@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderConfig } from 'ngx-skeleton-loader';
+import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderConfig } from '../../projects/ngx-skeleton-loader/src/public-api';
 
 @Component({
   selector: 'app-root',

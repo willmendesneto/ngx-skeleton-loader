@@ -1,5 +1,5 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { NgxSkeletonLoaderModule } from '../../projects/ngx-skeleton-loader/src/lib/ngx-skeleton-loader.module';
+import { NgxSkeletonLoaderModule } from '../../projects/ngx-skeleton-loader/src/public-api';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
