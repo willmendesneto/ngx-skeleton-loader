@@ -7,7 +7,6 @@ import {
   numberAttribute,
   computed,
 } from '@angular/core';
-import { NgClass, NgStyle } from '@angular/common';
 import {
   NgxSkeletonLoaderConfig,
   NgxSkeletonLoaderConfigTheme,
@@ -25,7 +24,6 @@ import {
   selector: 'ngx-skeleton-loader',
   templateUrl: './ngx-skeleton-loader.html',
   styleUrls: ['./ngx-skeleton-loader.scss'],
-  imports: [NgClass, NgStyle],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })

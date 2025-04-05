@@ -202,9 +202,8 @@ describe('NgxSkeletonLoaderComponent', () => {
           '.skeletons-with-theming .skeleton-loader.circle',
         ).attributes as NamedNodeMap;
 
-        expect((skeletonWithTheming.getNamedItem('style') as Attr).value).toBe(
-          'width: 70px; height: 70px; border-radius: 10px;',
-        );
+        const style = (skeletonWithTheming.getNamedItem('style') as Attr).value;
+        expect(style).toEqual('border-radius: 10px; height: 70px; width: 70px;');
       });
     });
   });

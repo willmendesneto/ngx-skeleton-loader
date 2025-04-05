@@ -10,14 +10,12 @@
     [attr.aria-valuetext]="loadingText()"
     role="progressbar"
     tabindex="-1"
-    [ngClass]="{
-      'custom-content': appearanceValue === 'custom-content',
-      circle: appearanceValue === 'circle',
-      progress: animationValue === 'progress',
-      'progress-dark': animationValue === 'progress-dark',
-      pulse: animationValue === 'pulse'
-    }"
-    [ngStyle]="styles()"
+    [class.custom-content]="appearanceValue === 'custom-content'"
+    [class.circle]="appearanceValue === 'circle'"
+    [class.progress]="animationValue === 'progress'"
+    [class.progress-dark]="animationValue === 'progress-dark'"
+    [class.pulse]="animationValue === 'pulse'"
+    [style]="styles()"
     >
     @if (appearanceValue  === 'custom-content') {
       <ng-content></ng-content>
