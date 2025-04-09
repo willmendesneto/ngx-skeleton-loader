@@ -17,7 +17,9 @@
     "postversion": "git push && git push --tags",
     "prepublish": "npm run build:pkg && npm run build && npm run update-library-version",
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && npm run build:pkg && npm run update-library-version && git add .",
-    "coveralls": "cat ./coverage/ngx-skeleton-loader/lcov.info | ./node_modules/.bin/coveralls && rm -rf coverage"
+    "coveralls": "cat ./coverage/ngx-skeleton-loader/lcov.info | ./node_modules/.bin/coveralls && rm -rf coverage",
+    "build:ssr": "ng run ngx-skeleton-loader-demo:build:production",
+    "serve:ssr": "node dist/ngx-skeleton-loader-demo/server/server.mjs"
   },
   "private": false,
   "license": "MIT",

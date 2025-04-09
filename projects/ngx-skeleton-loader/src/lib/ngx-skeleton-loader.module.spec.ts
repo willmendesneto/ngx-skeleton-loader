@@ -4,7 +4,6 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { NgxSkeletonLoaderModule } from './ngx-skeleton-loader.module';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: false,
   selector: 'ngx-container',
   template: `

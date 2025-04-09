@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Updated
+- Upgrading project to use Node.js v22.14.0
+- Upgrading project to Angular v19
+- Removing [ngStyle] and [ngClass] in favor of `[style]` and `[class]`, respectively. These directives are expected to be removed in future Angular versions, since their behavior can be replicated using native bindings. This change also reduces the initial bundle size for applications that don’t use these directives.
+
 ## [10.0.0][] - 2025-01-24
 
 ### Removed

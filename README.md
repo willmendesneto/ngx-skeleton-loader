@@ -260,11 +260,11 @@ you need to apply the style changes on the
 </div>
 ```
 
-The [theme] attribute now accepts the same configuration as `ngStyle` as well. That means you can manage to use like you're doing with the built-in directive, having a pleasure and beautiful experience
+The [theme] attribute now accepts the same configuration as `[style]` as well. That means you can manage to use like you're doing with the built-in directive, having a pleasure and beautiful experience
 
 ```html
 <!--
-Note that we are using a combination of styles and ngStyle inside theme object,
+Note that we are using a combination of styles and [style] inside theme object,
 having `height.px` receiving a number and `background-color` receiving a HEX Color
 -->
 <div style="background: #FF0001; padding: 10px;">
