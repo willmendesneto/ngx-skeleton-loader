@@ -1,12 +1,11 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import { NgxSkeletonLoaderModule } from '../../projects/ngx-skeleton-loader/src/lib/ngx-skeleton-loader.module';
+import { NgxSkeletonLoaderModule } from '../../projects/ngx-skeleton-loader/src/public-api';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      imports: [NgxSkeletonLoaderModule],
+      imports: [AppComponent, NgxSkeletonLoaderModule],
       errorOnUnknownElements: true,
       errorOnUnknownProperties: false,
     }).compileComponents();

@@ -1,11 +1,12 @@
 import { Component, PLATFORM_ID } from '@angular/core';
-import { TestBed, waitForAsync as waitForAsync } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { NGX_SKELETON_LOADER_CONFIG } from './ngx-skeleton-loader-config.types';
 
 import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
 
 @Component({
   selector: 'ngx-container',
+  imports: [NgxSkeletonLoaderComponent],
   template: `
     <div>
       <div class="skeletons-defaults">
@@ -98,7 +99,6 @@ describe('NgxSkeletonLoaderComponent', () => {
   describe('When the component uses default configuration', () => {
     beforeEach(waitForAsync(() => {
       fixture = TestBed.configureTestingModule({
-        declarations: [ContainerComponent],
         imports: [NgxSkeletonLoaderComponent],
         providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
       }).createComponent(ContainerComponent);
@@ -211,7 +211,6 @@ describe('NgxSkeletonLoaderComponent', () => {
   describe('When the component receives a different default via module configuration', () => {
     beforeEach(waitForAsync(() => {
       fixture = TestBed.configureTestingModule({
-        declarations: [ContainerComponent],
         imports: [NgxSkeletonLoaderComponent],
         providers: [
           { provide: PLATFORM_ID, useValue: 'browser' },

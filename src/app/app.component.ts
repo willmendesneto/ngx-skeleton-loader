@@ -1,11 +1,12 @@
 import { Component, Inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { NgxSkeletonLoaderConfig } from 'ngx-skeleton-loader';
+import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderConfig } from '../../projects/ngx-skeleton-loader/src/public-api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  imports: [NgxSkeletonLoaderComponent],
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'ngx-skeleton-loader-demo';

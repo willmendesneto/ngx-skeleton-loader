@@ -9,8 +9,7 @@
   "files": [
     "src/main.ts",
     "src/main.server.ts",
-    "src/app/app.server.module.ts",
-    "server.ts"
+    "src/server.ts"
   ],
-  "exclude": ["src/test.ts", "src/**/*.spec.ts", "src/app/app.server.module.ts", "src/app/main.module.ts"]
+  "exclude": ["src/test.ts", "src/**/*.spec.ts"]
 }

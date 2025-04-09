@@ -2,7 +2,7 @@ version: 2.1
 
 docker_defaults: &docker_defaults
   docker:
-    - image: cimg/node:20.10.0-browsers
+    - image: cimg/node:22.14.0-browsers
       environment:
         NG_CLI_ANALYTICS: false
 
@@ -53,7 +53,7 @@ workflows:
       #     requires:
       #         - build
 orbs:
-  browser-tools: circleci/browser-tools@1.4.6
+  browser-tools: circleci/browser-tools@1.5.3
 jobs:
   build:
     <<: *docker_defaults
@@ -80,7 +80,7 @@ jobs:
           name: Building for Angular Universal
           command: |
             npm rebuild
-            npm run build:ssr
+            npm run build
   bundle_size:
     <<: *docker_defaults
     steps:
