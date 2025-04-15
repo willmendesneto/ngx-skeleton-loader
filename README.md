@@ -49,127 +49,166 @@ npm install ngx-skeleton-loader --save
 
 ## Setup
 
-You'll need to add `NgxSkeletonLoaderModule` to your application module. So that, the `<ngx-skeleton-loader>` components will be accessible in your application.
+<details open>
+  <summary>Standalone Setup</summary>
 
-```typescript
-...
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-...
+  Add `ngx-skeleton-loader` to your application's `app.config.ts` providers.
 
-@NgModule({
-  declarations: [
-    YourAppComponent
-  ],
-  imports: [
-    ...
-    NgxSkeletonLoaderModule,
-    ...
-  ],
-  providers: [],
-  bootstrap: [YourAppComponent]
-})
+  ```typescript
+  // app.config.ts
 
-export class YourAppComponent {}
+  import { ApplicationConfig } from '@angular/core';
+  import { provideNgxSkeletonLoader } from 'ngx-skeleton-loader';
 
-```
+  export const appConfig: ApplicationConfig = {
+    providers: [
+      provideNgxSkeletonLoader({
+        theme: {
+          extendsFromRoot: true,
+          height: '30px',
+        },
+      }),
+    ]
+  };
+  ```
 
-After that, you can use the `ngx-skeleton-loader` components in your templates, passing the configuration data into the component itself.
+  After that, you can use the `ngx-skeleton-loader` component in your templates. Optionally you can pass configuration data into the component itself
 
-- `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
+  - `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
 
-```html
-<div class="item">
-  <ngx-skeleton-loader count="5" appearance="circle" />
-</div>
-```
+  ```html
+  <div class="item">
+    <ngx-skeleton-loader count="5" appearance="circle" />
+  </div>
+  ```
 
-### Using `NgxSkeletonLoaderModule.forRoot()`
+</details>
 
-Also, you can import the module in your app by calling `NgxSkeletonLoaderModule.forRoot()` when adding it. So it will be available across your Angular application.
+<details>
+  <summary>NgModule Setup</summary>
 
-Importing the module this way also allows you to globally configure the default values for the `ngx-skeleton-loader` components in your application, in case you need some different default values for your app.
+  You'll need to add `NgxSkeletonLoaderModule` to your application module. So that, the `<ngx-skeleton-loader>` components will be accessible in your application.
 
-```typescript
-...
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-...
+  ```typescript
+  ...
+  import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+  ...
 
-@NgModule({
-  declarations: [
-    YourAppComponent
-  ],
-  imports: [
-    ...
-    NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...' }),
-    ...
-  ],
-  providers: [],
-  bootstrap: [YourAppComponent]
-})
+  @NgModule({
+    declarations: [
+      YourAppComponent
+    ],
+    imports: [
+      ...
+      NgxSkeletonLoaderModule,
+      ...
+    ],
+    providers: [],
+    bootstrap: [YourAppComponent]
+  })
 
-export class YourAppComponent {}
+  export class YourAppComponent {}
 
-```
+  ```
 
-```html
-<div class="item">
-  <ngx-skeleton-loader count="5" appearance="circle" />
-  <!-- above line will produce the rendering of 5 circles with the pulse animation and the aria-valuetext attribute set with "This item is actually loading..." -->
-</div>
-```
+  After that, you can use the `ngx-skeleton-loader` components in your templates, passing the configuration data into the component itself.
 
-#### Extending `theme` via `NgxSkeletonLoaderModule.forRoot()`
+  - `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
 
-> By default when using `NgxSkeletonLoaderModule.forRoot({ theme: /* ...list of CSS atributes */} })` the application is using this value as source of truth, overriding any local theming passed to `<ngx-skeleton-loader>` component via `[theme]` input. Check these steps in case you need to change this behaviour in your app
+  ```html
+  <div class="item">
+    <ngx-skeleton-loader count="5" appearance="circle" />
+  </div>
+  ```
 
-This method is also accepting the option of having a global theme and local theme inputs. You can enable it by passing `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* ...list of CSS atributes */} })` in your module. Quite simple, right? 😄
+  ### Using `NgxSkeletonLoaderModule.forRoot()`
 
-By using that configuration in your application, you should also be aware that:
+  Also, you can import the module in your app by calling `NgxSkeletonLoaderModule.forRoot()` when adding it. So it will be available across your Angular application.
 
-- By default, every `<ngx-skeleton-loader>` component will use `theme` coming from `NgxSkeletonLoaderModule.forRoot()` as the source of truth
-- If there's any CSS attribute on the component locally which overrides the CSS spec, it combines both themes, but overriding global CSS attributes in favor of local ones.
+  Importing the module this way also allows you to globally configure the default values for the `ngx-skeleton-loader` components in your application, in case you need some different default values for your app.
 
-As an example:
+  ```typescript
+  ...
+  import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+  ...
 
-```typescript
-...
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-...
+  @NgModule({
+    declarations: [
+      YourAppComponent
+    ],
+    imports: [
+      ...
+      NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...' }),
+      ...
+    ],
+    providers: [],
+    bootstrap: [YourAppComponent]
+  })
 
-@NgModule({
-  declarations: [
-    YourAppComponent
-  ],
-  imports: [
-    ...
-    NgxSkeletonLoaderModule.forRoot({
-      theme: {
-        // Enabliong theme combination
-        extendsFromRoot: true,
-        // ... list of CSS theme attributes
-        height: '30px',
-      },
-    }),
-    ...
-  ],
-  providers: [],
-  bootstrap: [YourAppComponent]
-})
+  export class YourAppComponent {}
 
-export class YourAppComponent {}
+  ```
 
-```
+  ```html
+  <div class="item">
+    <ngx-skeleton-loader count="5" appearance="circle" />
+    <!-- above line will produce the rendering of 5 circles with the pulse animation and the aria-valuetext attribute set with "This item is actually loading..." -->
+  </div>
+  ```
 
-```html
-<div class="item">
-  <ngx-skeleton-loader />
-  <!-- above line will produce a skeleton component using `height: 30px;`" -->
-  <ngx-skeleton-loader [theme]="{background: 'blue'}" />
-  <!-- above line will produce a skeleton component using `height: 30px; background: blue;`" -->
-  <ngx-skeleton-loader [theme]="{height: '50px', background: 'red'}" />
-  <!-- above line will produce a skeleton component using `height: 50px; background: red;`" -->
-</div>
-```
+  #### Extending `theme` via `NgxSkeletonLoaderModule.forRoot()`
+
+  > By default when using `NgxSkeletonLoaderModule.forRoot({ theme: /* ...list of CSS atributes */} })` the application is using this value as source of truth, overriding any local theming passed to `<ngx-skeleton-loader>` component via `[theme]` input. Check these steps in case you need to change this behaviour in your app
+
+  This method is also accepting the option of having a global theme and local theme inputs. You can enable it by passing `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* ...list of CSS atributes */} })` in your module. Quite simple, right? 😄
+
+  By using that configuration in your application, you should also be aware that:
+
+  - By default, every `<ngx-skeleton-loader>` component will use `theme` coming from `NgxSkeletonLoaderModule.forRoot()` as the source of truth
+  - If there's any CSS attribute on the component locally which overrides the CSS spec, it combines both themes, but overriding global CSS attributes in favor of local ones.
+
+  As an example:
+
+  ```typescript
+  ...
+  import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+  ...
+
+  @NgModule({
+    declarations: [
+      YourAppComponent
+    ],
+    imports: [
+      ...
+      NgxSkeletonLoaderModule.forRoot({
+        theme: {
+          // Enabliong theme combination
+          extendsFromRoot: true,
+          // ... list of CSS theme attributes
+          height: '30px',
+        },
+      }),
+      ...
+    ],
+    providers: [],
+    bootstrap: [YourAppComponent]
+  })
+
+  export class YourAppComponent {}
+
+  ```
+
+  ```html
+  <div class="item">
+    <ngx-skeleton-loader />
+    <!-- above line will produce a skeleton component using `height: 30px;`" -->
+    <ngx-skeleton-loader [theme]="{background: 'blue'}" />
+    <!-- above line will produce a skeleton component using `height: 30px; background: blue;`" -->
+    <ngx-skeleton-loader [theme]="{height: '50px', background: 'red'}" />
+    <!-- above line will produce a skeleton component using `height: 50px; background: red;`" -->
+  </div>
+  ```
+</details>
 
 ## Angular 17+ Deferrable Views example
 

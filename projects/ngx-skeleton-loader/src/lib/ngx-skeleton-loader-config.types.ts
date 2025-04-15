@@ -1,7 +1,7 @@
 import { InjectionToken } from '@angular/core';
 
 export type NgxSkeletonLoaderConfigTheme = {
-  // It enforces a combination of `fromRoot` styles with component `styles` attribute
+  /** It enforces a combination of `fromRoot` styles with component `styles` attribute */
   extendsFromRoot?: boolean;
   // This is required since [style] is using `any` as well
   // More details in https://angular.dev/api/common/NgStyle
