@@ -78,7 +78,6 @@ describe('NgxSkeletonLoaderModule method', () => {
   });
 
   it('should NOT call console.info() method', () => {
-    // eslint-disable-next-line no-console
     expect(console.info).toHaveBeenCalledTimes(0);
   });
 });
