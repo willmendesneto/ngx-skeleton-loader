@@ -53,7 +53,7 @@ describe('provideNgxSkeletonLoader method', () => {
       expect((skeletonWithTheming.getNamedItem('style') as Attr).value).toBe('background: blue; width: 100px;');
     });
 
-    it('should render skeleton with styles extending/combining theme styles from root if CSS attributes are not similar', () => {
+    it('should render skeleton with styles extending/combining theme styles from root if CSS attributes are NOT similar', () => {
       const skeletonWithTheming = fixture.nativeElement.querySelector('.skeletons-defaults .skeleton-loader.circle')
         .attributes as NamedNodeMap;
 
@@ -61,11 +61,16 @@ describe('provideNgxSkeletonLoader method', () => {
     });
   });
 
-  it('should render the component properly using given provideNgxSkeletonLoader() config', () => {
+  it('should render the component properly using given `provideNgxSkeletonLoader()` config', () => {
     expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults .skeleton-loader.circle').length).toBe(3);
   });
 
-  it('should NOT call console.error() method', () => {
+  it('should NOT call `console` methods', () => {
+    expect(console.log).toHaveBeenCalledTimes(0);
+    expect(console.warn).toHaveBeenCalledTimes(0);
+    expect(console.info).toHaveBeenCalledTimes(0);
+    expect(console.error).toHaveBeenCalledTimes(0);
+  });
     expect(console.error).toHaveBeenCalledTimes(0);
   });
 
