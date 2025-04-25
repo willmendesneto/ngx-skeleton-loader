@@ -22,6 +22,7 @@ export default defineConfig([
     },
 
     rules: {
+      'no-console': ['error'],
       '@angular-eslint/component-selector': [
         'error',
         {
