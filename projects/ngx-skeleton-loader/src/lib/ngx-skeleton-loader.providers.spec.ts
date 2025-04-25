@@ -66,24 +66,13 @@ describe('provideNgxSkeletonLoader method', () => {
   });
 
   it('should NOT call `console` methods', () => {
+    // eslint-disable-next-line no-console
     expect(console.log).toHaveBeenCalledTimes(0);
+    // eslint-disable-next-line no-console
     expect(console.warn).toHaveBeenCalledTimes(0);
-    expect(console.info).toHaveBeenCalledTimes(0);
-    expect(console.error).toHaveBeenCalledTimes(0);
-  });
-    expect(console.error).toHaveBeenCalledTimes(0);
-  });
-
-  it('should NOT call console.log() method', () => {
-    expect(console.log).toHaveBeenCalledTimes(0);
-  });
-
-  it('should NOT call console.warn() method', () => {
-    expect(console.warn).toHaveBeenCalledTimes(0);
-  });
-
-  it('should NOT call console.info() method', () => {
     // eslint-disable-next-line no-console
     expect(console.info).toHaveBeenCalledTimes(0);
+    // eslint-disable-next-line no-console
+    expect(console.error).toHaveBeenCalledTimes(0);
   });
 });
