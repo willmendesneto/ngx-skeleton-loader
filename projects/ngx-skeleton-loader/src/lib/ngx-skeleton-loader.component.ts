@@ -97,6 +97,7 @@ export class NgxSkeletonLoaderComponent {
     if (this.appearance() === 'custom-content') {
       // Shows error message only in Development
       if (isDevMode() && count !== 1) {
+        // eslint-disable-next-line no-console
         console.error(
           `\`NgxSkeletonLoaderComponent\` enforces elements with "custom-content" appearance as DOM nodes. Forcing "count" to "1".`,
         );
