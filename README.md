@@ -49,6 +49,40 @@ npm install ngx-skeleton-loader --save
 
 ## Setup
 
+## Standalone Setup
+
+Add `ngx-skeleton-loader` to your application's `app.config.ts` providers.
+
+```typescript
+// app.config.ts
+
+import { ApplicationConfig } from '@angular/core';
+import { provideNgxSkeletonLoader } from 'ngx-skeleton-loader';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideNgxSkeletonLoader({
+      theme: {
+        extendsFromRoot: true,
+        height: '30px',
+      },
+    }),
+  ]
+};
+```
+
+After that, you can use the `ngx-skeleton-loader` component in your templates. Optionally you can pass configuration data into the component itself
+
+- `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
+
+```html
+<div class="item">
+  <ngx-skeleton-loader count="5" appearance="circle" />
+</div>
+```
+
+## NgModule Setup
+
 You'll need to add `NgxSkeletonLoaderModule` to your application module. So that, the `<ngx-skeleton-loader>` components will be accessible in your application.
 
 ```typescript
