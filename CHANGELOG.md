@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+- Adding support for standalone `provideNgxSkeletonLoader()`
+
+### Updated
+- Upgrade project to use eslint v9
+- Updating docs to reflect standalone `provideNgxSkeletonLoader()` support
+
 ## [11.0.0][] - 2025-04-09
 
 ### Updated
