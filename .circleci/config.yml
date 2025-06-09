@@ -24,7 +24,7 @@ install_steps: &install_steps
     - run:
         name: Installing Dependencies
         command: |
-          npm install --silent
+          npm ci
     - save_cache:
         name: Save node_modules cache
         key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}

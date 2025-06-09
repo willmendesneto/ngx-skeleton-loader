@@ -29,6 +29,10 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
       </div>
 
+      <div class="skeletons-animation-pulse-dark">
+        <ngx-skeleton-loader animation="pulse-dark"></ngx-skeleton-loader>
+      </div>
+
       <div class="skeletons-animation-progress">
         <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
       </div>
@@ -106,13 +110,13 @@ describe('NgxSkeletonLoaderComponent', () => {
     }));
 
     it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
-      expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(16);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(16);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(16);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(16);
-      expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(16);
-      expect(fixture.nativeElement.querySelectorAll('[tabindex="-1"]').length).toBe(16);
-      expect(fixture.nativeElement.querySelectorAll('[aria-label="loading"]').length).toBe(16);
+      expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(17);
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(17);
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(17);
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(17);
+      expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(17);
+      expect(fixture.nativeElement.querySelectorAll('[tabindex="-1"]').length).toBe(17);
+      expect(fixture.nativeElement.querySelectorAll('[aria-label="loading"]').length).toBe(17);
     });
 
     it('should use progress as default animation if `animation` is not passed as component attribute', () => {
@@ -174,6 +178,14 @@ describe('NgxSkeletonLoaderComponent', () => {
     describe('When skeleton is created using `pulse` as animation', () => {
       it('should add pulse animation styles based on animation class on the skeleton components', () => {
         expect(fixture.nativeElement.querySelectorAll('.skeletons-animation-pulse .skeleton-loader.pulse').length).toBe(
+          1,
+        );
+      });
+    });
+
+    describe('When skeleton is created using `pulse-dark` as animation', () => {
+      it('should add pulse-dark animation styles based on animation class on the skeleton components', () => {
+        expect(fixture.nativeElement.querySelectorAll('.skeletons-animation-pulse-dark .skeleton-loader.pulse-dark').length).toBe(
           1,
         );
       });

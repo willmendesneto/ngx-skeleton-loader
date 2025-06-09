@@ -96,7 +96,16 @@
     animation: pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 0.5s;
   }
-
+    /**
+    * Added only when `animation` attribute is `pulse-dark`
+    * at component level. So that we can load the
+    * animations only if needed
+    */
+    &.pulse-dark {
+      background: rgba(50, 50, 50, 0.2);
+      animation: pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation-delay: 0.5s;
+    }
   //For custom-content mark height to 100% and remove the background
   &.custom-content {
     height: 100%;
@@ -109,6 +118,7 @@
   @media (prefers-reduced-motion: reduce) {
     &.pulse,
     &.progress-dark,
+    &.pulse-dark,
     &.custom-content,
     &.progress::before  {
       animation: none;
@@ -116,6 +126,7 @@
 
     &.progress::before,
     &.progress-dark,
+        &.pulse-dark,
     &.custom-content {
       background-image: none;
     }

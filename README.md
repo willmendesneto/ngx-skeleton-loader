@@ -245,6 +245,7 @@ You can also define which CSS animation you want to use - even not use any, if i
 - `progress` - _default_: it will use it `progress` as animation;
 - `progress-dark`: it will use it `progress-dark` as animation. Recommended if your color schema is darken;
 - `pulse`: it will use `pulse` as animation;
+- `pulse-dark`: it will use `pulse-dark` as animation. Recommended if your color schema is darken;
 
 > `progress` is the default animation, used as the single one previously. If you don't pass the animation attribute, it defaults to `progress`.
 
