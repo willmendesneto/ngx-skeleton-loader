@@ -7,13 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+- Changed
+
+- Adding new appearance `square`
+
 ## [11.2.0][] - 2025-06-09
 
 ### Added
 
 - Adding new `pulse-dark` animation
 
-### Updated
+### Changed
 
 - Upgrading Angular deps to v20
 - Replacing `npm install` to `npm ci` on Circle CI pipeline
@@ -23,13 +27,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Adding support for standalone `provideNgxSkeletonLoader()`
 
-### Updated
+### Changed
 - Upgrade project to use eslint v9
 - Updating docs to reflect standalone `provideNgxSkeletonLoader()` support
 
 ## [11.0.0][] - 2025-04-09
 
-### Updated
+### Changed
 - Upgrading project to use Node.js v22.14.0
 - Upgrading project to Angular v19
 - Removing [ngStyle] and [ngClass] in favor of `[style]` and `[class]`, respectively. These directives are expected to be removed in future Angular versions, since their behavior can be replicated using native bindings. This change also reduces the initial bundle size for applications that don’t use these directives.
@@ -39,7 +43,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 - Removing warnings in dev mode in favor of typed angular signals integration. It should not affect consumers in general, but it will be released as a major version, since this project follows the SEMVER standards
 
-### Updated
+### Changed
 
 > Thanks to @lekhmanrus
 
@@ -51,7 +55,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Adding `PUBLISHING_HOTFIX.md` file describing all the steps to cover a hotfix in older version of NGX-Skeleton-Loader module
 
 ## [9.0.0][] - 2024-01-13
-### Updated
+### Changed
 
 - Upgrading `@angular/*` packages to v17
 - Upgrading NodeJS to v20.10.0
@@ -62,9 +66,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - fixing issue with optional chaining not being supported on apps using Angular CLI <=v11;
 
-### Updated
+### Changed
 
-- Updated input values validation in order to remove optional chaining. Instead, the code is now using object destructuring to get config theme value;
+- Changed input values validation in order to remove optional chaining. Instead, the code is now using object destructuring to get config theme value;
 
 ## [8.0.2][] - 2023-09-11
 
@@ -80,7 +84,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [8.0.0][] - 2023-06-20
 
-### Updated
+### Changed
 
 - Updating project to support Angular v16;
 - Updating NodeJS version to v18;
@@ -130,7 +134,7 @@ By using `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* .
 - Adding new `custom-content` appearance. From now on, consumers can now add their own content inside `<ng-skeleton-loader></ng-skeleton-loader>` component. So that, they can add some custom content, such as SVG, as an example
 - Adding examples for `custom-content` usage
 
-### Updated
+### Changed
 
 - Updagrading module to Angular v15
 
@@ -140,7 +144,7 @@ By using `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* .
 
 ## [6.0.0][] - 2022-08-18
 
-### Updated
+### Changed
 
 - Adding Publishing setup using NPX
 - Replacing CSS class namespace from `.loader` to `.skeleton-loader`
@@ -151,7 +155,7 @@ The CSS class used as namespace was changed. Previously, it was called `.loader`
 
 ## [5.0.0][] - 2022-02-08
 
-### Updated
+### Changed
 
 > Thanks @yharaskrik
 
@@ -207,7 +211,7 @@ Thanks @rkristelijn for raising the issue and the pull request!
 
 ## [2.9.2][] - 2021-04-11
 
-### Updated
+### Changed
 
 - Updating link in README.md
 
@@ -221,7 +225,7 @@ Thanks @rkristelijn for raising the issue and the pull request!
 
 - Adding `appearance` attribute to be checked via `ngOnChanges`
 
-### Updated
+### Changed
 
 - Updating examples with new features
 
@@ -235,7 +239,7 @@ Thanks @rkristelijn for raising the issue and the pull request!
   - PS: The other values alredy have a fallback, so nothing to worry here
 - Adding error feedback for `appearance` attribute in case of wrong configuration. Now it will show a error message on the console in case of receiving a wrong value
 
-### Updated
+### Changed
 
 - Adding `ngOnChange` to validate `count` input in case of changes via binding
 - Updating `README.md` with information about `appearance` and `theme` usage.
@@ -247,7 +251,7 @@ Thanks @rkristelijn for raising the issue and the pull request!
 - Using `ngAcceptInputType_count` for template checking in count input. That solves issue https://github.com/willmendesneto/ngx-skeleton-loader/issues/59. You can find more details about it in https://angular.io/guide/template-typecheck
 - Fixing type issues on `yarn build:ssr` command
 
-### Updated
+### Changed
 
 - Updating `perf-marks` to `v1.14.1`
 - Adding strict mode support in module
@@ -268,7 +272,7 @@ Thanks @rkristelijn for raising the issue and the pull request!
 </div>
 ```
 
-### Updated
+### Changed
 
 - Using OnPush as changeDetection mechanism into ngx-skeleton-loader component
 - Adding ability to pass `false` as string or boolean (coming from variable value via binding) on `animation` attribute in `ngx-skeleton-loader` component configuration. animation will receive `false` as string when attribute field it's not using binding. Component now can receive `false` (boolean), "false" (string), or any other animation type via binding.
@@ -334,7 +338,7 @@ export class AppModule {}
 
 - Fixing bundle size command on CircleCI pipeline
 
-### Updated
+### Changed
 
 - Upgrading NodeJS to v14.11.0
 - Updating `perf-marks` package to v1.14.0
@@ -359,13 +363,13 @@ export class AppModule {}
 
 ## [2.4.2][] - 2020-08-01
 
-### Updated
+### Changed
 
 - Bumping `perf-marks` to latest version
 
 ## [2.4.1][] - 2020-08-01
 
-### Updated
+### Changed
 
 - Bumping `perf-marks` to latest version
 
@@ -375,7 +379,7 @@ export class AppModule {}
 
 - Adding User Timing API to track component render and content loader time
 
-### Updated
+### Changed
 
 - Updating examples with new skeleton simulation
 - Adding Stackblitz link for user card skeleton loading demo
@@ -386,7 +390,7 @@ export class AppModule {}
 
 - Adding User Timing API to track component render and content loader time
 
-### Updated
+### Changed
 
 - Updating examples with new skeleton simulation
 - Adding Stackblitz link for user card skeleton loading demo
@@ -397,7 +401,7 @@ export class AppModule {}
 
 - For compatibility with IE11 by using indexOf instead of `includes`
 
-### Updated
+### Changed
 
 - Updating `npm run postinstall` command to follow the new rules from update.angular.io website
 
@@ -409,14 +413,14 @@ export class AppModule {}
 
 ## [2.1.0][] - 2020-06-01
 
-### Updated
+### Changed
 
 - Upgrading @angular/cli to version 9
 - 🎉 Decreasing bundle size to 1.17KB 🎉
 
 ## [2.0.0][] - 2020-05-15
 
-### Updated
+### Changed
 
 - Upgrading NodeJS to v12.16.2
 - Updating documentation with `animation` attribute
@@ -459,7 +463,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 
 ## [1.2.7][] - 2020-04-13
 
-### Updated
+### Changed
 
 - Decreasing bundle size after disable Ivy in production build
 - Adding description, keywords and github information on `package.json` files
@@ -478,7 +482,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 
 ## [1.2.4][] - 2020-02-25
 
-### Updated
+### Changed
 
 - Updating Github templates
 - Updating Angular CLI to v9
@@ -497,13 +501,13 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 
 ## [1.2.1][] - 2019-06-08
 
-### Updated
+### Changed
 
 - Updating Angular CLI to v8
 
 ## [1.2.0][] - 2019-04-19
 
-### Updated
+### Changed
 
 - Updating Angular CLI to 7.3.8
 
@@ -513,7 +517,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 
 - Adding badges for stackblitz, bundlephobia and license
 
-### Updated
+### Changed
 
 - Removing unnecessary CSS styles for skeleton
 
@@ -534,7 +538,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 - Added `CODE_OF_CONDUCT.md` with the Code of conduct
 - Added unit tests for skeletons and demo components
 
-### Updated
+### Changed
 
 - Decreased bundle size
 - New gif showing `ngx-skeleton-loader` in action

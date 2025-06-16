@@ -37,6 +37,15 @@
     border-radius: 50%;
   }
 
+    /**
+    * Added only when `appearance` attribute is `square`
+    * at component level. So that we can use it only if needed
+    */
+    &.square {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+    }
   /**
   * Added only when `animation` attribute is `progress`
   * at component level. So that we can load the

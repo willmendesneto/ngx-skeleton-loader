@@ -84,6 +84,13 @@ export class NgxSkeletonLoaderComponent {
    */
   readonly theme = input<NgxSkeletonLoaderConfigTheme>(this.#config?.theme || null);
   /**
+   * The `size` property is an input that determines the size of the skeleton loader.
+   * It is initialized with the value from the `NgxSkeletonLoaderConfig` object, or `null` if the
+   * config is not provided.
+   * The size can be specified as a number (in pixels) or a string (e.g., '50px', '200').
+   */
+  readonly size = input<NgxSkeletonLoaderConfig['size']>(this.#config?.size || null);
+  /**
    * The `items` property is a computed property that generates an array of indices based on the
    * `count` input.
    * If the `appearance` is set to 'custom-content', the `count` is forced to 1 to ensure that the
@@ -107,6 +114,28 @@ export class NgxSkeletonLoaderComponent {
     return [...Array(count)].map((_, index) => index);
   });
   /**
+   * The `squareSize` property is a computed property that calculates the size of the skeleton
+   * loader when the appearance is set to 'square'.
+   * It checks the `size` input and ensures that it is a valid number or string representing a
+   * valid pixel value. If the `size` is not a valid number or string, it returns `null`.
+   * If the `appearance` is not 'square', it also returns `null`.
+   * This computed property is used to set the width and height of the skeleton loader when it
+   * is displayed as a square.
+   */
+  readonly squareSize = computed(() => {
+    const size = this.size();
+    if (this.appearance() !== 'square' ||
+      (typeof size !== 'number' && typeof size !== 'string')) {
+      return null;
+    }
+
+    const sizeValueInNumbersOnly = Number(size.toString().trim().replace(/\D/g, ''));
+    if (!Number.isInteger(sizeValueInNumbersOnly)) {
+      return null;
+    }
+    return `${sizeValueInNumbersOnly}px`;
+  });
+  /**
    * A computed property that returns the final theme configuration for the skeleton loader.
    * If the `extendsFromRoot` property is set in the `NgxSkeletonLoaderConfig`, the theme is merged
    * with the root theme configuration. Otherwise, the theme is returned as-is.
@@ -115,12 +144,19 @@ export class NgxSkeletonLoaderComponent {
    */
   readonly styles = computed(() => {
     const theme = this.theme();
+    const size = this.squareSize();
+
     if (this.#config?.theme?.extendsFromRoot) {
       return {
         ...this.#config?.theme,
         ...theme,
+        ...(size && { 'width': size, 'height': size })
       };
     }
-    return theme;
+
+    return {
+      ...theme,
+      ...(size && { 'width': size, 'height': size })
+    };
   });
 }

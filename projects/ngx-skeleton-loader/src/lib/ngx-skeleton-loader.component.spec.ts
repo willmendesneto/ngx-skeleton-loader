@@ -60,6 +60,9 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
       <div class="skeletons-appearance-circle">
         <ngx-skeleton-loader appearance="circle"> </ngx-skeleton-loader>
       </div>
+      <div class="skeletons-appearance-square">
+        <ngx-skeleton-loader appearance="square" size="100px"> </ngx-skeleton-loader>
+      </div>
 
       <div class="skeletons-appearance-custom-content">
         <ngx-skeleton-loader appearance="custom-content">
@@ -110,13 +113,13 @@ describe('NgxSkeletonLoaderComponent', () => {
     }));
 
     it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
-      expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(17);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(17);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(17);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(17);
-      expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(17);
-      expect(fixture.nativeElement.querySelectorAll('[tabindex="-1"]').length).toBe(17);
-      expect(fixture.nativeElement.querySelectorAll('[aria-label="loading"]').length).toBe(17);
+      expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(18);
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(18);
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(18);
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(18);
+      expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(18);
+      expect(fixture.nativeElement.querySelectorAll('[tabindex="-1"]').length).toBe(18);
+      expect(fixture.nativeElement.querySelectorAll('[aria-label="loading"]').length).toBe(18);
     });
 
     it('should use progress as default animation if `animation` is not passed as component attribute', () => {
@@ -145,6 +148,14 @@ describe('NgxSkeletonLoaderComponent', () => {
       it('should add styles based on circle class on the skeleton components', () => {
         expect(
           fixture.nativeElement.querySelectorAll('.skeletons-appearance-circle .skeleton-loader.circle').length,
+        ).toBe(1);
+      });
+    });
+
+    describe('When skeleton is created with square appearance', () => {
+      it('should add styles based on square class on the skeleton components', () => {
+        expect(
+          fixture.nativeElement.querySelectorAll('.skeletons-appearance-square .skeleton-loader.square').length,
         ).toBe(1);
       });
     });

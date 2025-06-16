@@ -9,12 +9,13 @@ export type NgxSkeletonLoaderConfigTheme = {
 } | null;
 
 export interface NgxSkeletonLoaderConfig {
-  appearance: 'circle' | 'line' | 'custom-content' | '';
+  appearance: 'circle' | 'line' | 'custom-content' | 'square' | '';
   animation: 'progress' | 'progress-dark' | 'pulse' | 'pulse-dark' | 'false' | false;
   theme: NgxSkeletonLoaderConfigTheme;
   loadingText: string;
   count: number;
   ariaLabel: string;
+  size?: number | `${number}` | `${number}px` | null;
 }
 
 export const NGX_SKELETON_LOADER_CONFIG = new InjectionToken<NgxSkeletonLoaderConfig>('ngx-skeleton-loader.config');

@@ -58,6 +58,23 @@
   </div>
 </div>
 
+
+<br />
+<br />
+
+<hr />
+
+<h2>Square skeletons</h2>
+
+<div class="item">
+  <p>Pulse</p>
+  <ngx-skeleton-loader appearance="square" count="5" size="100px" animation="pulse" />
+</div>
+<div class="item">
+  <p>Progress</p>
+  <ngx-skeleton-loader appearance="square" count="5" size="100px" animation="progress" />
+</div>
+
 <br />
 <br />
 
@@ -289,6 +306,27 @@
       </svg>
     </ngx-skeleton-loader>
   </div>
+</div>
+
+<div class="item">
+  <ngx-skeleton-loader appearance="custom-content" [theme]="{ height: 'auto', 'text-align': 'center', 'margin-bottom': '20px' }">
+    <p class="custom-content-title">Custom content goes here</p>
+    <div class="custom-content-description">
+      <p>
+        Here's an example of a custom content loader. You can use any HTML or SVG content inside
+        the loader.
+      </p>
+      <p>
+        Also, you can customize the loader's appearance using the `theme` prop or even apply
+        animation on the HTML content itself!
+      </p>
+      <hr />
+      <cite
+        >You can disable animations in this case by passing props `animation="false"` in your
+        component</cite
+      >
+    </div>
+  </ngx-skeleton-loader>
 </div>
 
 <h3>Skeleton switching values for `animation` and `count` &#64;Input</h3>

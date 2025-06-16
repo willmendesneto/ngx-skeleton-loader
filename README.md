@@ -115,6 +115,9 @@ After that, you can use the `ngx-skeleton-loader` components in your templates, 
 <div class="item">
   <ngx-skeleton-loader count="5" appearance="circle" />
 </div>
+<div class="item">
+  <ngx-skeleton-loader count="5" appearance="square" size="100px" />
+</div>
 ```
 
 ### Using `NgxSkeletonLoaderModule.forRoot()`
@@ -232,7 +235,8 @@ You can also define which appearance want to use in your skeleton loader by pass
 - `''` - _default_: it will use it `''` as appearance. At the end, it will render like a line;
 - `line`: it will render like a line. This is the same behavior as passing an empty string;
 - `circle`: it will use `circle` as appearance. Great for avatar skeletons, for example :);
-- `custom-content`: it will NOT add any appearance. Great for custom content, such as SVG, internal components and such;
+- `square`: it will use `square` as appearance and render it appropriately. Great for cards and images, for example; It also requires `size` to be passed through the component - `size` has default size of `40px`;
+- `custom-content`: it will NOT add any appearance. Great for custom content, such as SVG, internal components and such. Although not rendering appearance, animation will be added unless component has `animation="false"` prop;
 
 ## Animations
 
