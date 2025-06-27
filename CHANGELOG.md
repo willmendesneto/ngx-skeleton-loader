@@ -7,9 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
-- Changed
+### Changed
 
 - Adding new appearance `square`
+- Fixing `peerDependencies` install
 
 ## [11.2.0][] - 2025-06-09
 
