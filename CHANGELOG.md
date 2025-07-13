@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Changed
+
+- Using CSS Vars for skeleton definition
+
+### Fixed
+
+- Fixing dynamic height/width via `[theme]`
+
 ## [11.2.1][] - 2025-06-27
 
 ### Changed

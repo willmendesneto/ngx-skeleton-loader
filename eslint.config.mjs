@@ -5,11 +5,11 @@ export default defineConfig([
   {
     files: ['**/*.ts'],
 
+    ignores: ['./coverage/*', './dist/*', './projects/*/coverage/*'],
+
     processor: angular.processInlineTemplates,
 
-    extends: [
-      angular.configs.tsRecommended,
-    ],
+    extends: [angular.configs.tsRecommended],
 
     languageOptions: {
       ecmaVersion: 5,
@@ -26,7 +26,7 @@ export default defineConfig([
       '@angular-eslint/component-selector': [
         'error',
         {
-          prefix: 'ngx',
+          prefix: ['ngx', 'app'],
           style: 'kebab-case',
           type: 'element',
         },
@@ -44,9 +44,7 @@ export default defineConfig([
   },
   {
     files: ['**/*.html'],
-    extends: [
-      angular.configs.templateRecommended
-    ],
+    extends: [angular.configs.templateRecommended],
     rules: {},
   },
   {
@@ -54,9 +52,7 @@ export default defineConfig([
 
     processor: angular.processInlineTemplates,
 
-    extends: [
-      angular.configs.tsRecommended,
-    ],
+    extends: [angular.configs.tsRecommended],
 
     languageOptions: {
       ecmaVersion: 5,
@@ -69,7 +65,7 @@ export default defineConfig([
     },
 
     rules: {
-      '@angular-eslint/prefer-standalone': "off",
+      '@angular-eslint/prefer-standalone': 'off',
     },
   },
 ]);

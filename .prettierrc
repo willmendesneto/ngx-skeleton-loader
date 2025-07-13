@@ -12,7 +12,9 @@
     {
       "files": "*.scss",
       "options": {
-        "printWidth": 80
+        "printWidth": 80,
+        "tabWidth": 2,
+        "indentUnit": 2
       }
     }
   ]

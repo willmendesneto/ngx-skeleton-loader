@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
   animation: NgxSkeletonLoaderConfig['animation'] = 'pulse';
   contentLoaded = false;
   count = 2;
-  widthHeightSizeInPixels = 50;
+  widthHeightSizeInPixels = '50px';
 
   intervalId: number | null = null;
 
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.intervalId = window.setInterval(() => {
         this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
         this.count = this.count === 2 ? 5 : 2;
-        this.widthHeightSizeInPixels = this.widthHeightSizeInPixels === 50 ? 100 : 50;
+        this.widthHeightSizeInPixels = `${this.widthHeightSizeInPixels === '50px' ? '100px' : '50px'}`;
       }, 5000);
     }
   }

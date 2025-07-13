@@ -1,4 +1,23 @@
 .skeleton-loader {
+  --ngx-skeleton-loader-base-color: rgb(239, 241, 246);
+  --ngx-skeleton-loader-light-mode-color: rgba(255, 255, 255, 0.6);
+  --ngx-skeleton-loader-light-mode-color-to: rgba(255, 255, 255, 0);
+  --ngx-skeleton-loader-dark-mode-color: rgba(0, 0, 0, 0.2);
+  --ngx-skeleton-loader-dark-mode-color-to: transparent;
+  --ngx-skeleton-loader-animation-duration: 2s;
+  --ngx-skeleton-loader-background-image-light-mode: linear-gradient(
+    90deg,
+    var(--ngx-skeleton-loader-light-mode-color-to),
+    var(--ngx-skeleton-loader-light-mode-color),
+    var(--ngx-skeleton-loader-light-mode-color-to)
+  );
+  --ngx-skeleton-loader-background-image-dark-mode: linear-gradient(
+    90deg,
+    var(--ngx-skeleton-loader-dark-mode-color-to),
+    var(--ngx-skeleton-loader-dark-mode-color),
+    var(--ngx-skeleton-loader-dark-mode-color-to)
+  );
+
   box-sizing: border-box;
 
   /**
@@ -8,9 +27,7 @@
   */
   overflow: hidden;
   position: relative;
-
-  background: rgb(239, 241, 246) no-repeat;
-
+  background: var(--ngx-skeleton-loader-base-color) no-repeat;
   border-radius: 4px;
   width: 100%;
   height: 20px;
@@ -37,15 +54,15 @@
     border-radius: 50%;
   }
 
-    /**
-    * Added only when `appearance` attribute is `square`
-    * at component level. So that we can use it only if needed
-    */
-    &.square {
-      width: 40px;
-      height: 40px;
-      margin: 5px;
-    }
+  /**
+  * Added only when `appearance` attribute is `square`
+  * at component level. So that we can use it only if needed
+  */
+  &.square {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+  }
   /**
   * Added only when `animation` attribute is `progress`
   * at component level. So that we can load the
@@ -62,7 +79,7 @@
     transform: translate3d(0, 0, 0);
 
     &:before {
-      animation: progress 2s ease-in-out infinite;
+      animation: progress var(--ngx-skeleton-loader-animation-duration) ease-in-out infinite;
       background-size: 200px 100%;
       position: absolute;
       z-index: 1;
@@ -76,23 +93,13 @@
 
   &.progress {
     &:before {
-      background-image: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0.6),
-        rgba(255, 255, 255, 0)
-      );
+      background-image: var(--ngx-skeleton-loader-background-image-light-mode);
     }
   }
 
   &.progress-dark {
     &:before {
-      background-image: linear-gradient(
-        90deg,
-        transparent,
-        rgba(0, 0, 0, 0.2),
-        transparent
-      );
+      background-image: var(--ngx-skeleton-loader-background-image-dark-mode);
     }
   }
 
@@ -102,19 +109,19 @@
   * animations only if needed
   */
   &.pulse {
-    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation: pulse var(--ngx-skeleton-loader-animation-duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 0.5s;
   }
-    /**
-    * Added only when `animation` attribute is `pulse-dark`
-    * at component level. So that we can load the
-    * animations only if needed
-    */
-    &.pulse-dark {
-      background: rgba(50, 50, 50, 0.2);
-      animation: pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-      animation-delay: 0.5s;
-    }
+  /**
+  * Added only when `animation` attribute is `pulse-dark`
+  * at component level. So that we can load the
+  * animations only if needed
+  */
+  &.pulse-dark {
+    background: var(--ngx-skeleton-loader-dark-mode-color);
+    animation: pulse var(--ngx-skeleton-loader-animation-duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation-delay: 0.5s;
+  }
   //For custom-content mark height to 100% and remove the background
   &.custom-content {
     height: 100%;
@@ -135,7 +142,7 @@
 
     &.progress::before,
     &.progress-dark,
-        &.pulse-dark,
+    &.pulse-dark,
     &.custom-content {
       background-image: none;
     }
