@@ -11,7 +11,7 @@
     "lint": "ng lint",
     "pree2e": "webdriver-manager update",
     "e2e": "ng e2e",
-    "bundlesize": "bundlesize",
+    "bundlesize": "bundlesize --config .bundlesize.config.json",
     "build:pkg": "ng build ngx-skeleton-loader --configuration production",
     "update-library-version": "node ./scripts/build.js && cp -f *.md dist/ngx-skeleton-loader",
     "postversion": "git push && git push --tags",
@@ -44,12 +44,6 @@
     "url": "https://github.com/willmendesneto/ngx-skeleton-loader/issues"
   },
   "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme",
-  "bundlesize": [
-    {
-      "path": "./dist/ngx-skeleton-loader/fesm2022/ngx-skeleton-loader.mjs",
-      "maxSize": "3.51KB"
-    }
-  ],
   "dependencies": {
     "@angular/animations": "20.0.2",
     "@angular/common": "20.0.2",
