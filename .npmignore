@@ -6,3 +6,19 @@ Thumbs.db
 # Folders
 .github/
 .prettierignore
+.circleci/
+coverage/
+.angular/
+
+# Project configuration files
+.bundlesize.config.json
+.prettierrc
+.prettierignore
+.eslintcache
+.jshintrc
+.jshintignore
+.stylelintrc
+.stylelintignore
+.coveralls.yml
+.editorconfig
+e2e

@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Fixed
+
+- Removing unnecessary folders from package distribution
+
 ### Changed
 
 - Using CSS Vars for skeleton definition
+- Moving bundlesize configuration into `.bundlesize.config.json` file
 
 ### Fixed
 
