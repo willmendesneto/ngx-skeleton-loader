@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Adding info about `measureUnit` usage on `README.md` file
+- Adding support for different CSS measurement units via `measureUnit` input attribute
+
 ### Fixed
 
 - Removing unnecessary folders from package distribution

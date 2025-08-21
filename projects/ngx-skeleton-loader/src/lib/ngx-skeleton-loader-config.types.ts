@@ -8,6 +8,8 @@ export type NgxSkeletonLoaderConfigTheme = {
   [k: string]: any;
 } | null;
 
+type CSSMeasureUnit = 'px' | 'em' | 'rem' | '%' | 'vh' | 'vw';
+
 export interface NgxSkeletonLoaderConfig {
   appearance: 'circle' | 'line' | 'custom-content' | 'square' | '';
   animation: 'progress' | 'progress-dark' | 'pulse' | 'pulse-dark' | 'false' | false;
@@ -15,7 +17,8 @@ export interface NgxSkeletonLoaderConfig {
   loadingText: string;
   count: number;
   ariaLabel: string;
-  size?: number | `${number}` | `${number}px` | null;
+  size: number | `${number}` | `${number}${CSSMeasureUnit}` | null;
+  measureUnit: CSSMeasureUnit;
 }
 
 export const NGX_SKELETON_LOADER_CONFIG = new InjectionToken<NgxSkeletonLoaderConfig>('ngx-skeleton-loader.config');

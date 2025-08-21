@@ -116,7 +116,8 @@ After that, you can use the `ngx-skeleton-loader` components in your templates, 
   <ngx-skeleton-loader count="5" appearance="circle" />
 </div>
 <div class="item">
-  <ngx-skeleton-loader count="5" appearance="square" size="100px" />
+  <!-- It will use `px` as default CSS measure unit -->
+  <ngx-skeleton-loader count="5" appearance="square" size="100" />
 </div>
 ```
 
@@ -151,7 +152,12 @@ export class YourAppComponent {}
 ```html
 <div class="item">
   <ngx-skeleton-loader count="5" appearance="circle" />
-  <!-- above line will produce the rendering of 5 circles with the pulse animation and the aria-valuetext attribute set with "This item is actually loading..." -->
+  <!-- above line will produce the rendering of 5 circles with the pulse animation and the aria-valuetext attribute set with "This item is actually loading...", since it was 
+  configured via `NgxSkeletonLoaderModule.forRoot()`-->
+
+  <!-- It will render a component with `aria-valuetext` attribute set with `Loading section content`, 
+   since it was passed directly via input attribute `loadingText` -->
+  <ngx-skeleton-loader count="5" loadingText="Loading section content" />
 </div>
 ```
 
@@ -235,8 +241,14 @@ You can also define which appearance want to use in your skeleton loader by pass
 - `''` - _default_: it will use it `''` as appearance. At the end, it will render like a line;
 - `line`: it will render like a line. This is the same behavior as passing an empty string;
 - `circle`: it will use `circle` as appearance. Great for avatar skeletons, for example :);
-- `square`: it will use `square` as appearance and render it appropriately. Great for cards and images, for example; It also requires `size` to be passed through the component - `size` has default size of `40px`;
+- `square`: it will use `square` as appearance and render it appropriately. Great for cards and images, for example; It also requires `size` to be passed through the component - `size` has default size of `40px` and it has `measureUnit` as optional way to change default CSS measure unit from `px` to one of the valid options: `px`, `em`, `rem`, `%`, `vh`, `vw`
 - `custom-content`: it will NOT add any appearance. Great for custom content, such as SVG, internal components and such. Although not rendering appearance, animation will be added unless component has `animation="false"` prop;
+
+### Appearance props (specific for `square`)
+
+When setting `square` as appearance, your component can also use these other input attributes to configure it properly
+- `size` - default _40_: number to be passed as definition for `width` and `height`. If not passed, it defaults to `40`
+- `measureUnit` - default _px_: CSS measure unit to be used for `width` and `height`. If not passed, it defaults to `px`. Valid options: `px`, `em`, `rem`, `%`, `vh`, `vw`
 
 ## Animations
 

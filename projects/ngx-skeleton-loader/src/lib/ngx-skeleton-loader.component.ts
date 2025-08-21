@@ -33,7 +33,7 @@ export class NgxSkeletonLoaderComponent {
    * This configuration object provides various options for customizing the behavior
    * and appearance of the `NgxSkeletonLoaderComponent`.
    */
-  readonly #config = inject<NgxSkeletonLoaderConfig>(NGX_SKELETON_LOADER_CONFIG, { optional: true});
+  readonly #config = inject<NgxSkeletonLoaderConfig>(NGX_SKELETON_LOADER_CONFIG, { optional: true });
   /**
    * The `count` property is an input that determines the number of skeleton loader elements
    * to display.
@@ -87,9 +87,17 @@ export class NgxSkeletonLoaderComponent {
    * The `size` property is an input that determines the size of the skeleton loader.
    * It is initialized with the value from the `NgxSkeletonLoaderConfig` object, or `null` if the
    * config is not provided.
-   * The size can be specified as a number (in pixels) or a string (e.g., '50px', '200').
+   * The size can be specified as a number (in pixels) (e.g., '50', '200').
    */
   readonly size = input<NgxSkeletonLoaderConfig['size']>(this.#config?.size || null);
+  /**
+   * The `measureUnit` property is an input that determines the unit of measurement for the size
+   * of the skeleton loader.
+   * It is initialized with the value from the `NgxSkeletonLoaderConfig` object, or 'px' if the
+   * config is not provided.
+   * This allows the size to be specified in different units, such as 'px', 'em', etc.
+   */
+  readonly measureUnit = input<NgxSkeletonLoaderConfig['measureUnit']>(this.#config?.measureUnit || 'px');
   /**
    * The `items` property is a computed property that generates an array of indices based on the
    * `count` input.
@@ -100,6 +108,7 @@ export class NgxSkeletonLoaderComponent {
    */
   readonly items = computed(() => {
     let count = this.count() || 1;
+
     // Force count to 1 when custom-content is used
     if (this.appearance() === 'custom-content') {
       // Shows error message only in Development
@@ -124,8 +133,8 @@ export class NgxSkeletonLoaderComponent {
    */
   readonly squareSize = computed(() => {
     const size = this.size();
-    if (this.appearance() !== 'square' ||
-      (typeof size !== 'number' && typeof size !== 'string')) {
+
+    if (this.appearance() !== 'square' || (typeof size !== 'number' && typeof size !== 'string')) {
       return null;
     }
 
@@ -133,8 +142,10 @@ export class NgxSkeletonLoaderComponent {
     if (!Number.isInteger(sizeValueInNumbersOnly)) {
       return null;
     }
-    return `${sizeValueInNumbersOnly}px`;
+
+    return `${sizeValueInNumbersOnly}${this.measureUnit()}`;
   });
+
   /**
    * A computed property that returns the final theme configuration for the skeleton loader.
    * If the `extendsFromRoot` property is set in the `NgxSkeletonLoaderConfig`, the theme is merged
@@ -150,13 +161,13 @@ export class NgxSkeletonLoaderComponent {
       return {
         ...this.#config?.theme,
         ...theme,
-        ...(size && { 'width': size, 'height': size })
+        ...(size && { width: size, height: size }),
       };
     }
 
     return {
       ...theme,
-      ...(size && { 'width': size, 'height': size })
+      ...(size && { width: size, height: size }),
     };
   });
 }

@@ -9,62 +9,65 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
   imports: [NgxSkeletonLoaderComponent],
   template: `
     <div>
-      <div class="skeletons-defaults">
+      <div class="test-wrapper skeletons-defaults">
         <ngx-skeleton-loader></ngx-skeleton-loader>
       </div>
 
-      <div class="skeleton-with-specific-loading-text">
+      <div class="test-wrapper skeleton-with-specific-loading-text">
         <ngx-skeleton-loader loadingText="Loading. Please wait ..."></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-animation-no-animation">
+      <div class="test-wrapper skeletons-animation-no-animation">
         <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-animation-no-animation-via-binding">
+      <div class="test-wrapper skeletons-animation-no-animation-via-binding">
         <ngx-skeleton-loader [animation]="animationWithFalsePassedViaBinding"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-animation-pulse">
+      <div class="test-wrapper skeletons-animation-pulse">
         <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-animation-pulse-dark">
+      <div class="test-wrapper skeletons-animation-pulse-dark">
         <ngx-skeleton-loader animation="pulse-dark"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-animation-progress">
+      <div class="test-wrapper skeletons-animation-progress">
         <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-animation-progress-dark">
+      <div class="test-wrapper skeletons-animation-progress-dark">
         <ngx-skeleton-loader animation="progress-dark"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-animation-invalid-option">
+      <div class="test-wrapper skeletons-animation-invalid-option">
         <ngx-skeleton-loader animation="invalid-option"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-count-invalid-option">
+      <div class="test-wrapper skeletons-count-invalid-option">
         <ngx-skeleton-loader [count]="invalidValueInCount"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-appearance-invalid-option">
+      <div class="test-wrapper skeletons-appearance-invalid-option">
         <ngx-skeleton-loader appearance="invalid-appearance"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-with-count">
+      <div class="test-wrapper skeletons-with-count">
         <ngx-skeleton-loader count="2"></ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-appearance-circle">
+      <div class="test-wrapper skeletons-appearance-circle">
         <ngx-skeleton-loader appearance="circle"> </ngx-skeleton-loader>
       </div>
-      <div class="skeletons-appearance-square">
-        <ngx-skeleton-loader appearance="square" size="100px"> </ngx-skeleton-loader>
+      <div class="test-wrapper skeletons-appearance-square">
+        <ngx-skeleton-loader appearance="square" size="100"> </ngx-skeleton-loader>
+      </div>
+      <div class="test-wrapper skeletons-appearance-square-with-measureUnit">
+        <ngx-skeleton-loader appearance="square" size="10" measureUnit="%"> </ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-appearance-custom-content">
+      <div class="test-wrapper skeletons-appearance-custom-content">
         <ngx-skeleton-loader appearance="custom-content">
           <svg viewBox="0 0 312 103" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="312" height="102" fill="white" />
@@ -81,12 +84,12 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         </ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-with-theming">
+      <div class="test-wrapper skeletons-with-theming">
         <ngx-skeleton-loader appearance="circle" [theme]="{ width: '70px', height: '70px', 'border-radius': '10px' }">
         </ngx-skeleton-loader>
       </div>
 
-      <div class="skeletons-with-provided-config">
+      <div class="test-wrapper skeletons-with-provided-config">
         <ngx-skeleton-loader></ngx-skeleton-loader>
       </div>
     </div>
@@ -113,13 +116,15 @@ describe('NgxSkeletonLoaderComponent', () => {
     }));
 
     it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
-      expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(18);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(18);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(18);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(18);
-      expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(18);
-      expect(fixture.nativeElement.querySelectorAll('[tabindex="-1"]').length).toBe(18);
-      expect(fixture.nativeElement.querySelectorAll('[aria-label="loading"]').length).toBe(18);
+      const totalOfSkeletons = fixture.nativeElement.querySelectorAll('.test-wrapper .skeleton-loader').length;
+
+      expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(totalOfSkeletons);
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(totalOfSkeletons);
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(totalOfSkeletons);
+      expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(totalOfSkeletons);
+      expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(totalOfSkeletons);
+      expect(fixture.nativeElement.querySelectorAll('[tabindex="-1"]').length).toBe(totalOfSkeletons);
+      expect(fixture.nativeElement.querySelectorAll('[aria-label="loading"]').length).toBe(totalOfSkeletons);
     });
 
     it('should use progress as default animation if `animation` is not passed as component attribute', () => {
@@ -153,10 +158,24 @@ describe('NgxSkeletonLoaderComponent', () => {
     });
 
     describe('When skeleton is created with square appearance', () => {
-      it('should add styles based on square class on the skeleton components', () => {
-        expect(
-          fixture.nativeElement.querySelectorAll('.skeletons-appearance-square .skeleton-loader.square').length,
-        ).toBe(1);
+      it('should add styles based on square class on the skeleton component', () => {
+        const skeletonWithMeasureUnit = fixture.nativeElement.querySelector(
+          '.skeletons-appearance-square .skeleton-loader.square',
+        ).attributes as NamedNodeMap;
+
+        const style = (skeletonWithMeasureUnit.getNamedItem('style') as Attr).value;
+        expect(style).toContain('width: 100px');
+        expect(style).toContain('height: 100px');
+      });
+
+      it('should add width and height styles using `size` and `measureUnit` values on the skeleton component', () => {
+        const skeletonWithMeasureUnit = fixture.nativeElement.querySelector(
+          '.skeletons-appearance-square-with-measureUnit .skeleton-loader.square',
+        ).attributes as NamedNodeMap;
+
+        const style = (skeletonWithMeasureUnit.getNamedItem('style') as Attr).value;
+        expect(style).toContain('width: 10%');
+        expect(style).toContain('height: 10%');
       });
     });
 
@@ -196,9 +215,9 @@ describe('NgxSkeletonLoaderComponent', () => {
 
     describe('When skeleton is created using `pulse-dark` as animation', () => {
       it('should add pulse-dark animation styles based on animation class on the skeleton components', () => {
-        expect(fixture.nativeElement.querySelectorAll('.skeletons-animation-pulse-dark .skeleton-loader.pulse-dark').length).toBe(
-          1,
-        );
+        expect(
+          fixture.nativeElement.querySelectorAll('.skeletons-animation-pulse-dark .skeleton-loader.pulse-dark').length,
+        ).toBe(1);
       });
     });
 

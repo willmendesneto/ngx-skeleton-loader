@@ -68,13 +68,18 @@
 
 <div class="item">
   <p>Pulse</p>
-  <ngx-skeleton-loader appearance="square" count="5" size="100px" animation="pulse" />
+  <ngx-skeleton-loader appearance="square" count="5" size="100" animation="pulse" />
 </div>
 <div class="item">
   <p>Progress</p>
-  <ngx-skeleton-loader appearance="square" count="5" size="100px" animation="progress" />
+  <ngx-skeleton-loader appearance="square" count="5" size="100" animation="progress" />
 </div>
 
+<h2>Square skeletons with specific measure unit</h2>
+<div class="item">
+  <p>Pulse</p>
+  <ngx-skeleton-loader appearance="square" count="5" size="10" measureUnit="rem" animation="pulse" />
+</div>
 <br />
 <br />
 
@@ -83,7 +88,7 @@
 <h2>Line skeletons</h2>
 
 <div class="item">
-  <ngx-skeleton-loader count="5" />
+  <ngx-skeleton-loader count="5" loadingText="Loading section content. Please wait..." />
 </div>
 
 <h2>Line skeletons with theming</h2>
