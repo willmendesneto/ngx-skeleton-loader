@@ -54,7 +54,7 @@
     "@angular/platform-browser-dynamic": "20.0.2",
     "@angular/platform-server": "20.0.2",
     "@angular/router": "20.0.2",
-    "@angular/ssr": "20.0.1",
+    "@angular/ssr": "20.3.6",
     "chromedriver": "^129.0.2",
     "express": "^4.21.0",
     "tslib": "^2.7.0",
