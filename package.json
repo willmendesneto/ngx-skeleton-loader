@@ -52,7 +52,7 @@
     "@angular/forms": "20.0.2",
     "@angular/platform-browser": "20.0.2",
     "@angular/platform-browser-dynamic": "20.0.2",
-    "@angular/platform-server": "20.0.2",
+    "@angular/platform-server": "20.3.6",
     "@angular/router": "20.0.2",
     "@angular/ssr": "20.3.6",
     "chromedriver": "^129.0.2",
