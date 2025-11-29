@@ -5,7 +5,7 @@ export default defineConfig([
   {
     files: ['**/*.ts'],
 
-    ignores: ['./coverage/*', './dist/*', './projects/*/coverage/*'],
+    ignores: ['./coverage/**', './dist/*', './projects/*/coverage/**'],
 
     processor: angular.processInlineTemplates,
 
@@ -44,6 +44,7 @@ export default defineConfig([
   },
   {
     files: ['**/*.html'],
+    ignores: ['./coverage/**', './dist/*', './projects/*/coverage/**'],
     extends: [angular.configs.templateRecommended],
     rules: {},
   },

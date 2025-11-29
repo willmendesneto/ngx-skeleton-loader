@@ -29,10 +29,6 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "esnext",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": false
   },
