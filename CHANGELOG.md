@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Changed
+
+- Upgrading projecto to Angular v21
+
 ## [11.3.0][] - 2025-08-27
 
 ### Added
