@@ -64,7 +64,7 @@
     "@angular-devkit/build-angular": "21.0.1",
     "@angular-devkit/core": "21.0.1",
     "@angular-devkit/schematics": "21.0.1",
-    "@angular/cli": "21.0.1",
+    "@angular/cli": "21.1.0",
     "@angular/compiler-cli": "21.0.1",
     "@angular/language-service": "21.0.1",
     "@schematics/angular": "21.0.1",
