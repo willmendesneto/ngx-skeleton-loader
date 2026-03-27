@@ -2,7 +2,7 @@
   "name": "ngx-feature-toggle-demo",
   "description": "Your module to handle with feature toggles in Angular applications easier.",
   "author": "Will Mendes <willmendesneto@gmail.com>",
-  "version": "12.0.0",
+  "version": "13.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+## [13.0.0][] - 2026-03-26
+
 ### Updated
 
 - Upgrading project to Angular v21
@@ -581,5 +583,6 @@ Now we can define the animation we want to use in `<ngx-feature-toggle>` compone
 [12.0.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v12.0.0
 
 
-[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v12.0.0...HEAD
+[Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v13.0.0...HEAD
+[13.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v12.0.0...v13.0.0
 [12.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v12.0.0
