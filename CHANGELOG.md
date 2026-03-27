@@ -7,121 +7,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
-## [12.0.0][] - 2026-01-18
+### Updated
 
-### Changed
+- Upgrading project to Angular v21
 
-- Upgrading projecto to Angular v21
+### Fixed
 
-## [11.3.0][] - 2025-08-27
+- Users now can redirect when Path is an empty string. When you configure home page to have path = '', and use NgxFeatureToggleRouteGuard with redirectTo = '', redirect does not happen. Thanks @brandonsmith86 🎉
+- Fixing `redirecTo` types
 
 ### Added
 
-- Adding info about `measureUnit` usage on `README.md` file
-- Adding support for different CSS measurement units via `measureUnit` input attribute
+- Adding typescript types validation on pipeline
 
-### Fixed
+## [12.0.0][] - 2023-02-20
 
-- Removing unnecessary folders from package distribution
+### Updated
 
-### Changed
-
-- Using CSS Vars for skeleton definition
-- Moving bundlesize configuration into `.bundlesize.config.json` file
-
-### Fixed
-
-- Fixing dynamic height/width via `[theme]`
-
-## [11.2.1][] - 2025-06-27
-
-### Changed
-
-- Adding new appearance `square`
-- Fixing `peerDependencies` install
-
-## [11.2.0][] - 2025-06-09
-
-### Added
-
-- Adding new `pulse-dark` animation
-
-### Changed
-
-- Upgrading Angular deps to v20
-- Replacing `npm install` to `npm ci` on Circle CI pipeline
-
-## [11.1.0][] - 2025-05-19
-
-### Added
-- Adding support for standalone `provideNgxSkeletonLoader()`
-
-### Changed
-- Upgrade project to use eslint v9
-- Updating docs to reflect standalone `provideNgxSkeletonLoader()` support
-
-## [11.0.0][] - 2025-04-09
-
-### Changed
-- Upgrading project to use Node.js v22.14.0
-- Upgrading project to Angular v19
-- Removing [ngStyle] and [ngClass] in favor of `[style]` and `[class]`, respectively. These directives are expected to be removed in future Angular versions, since their behavior can be replicated using native bindings. This change also reduces the initial bundle size for applications that don’t use these directives.
-
-## [10.0.0][] - 2025-01-24
-
-### Removed
-- Removing warnings in dev mode in favor of typed angular signals integration. It should not affect consumers in general, but it will be released as a major version, since this project follows the SEMVER standards
-
-### Changed
-
-> Thanks to @lekhmanrus
-
-- Upgrading `@angular/*` packages to v19 - https://github.com/willmendesneto/ngx-skeleton-loader/pull/179
-- Implementing Angular Signals integration - https://github.com/willmendesneto/ngx-skeleton-loader/pull/179
-- Making NGX-Skeleton-Loader Standalone Compliant - Closes https://github.com/willmendesneto/ngx-skeleton-loader/issues/183
-
-### Added
-- Adding `PUBLISHING_HOTFIX.md` file describing all the steps to cover a hotfix in older version of NGX-Skeleton-Loader module
-
-## [9.0.0][] - 2024-01-13
-### Changed
-
-- Upgrading `@angular/*` packages to v17
-- Upgrading NodeJS to v20.10.0
-
-## [8.1.0][] - 2023-09-12
-
-### Fixed
-
-- fixing issue with optional chaining not being supported on apps using Angular CLI <=v11;
-
-### Changed
-
-- Changed input values validation in order to remove optional chaining. Instead, the code is now using object destructuring to get config theme value;
-
-## [8.0.2][] - 2023-09-11
-
-### Fixed
-
-- Fixing `README.md` docs
-
-## [8.0.1][] - 2023-08-30
-
-### Fixed
-
-- Fixing CSS reduce motion in MacOS;
-
-## [8.0.0][] - 2023-06-20
-
-### Changed
-
-- Updating project to support Angular v16;
-- Updating NodeJS version to v18;
-- Updating peerDependencies to point to latest `@angular/*` packages;
-
-### Removed
-
-- Removing `perf-marks` dependency library;
+- Upgrading library to Angular v15
 
 ## [7.0.0][] - 2023-02-04
 
@@ -129,11 +32,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Adding support for extending global theme added via `NgxSkeletonLoaderModule.forRoot({ theme: /* ...list of CSS atributes */} })`
 
-By default when using `NgxSkeletonLoaderModule.forRoot({ theme: /* ...list of CSS atributes */} })` the application is using this value as source of truth, overriding any local theming passed to `<ngx-skeleton-loader>` component via `[theme]` input.
+By default when using `NgxSkeletonLoaderModule.forRoot({ theme: /* ...list of CSS atributes */} })` the application is using this value as source of truth, overriding any local theming passed to `<ngx-feature-toggle>` component via `[theme]` input.
 
 By using `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* ...list of CSS atributes */} })` in your application, you should also be aware that:
 
-- By default, every `<ngx-skeleton-loader>` component will use `theme` coming from `NgxSkeletonLoaderModule.forRoot()` as the source of truth
+- By default, every `<ngx-feature-toggle>` component will use `theme` coming from `NgxSkeletonLoaderModule.forRoot()` as the source of truth
 - If there's any CSS attribute on the component locally which overrides the CSS spec, it combines both themes, but overriding global CSS attributes in favor of local ones.
 
 ```html
@@ -151,11 +54,11 @@ By using `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* .
 -->
 
 <div class="item">
-  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <ngx-feature-toggle></ngx-feature-toggle>
   <!-- above line will produce a skeleton component using `height: 30px;`" -->
-  <ngx-skeleton-loader [theme]="{background: 'blue'}"></ngx-skeleton-loader>
+  <ngx-feature-toggle [theme]="{background: 'blue'}"></ngx-feature-toggle>
   <!-- above line will produce a skeleton component using `height: 30px; background: blue;`" -->
-  <ngx-skeleton-loader [theme]="{height: '50px', background: 'red'}"></ngx-skeleton-loader>
+  <ngx-feature-toggle [theme]="{height: '50px', background: 'red'}"></ngx-feature-toggle>
   <!-- above line will produce a skeleton component using `height: 50px; background: red;`" -->
 </div>
 ```
@@ -163,7 +66,7 @@ By using `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* .
 - Adding new `custom-content` appearance. From now on, consumers can now add their own content inside `<ng-skeleton-loader></ng-skeleton-loader>` component. So that, they can add some custom content, such as SVG, as an example
 - Adding examples for `custom-content` usage
 
-### Changed
+### Updated
 
 - Updagrading module to Angular v15
 
@@ -173,7 +76,7 @@ By using `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* .
 
 ## [6.0.0][] - 2022-08-18
 
-### Changed
+### Updated
 
 - Adding Publishing setup using NPX
 - Replacing CSS class namespace from `.loader` to `.skeleton-loader`
@@ -184,7 +87,7 @@ The CSS class used as namespace was changed. Previously, it was called `.loader`
 
 ## [5.0.0][] - 2022-02-08
 
-### Changed
+### Updated
 
 > Thanks @yharaskrik
 
@@ -240,7 +143,7 @@ Thanks @rkristelijn for raising the issue and the pull request!
 
 ## [2.9.2][] - 2021-04-11
 
-### Changed
+### Updated
 
 - Updating link in README.md
 
@@ -254,7 +157,7 @@ Thanks @rkristelijn for raising the issue and the pull request!
 
 - Adding `appearance` attribute to be checked via `ngOnChanges`
 
-### Changed
+### Updated
 
 - Updating examples with new features
 
@@ -268,7 +171,7 @@ Thanks @rkristelijn for raising the issue and the pull request!
   - PS: The other values alredy have a fallback, so nothing to worry here
 - Adding error feedback for `appearance` attribute in case of wrong configuration. Now it will show a error message on the console in case of receiving a wrong value
 
-### Changed
+### Updated
 
 - Adding `ngOnChange` to validate `count` input in case of changes via binding
 - Updating `README.md` with information about `appearance` and `theme` usage.
@@ -277,10 +180,10 @@ Thanks @rkristelijn for raising the issue and the pull request!
 
 ### Fixed
 
-- Using `ngAcceptInputType_count` for template checking in count input. That solves issue https://github.com/willmendesneto/ngx-skeleton-loader/issues/59. You can find more details about it in https://angular.io/guide/template-typecheck
+- Using `ngAcceptInputType_count` for template checking in count input. That solves issue https://github.com/willmendesneto/ngx-feature-toggle/issues/59. You can find more details about it in https://angular.io/guide/template-typecheck
 - Fixing type issues on `yarn build:ssr` command
 
-### Changed
+### Updated
 
 - Updating `perf-marks` to `v1.14.1`
 - Adding strict mode support in module
@@ -297,27 +200,27 @@ Thanks @rkristelijn for raising the issue and the pull request!
 <!-- In this case, it will render the component using "Please wait ..." -->
 <!-- Otherwise, it defaults to "Loading..." -->
 <div class="skeleton-with-specific-loading-text">
-  <ngx-skeleton-loader loadingText="Please wait ..."></ngx-skeleton-loader>
+  <ngx-feature-toggle loadingText="Please wait ..."></ngx-feature-toggle>
 </div>
 ```
 
-### Changed
+### Updated
 
-- Using OnPush as changeDetection mechanism into ngx-skeleton-loader component
-- Adding ability to pass `false` as string or boolean (coming from variable value via binding) on `animation` attribute in `ngx-skeleton-loader` component configuration. animation will receive `false` as string when attribute field it's not using binding. Component now can receive `false` (boolean), "false" (string), or any other animation type via binding.
+- Using OnPush as changeDetection mechanism into ngx-feature-toggle component
+- Adding ability to pass `false` as string or boolean (coming from variable value via binding) on `animation` attribute in `ngx-feature-toggle` component configuration. animation will receive `false` as string when attribute field it's not using binding. Component now can receive `false` (boolean), "false" (string), or any other animation type via binding.
 
 ```html
 <div class="item">
   <!-- Disables the animation -->
-  <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+  <ngx-feature-toggle animation="false"></ngx-feature-toggle>
   <!-- Disables the animation, but receiving boolean value from binding -->
   <!-- Via binding it can receive `false` (boolean), "false" (string), or any other animation type -->
-  <ngx-skeleton-loader [animation]="classAttributeWithBooleanFalseValue"></ngx-skeleton-loader>
+  <ngx-feature-toggle [animation]="classAttributeWithBooleanFalseValue"></ngx-feature-toggle>
   <!-- Uses `progress` as animation -->
-  <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
-  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <ngx-feature-toggle animation="progress"></ngx-feature-toggle>
+  <ngx-feature-toggle></ngx-feature-toggle>
   <!-- Uses `pulse` as animation -->
-  <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
+  <ngx-feature-toggle animation="pulse"></ngx-feature-toggle>
 </div>
 ```
 
@@ -325,7 +228,7 @@ Thanks @rkristelijn for raising the issue and the pull request!
 
 ### Fixed
 
-- Removing Lighthouse "Avoid non-composited animations" issue. Lighthouse shows warnings from ngx-skeleton-loader.scss -file (progress).
+- Removing Lighthouse "Avoid non-composited animations" issue. Lighthouse shows warnings from ngx-feature-toggle.scss -file (progress).
 
 - "Avoid non-composited animations":
 - "Animations which are not composited can be janky and contribute to CLS"
@@ -336,7 +239,7 @@ To solve that, instead of using CSS `background-position` the module is now usin
 
 ### Fixed
 
-- Solving `forRoot()` types error `Generic type 'ModuleWithProviders<T>' requires 1 type argument(s)`. Closes https://github.com/willmendesneto/ngx-skeleton-loader/issues/51
+- Solving `forRoot()` types error `Generic type 'ModuleWithProviders<T>' requires 1 type argument(s)`. Closes https://github.com/willmendesneto/ngx-feature-toggle/issues/51
 
 ## [2.6.0][] - 2020-11-15
 
@@ -346,7 +249,7 @@ To solve that, instead of using CSS `background-position` the module is now usin
 
 ```js
 import { NgModule } from '@angular/core';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { NgxSkeletonLoaderModule } from 'ngx-feature-toggle';
 // ... list of other app dependencies
 
 import { AppComponent } from './app.component';
@@ -367,7 +270,7 @@ export class AppModule {}
 
 - Fixing bundle size command on CircleCI pipeline
 
-### Changed
+### Updated
 
 - Upgrading NodeJS to v14.11.0
 - Updating `perf-marks` package to v1.14.0
@@ -392,13 +295,13 @@ export class AppModule {}
 
 ## [2.4.2][] - 2020-08-01
 
-### Changed
+### Updated
 
 - Bumping `perf-marks` to latest version
 
 ## [2.4.1][] - 2020-08-01
 
-### Changed
+### Updated
 
 - Bumping `perf-marks` to latest version
 
@@ -408,7 +311,7 @@ export class AppModule {}
 
 - Adding User Timing API to track component render and content loader time
 
-### Changed
+### Updated
 
 - Updating examples with new skeleton simulation
 - Adding Stackblitz link for user card skeleton loading demo
@@ -419,7 +322,7 @@ export class AppModule {}
 
 - Adding User Timing API to track component render and content loader time
 
-### Changed
+### Updated
 
 - Updating examples with new skeleton simulation
 - Adding Stackblitz link for user card skeleton loading demo
@@ -430,7 +333,7 @@ export class AppModule {}
 
 - For compatibility with IE11 by using indexOf instead of `includes`
 
-### Changed
+### Updated
 
 - Updating `npm run postinstall` command to follow the new rules from update.angular.io website
 
@@ -442,14 +345,14 @@ export class AppModule {}
 
 ## [2.1.0][] - 2020-06-01
 
-### Changed
+### Updated
 
 - Upgrading @angular/cli to version 9
 - 🎉 Decreasing bundle size to 1.17KB 🎉
 
 ## [2.0.0][] - 2020-05-15
 
-### Changed
+### Updated
 
 - Upgrading NodeJS to v12.16.2
 - Updating documentation with `animation` attribute
@@ -459,7 +362,7 @@ export class AppModule {}
 - Supporting for new animation `progress-dark` to enable users when using theme with darker color schema
 - Supporting for different animations 🎉
 
-Now we can define the animation we want to use in `<ngx-skeleton-loader>` component via `animation` input. It's a string that can defined the animation used during the loading, having as options:
+Now we can define the animation we want to use in `<ngx-feature-toggle>` component via `animation` input. It's a string that can defined the animation used during the loading, having as options:
 
 - `false`: it will disable the animation;
 - `progress` - _default_: it will use it `progress` as animation;
@@ -470,12 +373,12 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 ```html
 <div class="item">
   <!-- Disables the animation -->
-  <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+  <ngx-feature-toggle animation="false"></ngx-feature-toggle>
   <!-- Uses `progress` as animation -->
-  <ngx-skeleton-loader animation="progress"></ngx-skeleton-loader>
-  <ngx-skeleton-loader></ngx-skeleton-loader>
+  <ngx-feature-toggle animation="progress"></ngx-feature-toggle>
+  <ngx-feature-toggle></ngx-feature-toggle>
   <!-- Uses `pulse` as animation -->
-  <ngx-skeleton-loader animation="pulse"></ngx-skeleton-loader>
+  <ngx-feature-toggle animation="pulse"></ngx-feature-toggle>
 </div>
 ```
 
@@ -486,13 +389,13 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 
 ```js
 <div class="item">
-  <ngx-skeleton-loader animation="false"></ngx-skeleton-loader>
+  <ngx-feature-toggle animation="false"></ngx-feature-toggle>
 </div>
 ```
 
 ## [1.2.7][] - 2020-04-13
 
-### Changed
+### Updated
 
 - Decreasing bundle size after disable Ivy in production build
 - Adding description, keywords and github information on `package.json` files
@@ -511,7 +414,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 
 ## [1.2.4][] - 2020-02-25
 
-### Changed
+### Updated
 
 - Updating Github templates
 - Updating Angular CLI to v9
@@ -530,13 +433,13 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 
 ## [1.2.1][] - 2019-06-08
 
-### Changed
+### Updated
 
 - Updating Angular CLI to v8
 
 ## [1.2.0][] - 2019-04-19
 
-### Changed
+### Updated
 
 - Updating Angular CLI to 7.3.8
 
@@ -546,7 +449,7 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 
 - Adding badges for stackblitz, bundlephobia and license
 
-### Changed
+### Updated
 
 - Removing unnecessary CSS styles for skeleton
 
@@ -567,10 +470,10 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 - Added `CODE_OF_CONDUCT.md` with the Code of conduct
 - Added unit tests for skeletons and demo components
 
-### Changed
+### Updated
 
 - Decreased bundle size
-- New gif showing `ngx-skeleton-loader` in action
+- New gif showing `ngx-feature-toggle` in action
 
 ## [1.0.2][] - 2018-12-16
 
@@ -594,98 +497,89 @@ Now we can define the animation we want to use in `<ngx-skeleton-loader>` compon
 
 ### Added
 
-- Created `ngx-skeleton-loader`
+- Created `ngx-feature-toggle`
 - Created test automation for the module
 
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v0.0.1
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.0.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.2...HEAD
-[1.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.1...v1.0.2
-[1.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.0.1
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.0.2...HEAD
-[1.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.0.2
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.0...HEAD
-[1.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.1...HEAD
-[1.1.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.1
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.4...HEAD
-[1.2.4]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.3...v1.2.4
-[1.2.3]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.2...v1.2.3
-[1.2.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.1...v1.2.2
-[1.2.1]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.0...v1.2.1
-[1.2.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.1.2...v1.2.0
-[1.1.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.1.2
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.5...HEAD
-[1.2.5]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.2.5
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.6...HEAD
-[1.2.6]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.2.6
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v1.2.7...HEAD
-[1.2.7]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v1.2.7
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.0.0...HEAD
-[2.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.0.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.1.0...HEAD
-[2.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.1.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.2.0...HEAD
-[2.2.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.2.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.2.1...HEAD
-[2.2.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.2.1
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.3.0...HEAD
-[2.3.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.3.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.0...HEAD
-[2.4.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.1...HEAD
-[2.4.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.1
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.2...HEAD
-[2.4.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.2
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.3...HEAD
-[2.4.3]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.3
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.4.4...HEAD
-[2.4.4]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.4.4
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.5.0...HEAD
-[2.5.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.5.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.0...HEAD
-[2.6.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.1...HEAD
-[2.6.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.1
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.6.2...HEAD
-[2.6.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.6.2
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.7.0...HEAD
-[2.7.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.7.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.8.0...HEAD
-[2.8.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.8.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.9.0...HEAD
-[2.9.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.9.1...HEAD
-[2.9.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.1
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.9.2...HEAD
-[2.9.2]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.9.2
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.10.0...HEAD
-[2.10.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.10.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v2.10.1...HEAD
-[2.10.1]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v2.10.1
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v4.0.0...HEAD
-[4.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v3.0.0...v4.0.0
-[3.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v3.0.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v5.0.0...HEAD
-[5.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v5.0.0
-[unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v6.0.0...HEAD
-[6.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v6.0.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v0.0.1
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v1.0.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.0.1...v1.0.2
+[1.0.1]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v1.0.1
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v1.0.2
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v1.1.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.1.1...HEAD
+[1.1.1]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v1.1.1
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.2.4...HEAD
+[1.2.4]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.2.3...v1.2.4
+[1.2.3]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.2.2...v1.2.3
+[1.2.2]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.2.1...v1.2.2
+[1.2.1]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.2.0...v1.2.1
+[1.2.0]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.1.2...v1.2.0
+[1.1.2]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v1.1.2
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.2.5...HEAD
+[1.2.5]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v1.2.5
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.2.6...HEAD
+[1.2.6]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v1.2.6
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v1.2.7...HEAD
+[1.2.7]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v1.2.7
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.0.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.1.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.2.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.2.1...HEAD
+[2.2.1]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.2.1
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.3.0...HEAD
+[2.3.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.3.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.4.0...HEAD
+[2.4.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.4.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.4.1...HEAD
+[2.4.1]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.4.1
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.4.2...HEAD
+[2.4.2]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.4.2
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.4.3...HEAD
+[2.4.3]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.4.3
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.4.4...HEAD
+[2.4.4]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.4.4
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.5.0...HEAD
+[2.5.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.5.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.6.0...HEAD
+[2.6.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.6.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.6.1...HEAD
+[2.6.1]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.6.1
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.6.2...HEAD
+[2.6.2]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.6.2
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.7.0...HEAD
+[2.7.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.7.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.8.0...HEAD
+[2.8.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.8.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.9.0...HEAD
+[2.9.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.9.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.9.1...HEAD
+[2.9.1]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.9.1
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.9.2...HEAD
+[2.9.2]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.9.2
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.10.0...HEAD
+[2.10.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.10.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v2.10.1...HEAD
+[2.10.1]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v2.10.1
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v3.0.0...v4.0.0
+[3.0.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v3.0.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v5.0.0...HEAD
+[5.0.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v5.0.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v6.0.0...HEAD
+[6.0.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v6.0.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v7.0.0...HEAD
+[7.0.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v7.0.0
+[unreleased]: https://github.com/willmendesneto/ngx-feature-toggle/compare/v12.0.0...HEAD
+[12.0.0]: https://github.com/willmendesneto/ngx-feature-toggle/tree/v12.0.0
+
+
 [Unreleased]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v12.0.0...HEAD
-[12.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v11.3.0...v12.0.0
-[11.3.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v11.2.1...v11.3.0
-[11.2.1]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v11.2.0...v11.2.1
-[11.2.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v11.1.0...v11.2.0
-[11.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v11.0.0...v11.1.0
-[11.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v10.0.0...v11.0.0
-[10.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v9.0.0...v10.0.0
-[9.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v9.0.0...v9.0.0
-[9.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.1.0...v9.0.0
-[8.1.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.2...v8.1.0
-[8.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.1...v8.0.2
-[8.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.2...v8.0.1
-[8.0.2]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.1...v8.0.2
-[8.0.1]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v8.0.0...v8.0.1
-[8.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/compare/v7.0.0...v8.0.0
-[7.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v7.0.0
+[12.0.0]: https://github.com/willmendesneto/ngx-skeleton-loader/tree/v12.0.0

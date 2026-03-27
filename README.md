@@ -1,30 +1,29 @@
-# NGX Skeleton loader
+# NGX Feature Toggle
 
-[![npm downloads](https://img.shields.io/npm/dm/ngx-skeleton-loader.svg)](https://npmjs.org/ngx-skeleton-loader)
-[![npm](https://img.shields.io/badge/stackblitz-online-orange.svg)](https://stackblitz.com/edit/ngx-skeleton-loader-sample)
-[![npm](https://img.shields.io/badge/stackblitz-online-orange.svg)](https://stackblitz.com/edit/ngx-skeleton-loader-user-card-component-sample)
+[![Dependency Status](https://david-dm.org/willmendesneto/ngx-feature-toggle.svg)](https://david-dm.org/willmendesneto/ngx-feature-toggle)
+[![npm](https://img.shields.io/badge/stackblitz-online-orange.svg)](https://stackblitz.com/edit/ngx-feature-toggle-sample)
 
-[![NPM](https://nodei.co/npm/ngx-skeleton-loader.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/ngx-skeleton-loader)
-[![NPM](https://nodei.co/npm-dl/ngx-skeleton-loader.png?height=3&months=3)](https://npmjs.org/ngx-skeleton-loader)
+[![NPM](https://nodei.co/npm/ngx-feature-toggle.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/ngx-feature-toggle)
+[![NPM](https://nodei.co/npm-dl/ngx-feature-toggle.png?height=3&months=3)](https://npmjs.org/ngx-feature-toggle)
 
-[![Build Status](https://circleci.com/gh/willmendesneto/ngx-skeleton-loader.svg?style=shield)](https://circleci.com/gh/willmendesneto/ngx-skeleton-loader)
-[![Coverage Status](https://coveralls.io/repos/willmendesneto/ngx-skeleton-loader/badge.svg?branch=main)](https://coveralls.io/r/willmendesneto/ngx-skeleton-loader?branch=main)
-[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ngx-skeleton-loader.svg)](https://bundlephobia.com/result?p=ngx-skeleton-loader)
+[![Build Status](https://circleci.com/gh/willmendesneto/ngx-feature-toggle.svg?style=shield)](https://circleci.com/gh/willmendesneto/ngx-feature-toggle)
+[![Coverage Status](https://coveralls.io/repos/willmendesneto/ngx-feature-toggle/badge.svg?branch=master)](https://coveralls.io/r/willmendesneto/ngx-feature-toggle?branch=master)
+[![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ngx-feature-toggle.svg)](https://bundlephobia.com/result?p=ngx-feature-toggle)
 [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
 
-![ngx-skeleton-loader in action](https://user-images.githubusercontent.com/1252570/50053778-d4e0d900-018e-11e9-9de7-fad6f9fddd9e.gif)
+Your module to handle with [feature toggles](http://martinfowler.com/bliki/FeatureToggle.html) in Angular applications easier.
 
-## Why skeletons?
+## Why Feature toggle?
 
-> If you want to get more details about that, please read ["NGX-Skeleton-Loader — States, Animations, Performance, and Accessibility for your Angular App"](https://willmendesneto.com/posts/ngx-skeleton-loader-states-animations-performance-and-accessibility-for-your-angular-app) blog post
+> This is a common concept, but why use this directive instead solve it via server-side rendering?
 
-The idea of this component is make the process transparent and easier. So the main point is integrate this component with other tooling process, such as:
+The idea of this directive is make this process transparent and easier. So the main point is integrate this directive with other tooling process, such as:
 
 - Server-side rendering;
 - Progressive rendering;
 - Any other that you like :)
 
-It's totally transparent for you and you can integrate easier in your application, improving your user experience 🎉
+You can integrate with WebSockets or handling this in a EventSourcing architecture. It's totally transparent for you and you can integrate easier in your application.
 
 - [Demo](#demo)
 - [Install](#install)
@@ -34,69 +33,34 @@ It's totally transparent for you and you can integrate easier in your applicatio
 
 ## Demo
 
-Try out our demos on Stackblitz!
+Try out the demos on Stackblitz:
 
-- [Usage: animations, appearance, and themes](https://ngx-skeleton-loader-sample.stackblitz.io)
-- [User Card Component Loading simulation using NGX Skeleton Loader](https://ngx-skeleton-loader-user-card-component-sample.stackblitz.io)
+- [Components and directives example](https://stackblitz.com/edit/ngx-feature-toggle-sample)
+- [Routing Guards example](https://stackblitz.com/edit/ngx-feature-toggle-routing-guard-sample)
 
 ## Install
 
-You can get it on NPM installing `ngx-skeleton-loader` module as a project dependency.
+You can get it on NPM installing `ngx-feature-toggle` module as a project dependency.
 
 ```shell
-npm install ngx-skeleton-loader --save
+npm install ngx-feature-toggle --save
 ```
 
 ## Setup
 
-## Standalone Setup
-
-Add `ngx-skeleton-loader` to your application's `app.config.ts` providers.
-
-```typescript
-// app.config.ts
-
-import { ApplicationConfig } from '@angular/core';
-import { provideNgxSkeletonLoader } from 'ngx-skeleton-loader';
-
-export const appConfig: ApplicationConfig = {
-  providers: [
-    provideNgxSkeletonLoader({
-      theme: {
-        extendsFromRoot: true,
-        height: '30px',
-      },
-    }),
-  ]
-};
-```
-
-After that, you can use the `ngx-skeleton-loader` component in your templates. Optionally you can pass configuration data into the component itself
-
-- `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
-
-```html
-<div class="item">
-  <ngx-skeleton-loader count="5" appearance="circle" />
-</div>
-```
-
-## NgModule Setup
-
-You'll need to add `NgxSkeletonLoaderModule` to your application module. So that, the `<ngx-skeleton-loader>` components will be accessible in your application.
+You'll need to add `FeatureToggleModule` to your application module. So that, the `featureToggle` components will be accessible in your application.
 
 ```typescript
 ...
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { FeatureToggleModule } from 'ngx-feature-toggle';
 ...
-
 @NgModule({
   declarations: [
     YourAppComponent
   ],
   imports: [
     ...
-    NgxSkeletonLoaderModule,
+    FeatureToggleModule,
     ...
   ],
   providers: [],
@@ -107,279 +71,260 @@ export class YourAppComponent {}
 
 ```
 
-After that, you can use the `ngx-skeleton-loader` components in your templates, passing the configuration data into the component itself.
+Now you just need to add a configuration in your application root component. Your feature toggle configuration can be added using different approaches, such as:
 
-- `ngx-skeleton-loader`: Handle the skeleton animation and the skeleton styles of your app;
+- RXJS subscribe information;
+- HTTP Request;
+- CQRS event data;
+- File information;
+- etc;
 
-```html
-<div class="item">
-  <ngx-skeleton-loader count="5" appearance="circle" />
-</div>
-<div class="item">
-  <!-- It will use `px` as default CSS measure unit -->
-  <ngx-skeleton-loader count="5" appearance="square" size="100" />
-</div>
-```
+After that, you can use the `featureToggle` components and directives in your templates, passing the string based on the feature toggle configuration data.
 
-### Using `NgxSkeletonLoaderModule.forRoot()`
+## Module
 
-Also, you can import the module in your app by calling `NgxSkeletonLoaderModule.forRoot()` when adding it. So it will be available across your Angular application.
+### Components and Directives
 
-Importing the module this way also allows you to globally configure the default values for the `ngx-skeleton-loader` components in your application, in case you need some different default values for your app.
-
-```typescript
-...
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-...
-
-@NgModule({
-  declarations: [
-    YourAppComponent
-  ],
-  imports: [
-    ...
-    NgxSkeletonLoaderModule.forRoot({ animation: 'pulse', loadingText: 'This item is actually loading...' }),
-    ...
-  ],
-  providers: [],
-  bootstrap: [YourAppComponent]
-})
-
-export class YourAppComponent {}
-
-```
-
-```html
-<div class="item">
-  <ngx-skeleton-loader count="5" appearance="circle" />
-  <!-- above line will produce the rendering of 5 circles with the pulse animation and the aria-valuetext attribute set with "This item is actually loading...", since it was 
-  configured via `NgxSkeletonLoaderModule.forRoot()`-->
-
-  <!-- It will render a component with `aria-valuetext` attribute set with `Loading section content`, 
-   since it was passed directly via input attribute `loadingText` -->
-  <ngx-skeleton-loader count="5" loadingText="Loading section content" />
-</div>
-```
-
-#### Extending `theme` via `NgxSkeletonLoaderModule.forRoot()`
-
-> By default when using `NgxSkeletonLoaderModule.forRoot({ theme: /* ...list of CSS atributes */} })` the application is using this value as source of truth, overriding any local theming passed to `<ngx-skeleton-loader>` component via `[theme]` input. Check these steps in case you need to change this behaviour in your app
-
-This method is also accepting the option of having a global theme and local theme inputs. You can enable it by passing `NgxSkeletonLoaderModule.forRoot({ theme: { extendsFromRoot: true, /* ...list of CSS atributes */} })` in your module. Quite simple, right? 😄
-
-By using that configuration in your application, you should also be aware that:
-
-- By default, every `<ngx-skeleton-loader>` component will use `theme` coming from `NgxSkeletonLoaderModule.forRoot()` as the source of truth
-- If there's any CSS attribute on the component locally which overrides the CSS spec, it combines both themes, but overriding global CSS attributes in favor of local ones.
-
-As an example:
-
-```typescript
-...
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-...
-
-@NgModule({
-  declarations: [
-    YourAppComponent
-  ],
-  imports: [
-    ...
-    NgxSkeletonLoaderModule.forRoot({
-      theme: {
-        // Enabliong theme combination
-        extendsFromRoot: true,
-        // ... list of CSS theme attributes
-        height: '30px',
-      },
-    }),
-    ...
-  ],
-  providers: [],
-  bootstrap: [YourAppComponent]
-})
-
-export class YourAppComponent {}
-
-```
-
-```html
-<div class="item">
-  <ngx-skeleton-loader />
-  <!-- above line will produce a skeleton component using `height: 30px;`" -->
-  <ngx-skeleton-loader [theme]="{background: 'blue'}" />
-  <!-- above line will produce a skeleton component using `height: 30px; background: blue;`" -->
-  <ngx-skeleton-loader [theme]="{height: '50px', background: 'red'}" />
-  <!-- above line will produce a skeleton component using `height: 50px; background: red;`" -->
-</div>
-```
-
-## Angular 17+ Deferrable Views example
-
-```html
-<div class="item">
-  @defer {
-    <my-item-view />
-  } @placeholder (minimum 1000ms) {
-    <ngx-skeleton-loader />
-  }
-</div>
-```
-
-
-## WAI-ARIA values
-
-- loadingText - _default_ `Loading...`: attribute that defines the text value for `aria-valuetext` attribute. Defaults to "Loading..."
-- `aria-label` - _default_ `loading`: you can add `ariaLabel` as input of the component to set a different value.
-
-## Appearance
-
-You can also define which appearance want to use in your skeleton loader by passing the options in your component via `[appearance]` attribute.
-
-### Options
-
-- `''` - _default_: it will use it `''` as appearance. At the end, it will render like a line;
-- `line`: it will render like a line. This is the same behavior as passing an empty string;
-- `circle`: it will use `circle` as appearance. Great for avatar skeletons, for example :);
-- `square`: it will use `square` as appearance and render it appropriately. Great for cards and images, for example; It also requires `size` to be passed through the component - `size` has default size of `40px` and it has `measureUnit` as optional way to change default CSS measure unit from `px` to one of the valid options: `px`, `em`, `rem`, `%`, `vh`, `vw`
-- `custom-content`: it will NOT add any appearance. Great for custom content, such as SVG, internal components and such. Although not rendering appearance, animation will be added unless component has `animation="false"` prop;
-
-### Appearance props (specific for `square`)
-
-When setting `square` as appearance, your component can also use these other input attributes to configure it properly
-- `size` - default _40_: number to be passed as definition for `width` and `height`. If not passed, it defaults to `40`
-- `measureUnit` - default _px_: CSS measure unit to be used for `width` and `height`. If not passed, it defaults to `px`. Valid options: `px`, `em`, `rem`, `%`, `vh`, `vw`
-
-## Animations
-
-You can also define which CSS animation you want to use - even not use any, if it's the case - in your skeleton loader by passing the options in your component via `[animation]` attribute.
-
-### Options
-
-- `"false"` (as string): it will disable the animation;
-- `false` (as boolean): it will disable the animation. Animation will receive `false` as string when attribute field it's not using binding. Component now can receive `false` (boolean), "false" (string), or any other animation type via binding;
-- `progress` - _default_: it will use it `progress` as animation;
-- `progress-dark`: it will use it `progress-dark` as animation. Recommended if your color schema is darken;
-- `pulse`: it will use `pulse` as animation;
-- `pulse-dark`: it will use `pulse-dark` as animation. Recommended if your color schema is darken;
-
-> `progress` is the default animation, used as the single one previously. If you don't pass the animation attribute, it defaults to `progress`.
-
-```html
-<!--
-If you need to change all the background wrapper
-you need to apply the style changes on the 
-`ngx-skeleton-loader` component wrapper
--->
-<div class="item">
-  <!-- Disables the animation -->
-  <ngx-skeleton-loader animation="false" />
-  <!-- Disables the animation, but receiving boolean value from binding -->
-  <!-- Via binding it can receive `false` (boolean), "false" (string), or any other animation type -->
-  <ngx-skeleton-loader [animation]="classAttributeWithBooleanFalseValue" />
-  <!-- Uses `progress` as animation -->
-  <ngx-skeleton-loader animation="progress" />
-  <ngx-skeleton-loader />
-  <!-- Uses `pulse` as animation -->
-  <ngx-skeleton-loader animation="pulse" />
-</div>
-```
-
-> You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html)
-
-## Theming
-
-You can also define different styles for the skeleton loader by passing an object with the css styles - in dashed case - into the component via `[theme]` attribute.
-
-```html
-<!--
-If you need to change all the background wrapper
-you need to apply the style changes on the 
-`ngx-skeleton-loader` component wrapper
--->
-
-<div style="background: #FF0001; padding: 10px;">
-  <ngx-skeleton-loader
-    count="5"
-    [theme]="{ 
-      'border-radius': '5px',
-      height: '50px',
-      'background-color': '#992929',
-      border: '1px solid white'
-    }"
-  />
-</div>
-```
-
-The [theme] attribute now accepts the same configuration as `[style]` as well. That means you can manage to use like you're doing with the built-in directive, having a pleasure and beautiful experience
-
-```html
-<!--
-Note that we are using a combination of styles and [style] inside theme object,
-having `height.px` receiving a number and `background-color` receiving a HEX Color
--->
-<div style="background: #FF0001; padding: 10px;">
-  <ngx-skeleton-loader
-    count="5"
-    [theme]="{ 
-      'height.px': 50,
-      'background-color': '#992929'
-    }"
-  />
-</div>
-```
-
-### ⚠️ This is here only as a documentation, but it's not encouraged to be used. Please consider use it with caution ⚠️
-
-Also, you can use CSS to add theme styles into your component. However, there are some implications:
-
-- You're using `:host` in your stylesheet, which means **you are aware of any possible problem `:host` can create for your app at that level since it's based on [`:host` DOM style scoping](https://developer.mozilla.org/en-US/docs/Web/CSS/:host)**
-- You're adding stylesheet based on `<ngx-skeleton-loader>` internal classes. It means that **class naming changes on module's side will be breaking changes for your application as well**.
-
-As an example, your Component file is like this
+- `feature-toggle-provider`: Handle with feature toggle configuration in your application. It adds the default values of your enabled/disabled features;
+- `*featureToggle`: Directive that handles with feature toggle check. So that, the component will be rendered/removed based on the feature toggle configuration is enabled;
+- `*featureToggleWhenDisabled`: Directive that handles with feature toggle check. So that, the component will be rendered/removed when the feature toggle configuration is disabled;
 
 ```typescript
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'my-ngx-skeleton-loader-with-theming',
-  templateUrl: './my-ngx-skeleton-loader-with-theming.component.html',
-  styleUrls: ['./my-ngx-skeleton-loader-with-theming.component.css'],
+  selector: 'component-docs',
+  template: `
+    <feature-toggle-provider [features]="featureToggleData">
+      <div *featureToggle="'enableSecondText'">
+        <p>condition is true and "featureToggle" is enabled.</p>
+      </div>
+      <div *featureToggle="'enableFirstText'">
+        <p>condition is false and "featureToggle" is disabled. In that case this content should not be rendered.</p>
+      </div>
+      <div *featureToggle="'!enableFirstText'">
+        <p>
+          condition is false and "featureToggle" is disabled
+          <b>but it has "!" as a prefix of the feature toggle to be checked.</b>
+          In that case this content should be rendered.
+        </p>
+      </div>
+      <div
+        class="combined-feature-toggles-with-truthly-option"
+        *featureToggle="['!enableFirstText', 'enableSecondText']"
+      >
+        <p>
+          This is a combined condition. It shows if <b>enableSecondText</b> is true and <b>enableFirstText</b> is falsy,
+          but it has "!" as a prefix. If both cases are correct, then the "featureToggle" is enabled and rendering this
+          component.
+        </p>
+      </div>
+    </feature-toggle-provider>
+  `,
 })
-export class MyNGXSkeletonLoaderWithThemingComponent {
-  /* ... code goes here*/
+export class ComponentDocsComponent {
+  public featureToggleData: any = {
+    enableFirstText: false,
+    enableSecondText: true,
+  };
 }
 ```
 
-And your component HTML code is
+### Route Guards
 
-```html
-<!--
-file: my-ngx-skeleton-loader-with-theming.component.html
+In some scenarios when you need to prevent the route to be loaded, you can use `NgxFeatureToggleCanLoadGuard`, by passing the class and configuration of the feature toggle to be checked in your route data.
 
-As an example, it's not using themes via [theme] attributes.
--->
+```js
+...
+export const routes: Routes = [
 
-<ngx-skeleton-loader count="5" animation="pulse" />
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [NgxFeatureToggleCanLoadGuard],
+    data: {
+      // Using array as configuration
+      featureToggle: [
+        // This configuration will check if feature toggle is enabled
+        'enableSecondText',
+        // This configuration will check if feature toggle is disabled
+        // since it has `!` prefix in the configuration
+        '!enableFirstText'
+      ],
+    },
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [NgxFeatureToggleCanLoadGuard],
+    data: {
+      // Using string as configuration
+      featureToggle: 'enableSecondText',
+    },
+  },
+];
+...
 ```
 
-You can apply theme changes in our stylesheet. At the end it will be
+Also, you can use `NgxFeatureToggleRouteGuard` to check if the route should be activated or not by passing the class and configuration of the feature toggle to be checked in your route data.
 
-```css
-/* file: `my-ngx-skeleton-loader-with-theming.component.css`
- *
- * You can find more details about `:host` at
- * Angular Component Style Docs https://angular.io/guide/component-styles#host
- */
-:host >>> ngx-skeleton-loader .skeleton-loader {
-  border-radius: 5px;
-  height: 50px;
-  background-color: #992929;
-  border: 1px solid white;
-}
+```js
+...
+export const routes: Routes = [
+
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [NgxFeatureToggleRouteGuard],
+    data: {
+      // Using array as configuration
+      featureToggle: [
+        // This configuration will check if feature toggle is enabled
+        'enableSecondText',
+        // This configuration will check if feature toggle is disabled
+        // since it has `!` prefix in the configuration
+        '!enableFirstText'
+      ],
+    },
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [NgxFeatureToggleRouteGuard],
+    data: {
+      // Using string as configuration
+      featureToggle: 'enableSecondText',
+    },
+  },
+];
+...
 ```
 
-> You should change the styles on the skeleton wrapper element in case you need to change the background color. You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html) or check it out a content load simulation [in this Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-user-card-component-sample?file=app%2Fapp.component.html)
+In both route guards you can pass route data with feature toggle as an array. For scenarios when you need to check for feature toggles enabled and/or disabled you can easily configure it by passing `!` if the application should check if the feature toggle is disabled
+
+```js
+...
+export const routes: Routes = [
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [NgxFeatureToggleRouteGuard],
+    data: {
+      // Using array as configuration
+      featureToggle: [
+        // This configuration will check if feature toggle is enabled
+        'enableSecondText',
+        // This configuration will check if feature toggle is disabled
+        // since it has `!` prefix in the configuration
+        '!enableFirstText'
+      ],
+    },
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [NgxFeatureToggleRouteGuard],
+    data: {
+      // Using string as configuration
+      featureToggle: 'enableSecondText',
+    },
+  },
+];
+...
+```
+
+In this case, we are combining the checks. So the component will be activated if `enableSecondText` is configured as `true` AND `enableFirstText` is configured as `false`. With that configuration you can have all the flexibility to cover different scenarios in your app.
+
+Use `NgxFeatureToggleRouteGuard` to control when the child component of a specific component can be activate via routing. It can be passed as an array of items.
+
+```js
+...
+export const routes: Routes = [
+  {
+    path: 'customer',
+    component: CustomerComponent,
+    canActivateChild: [NgxFeatureToggleRouteGuard],
+    children: [
+      {
+        path: ':id',
+        component: CustomerDetailComponent,
+        // This is the featureToggle configuration for
+        // the child component. It can also use
+        // a combination of feature toggles
+        data: {
+          featureToggle: [
+            // This configuration will check if feature toggle is enabled
+            'enableCustomerPage',
+            // This configuration will check if feature toggle is disabled
+            // since it has `!` prefix in the configuration
+            '!enableChildrenNavigation'],
+        },
+      },
+    ],
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivateChild: [NgxFeatureToggleRouteGuard],
+    children: [
+      {
+        path: ':id',
+        component: DashboardDetailsComponent,
+        // This is the featureToggle configuration for
+        // the child component. It can also use
+        // a combination of feature toggles
+        data: {
+          // using string to configure
+          featureToggle: 'enableDashboardDetailsPage',
+        },
+      },
+    ],
+  },
+];
+...
+```
+
+#### Redirects
+
+You might have some specific requirements that you should redirect a user to a specific route in case of a feature flag is disabled. For that, you can use `redirectTo` as a mechanism to redirect a user in a specific route when it tries to access in a route with a CanActivate/CanActivateChild/CanLoad Feature Toggle Guard and the feature toggle is disabled.
+
+For advanced scenarios you can use a combination of route guards AND redirects. E.G.
+
+```js
+...
+export const routes: Routes = [
+  {
+    path: 'customer',
+    component: CustomerComponent,
+    canLoad: [NgxFeatureToggleRouteGuard],
+    canActivate: [NgxFeatureToggleRouteGuard],
+    canActivateChild: [NgxFeatureToggleRouteGuard],
+    // This is the featureToggle configuration for
+    // the parent component
+    data: {
+      featureToggle: ['enableCustomerPage'],
+      // If feature toggle is disabled, the user will be redirected to `/error` URL
+      redirectTo: '/error'
+    },
+    children: [
+      {
+        path: ':id',
+        component: CustomerDetailComponent,
+        // This is the featureToggle configuration for
+        // the child component. It can also use
+        // a combination of feature toggles
+        data: {
+          featureToggle: ['enableCustomerPage', '!enableChildrenNavigation'],
+          // If one (or all of them) of the feature toggle is disabled, the user will be redirected to `/customer-error` URL
+          // Note that you can use redirects for the main url and their children
+          redirectTo: '/customer-error'
+        },
+      },
+    ],
+  },
+];
+...
+```
 
 ## Development
 
@@ -393,17 +338,16 @@ You can apply theme changes in our stylesheet. At the end it will be
 
 ### Publish
 
-this project is using `np` package to publish, which makes things straightforward. EX: `npx np <patch|minor|major> --no-yarn --no-cleanup --contents=dist/ngx-skeleton-loader`
+this project is using `np` package to publish, which makes things straightforward. EX: `np <patch|minor|major> --contents=dist/ngx-feature-toggle`
 
 > For more details, [please check np package on npmjs.com](https://www.npmjs.com/package/np)
 
 ## Contribute
 
-For any type of contribution, please follow the instructions in [CONTRIBUTING.md](https://github.com/willmendesneto/ngx-skeleton-loader/blob/main/CONTRIBUTING.md) and read [CODE_OF_CONDUCT.md](https://github.com/willmendesneto/ngx-skeleton-loader/blob/main/CODE_OF_CONDUCT.md) and [PUBLISHING_HOTFIX.md](https://github.com/willmendesneto/ngx-skeleton-loader/blob/main/PUBLISHING_HOTFIX.md) files.
+For any type of contribution, please follow the instructions in [CONTRIBUTING.md](https://github.com/willmendesneto/ngx-feature-toggle/blob/master/CONTRIBUTING.md) and read [CODE_OF_CONDUCT.md](https://github.com/willmendesneto/ngx-feature-toggle/blob/master/CODE_OF_CONDUCT.md) files.
 
 ## Author
 
 **Wilson Mendes (willmendesneto)**
 
-- <https://instagram.com/willmendesneto>
 - <http://github.com/willmendesneto>

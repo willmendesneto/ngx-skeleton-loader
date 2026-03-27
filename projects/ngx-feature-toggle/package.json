@@ -1,0 +1,34 @@
+{
+  "name": "ngx-feature-toggle",
+  "description": "Your module to handle with feature toggles in Angular applications easier.",
+  "author": "Will Mendes <willmendesneto@gmail.com>",
+  "version": "12.0.0",
+  "keywords": [
+    "angular",
+    "ngx",
+    "feature-toggle",
+    "feature-flag",
+    "feature",
+    "toggle",
+    "flag",
+    "ngx-feature-toggle"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willmendesneto/ngx-feature-toggle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/willmendesneto/ngx-feature-toggle/issues"
+  },
+  "homepage": "https://github.com/willmendesneto/ngx-feature-toggle#readme",
+  "peerDependencies": {
+    "@angular/common": ">=19.0.0",
+    "@angular/core": ">=19.0.0",
+    "@angular/router": ">=19.0.0"
+  },
+  "dependencies": {
+    "feature-toggle-service": "^7.0.1"
+  },
+  "sideEffects": false
+}

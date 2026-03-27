@@ -17,9 +17,7 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "paths": {
-      "ngx-skeleton-loader": [
-        "./dist/ngx-skeleton-loader"
-      ]
+      "ngx-feature-toggle": ["./dist/ngx-feature-toggle"]
     },
     "esModuleInterop": true,
     "sourceMap": true,

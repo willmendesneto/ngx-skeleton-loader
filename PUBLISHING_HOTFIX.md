@@ -27,8 +27,8 @@ Create a new branch based on the latest stable release tag.
 # Clone the package and fetch the latest tags and branches
 
 ```bash
-git clone https://github.com/willmendesneto/ngx-skeleton-loader.git
-cd ngx-skeleton-loader
+git clone https://github.com/willmendesneto/ngx-feature-toggle.git
+cd ngx-feature-toggle
 git fetch --all
 ```
 
@@ -90,7 +90,7 @@ Include a link to the issue being resolved and the changelog entry.
 
 ### 8. Merge and Publish the Package Fix
 
-Once the PR is reviewed and merged, the updated package will be published to npm by following the [Publish steps as described on `README.md` file.](https://github.com/willmendesneto/ngx-skeleton-loader?tab=readme-ov-file#publish)
+Once the PR is reviewed and merged, the updated package will be published to npm by following the [Publish steps as described on `README.md` file.](https://github.com/willmendesneto/ngx-feature-toggle?tab=readme-ov-file#publish)
 
 
 ## Notes

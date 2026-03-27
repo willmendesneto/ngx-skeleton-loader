@@ -1,8 +1,8 @@
 {
   "files": [
     {
-      "path": "./dist/ngx-skeleton-loader/fesm2022/ngx-skeleton-loader.mjs",
-      "maxSize": "3.92KB"
+      "path": "./dist/ngx-feature-toggle/fesm2022/ngx-feature-toggle.mjs",
+      "maxSize": "1.7KB"
     }
   ]
 }

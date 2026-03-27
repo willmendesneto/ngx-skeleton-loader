@@ -20,7 +20,7 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ngx-skeleton-loader-demo'),
+      dir: require('path').join(__dirname, './coverage/ngx-feature-toggle-demo'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'lcovonly' }, { type: 'text-summary' }],
       fixWebpackSourcePaths: true,
@@ -30,12 +30,12 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: [process.env.CI ? 'ChromeHeadlessNoSandbox': 'Chrome'],
+    browsers: [process.env.CI ? 'ChromeHeadlessNoSandbox' : 'Chrome'],
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
-      }
+        flags: ['--no-sandbox'],
+      },
     },
     singleRun: false,
     restartOnFileChange: true,

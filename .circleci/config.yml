@@ -52,8 +52,6 @@ workflows:
       # - end_to_end:
       #     requires:
       #         - build
-orbs:
-  browser-tools: circleci/browser-tools@1.5.3
 jobs:
   build:
     <<: *docker_defaults
@@ -62,14 +60,11 @@ jobs:
     <<: *docker_defaults
     steps:
       - *attach_workspace
-      - browser-tools/install-chrome
       - run:
           name: Running unit tests
           command: |
             npm run lint
             npm test
-          environment:
-            CHROME_BIN: /usr/bin/google-chrome
   # To be added back in later
   # sudo npm run coveralls
   build_ssr:

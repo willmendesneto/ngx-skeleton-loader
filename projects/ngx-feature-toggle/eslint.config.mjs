@@ -5,6 +5,7 @@ export default defineConfig([
   ...baseConfig,
   {
     files: ['**/*.ts'],
+    ignores: ['**/coverage/**', '**/coverage/**/*.html', '**/coverage/**/*.ts.html'],
 
     languageOptions: {
       ecmaVersion: 5,
