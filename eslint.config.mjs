@@ -5,7 +5,7 @@ export default defineConfig([
   {
     files: ['**/*.ts'],
 
-    ignores: ['./coverage/*', './dist/*', './projects/*/coverage/*', '**/coverage/**/*.html', '**/coverage/**'],
+    ignores: ['./coverage/**', './dist/*', './projects/*/coverage/**'],
 
     processor: angular.processInlineTemplates,
 
