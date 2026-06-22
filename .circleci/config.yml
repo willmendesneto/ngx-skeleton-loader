@@ -62,7 +62,7 @@ jobs:
     <<: *docker_defaults
     steps:
       - *attach_workspace
-      - browser-tools/install-chrome
+      - browser-tools/install_browser_tools
       - run:
           name: Running unit tests
           command: |
