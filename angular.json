@@ -77,7 +77,9 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ngx-skeleton-loader-demo:build:production"
+              "buildTarget": "ngx-skeleton-loader-demo:build:production",
+              "hmr": false,
+              "prebundle": false
             },
             "development": {
               "buildTarget": "ngx-skeleton-loader-demo:build:development"
@@ -92,18 +94,6 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "runner": "vitest"
-          }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-skeleton-loader-demo:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ngx-skeleton-loader-demo:serve:production"
-            }
           }
         }
       }
