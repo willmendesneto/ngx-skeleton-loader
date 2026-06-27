@@ -1,5 +1,5 @@
 import { Component, PLATFORM_ID } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NGX_SKELETON_LOADER_CONFIG } from './ngx-skeleton-loader-config.types';
 
 import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
@@ -42,7 +42,7 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
       </div>
 
       <div class="test-wrapper skeletons-animation-invalid-option">
-        <ngx-skeleton-loader animation="invalid-option"></ngx-skeleton-loader>
+        <ngx-skeleton-loader [animation]="invalidAnimation"></ngx-skeleton-loader>
       </div>
 
       <div class="test-wrapper skeletons-count-invalid-option">
@@ -50,7 +50,7 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
       </div>
 
       <div class="test-wrapper skeletons-appearance-invalid-option">
-        <ngx-skeleton-loader appearance="invalid-appearance"></ngx-skeleton-loader>
+        <ngx-skeleton-loader [appearance]="invalidAppearance"></ngx-skeleton-loader>
       </div>
 
       <div class="test-wrapper skeletons-with-count">
@@ -96,24 +96,27 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
   `,
 })
 class ContainerComponent {
-  animationWithFalsePassedViaBinding = false;
-  invalidValueInCount = 'two';
+  animationWithFalsePassedViaBinding: any = false;
+  invalidValueInCount: any = 'two';
+  invalidAnimation: any = 'invalid-option';
+  invalidAppearance: any = 'invalid-appearance';
 }
 
 describe('NgxSkeletonLoaderComponent', () => {
-  let fixture: any;
+  let fixture: ComponentFixture<ContainerComponent>;
   beforeEach(() => {
-    spyOn(console, 'error');
+    vi.spyOn(console, 'error').mockReturnValue(undefined);
   });
 
   describe('When the component uses default configuration', () => {
-    beforeEach(waitForAsync(() => {
-      fixture = TestBed.configureTestingModule({
+    beforeEach(async () => {
+      await TestBed.configureTestingModule({
         imports: [NgxSkeletonLoaderComponent],
         providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
-      }).createComponent(ContainerComponent);
+      }).compileComponents();
+      fixture = TestBed.createComponent(ContainerComponent);
       fixture.detectChanges();
-    }));
+    });
 
     it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
       const totalOfSkeletons = fixture.nativeElement.querySelectorAll('.test-wrapper .skeleton-loader').length;
@@ -251,16 +254,17 @@ describe('NgxSkeletonLoaderComponent', () => {
   });
 
   describe('When the component receives a different default via module configuration', () => {
-    beforeEach(waitForAsync(() => {
-      fixture = TestBed.configureTestingModule({
+    beforeEach(async () => {
+      await TestBed.configureTestingModule({
         imports: [NgxSkeletonLoaderComponent],
         providers: [
           { provide: PLATFORM_ID, useValue: 'browser' },
           { provide: NGX_SKELETON_LOADER_CONFIG, useValue: { appearance: 'circle', count: 3 } },
         ],
-      }).createComponent(ContainerComponent);
+      }).compileComponents();
+      fixture = TestBed.createComponent(ContainerComponent);
       fixture.detectChanges();
-    }));
+    });
 
     it('should render skeleton with the provided config', () => {
       expect(

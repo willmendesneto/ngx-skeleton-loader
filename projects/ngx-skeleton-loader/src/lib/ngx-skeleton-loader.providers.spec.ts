@@ -1,5 +1,5 @@
 import { Component, PLATFORM_ID } from '@angular/core';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { provideNgxSkeletonLoader, NgxSkeletonLoaderComponent } from '../public-api';
 
@@ -22,12 +22,12 @@ class ContainerComponent {}
 describe('provideNgxSkeletonLoader method', () => {
   let fixture: ComponentFixture<ContainerComponent>;
 
-  beforeEach(waitForAsync(() => {
-    spyOn(console, 'error');
-    spyOn(console, 'log');
-    spyOn(console, 'warn');
-    spyOn(console, 'info');
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    vi.spyOn(console, 'error').mockReturnValue(undefined);
+    vi.spyOn(console, 'log').mockReturnValue(undefined);
+    vi.spyOn(console, 'warn').mockReturnValue(undefined);
+    vi.spyOn(console, 'info').mockReturnValue(undefined);
+    await TestBed.configureTestingModule({
       providers: [
         { provide: PLATFORM_ID, useValue: 'browser' },
         provideNgxSkeletonLoader({
@@ -37,12 +37,12 @@ describe('provideNgxSkeletonLoader method', () => {
             extendsFromRoot: true,
             background: 'red',
           },
-        })
+        }),
       ],
-    });
+    }).compileComponents();
     fixture = TestBed.createComponent(ContainerComponent);
     fixture.detectChanges();
-  }));
+  });
 
   describe('When #provideNgxSkeletonLoader receives a `theme`', () => {
     it('should render skeleton extending theme styles from root and overriding config theming in favour of local theme if local config has any similar CSS attribute', () => {

@@ -22,6 +22,7 @@
         "./dist/ngx-skeleton-loader"
       ]
     },
+    "types": ["vitest/globals"],
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
