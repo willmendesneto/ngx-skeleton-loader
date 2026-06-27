@@ -60,9 +60,9 @@
     "zone.js": "0.16.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "22.0.0",
     "@angular-devkit/core": "22.0.0",
     "@angular-devkit/schematics": "22.0.0",
+    "@angular/build": "22.0.0",
     "@angular/cli": "22.0.0",
     "@angular/compiler-cli": "22.0.0",
     "@angular/language-service": "22.0.0",
