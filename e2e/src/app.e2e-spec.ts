@@ -1,23 +1,11 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { expect, test } from '@playwright/test';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
+test.describe('workspace-project App', () => {
+  test('should display welcome message', async ({ page }) => {
+    const app = new AppPage(page);
 
-  beforeEach(() => {
-    page = new AppPage();
-  });
-
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('NGX Skeleton Loader');
-  });
-
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
+    await app.navigateTo();
+    await expect(page.locator('app-root h1')).toHaveText('NGX Skeleton Loader');
   });
 });

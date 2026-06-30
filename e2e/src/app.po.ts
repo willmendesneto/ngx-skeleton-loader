@@ -1,12 +1,13 @@
-import { browser, by, element } from 'protractor';
+import type { Page } from '@playwright/test';
 
 export class AppPage {
+  constructor(private readonly page: Page) {}
+
   navigateTo() {
-    // tslint:disable-next-line: no-any
-    return browser.get(browser.baseUrl) as Promise<any>;
+    return this.page.goto('/');
   }
 
   getTitleText() {
-    return element(by.css('app-root h1')).getText() as Promise<string>;
+    return this.page.locator('app-root h1').textContent();
   }
 }

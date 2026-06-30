@@ -1,5 +1,5 @@
-import { Component, PLATFORM_ID } from '@angular/core';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { Component, NgModule, PLATFORM_ID } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgxSkeletonLoaderModule } from './ngx-skeleton-loader.module';
 
@@ -19,30 +19,38 @@ import { NgxSkeletonLoaderModule } from './ngx-skeleton-loader.module';
 })
 class ContainerComponent {}
 
-describe('NgxSkeletonLoaderModule method', () => {
-  let fixture: any;
+@NgModule({
+  imports: [
+    NgxSkeletonLoaderModule.forRoot({
+      appearance: 'circle',
+      count: 3,
+      theme: {
+        extendsFromRoot: true,
+        background: 'red',
+      },
+    }),
+  ],
+  declarations: [ContainerComponent],
+  exports: [ContainerComponent],
+})
+class ContainerTestModule {}
 
-  beforeEach(waitForAsync(() => {
-    spyOn(console, 'error');
-    spyOn(console, 'log');
-    spyOn(console, 'warn');
-    spyOn(console, 'info');
-    fixture = TestBed.configureTestingModule({
-      imports: [
-        NgxSkeletonLoaderModule.forRoot({
-          appearance: 'circle',
-          count: 3,
-          theme: {
-            extendsFromRoot: true,
-            background: 'red',
-          },
-        }),
-      ],
+describe('NgxSkeletonLoaderModule method', () => {
+  let fixture: ComponentFixture<ContainerComponent>;
+
+  beforeEach(async () => {
+    vi.spyOn(console, 'error').mockReturnValue(undefined);
+    vi.spyOn(console, 'log').mockReturnValue(undefined);
+    vi.spyOn(console, 'warn').mockReturnValue(undefined);
+    vi.spyOn(console, 'info').mockReturnValue(undefined);
+    await TestBed.configureTestingModule({
+      imports: [ContainerTestModule],
       providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
-      declarations: [ContainerComponent],
-    }).createComponent(ContainerComponent);
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(ContainerComponent);
     fixture.detectChanges();
-  }));
+  });
 
   describe('When #forRoot receives a `theme`', () => {
     it('should render skeleton extending theme styles from root and overriding config theming in favour of local theme if local config has any similar CSS attribute', () => {
