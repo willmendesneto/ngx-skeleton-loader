@@ -11,7 +11,10 @@ export default defineConfig([
       sourceType: 'script',
 
       parserOptions: {
-        project: ['tsconfig.lib.json', 'tsconfig.spec.json'],
+        project: [
+          'projects/ngx-skeleton-loader/tsconfig.lib.json',
+          'projects/ngx-skeleton-loader/tsconfig.spec.json',
+        ],
         createDefaultProgram: true,
       },
     },

@@ -78,7 +78,7 @@
     "changelog-verify": "^1.1.2",
     "core-js": "^3.49.0",
     "coveralls": "^3.1.1",
-    "eslint": "^9.39.1",
+    "eslint": "^10.6.0",
     "jsdom": "^29.1.1",
     "ng-packagr": "^22.0.0",
     "ts-node": "~10.9.2",
