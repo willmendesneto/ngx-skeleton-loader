@@ -69,7 +69,7 @@
     "@playwright/test": "^1.56.1",
     "@schematics/angular": "22.0.0",
     "@types/express": "^5.0.6",
-    "@types/node": "^22.7.4",
+    "@types/node": "^26.1.1",
     "@typescript-eslint/eslint-plugin": "^8.60.1",
     "@typescript-eslint/parser": "^8.60.1",
     "@vitest/coverage-v8": "^4.1.9",
