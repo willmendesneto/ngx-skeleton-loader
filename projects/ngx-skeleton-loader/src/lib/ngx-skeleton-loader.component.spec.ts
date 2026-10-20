@@ -49,6 +49,10 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader animation="circle"></ngx-skeleton-loader>
       </div>
 
+      <div class="test-wrapper skeletons-animation-wave">
+        <ngx-skeleton-loader animation="wave"></ngx-skeleton-loader>
+      </div>
+
       <div class="test-wrapper skeletons-animation-invalid-option">
         <ngx-skeleton-loader [animation]="invalidAnimation"></ngx-skeleton-loader>
       </div>
@@ -356,6 +360,13 @@ describe('NgxSkeletonLoaderComponent', () => {
           fixture.nativeElement.querySelectorAll('.skeletons-animation-progress-dark .skeleton-loader.progress-dark')
             .length,
         ).toBe(1);
+      });
+    });
+
+    describe('When skeleton is created using `wave` as animation', () => {
+      it('should add wave animation styles based on animation class on the skeleton components', () => {
+        expect(fixture.nativeElement.querySelectorAll('.skeletons-animation-wave .skeleton-loader.wave').length).toBe(1);
+        expect(fixture.nativeElement.querySelectorAll('.skeletons-animation-wave [class*="animation-"]').length).toBe(0);
       });
     });
 

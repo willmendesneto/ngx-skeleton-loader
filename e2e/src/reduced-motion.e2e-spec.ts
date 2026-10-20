@@ -1,7 +1,7 @@
 import { AppPage, STABLE_SECTION } from './app.po';
 import { expect, test, type Page } from '@playwright/test';
 
-const ANIMATIONS = ['progress', 'progress-dark', 'pulse', 'pulse-dark'];
+const ANIMATIONS = ['progress', 'progress-dark', 'pulse', 'pulse-dark', 'wave'];
 
 const getAnimationNames = (page: Page, animation: string) =>
   page

@@ -25,9 +25,11 @@ const SKELETONS = {
   line: '.skeleton-loader.progress:not(.circle):not(.square)',
   circle: '.skeleton-loader.progress.circle',
   'dark circle': '.skeleton-loader.progress-dark.circle',
+  'wave line': '.skeleton-loader.wave:not(.circle)',
+  'wave circle': '.skeleton-loader.wave.circle',
 };
 
-test.describe('Skeleton `progress` animation', () => {
+test.describe('Skeleton `progress` and `wave` animations', () => {
   test.beforeEach(async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     await new AppPage(page).navigateTo();
@@ -54,4 +56,13 @@ test.describe('Skeleton `progress` animation', () => {
       });
     });
   }
+
+  test('should use an oblique shimmer in `wave` animation', async ({ page }) => {
+    const shimmer = await page
+      .locator('.skeleton-loader.wave')
+      .first()
+      .evaluate(element => getComputedStyle(element, '::before').backgroundImage);
+
+    expect(shimmer).toContain('linear-gradient(120deg');
+  });
 });
