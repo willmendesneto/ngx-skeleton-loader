@@ -5,7 +5,7 @@ import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderConfig } from '../../proje
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   imports: [NgxSkeletonLoaderComponent],
 })
 export class AppComponent implements OnInit, OnDestroy {
