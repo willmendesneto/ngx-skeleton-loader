@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import { AppPage, STABLE_SECTION } from './app.po';
 import { expect, test } from '@playwright/test';
 
 const APPEARANCES = {
@@ -16,7 +16,7 @@ test.describe('Skeleton CSS containment', () => {
   for (const [appearance, selector] of Object.entries(APPEARANCES)) {
     test(`should isolate layout and paint of skeletons with \`${appearance}\` appearance`, async ({ page }) => {
       const contain = await page
-        .locator(selector)
+        .locator(`${STABLE_SECTION} ${selector}`)
         .first()
         .evaluate((element) => getComputedStyle(element).contain);
 

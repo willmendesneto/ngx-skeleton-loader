@@ -227,6 +227,17 @@ export class YourAppComponent {}
 ```
 
 
+## Layout
+
+`<ngx-skeleton-loader>` is rendered as a block element (`display: block`), taking the full width of its container. To render skeletons side by side (e.g. an avatar next to a title), use a flex or grid container:
+
+```html
+<div style="display: flex; gap: 10px; align-items: center">
+  <ngx-skeleton-loader appearance="circle" />
+  <ngx-skeleton-loader width="200" />
+</div>
+```
+
 ## WAI-ARIA values
 
 - loadingText - _default_ `Loading...`: attribute that defines the text value for `aria-valuetext` attribute. Defaults to "Loading..."
