@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import { AppPage, STABLE_SECTION } from './app.po';
 import { expect, test } from '@playwright/test';
 
 test.describe('Skeleton accessibility', () => {
@@ -7,10 +7,10 @@ test.describe('Skeleton accessibility', () => {
   });
 
   test('should expose a single progress bar per component, regardless of `count`', async ({ page }) => {
-    const components = await page.locator('ngx-skeleton-loader').count();
+    const components = await page.locator(`${STABLE_SECTION} ngx-skeleton-loader`).count();
 
     expect(components).toBeGreaterThan(0);
-    await expect(page.getByRole('progressbar')).toHaveCount(components);
+    await expect(page.locator(STABLE_SECTION).getByRole('progressbar')).toHaveCount(components);
   });
 
   test('should expose the loading text and label of the component', async ({ page }) => {

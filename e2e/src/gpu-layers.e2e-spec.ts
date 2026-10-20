@@ -1,9 +1,9 @@
-import { AppPage } from './app.po';
+import { AppPage, STABLE_SECTION } from './app.po';
 import { expect, test, type Page } from '@playwright/test';
 
 const getWillChange = (page: Page, selector: string) =>
   page
-    .locator(selector)
+    .locator(`${STABLE_SECTION} ${selector}`)
     .first()
     .evaluate((element) => ({
       element: getComputedStyle(element).willChange,

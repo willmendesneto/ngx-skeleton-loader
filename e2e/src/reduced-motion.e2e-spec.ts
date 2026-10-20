@@ -1,11 +1,11 @@
-import { AppPage } from './app.po';
+import { AppPage, STABLE_SECTION } from './app.po';
 import { expect, test, type Page } from '@playwright/test';
 
 const ANIMATIONS = ['progress', 'progress-dark', 'pulse', 'pulse-dark'];
 
 const getAnimationNames = (page: Page, animation: string) =>
   page
-    .locator(`.skeleton-loader.${animation}`)
+    .locator(`${STABLE_SECTION} .skeleton-loader.${animation}`)
     .first()
     .evaluate((element) => ({
       element: getComputedStyle(element).animationName,
