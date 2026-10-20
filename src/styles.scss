@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Custom animation for `<ngx-skeleton-loader animation="stretch" />`.
+// It needs to be global, since `ngx-skeleton-loader` styles are encapsulated
+.skeleton-loader.animation-stretch {
+  transform-origin: left;
+  will-change: transform;
+  animation: skeleton-stretch 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-stretch {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.6);
+  }
+}

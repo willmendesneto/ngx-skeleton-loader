@@ -10,9 +10,36 @@ export type NgxSkeletonLoaderConfigTheme = {
 
 type CSSMeasureUnit = 'px' | 'em' | 'rem' | '%' | 'vh' | 'vw';
 
+/**
+ * Registry of custom animations, extended by consumers via TypeScript declaration merging.
+ * Every key registered here becomes a valid `animation` value, rendered as `animation-<key>`
+ * CSS class in the skeleton. E.g.:
+ *
+ * ```ts
+ * import 'ngx-skeleton-loader';
+ *
+ * declare module 'ngx-skeleton-loader' {
+ *   interface NgxSkeletonLoaderCustomAnimations {
+ *     'my-wave': true;
+ *   }
+ * }
+ * ```
+ *
+ * The animation styles must be added in a global stylesheet (e.g. `styles.css`) or via `::ng-deep`,
+ * targeting `.skeleton-loader.animation-my-wave`, since component styles are encapsulated.
+ */
+export interface NgxSkeletonLoaderCustomAnimations {}
+
 export interface NgxSkeletonLoaderConfig {
   appearance: 'circle' | 'line' | 'custom-content' | 'square' | '';
-  animation: 'progress' | 'progress-dark' | 'pulse' | 'pulse-dark' | 'false' | false;
+  animation:
+    | 'progress'
+    | 'progress-dark'
+    | 'pulse'
+    | 'pulse-dark'
+    | 'false'
+    | false
+    | Extract<keyof NgxSkeletonLoaderCustomAnimations, string>;
   theme: NgxSkeletonLoaderConfigTheme;
   loadingText: string;
   count: number;

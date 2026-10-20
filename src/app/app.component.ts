@@ -44,3 +44,11 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 }
+
+// Registering custom animations via TypeScript declaration merging.
+// Custom animation styles are in `src/styles.scss`, since component styles are encapsulated
+declare module '../../projects/ngx-skeleton-loader/src/public-api' {
+  interface NgxSkeletonLoaderCustomAnimations {
+    stretch: true;
+  }
+}
