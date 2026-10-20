@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, OnDestroy, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderConfig } from '../../projects/ngx-skeleton-loader/src/public-api';
 
@@ -18,11 +18,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   intervalId: number | null = null;
 
-  platformId: Object;
-
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
-    this.platformId = platformId;
-  }
+  readonly platformId = inject(PLATFORM_ID);
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {

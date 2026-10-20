@@ -3,9 +3,11 @@ import angular from 'angular-eslint';
 
 export default defineConfig([
   {
+    // Global ignores (an object with `ignores` only), applied to every file type
+    ignores: ['coverage/**', 'dist/**', 'projects/*/coverage/**'],
+  },
+  {
     files: ['**/*.ts'],
-
-    ignores: ['./coverage/**', './dist/*', './projects/*/coverage/**'],
 
     processor: angular.processInlineTemplates,
 
