@@ -34,7 +34,6 @@
   display: inline-block;
   margin-bottom: 10px;
 
-  &:after,
   &:before {
     box-sizing: border-box;
   }
@@ -66,11 +65,6 @@
   */
   &.progress,
   &.progress-dark {
-    &:after,
-    &:before {
-      box-sizing: border-box;
-    }
-    // position: relative;
     // Creates a stacking context, so the animated `:before` is clipped by `border-radius`
     // in every browser (e.g. Safari) without promoting the skeleton to its own GPU layer
     isolation: isolate;
@@ -136,7 +130,6 @@
   @media (prefers-reduced-motion: reduce) {
     &.pulse,
     &.pulse-dark,
-    &.custom-content,
     &.progress::before,
     &.progress-dark::before {
       animation: none;
@@ -144,15 +137,14 @@
     }
 
     &.progress::before,
-    &.progress-dark::before,
-    &.pulse-dark,
-    &.custom-content {
+    &.progress-dark::before {
       background-image: none;
     }
   }
 
-  // MEDIA QUERY: Desktop-only styling
-  @media screen and (min-device-width: 1200px) {
+  // MEDIA QUERY: Devices with mouse/trackpad only (e.g. desktops and laptops)
+  // More details in https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer
+  @media (hover: hover) and (pointer: fine) {
     // Removing selection and cursor since the content is loading
     // This is a even better way to create awareness to consumers that the content is loading
     user-select: none;
