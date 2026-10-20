@@ -45,19 +45,15 @@
   },
   "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme",
   "dependencies": {
-    "@angular/animations": "22.0.0",
     "@angular/common": "22.0.0",
     "@angular/compiler": "22.0.0",
     "@angular/core": "22.0.0",
-    "@angular/forms": "22.0.0",
     "@angular/platform-browser": "22.0.0",
-    "@angular/platform-browser-dynamic": "22.0.0",
     "@angular/platform-server": "22.0.0",
     "@angular/router": "22.0.0",
     "@angular/ssr": "22.0.0",
     "express": "^5.2.1",
-    "tslib": "^2.8.1",
-    "zone.js": "0.16.0"
+    "tslib": "^2.8.1"
   },
   "devDependencies": {
     "@angular-devkit/core": "22.0.0",
@@ -76,12 +72,10 @@
     "angular-eslint": "^22.0.0",
     "bundlesize2": "^0.0.35",
     "changelog-verify": "^1.1.2",
-    "core-js": "^3.49.0",
     "coveralls": "^3.1.1",
     "eslint": "^10.6.0",
     "jsdom": "^29.1.1",
     "ng-packagr": "^22.0.0",
-    "ts-node": "~10.9.2",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.60.1",
     "version-changelog": "^3.1.1",

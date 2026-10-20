@@ -1,9 +1,10 @@
 import { AppPage } from './app.po';
 import { devices, expect, test, type Page } from '@playwright/test';
 
+// Skeletons in `.item` elements are always rendered (the user card ones are removed after loading)
 const getInteractionStyles = (page: Page) =>
   page
-    .locator('.skeleton-loader')
+    .locator('.item .skeleton-loader')
     .first()
     .evaluate((element) => {
       const { cursor, userSelect } = getComputedStyle(element);

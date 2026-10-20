@@ -14,11 +14,11 @@
 <div class="fb-item">
   <div class="first-section-wrapper">
     <div class="gravatar">
-      @if (!contentLoaded) {
+      @if (!contentLoaded()) {
         <ngx-skeleton-loader appearance="circle" [theme]="{ width: '80px', height: '80px' }" />
       }
 
-      @if (contentLoaded) {
+      @if (contentLoaded()) {
         <div class="content-loaded">
           <img
             src="//user-images.githubusercontent.com/1252570/96255429-9e7e7a00-1002-11eb-9471-1e7fdfc139cd.png"
@@ -30,7 +30,7 @@
     </div>
     <div class="gravatar-title">
       <div>
-        @if (!contentLoaded) {
+        @if (!contentLoaded()) {
           <ngx-skeleton-loader
             [theme]="{
               width: '200px',
@@ -40,17 +40,17 @@
             }"
           />
         }
-        @if (contentLoaded) {
+        @if (contentLoaded()) {
           <p class="gravatar-title-name">Wilson Mendes</p>
         }
       </div>
       <div>
-        @if (!contentLoaded) {
+        @if (!contentLoaded()) {
           <ngx-skeleton-loader
             [theme]="{ width: '170px', 'border-radius': '0', height: '15px' }"
           />
         }
-        @if (contentLoaded) {
+        @if (contentLoaded()) {
           <p class="gravatar-description">Hi! It's me</p>
         }
       </div>
@@ -100,13 +100,13 @@
 <p>You can use the same colors for the other examples</p>
 <p>Also, this example will be switching between `<b>pulse</b>` and `<b>progress-dark</b>` animations</p>
 <p>
-  Current value: <b>{{ animation }}</b>
+  Current value: <b>{{ animation() }}</b>
 </p>
 
 <div class="item-with-background">
   <ngx-skeleton-loader
     count="5"
-    [animation]="animation"
+    [animation]="animation()"
     [theme]="{
       'border-radius': '5px',
       height: '50px',
@@ -148,15 +148,15 @@
 <h2>Circle skeletons with mixing theming and `[style]` via `[theme]` input</h2>
 <p>Width and height will be switching between 50px and 100px every 5 seconds</p>
 <p>
-  Current value: <b>{{ widthHeightSizeInPixels }}px</b>
+  Current value: <b>{{ widthHeightSizeInPixels() }}px</b>
 </p>
 <div class="item">
   <ngx-skeleton-loader
     count="5"
     appearance="circle"
     [theme]="{
-      'width': widthHeightSizeInPixels,
-      'height': widthHeightSizeInPixels,
+      'width': widthHeightSizeInPixels(),
+      'height': widthHeightSizeInPixels(),
       'border-radius': '10px'
     }"
   />
@@ -395,17 +395,17 @@
 <p>Current values:</p>
 <ul>
   <li>
-    Count: <b>{{ count }}</b>
+    Count: <b>{{ count() }}</b>
   </li>
   <li>
-    Animation: <b>{{ animation }}</b>
+    Animation: <b>{{ animation() }}</b>
   </li>
 </ul>
 
 <div class="item-with-background">
   <ngx-skeleton-loader
-    [count]="count"
-    [animation]="animation"
+    [count]="count()"
+    [animation]="animation()"
     [theme]="{
       'border-radius': '5px',
       height: '50px',
