@@ -119,6 +119,22 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader colorScheme="dark"></ngx-skeleton-loader>
       </div>
 
+      <div class="test-wrapper skeletons-with-dimension-inputs">
+        <ngx-skeleton-loader width="100" height="20.5" borderRadius="8"></ngx-skeleton-loader>
+      </div>
+      <div class="test-wrapper skeletons-with-dimension-inputs-and-units">
+        <ngx-skeleton-loader width="50%" height="1.5" borderRadius="0.5" measureUnit="rem"></ngx-skeleton-loader>
+      </div>
+      <div class="test-wrapper skeletons-with-dimension-inputs-and-theme">
+        <ngx-skeleton-loader width="30" [theme]="{ width: '10px', height: '15px' }"></ngx-skeleton-loader>
+      </div>
+      <div class="test-wrapper skeletons-with-dimension-inputs-and-square-size">
+        <ngx-skeleton-loader appearance="square" size="60" width="30" height="30"></ngx-skeleton-loader>
+      </div>
+      <div class="test-wrapper skeletons-with-invalid-dimension-inputs">
+        <ngx-skeleton-loader [width]="invalidSize" [height]="invalidSize"></ngx-skeleton-loader>
+      </div>
+
       <div class="test-wrapper skeletons-with-theming">
         <ngx-skeleton-loader appearance="circle" [theme]="{ width: '70px', height: '70px', 'border-radius': '10px' }">
         </ngx-skeleton-loader>
@@ -397,6 +413,33 @@ describe('NgxSkeletonLoaderComponent', () => {
         const skeleton = fixture.nativeElement.querySelector('.skeletons-color-scheme-dark .skeleton-loader');
 
         expect(skeleton.style.colorScheme).toBe('dark');
+      });
+    });
+
+    describe('When skeleton is created with `width`, `height` and `borderRadius`', () => {
+      const getStyle = (wrapper: string) =>
+        fixture.nativeElement.querySelector(`.${wrapper} .skeleton-loader`).getAttribute('style') || '';
+
+      it('should add width, height and border-radius styles using `px` by default', () => {
+        expect(getStyle('skeletons-with-dimension-inputs')).toBe('border-radius: 8px; height: 20.5px; width: 100px;');
+      });
+
+      it('should use the CSS unit passed in the value or `measureUnit`', () => {
+        expect(getStyle('skeletons-with-dimension-inputs-and-units')).toBe(
+          'border-radius: 0.5rem; height: 1.5rem; width: 50%;',
+        );
+      });
+
+      it('should override the same styles passed via `theme`', () => {
+        expect(getStyle('skeletons-with-dimension-inputs-and-theme')).toBe('height: 15px; width: 30px;');
+      });
+
+      it('should NOT override `size` for `square` appearance', () => {
+        expect(getStyle('skeletons-with-dimension-inputs-and-square-size')).toBe('height: 60px; width: 60px;');
+      });
+
+      it('should NOT add styles for invalid values', () => {
+        expect(getStyle('skeletons-with-invalid-dimension-inputs')).toBe('');
       });
     });
 

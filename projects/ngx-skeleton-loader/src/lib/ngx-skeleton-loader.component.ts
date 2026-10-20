@@ -13,6 +13,13 @@ import {
   NGX_SKELETON_LOADER_CONFIG,
 } from './ngx-skeleton-loader-config.types';
 
+// Converts a size (e.g. `10`, `'1.5'`, `'10rem'`) into a CSS value, using `unit` if it has none
+const toCSSSize = (size: NgxSkeletonLoaderConfig['size'], unit: NgxSkeletonLoaderConfig['measureUnit']) => {
+  const [, value, sizeUnit] = `${size ?? ''}`.trim().match(/^(\d*\.?\d+)(px|em|rem|%|vh|vw)?$/) || [];
+
+  return value ? `${Number(value)}${sizeUnit || unit}` : null;
+};
+
 /**
  * The `NgxSkeletonLoaderComponent` is a standalone Angular component that provides a skeleton
  * loader UI element.
@@ -98,6 +105,10 @@ export class NgxSkeletonLoaderComponent {
    * This allows the size to be specified in different units, such as 'px', 'em', etc.
    */
   readonly measureUnit = input<NgxSkeletonLoaderConfig['measureUnit']>(this.#config?.measureUnit || 'px');
+  /** Shortcuts for `width`, `height` and `border-radius` styles (same values as `size`) */
+  readonly width = input<NgxSkeletonLoaderConfig['size']>(null);
+  readonly height = input<NgxSkeletonLoaderConfig['size']>(null);
+  readonly borderRadius = input<NgxSkeletonLoaderConfig['size']>(null);
   /** Color scheme: 'auto' (default) follows the user's preference, 'light'/'dark' force it */
   readonly colorScheme = input<NgxSkeletonLoaderConfig['colorScheme']>(this.#config?.colorScheme || 'auto');
   /**
@@ -139,15 +150,9 @@ export class NgxSkeletonLoaderComponent {
    * This computed property is used to set the width and height of the skeleton loader when it
    * is displayed as a square.
    */
-  readonly squareSize = computed(() => {
-    const [, value, unit] = `${this.size() ?? ''}`.trim().match(/^(\d*\.?\d+)(px|em|rem|%|vh|vw)?$/) || [];
-
-    if (this.appearance() !== 'square' || !value) {
-      return null;
-    }
-
-    return `${Number(value)}${unit || this.measureUnit()}`;
-  });
+  readonly squareSize = computed(() =>
+    this.appearance() === 'square' ? toCSSSize(this.size(), this.measureUnit()) : null,
+  );
 
   /**
    * A computed property that returns the final theme configuration for the skeleton loader.
@@ -159,10 +164,17 @@ export class NgxSkeletonLoaderComponent {
   readonly styles = computed(() => {
     const size = this.squareSize();
     const colorScheme = this.colorScheme();
+    const unit = this.measureUnit();
+    const width = toCSSSize(this.width(), unit);
+    const height = toCSSSize(this.height(), unit);
+    const borderRadius = toCSSSize(this.borderRadius(), unit);
     const { extendsFromRoot, ...styles } = {
       ...(colorScheme !== 'auto' && { 'color-scheme': colorScheme }),
       ...(this.#config?.theme?.extendsFromRoot && this.#config.theme),
       ...this.theme(),
+      ...(width && { width }),
+      ...(height && { height }),
+      ...(borderRadius && { 'border-radius': borderRadius }),
       ...(size && { width: size, height: size }),
     };
 
