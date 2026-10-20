@@ -34,10 +34,6 @@
   display: inline-block;
   margin-bottom: 10px;
 
-  // More details about CSS `will-change` property
-  // in https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
-  will-change: transform;
-
   &:after,
   &:before {
     box-sizing: border-box;
@@ -75,10 +71,14 @@
       box-sizing: border-box;
     }
     // position: relative;
-    // this adds GPU acceleration
-    transform: translate3d(0, 0, 0);
+    // Creates a stacking context, so the animated `:before` is clipped by `border-radius`
+    // in every browser (e.g. Safari) without promoting the skeleton to its own GPU layer
+    isolation: isolate;
 
     &:before {
+      // More details about CSS `will-change` property
+      // in https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
+      will-change: transform;
       animation: progress var(--ngx-skeleton-loader-animation-duration) ease-in-out infinite;
       background-size: 200px 100%;
       position: absolute;
@@ -109,6 +109,7 @@
   * animations only if needed
   */
   &.pulse {
+    will-change: opacity;
     animation: pulse var(--ngx-skeleton-loader-animation-duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 0.5s;
   }
@@ -119,6 +120,7 @@
   */
   &.pulse-dark {
     background: var(--ngx-skeleton-loader-dark-mode-color);
+    will-change: opacity;
     animation: pulse var(--ngx-skeleton-loader-animation-duration) cubic-bezier(0.4, 0, 0.2, 1) infinite;
     animation-delay: 0.5s;
   }
@@ -138,6 +140,7 @@
     &.progress::before,
     &.progress-dark::before {
       animation: none;
+      will-change: auto;
     }
 
     &.progress::before,
