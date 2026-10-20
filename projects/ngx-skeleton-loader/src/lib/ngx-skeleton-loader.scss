@@ -133,15 +133,15 @@
   // More details about `prefers-reduced-motion` in https://web.dev/prefers-reduced-motion/
   @media (prefers-reduced-motion: reduce) {
     &.pulse,
-    &.progress-dark,
     &.pulse-dark,
     &.custom-content,
-    &.progress::before  {
+    &.progress::before,
+    &.progress-dark::before {
       animation: none;
     }
 
     &.progress::before,
-    &.progress-dark,
+    &.progress-dark::before,
     &.pulse-dark,
     &.custom-content {
       background-image: none;
