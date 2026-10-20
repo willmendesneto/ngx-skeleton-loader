@@ -5,6 +5,7 @@
     [class]="classes()"
     aria-hidden="true"
     [style]="styles()"
+    [style.--ngx-skeleton-loader-index]="item || null"
     >
     @if (appearanceValue  === 'custom-content') {
       <ng-content></ng-content>

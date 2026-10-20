@@ -356,6 +356,25 @@
   <ngx-skeleton-loader count="3" animation="stretch" />
 </div>
 
+<h3>Skeletons using stagger effect</h3>
+
+<!--
+  Each item is delayed based on its index and `--ngx-skeleton-loader-animation-stagger`,
+  set via `[theme]` in here (it can also be set via CSS in any ancestor element)
+-->
+<div class="item skeletons-with-stagger">
+  <ngx-skeleton-loader
+    count="5"
+    appearance="circle"
+    [theme]="{ '--ngx-skeleton-loader-animation-stagger': '150ms' }"
+  />
+  <ngx-skeleton-loader
+    count="3"
+    animation="pulse"
+    [theme]="{ '--ngx-skeleton-loader-animation-stagger': '150ms' }"
+  />
+</div>
+
 <h3>Skeleton using custom-content (SVG for example)</h3>
 
 <div class="item">

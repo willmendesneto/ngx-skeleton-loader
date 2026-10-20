@@ -300,6 +300,24 @@ you need to apply the style changes on the
 
 > You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html)
 
+### Stagger effect
+
+You can delay the animation of each skeleton item based on its position, creating a cascade effect, via `--ngx-skeleton-loader-animation-stagger` CSS custom property. It's `0s` by default (no delay), and it can be set in any ancestor element or via `[theme]` attribute.
+
+```html
+<!-- Each item starts its animation 150ms after the previous one -->
+<ngx-skeleton-loader count="5" [theme]="{ '--ngx-skeleton-loader-animation-stagger': '150ms' }" />
+```
+
+Each item also exposes its index (starting from `0`) via `--ngx-skeleton-loader-index` CSS custom property, so you can use it in [custom animations](#custom-animations) as well:
+
+```css
+.skeleton-loader.animation-my-wave {
+  animation: my-wave 1.5s ease-in-out infinite;
+  animation-delay: calc(var(--ngx-skeleton-loader-index, 0) * 100ms);
+}
+```
+
 ### Custom animations
 
 You can also create your own animations. These are the steps:
@@ -417,6 +435,7 @@ You can also customize skeletons via CSS custom properties (CSS variables). They
 | `--ngx-skeleton-loader-dark-mode-color` | `rgba(0, 0, 0, 0.2)` | Shimmer color used by `progress-dark` animation and background color used by `pulse-dark` animation |
 | `--ngx-skeleton-loader-dark-mode-color-to` | `transparent` | Shimmer edges color used by `progress-dark` animation |
 | `--ngx-skeleton-loader-animation-duration` | `2s` | Duration of the animations |
+| `--ngx-skeleton-loader-animation-stagger` | `0s` | Delay between the animation of each item. See [Stagger effect](#stagger-effect) |
 | `--ngx-skeleton-loader-background-image-light-mode` | gradient based on `light-mode` colors | Full shimmer `background-image` used by `progress` animation |
 | `--ngx-skeleton-loader-background-image-dark-mode` | gradient based on `dark-mode` colors | Full shimmer `background-image` used by `progress-dark` animation |
 

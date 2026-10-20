@@ -227,6 +227,15 @@ describe('NgxSkeletonLoaderComponent', () => {
       });
     });
 
+    describe('When skeleton is created with count, for stagger effect', () => {
+      it('should expose the item index as CSS custom property, except for the first item', () => {
+        const skeletons = fixture.nativeElement.querySelectorAll('.skeletons-with-count .skeleton-loader');
+
+        expect(skeletons[0].style.getPropertyValue('--ngx-skeleton-loader-index')).toBe('');
+        expect(skeletons[1].style.getPropertyValue('--ngx-skeleton-loader-index')).toBe('1');
+      });
+    });
+
     describe('When skeleton is created with circle appearance', () => {
       it('should add styles based on circle class on the skeleton components', () => {
         expect(
