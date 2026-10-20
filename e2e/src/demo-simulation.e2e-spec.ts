@@ -3,6 +3,8 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Demo page simulations', () => {
   test.beforeEach(async ({ page }) => {
+    // Controls the demo timers (`setTimeout`/`setInterval`), so assertions don't depend on load time
+    await page.clock.install();
     await new AppPage(page).navigateTo();
   });
 
@@ -11,7 +13,9 @@ test.describe('Demo page simulations', () => {
 
     await expect(userCard.locator('ngx-skeleton-loader')).toHaveCount(3);
 
-    await expect(userCard.locator('.gravatar-title-name')).toHaveText('Wilson Mendes', { timeout: 5000 });
+    await page.clock.runFor(2000);
+
+    await expect(userCard.locator('.gravatar-title-name')).toHaveText('Wilson Mendes');
     await expect(userCard.locator('ngx-skeleton-loader')).toHaveCount(0);
   });
 
@@ -23,7 +27,9 @@ test.describe('Demo page simulations', () => {
     await expect(values).toContainText('Count: 2');
     await expect(skeletons).toHaveCount(2);
 
-    await expect(values).toContainText('Count: 5', { timeout: 8000 });
+    await page.clock.runFor(5000);
+
+    await expect(values).toContainText('Count: 5');
     await expect(values).toContainText('Animation: progress-dark');
     await expect(skeletons).toHaveCount(5);
   });
