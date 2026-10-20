@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 - Improving rendering performance by scoping CSS `will-change` to the animated parts only: `transform` on the `progress`/`progress-dark` shimmer and `opacity` on `pulse`/`pulse-dark`. Skeletons without animation, or rendered with `prefers-reduced-motion: reduce`, are no longer promoted to their own GPU layer. In the demo page (95 skeletons), composited layers dropped from 137 to 82 with animations and from 90 to 5 with reduced motion
 - Replacing `transform: translate3d(0, 0, 0)` with `isolation: isolate` in `progress`/`progress-dark` skeletons, keeping the shimmer clipped by `border-radius` without an extra GPU layer
+- Replacing deprecated `min-device-width` media query with `(hover: hover) and (pointer: fine)` to show the `wait` cursor and disable text selection only on devices with mouse/trackpad. Desktop and touch devices keep the same behavior, but it now also covers laptops with smaller screens and tablets with mouse/trackpad
+- Removing unused and duplicated CSS rules (unused `:after` pseudo-element styles, duplicated `box-sizing`, and `prefers-reduced-motion` rules for `custom-content`/`pulse-dark` that had no effect), decreasing bundle size from 3.99KB to 3.96KB (gzip)
 
 ## [13.0.0][] - 2026-06-05
 
