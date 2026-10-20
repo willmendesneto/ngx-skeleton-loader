@@ -219,6 +219,18 @@
   </div>
 </div>
 
+<h2>Theming via CSS custom properties</h2>
+
+<!--
+  CSS custom properties are set in `.skeletons-with-css-custom-properties` wrapper
+  (`app.component.scss`) and inherited by every skeleton inside of it
+-->
+<div class="item skeletons-with-css-custom-properties">
+  <ngx-skeleton-loader count="5" appearance="circle" />
+  <ngx-skeleton-loader count="2" />
+  <ngx-skeleton-loader count="2" animation="pulse-dark" />
+</div>
+
 <h2>Animations</h2>
 
 <h3>Skeletons without animation</h3>

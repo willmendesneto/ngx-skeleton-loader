@@ -329,6 +329,42 @@ having `height.px` receiving a number and `background-color` receiving a HEX Col
 </div>
 ```
 
+### Theming via CSS custom properties
+
+You can also customize skeletons via CSS custom properties (CSS variables). They can be set in any ancestor element - such as `:root`, `body`, a wrapper element in your component stylesheet - or directly via `[theme]` attribute, and they are inherited by every `<ngx-skeleton-loader>` inside of it.
+
+| CSS custom property | Default value | Description |
+| --- | --- | --- |
+| `--ngx-skeleton-loader-base-color` | `rgb(239, 241, 246)` | Skeleton background color |
+| `--ngx-skeleton-loader-light-mode-color` | `rgba(255, 255, 255, 0.6)` | Shimmer color used by `progress` animation |
+| `--ngx-skeleton-loader-light-mode-color-to` | `rgba(255, 255, 255, 0)` | Shimmer edges color used by `progress` animation |
+| `--ngx-skeleton-loader-dark-mode-color` | `rgba(0, 0, 0, 0.2)` | Shimmer color used by `progress-dark` animation and background color used by `pulse-dark` animation |
+| `--ngx-skeleton-loader-dark-mode-color-to` | `transparent` | Shimmer edges color used by `progress-dark` animation |
+| `--ngx-skeleton-loader-animation-duration` | `2s` | Duration of the animations |
+| `--ngx-skeleton-loader-background-image-light-mode` | gradient based on `light-mode` colors | Full shimmer `background-image` used by `progress` animation |
+| `--ngx-skeleton-loader-background-image-dark-mode` | gradient based on `dark-mode` colors | Full shimmer `background-image` used by `progress-dark` animation |
+
+```css
+/* file: `styles.css` - applying it globally */
+:root {
+  --ngx-skeleton-loader-base-color: rgb(224, 231, 255);
+  --ngx-skeleton-loader-light-mode-color: rgba(99, 102, 241, 0.25);
+  --ngx-skeleton-loader-animation-duration: 1s;
+}
+```
+
+```css
+/* file: `my-component.component.css` - applying it only for skeletons inside of `.my-wrapper` element */
+.my-wrapper {
+  --ngx-skeleton-loader-base-color: rgb(224, 231, 255);
+}
+```
+
+```html
+<!-- applying it to a specific skeleton via `[theme]` attribute -->
+<ngx-skeleton-loader [theme]="{ '--ngx-skeleton-loader-base-color': 'rgb(224, 231, 255)' }" />
+```
+
 ### ⚠️ This is here only as a documentation, but it's not encouraged to be used. Please consider use it with caution ⚠️
 
 Also, you can use CSS to add theme styles into your component. However, there are some implications:
