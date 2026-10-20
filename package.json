@@ -20,7 +20,8 @@
     "version": "version-changelog CHANGELOG.md && changelog-verify CHANGELOG.md && npm run build:pkg && npm run update-library-version && git add .",
     "coveralls": "cat ./coverage/ngx-skeleton-loader/lcov.info | ./node_modules/.bin/coveralls && rm -rf coverage",
     "build:ssr": "ng run ngx-skeleton-loader-demo:build:production",
-    "serve:ssr": "node dist/ngx-skeleton-loader-demo/server/server.mjs"
+    "serve:ssr": "node dist/ngx-skeleton-loader-demo/server/server.mjs",
+    "test:ssr": "node scripts/check-ssr.mjs"
   },
   "private": false,
   "license": "MIT",
