@@ -8,22 +8,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
-### Added
-
-- Adding automatic dark mode. Skeletons follow the user's color scheme preference (OS and/or browser) by default, using `light-dark()` for the default base and shimmer colors - https://github.com/willmendesneto/ngx-skeleton-loader/pull/286
-- Adding `colorScheme` input and config option (`auto`, `light` or `dark`) and `--ngx-skeleton-loader-color-scheme` CSS custom property to force a specific color scheme. Applications that don't follow the user's preference (e.g. light-only apps or apps with their own theme switcher) should force it - https://github.com/willmendesneto/ngx-skeleton-loader/pull/286
-- Adding support for type-safe custom animations. Consumers can register their own animation names by extending `NgxSkeletonLoaderCustomAnimations` interface via TypeScript declaration merging, and use them via `animation` attribute or config. Invalid names raise TypeScript errors (in templates, when `strictTemplates` is enabled) - https://github.com/willmendesneto/ngx-skeleton-loader/pull/284
-- Custom animations are rendered as CSS class with `animation-` prefix (e.g. `animation="my-wave"` renders `.skeleton-loader.animation-my-wave`), avoiding collisions with internal classes. Their styles must be added in a global stylesheet or via `::ng-deep`, since component styles are encapsulated. They are disabled automatically - including the ones applied to `::before`/`::after` - when user prefers reduced motion - https://github.com/willmendesneto/ngx-skeleton-loader/pull/284
-- Adding docs about theming via CSS custom properties, color scheme (dark mode) and custom animations on `README.md` file, with examples in the demo page
-
-### Fixed
-
-- Fixing `custom-content` appearance rendering multiple DOM nodes in production when `count` is bigger than `1`. `count` is now forced to `1` in every environment, keeping the error message in development mode only - https://github.com/willmendesneto/ngx-skeleton-loader/pull/273
-- Fixing `progress-dark` animation still running when user prefers reduced motion - https://github.com/willmendesneto/ngx-skeleton-loader/pull/274
-- Fixing `size` for `square` appearance ignoring decimal values (e.g. `1.5` became `15`) and CSS measure units passed in `size` (e.g. `10rem` became `10px`). A unit passed in `size` now takes precedence over `measureUnit`, and invalid values don't add `width`/`height` styles - https://github.com/willmendesneto/ngx-skeleton-loader/pull/275
-- Fixing CSS custom properties (e.g. `--ngx-skeleton-loader-base-color`) being ignored when set in an ancestor element, such as `:root`, `body` or a wrapper element. Now they are consumed with their default values as fallback, keeping the same names and the `[theme]` support - https://github.com/willmendesneto/ngx-skeleton-loader/pull/283
-
 ### Changed
+
+#### Breaking Change
+
+- WAI-ARIA attributes (`role="progressbar"`, `aria-busy`, `aria-valuemin`, `aria-valuemax`, `aria-label` and `aria-valuetext`) are now applied once in the `<ngx-skeleton-loader>` element, instead of in every skeleton item, so screen readers announce a single progress bar per component. Skeleton items are hidden from assistive technologies via `aria-hidden="true"` and no longer have `tabindex="-1"`. Code or tests querying these attributes in `.skeleton-loader` items need to query the `<ngx-skeleton-loader>` element instead - https://github.com/willmendesneto/ngx-skeleton-loader/pull/297
+- `<ngx-skeleton-loader>` is now rendered as a block element (`display: block`), wrapping its skeleton items. Multiple `<ngx-skeleton-loader>` elements placed side by side as inline elements (without a flex or grid container) are now rendered in separate lines - https://github.com/willmendesneto/ngx-skeleton-loader/pull/298
+
+#### Other Changes
 
 - Removing `extendsFromRoot` flag from the styles applied to skeletons, since it's not a valid CSS property - https://github.com/willmendesneto/ngx-skeleton-loader/pull/276
 - Linting demo app and e2e files via `npm run lint`, fixing existing lint errors - https://github.com/willmendesneto/ngx-skeleton-loader/pull/285
@@ -33,6 +25,36 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Removing unused and duplicated CSS rules (unused `:after` pseudo-element styles, duplicated `box-sizing`, and `prefers-reduced-motion` rules for `custom-content`/`pulse-dark` that had no effect), decreasing bundle size from 3.99KB to 3.96KB (gzip) - https://github.com/willmendesneto/ngx-skeleton-loader/pull/280
 - Adding CSS containment (`contain: layout paint`) to skeletons. It isolates the skeleton layout and paint work from the rest of the page, so changes inside of a skeleton (e.g. animations or `custom-content`) don't trigger layout/paint work outside of it. There are no visual changes, since skeletons were already using `overflow: hidden` and `position: relative` - https://github.com/willmendesneto/ngx-skeleton-loader/pull/279
 - Improving `progress` and `progress-dark` animations by making the shimmer cross the skeleton based on its own width, instead of the viewport width (`100vw`). Previously, small skeletons (e.g. a `40px` circle) displayed the shimmer for only a fraction of the animation duration, spending the rest of it animating an invisible (clipped) element. Now the shimmer is visible during the whole animation, starting right before the skeleton left edge and finishing right after its right edge, for any skeleton width. The animation is still composited (`transform` only) - https://github.com/willmendesneto/ngx-skeleton-loader/pull/278
+- Using a single class binding for skeleton items, instead of one binding per appearance/animation class - https://github.com/willmendesneto/ngx-skeleton-loader/pull/290
+- Removing redundant `standalone: true` and using `styleUrl` in `NgxSkeletonLoaderComponent` - https://github.com/willmendesneto/ngx-skeleton-loader/pull/288
+- Removing unused dependencies (`@angular/animations`, `@angular/forms`, `@angular/platform-browser-dynamic`, `core-js`, `ts-node` and `zone.js`) and using zoneless change detection in the demo app - https://github.com/willmendesneto/ngx-skeleton-loader/pull/291
+- Adding GPU layers count regression e2e tests - https://github.com/willmendesneto/ngx-skeleton-loader/pull/299
+- Checking the package in an app using the minimum `peerDependencies` version (Angular 19) in CI - https://github.com/willmendesneto/ngx-skeleton-loader/pull/300
+
+### Added
+
+- Adding `wave` animation, similar to `progress` but with an oblique shimmer - https://github.com/willmendesneto/ngx-skeleton-loader/pull/295
+- Adding stagger effect via `--ngx-skeleton-loader-animation-stagger` CSS custom property (`0s` by default), delaying each item animation based on its index. Items also expose their index via `--ngx-skeleton-loader-index`, which can be used in custom animations - https://github.com/willmendesneto/ngx-skeleton-loader/pull/294
+- Adding right-to-left (RTL) support for `progress` and `progress-dark` animations: the shimmer crosses the skeleton from right to left when rendered in a `dir="rtl"` context - https://github.com/willmendesneto/ngx-skeleton-loader/pull/293
+- Adding `width`, `height` and `borderRadius` inputs as shortcuts for the most common `[theme]` styles, accepting the same values as `size` - https://github.com/willmendesneto/ngx-skeleton-loader/pull/296
+- Adding types for `theme` values (strings or numbers) instead of `any`, raising TypeScript errors for invalid values such as objects or arrays - https://github.com/willmendesneto/ngx-skeleton-loader/pull/289
+
+- Adding automatic dark mode. Skeletons follow the user's color scheme preference (OS and/or browser) by default, using `light-dark()` for the default base and shimmer colors - https://github.com/willmendesneto/ngx-skeleton-loader/pull/286
+- Adding `colorScheme` input and config option (`auto`, `light` or `dark`) and `--ngx-skeleton-loader-color-scheme` CSS custom property to force a specific color scheme. Applications that don't follow the user's preference (e.g. light-only apps or apps with their own theme switcher) should force it - https://github.com/willmendesneto/ngx-skeleton-loader/pull/286
+- Adding support for type-safe custom animations. Consumers can register their own animation names by extending `NgxSkeletonLoaderCustomAnimations` interface via TypeScript declaration merging, and use them via `animation` attribute or config. Invalid names raise TypeScript errors (in templates, when `strictTemplates` is enabled) - https://github.com/willmendesneto/ngx-skeleton-loader/pull/284
+- Custom animations are rendered as CSS class with `animation-` prefix (e.g. `animation="my-wave"` renders `.skeleton-loader.animation-my-wave`), avoiding collisions with internal classes. Their styles must be added in a global stylesheet or via `::ng-deep`, since component styles are encapsulated. They are disabled automatically - including the ones applied to `::before`/`::after` - when user prefers reduced motion - https://github.com/willmendesneto/ngx-skeleton-loader/pull/284
+- Adding docs about theming via CSS custom properties, color scheme (dark mode) and custom animations on `README.md` file, with examples in the demo page
+
+### Deprecated
+
+- Deprecating `NgxSkeletonLoaderModule` and `NgxSkeletonLoaderModule.forRoot()` in favor of the standalone `NgxSkeletonLoaderComponent` and `provideNgxSkeletonLoader()`, which also work in `NgModule` based apps. They will be removed in a future major version - https://github.com/willmendesneto/ngx-skeleton-loader/pull/292
+
+### Fixed
+
+- Fixing `custom-content` appearance rendering multiple DOM nodes in production when `count` is bigger than `1`. `count` is now forced to `1` in every environment, keeping the error message in development mode only - https://github.com/willmendesneto/ngx-skeleton-loader/pull/273
+- Fixing `progress-dark` animation still running when user prefers reduced motion - https://github.com/willmendesneto/ngx-skeleton-loader/pull/274
+- Fixing `size` for `square` appearance ignoring decimal values (e.g. `1.5` became `15`) and CSS measure units passed in `size` (e.g. `10rem` became `10px`). A unit passed in `size` now takes precedence over `measureUnit`, and invalid values don't add `width`/`height` styles - https://github.com/willmendesneto/ngx-skeleton-loader/pull/275
+- Fixing CSS custom properties (e.g. `--ngx-skeleton-loader-base-color`) being ignored when set in an ancestor element, such as `:root`, `body` or a wrapper element. Now they are consumed with their default values as fallback, keeping the same names and the `[theme]` support - https://github.com/willmendesneto/ngx-skeleton-loader/pull/283
 
 ## [13.0.0][] - 2026-06-05
 
