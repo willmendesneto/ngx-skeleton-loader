@@ -154,20 +154,13 @@ export class NgxSkeletonLoaderComponent {
    * component-specific theme customization.
    */
   readonly styles = computed(() => {
-    const theme = this.theme();
     const size = this.squareSize();
-
-    if (this.#config?.theme?.extendsFromRoot) {
-      return {
-        ...this.#config?.theme,
-        ...theme,
-        ...(size && { width: size, height: size }),
-      };
-    }
-
-    return {
-      ...theme,
+    const { extendsFromRoot, ...styles } = {
+      ...(this.#config?.theme?.extendsFromRoot && this.#config.theme),
+      ...this.theme(),
       ...(size && { width: size, height: size }),
     };
+
+    return styles;
   });
 }
