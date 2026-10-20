@@ -2,6 +2,8 @@ import { Component, NgModule, PLATFORM_ID } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgxSkeletonLoaderModule } from './ngx-skeleton-loader.module';
+import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
+import { provideNgxSkeletonLoader } from './ngx-skeleton-loader.providers';
 
 @Component({
   standalone: false,
@@ -91,5 +93,37 @@ describe('NgxSkeletonLoaderModule method', () => {
   it('should NOT call console.info() method', () => {
     // eslint-disable-next-line no-console
     expect(console.info).toHaveBeenCalledTimes(0);
+  });
+});
+
+// Recommended replacement for the deprecated `NgxSkeletonLoaderModule` in `NgModule` based apps
+@Component({
+  standalone: false,
+  selector: 'ngx-container-without-module',
+  template: `
+    <div class="skeletons-without-module">
+      <ngx-skeleton-loader></ngx-skeleton-loader>
+    </div>
+  `,
+})
+class ContainerWithoutModuleComponent {}
+
+@NgModule({
+  imports: [NgxSkeletonLoaderComponent],
+  providers: [provideNgxSkeletonLoader({ appearance: 'circle', count: 2 })],
+  declarations: [ContainerWithoutModuleComponent],
+})
+class ContainerWithoutModuleTestModule {}
+
+describe('NgModule based apps without `NgxSkeletonLoaderModule`', () => {
+  it('should render skeletons using standalone component and `provideNgxSkeletonLoader()` config', async () => {
+    await TestBed.configureTestingModule({
+      imports: [ContainerWithoutModuleTestModule],
+      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
+    }).compileComponents();
+    const fixture = TestBed.createComponent(ContainerWithoutModuleComponent);
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelectorAll('.skeletons-without-module .skeleton-loader.circle').length).toBe(2);
   });
 });

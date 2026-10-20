@@ -83,6 +83,8 @@ After that, you can use the `ngx-skeleton-loader` component in your templates. O
 
 ## NgModule Setup
 
+> ⚠️ `NgxSkeletonLoaderModule` and `NgxSkeletonLoaderModule.forRoot()` are **deprecated** and will be removed in a future major version. `NgxSkeletonLoaderComponent` is standalone: import it directly in your components and use `provideNgxSkeletonLoader()` for global configuration, as described in [Standalone Setup](#standalone-setup). It also works in applications using `NgModule`, by adding `NgxSkeletonLoaderComponent` to the module `imports` and `provideNgxSkeletonLoader()` to the module `providers`.
+
 You'll need to add `NgxSkeletonLoaderModule` to your application module. So that, the `<ngx-skeleton-loader>` components will be accessible in your application.
 
 ```typescript
