@@ -3,6 +3,7 @@
 @for (item of items(); track item) {
   <div
     class="skeleton-loader"
+    [class]="customAnimation()"
     [attr.aria-label]="ariaLabel()"
     aria-busy="true"
     aria-valuemin="0"

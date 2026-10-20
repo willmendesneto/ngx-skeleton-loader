@@ -146,6 +146,17 @@
       will-change: auto;
     }
 
+    // Custom animations registered via `NgxSkeletonLoaderCustomAnimations` are rendered
+    // as `animation-<name>` classes. None of the internal classes contains `animation-`,
+    // so this selector disables any custom animation - including the ones in pseudo-elements.
+    // Its specificity is higher than `.skeleton-loader.animation-<name>` (consumer global CSS)
+    &[class*='animation-'],
+    &[class*='animation-']::before,
+    &[class*='animation-']::after {
+      animation: none;
+      will-change: auto;
+    }
+
     &.progress::before,
     &.progress-dark::before {
       background-image: none;

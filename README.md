@@ -287,6 +287,55 @@ you need to apply the style changes on the
 
 > You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html)
 
+### Custom animations
+
+You can also create your own animations. These are the steps:
+
+1. Register your animation name via TypeScript declaration merging, extending `NgxSkeletonLoaderCustomAnimations` interface. The file needs to be a module - that's why it has the `import` statement - otherwise it will replace the module types instead of extending them
+
+```ts
+// file: `src/ngx-skeleton-loader.d.ts`
+import 'ngx-skeleton-loader';
+
+declare module 'ngx-skeleton-loader' {
+  interface NgxSkeletonLoaderCustomAnimations {
+    'my-wave': true;
+  }
+}
+```
+
+2. Add your animation styles in a **global stylesheet** (e.g. `styles.css`). The skeleton will receive your animation name as CSS class with `animation-` prefix - in this case, `animation-my-wave`. The prefix avoids collisions with `ngx-skeleton-loader` internal classes, such as `circle` or `progress`
+
+```css
+/* file: `styles.css` */
+.skeleton-loader.animation-my-wave {
+  will-change: opacity;
+  animation: my-wave 1.5s ease-in-out infinite;
+}
+
+@keyframes my-wave {
+  50% {
+    opacity: 0.5;
+  }
+}
+```
+
+3. Use it as any other animation
+
+```html
+<ngx-skeleton-loader animation="my-wave" />
+```
+
+```ts
+provideNgxSkeletonLoader({ animation: 'my-wave' });
+```
+
+Some details to be aware of:
+
+- **Type checking**: invalid animation names raise a TypeScript error (e.g. `Type '"my-wavee"' is not assignable to type ... Did you mean '"my-wave"'?`). In templates, static attributes such as `animation="my-wave"` are checked only when `strictTemplates` is enabled in your `tsconfig.json` - which is the default for new Angular projects
+- **Global styles**: since component styles are encapsulated by Angular, your animation styles need to be added in a global stylesheet or via `::ng-deep`. Styles added in your component stylesheet won't reach the skeleton
+- **Reduced motion**: custom animations - including the ones applied to `::before` and `::after` pseudo-elements - are disabled automatically when the user enabled the `Reduce Motion` option via operational system and/or browser, as it happens with the built-in animations
+
 ## Theming
 
 You can also define different styles for the skeleton loader by passing an object with the css styles - in dashed case - into the component via `[theme]` attribute.

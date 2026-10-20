@@ -41,6 +41,14 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader animation="progress-dark"></ngx-skeleton-loader>
       </div>
 
+      <div class="test-wrapper skeletons-animation-custom">
+        <ngx-skeleton-loader animation="my-wave"></ngx-skeleton-loader>
+      </div>
+
+      <div class="test-wrapper skeletons-animation-custom-with-internal-class-name">
+        <ngx-skeleton-loader animation="circle"></ngx-skeleton-loader>
+      </div>
+
       <div class="test-wrapper skeletons-animation-invalid-option">
         <ngx-skeleton-loader [animation]="invalidAnimation"></ngx-skeleton-loader>
       </div>
@@ -120,6 +128,13 @@ class ContainerComponent {
   invalidAnimation: any = 'invalid-option';
   invalidAppearance: any = 'invalid-appearance';
   invalidSize: any = '1.5.5px';
+}
+
+declare module './ngx-skeleton-loader-config.types' {
+  interface NgxSkeletonLoaderCustomAnimations {
+    'my-wave': true;
+    circle: true;
+  }
 }
 
 describe('NgxSkeletonLoaderComponent', () => {
@@ -313,6 +328,45 @@ describe('NgxSkeletonLoaderComponent', () => {
         expect(
           fixture.nativeElement.querySelectorAll('.skeletons-animation-progress .skeleton-loader.progress').length,
         ).toBe(1);
+      });
+    });
+
+    describe('When skeleton is created using a custom animation', () => {
+      it('should add the custom animation class with `animation-` prefix', () => {
+        expect(
+          fixture.nativeElement.querySelectorAll('.skeletons-animation-custom .skeleton-loader.animation-my-wave').length,
+        ).toBe(1);
+      });
+
+      it('should NOT add built-in animation classes', () => {
+        const skeleton = fixture.nativeElement.querySelector('.skeletons-animation-custom .skeleton-loader');
+
+        expect(skeleton.className).toBe('skeleton-loader animation-my-wave');
+      });
+
+      it('should NOT collide with internal classes if custom animation has the same name', () => {
+        const skeleton = fixture.nativeElement.querySelector(
+          '.skeletons-animation-custom-with-internal-class-name .skeleton-loader',
+        );
+
+        expect(skeleton.classList.contains('animation-circle')).toBe(true);
+        expect(skeleton.classList.contains('circle')).toBe(false);
+      });
+    });
+
+    describe('When skeleton is created using a built-in animation or without animation', () => {
+      it('should NOT add any custom animation class', () => {
+        expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults [class*="animation-"]').length).toBe(0);
+        expect(
+          fixture.nativeElement.querySelectorAll('.skeletons-animation-pulse-dark [class*="animation-"]').length,
+        ).toBe(0);
+        expect(
+          fixture.nativeElement.querySelectorAll('.skeletons-animation-no-animation [class*="animation-"]').length,
+        ).toBe(0);
+        expect(
+          fixture.nativeElement.querySelectorAll('.skeletons-animation-no-animation-via-binding [class*="animation-"]')
+            .length,
+        ).toBe(0);
       });
     });
 

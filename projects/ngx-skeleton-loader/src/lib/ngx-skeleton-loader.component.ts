@@ -122,6 +122,12 @@ export class NgxSkeletonLoaderComponent {
     }
     return [...Array(count)].map((_, index) => index);
   });
+  /** `animation-` prefixed class for custom animations (`null` for built-in ones) */
+  readonly customAnimation = computed(() => {
+    const animation = this.animation();
+
+    return !animation || /^(false|progress|pulse)(-dark)?$/.test(animation) ? null : `animation-${animation}`;
+  });
   /**
    * The `squareSize` property is a computed property that calculates the size of the skeleton
    * loader when the appearance is set to 'square'.

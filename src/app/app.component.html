@@ -292,6 +292,17 @@
   <ngx-skeleton-loader count="5" animation="progress-dark" appearance="circle" [theme]="{ height: '40px' }" />
 </div>
 
+<h3>Skeleton using a custom animation (`stretch`)</h3>
+
+<!--
+  `stretch` is registered via `NgxSkeletonLoaderCustomAnimations` (app.component.ts)
+  and styled via `.skeleton-loader.animation-stretch` (styles.scss)
+-->
+<div class="item skeletons-with-custom-animation">
+  <ngx-skeleton-loader count="5" animation="stretch" appearance="circle" />
+  <ngx-skeleton-loader count="3" animation="stretch" />
+</div>
+
 <h3>Skeleton using custom-content (SVG for example)</h3>
 
 <div class="item">
