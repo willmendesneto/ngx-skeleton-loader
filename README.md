@@ -232,6 +232,8 @@ export class YourAppComponent {}
 - loadingText - _default_ `Loading...`: attribute that defines the text value for `aria-valuetext` attribute. Defaults to "Loading..."
 - `aria-label` - _default_ `loading`: you can add `ariaLabel` as input of the component to set a different value.
 
+WAI-ARIA attributes (`role="progressbar"`, `aria-busy`, `aria-valuemin`, `aria-valuemax`, `aria-label` and `aria-valuetext`) are applied once in the `<ngx-skeleton-loader>` element, so screen readers announce a single progress bar per component - regardless of `count`. The skeleton items inside of it are hidden from assistive technologies via `aria-hidden="true"`.
+
 ## Appearance
 
 You can also define which appearance want to use in your skeleton loader by passing the options in your component via `[appearance]` attribute.

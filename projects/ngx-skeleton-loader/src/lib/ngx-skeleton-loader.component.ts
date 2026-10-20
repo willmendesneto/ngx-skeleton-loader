@@ -32,6 +32,15 @@ const toCSSSize = (size: NgxSkeletonLoaderConfig['size'], unit: NgxSkeletonLoade
   templateUrl: './ngx-skeleton-loader.html',
   styleUrl: './ngx-skeleton-loader.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // WAI-ARIA in the host: a single progress bar per component (items are `aria-hidden`)
+  host: {
+    role: 'progressbar',
+    'aria-busy': 'true',
+    'aria-valuemin': '0',
+    'aria-valuemax': '100',
+    '[attr.aria-label]': 'ariaLabel()',
+    '[attr.aria-valuetext]': 'loadingText()',
+  },
 })
 export class NgxSkeletonLoaderComponent {
   /**

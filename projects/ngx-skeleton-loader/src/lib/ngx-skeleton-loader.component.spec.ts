@@ -181,16 +181,28 @@ describe('NgxSkeletonLoaderComponent', () => {
       fixture.detectChanges();
     });
 
-    it('should add all relevant WAI-ARIA `aria-` attributes in all ngx-skeleton-loader', () => {
-      const totalOfSkeletons = fixture.nativeElement.querySelectorAll('.test-wrapper .skeleton-loader').length;
+    it('should add all relevant WAI-ARIA `aria-` attributes once per ngx-skeleton-loader component', () => {
+      const totalOfComponents = fixture.nativeElement.querySelectorAll('.test-wrapper ngx-skeleton-loader').length;
+      const hosts = 'ngx-skeleton-loader';
 
-      expect(fixture.nativeElement.querySelectorAll('[aria-busy="true"]').length).toBe(totalOfSkeletons);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuemin="0"]').length).toBe(totalOfSkeletons);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuemax="100"]').length).toBe(totalOfSkeletons);
-      expect(fixture.nativeElement.querySelectorAll('[aria-valuetext]').length).toBe(totalOfSkeletons);
-      expect(fixture.nativeElement.querySelectorAll('[role="progressbar"]').length).toBe(totalOfSkeletons);
-      expect(fixture.nativeElement.querySelectorAll('[tabindex="-1"]').length).toBe(totalOfSkeletons);
-      expect(fixture.nativeElement.querySelectorAll('[aria-label="loading"]').length).toBe(totalOfSkeletons);
+      expect(fixture.nativeElement.querySelectorAll(`${hosts}[aria-busy="true"]`).length).toBe(totalOfComponents);
+      expect(fixture.nativeElement.querySelectorAll(`${hosts}[aria-valuemin="0"]`).length).toBe(totalOfComponents);
+      expect(fixture.nativeElement.querySelectorAll(`${hosts}[aria-valuemax="100"]`).length).toBe(totalOfComponents);
+      expect(fixture.nativeElement.querySelectorAll(`${hosts}[aria-valuetext]`).length).toBe(totalOfComponents);
+      expect(fixture.nativeElement.querySelectorAll(`${hosts}[role="progressbar"]`).length).toBe(totalOfComponents);
+      expect(fixture.nativeElement.querySelectorAll(`${hosts}[aria-label="loading"]`).length).toBe(totalOfComponents);
+    });
+
+    it('should hide skeleton items from assistive technologies', () => {
+      const items = fixture.nativeElement.querySelectorAll('.test-wrapper .skeleton-loader');
+
+      expect(items.length).toBeGreaterThan(0);
+      expect(fixture.nativeElement.querySelectorAll('.test-wrapper .skeleton-loader[aria-hidden="true"]').length).toBe(
+        items.length,
+      );
+      expect(fixture.nativeElement.querySelectorAll('.skeleton-loader[role], .skeleton-loader[tabindex]').length).toBe(
+        0,
+      );
     });
 
     it('should use progress as default animation if `animation` is not passed as component attribute', () => {

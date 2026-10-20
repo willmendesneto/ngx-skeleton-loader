@@ -3,13 +3,7 @@
   <div
     class="skeleton-loader"
     [class]="classes()"
-    [attr.aria-label]="ariaLabel()"
-    aria-busy="true"
-    aria-valuemin="0"
-    aria-valuemax="100"
-    [attr.aria-valuetext]="loadingText()"
-    role="progressbar"
-    tabindex="-1"
+    aria-hidden="true"
     [style]="styles()"
     >
     @if (appearanceValue  === 'custom-content') {
