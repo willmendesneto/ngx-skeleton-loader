@@ -362,6 +362,23 @@ describe('NgxSkeletonLoaderComponent', () => {
       });
     });
 
+    describe('When skeleton is created combining appearance and animation', () => {
+      it('should render only the expected classes', () => {
+        // Classes are sorted, since their order doesn't matter
+        const getClassName = (wrapper: string) =>
+          [...fixture.nativeElement.querySelector(`.${wrapper} .skeleton-loader`).classList].sort().join(' ');
+
+        expect(getClassName('skeletons-defaults')).toBe('progress skeleton-loader');
+        expect(getClassName('skeletons-animation-no-animation')).toBe('skeleton-loader');
+        expect(getClassName('skeletons-animation-no-animation-via-binding')).toBe('skeleton-loader');
+        expect(getClassName('skeletons-animation-pulse-dark')).toBe('pulse-dark skeleton-loader');
+        expect(getClassName('skeletons-appearance-circle')).toBe('circle progress skeleton-loader');
+        expect(getClassName('skeletons-appearance-square')).toBe('progress skeleton-loader square');
+        expect(getClassName('skeletons-appearance-custom-content')).toBe('custom-content progress skeleton-loader');
+        expect(getClassName('skeletons-appearance-invalid-option')).toBe('progress skeleton-loader');
+      });
+    });
+
     describe('When skeleton is created using a built-in animation or without animation', () => {
       it('should NOT add any custom animation class', () => {
         expect(fixture.nativeElement.querySelectorAll('.skeletons-defaults [class*="animation-"]').length).toBe(0);
