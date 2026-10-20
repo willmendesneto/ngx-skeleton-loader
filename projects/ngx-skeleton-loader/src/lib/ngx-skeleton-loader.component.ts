@@ -117,8 +117,8 @@ export class NgxSkeletonLoaderComponent {
   readonly width = input<NgxSkeletonLoaderConfig['size']>(null);
   readonly height = input<NgxSkeletonLoaderConfig['size']>(null);
   readonly borderRadius = input<NgxSkeletonLoaderConfig['size']>(null);
-  /** Color scheme: 'auto' (default) follows the user's preference, 'light'/'dark' force it */
-  readonly colorScheme = input<NgxSkeletonLoaderConfig['colorScheme']>(this.#config?.colorScheme || 'auto');
+  /** Color scheme: 'light' (default), 'auto' (follows the user's preference) or 'dark' */
+  readonly colorScheme = input<NgxSkeletonLoaderConfig['colorScheme']>(this.#config?.colorScheme || 'light');
   /**
    * The `items` property is a computed property that generates an array of indices based on the
    * `count` input.
@@ -184,7 +184,7 @@ export class NgxSkeletonLoaderComponent {
     const height = toCSSSize(this.height(), unit);
     const borderRadius = toCSSSize(this.borderRadius(), unit);
     const { extendsFromRoot, ...styles } = {
-      ...(colorScheme !== 'auto' && { 'color-scheme': colorScheme }),
+      ...(colorScheme !== 'light' && { 'color-scheme': colorScheme === 'auto' ? 'light dark' : colorScheme }),
       ...(this.#config?.theme?.extendsFromRoot && this.#config.theme),
       ...this.theme(),
       ...(width && { width }),

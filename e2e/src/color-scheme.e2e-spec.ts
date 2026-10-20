@@ -30,6 +30,10 @@ test.describe('Skeleton color scheme', () => {
     test.beforeEach(async ({ page }) => openWithColorScheme(page, 'light'));
 
     test('should use light colors by default', async ({ page }) => {
+      expect(await getColors(page, '.skeletons-color-scheme-default')).toEqual(LIGHT);
+    });
+
+    test('should use light colors if `colorScheme` is `auto`', async ({ page }) => {
       expect(await getColors(page, '.skeletons-color-scheme-auto')).toEqual(LIGHT);
     });
 
@@ -47,12 +51,12 @@ test.describe('Skeleton color scheme', () => {
   test.describe('When user prefers dark color scheme', () => {
     test.beforeEach(async ({ page }) => openWithColorScheme(page, 'dark'));
 
-    test('should switch to dark colors automatically by default', async ({ page }) => {
-      expect(await getColors(page, '.skeletons-color-scheme-auto')).toEqual(DARK);
+    test('should keep light colors by default, as in previous versions (dark mode is opt-in)', async ({ page }) => {
+      expect(await getColors(page, '.skeletons-color-scheme-default')).toEqual(LIGHT);
     });
 
-    test('should use light colors if `colorScheme` is `light`', async ({ page }) => {
-      expect(await getColors(page, '.skeletons-color-scheme-light')).toEqual(LIGHT);
+    test('should switch to dark colors if `colorScheme` is `auto`', async ({ page }) => {
+      expect(await getColors(page, '.skeletons-color-scheme-auto')).toEqual(DARK);
     });
 
     test('should use the dark color defined via `light-dark()` in CSS custom properties', async ({ page }) => {
@@ -61,10 +65,10 @@ test.describe('Skeleton color scheme', () => {
       expect(backgroundColor).toBe('rgb(120, 53, 15)');
     });
 
-    test('should use light colors if `--ngx-skeleton-loader-color-scheme` is `light`', async ({ page }) => {
-      await page.addStyleTag({ content: ':root { --ngx-skeleton-loader-color-scheme: light; }' });
+    test('should switch to dark colors if `--ngx-skeleton-loader-color-scheme` is `light dark`', async ({ page }) => {
+      await page.addStyleTag({ content: ':root { --ngx-skeleton-loader-color-scheme: light dark; }' });
 
-      expect(await getColors(page, '.skeletons-color-scheme-auto')).toEqual(LIGHT);
+      expect(await getColors(page, '.skeletons-color-scheme-default')).toEqual(DARK);
     });
   });
 });

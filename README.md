@@ -435,9 +435,9 @@ You can also customize skeletons via CSS custom properties (CSS variables). They
 
 | CSS custom property | Default value | Description |
 | --- | --- | --- |
-| `--ngx-skeleton-loader-color-scheme` | `light dark` | Color scheme used by the skeleton. `light dark` follows the user's preference. Use `light` or `dark` to force it. See [Color scheme (dark mode)](#color-scheme-dark-mode) |
-| `--ngx-skeleton-loader-base-color` | `light-dark(rgb(239, 241, 246), rgb(48, 52, 61))` | Skeleton background color |
-| `--ngx-skeleton-loader-light-mode-color` | `light-dark(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1))` | Shimmer color used by `progress` animation |
+| `--ngx-skeleton-loader-color-scheme` | `light` | Color scheme used by the skeleton. Use `light dark` to follow the user's preference (automatic dark mode) or `dark` to force dark colors. See [Color scheme (dark mode)](#color-scheme-dark-mode) |
+| `--ngx-skeleton-loader-base-color` | `light-dark(rgb(239, 241, 246), rgb(48, 52, 61))` | Skeleton background color. The dark value is used only when dark mode is enabled |
+| `--ngx-skeleton-loader-light-mode-color` | `light-dark(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1))` | Shimmer color used by `progress` and `wave` animations. The dark value is used only when dark mode is enabled |
 | `--ngx-skeleton-loader-light-mode-color-to` | `rgba(255, 255, 255, 0)` | Shimmer edges color used by `progress` animation |
 | `--ngx-skeleton-loader-dark-mode-color` | `rgba(0, 0, 0, 0.2)` | Shimmer color used by `progress-dark` animation and background color used by `pulse-dark` animation |
 | `--ngx-skeleton-loader-dark-mode-color-to` | `transparent` | Shimmer edges color used by `progress-dark` animation |
@@ -469,39 +469,40 @@ You can also customize skeletons via CSS custom properties (CSS variables). They
 
 ### Color scheme (dark mode)
 
-Skeletons follow the user's color scheme preference (OS and/or browser) by default, switching their default colors to dark mode automatically. You can force a specific color scheme via `colorScheme` - as component attribute or via `provideNgxSkeletonLoader()`/`NgxSkeletonLoaderModule.forRoot()` config - or via `--ngx-skeleton-loader-color-scheme` CSS custom property.
+Skeletons use light colors by default, regardless of the user's color scheme preference - as in previous versions. Dark mode is **opt-in**: you can enable it via `colorScheme` - as component attribute or via `provideNgxSkeletonLoader()`/`NgxSkeletonLoaderModule.forRoot()` config - or via `--ngx-skeleton-loader-color-scheme` CSS custom property.
 
-- `auto` - _default_: follows the user's color scheme preference;
-- `light`: forces light color scheme;
-- `dark`: forces dark color scheme;
+- `light` - _default_: light colors, regardless of the user's color scheme preference;
+- `auto`: follows the user's color scheme preference (OS and/or browser), switching to dark colors automatically;
+- `dark`: forces dark colors;
 
 ```html
-<!-- Follows the user's color scheme preference -->
+<!-- Light colors (default) -->
 <ngx-skeleton-loader />
-<!-- Forces light color scheme -->
-<ngx-skeleton-loader colorScheme="light" />
-<!-- Forces dark color scheme -->
+<!-- Follows the user's color scheme preference -->
+<ngx-skeleton-loader colorScheme="auto" />
+<!-- Forces dark colors -->
 <ngx-skeleton-loader colorScheme="dark" />
 ```
 
 ```ts
-// Forcing light color scheme for every skeleton
-provideNgxSkeletonLoader({ colorScheme: 'light' });
+// Enabling automatic dark mode for every skeleton
+provideNgxSkeletonLoader({ colorScheme: 'auto' });
 ```
 
 ```css
-/* Forcing light color scheme for every skeleton via CSS */
+/* Enabling automatic dark mode for every skeleton via CSS */
 :root {
-  --ngx-skeleton-loader-color-scheme: light;
+  --ngx-skeleton-loader-color-scheme: light dark;
 }
 ```
 
-> If your application has its own theme switcher - instead of following the user's preference - force the color scheme based on your application theme, otherwise the skeletons will keep following the user's preference.
+> If your application has its own theme switcher - instead of following the user's preference - use `light` or `dark` based on your application theme.
 
-CSS custom properties are applied in both color schemes. You can use [`light-dark()`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) to define different values per color scheme:
+CSS custom properties are applied in both color schemes. When dark mode is enabled, you can use [`light-dark()`](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark) to define different values per color scheme:
 
 ```css
 :root {
+  --ngx-skeleton-loader-color-scheme: light dark;
   --ngx-skeleton-loader-base-color: light-dark(rgb(254, 243, 199), rgb(120, 53, 15));
 }
 ```

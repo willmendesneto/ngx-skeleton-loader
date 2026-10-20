@@ -52,8 +52,8 @@ export interface NgxSkeletonLoaderConfig {
   size: number | `${number}` | `${number}${CSSMeasureUnit}` | null;
   measureUnit: CSSMeasureUnit;
   /**
-   * `auto` follows the user's color scheme preference (OS and/or browser), switching default
-   * colors to dark mode automatically. `light` or `dark` force the given color scheme.
+   * `light` (default) keeps light colors, as in previous versions. `auto` enables dark mode
+   * following the user's color scheme preference (OS and/or browser), and `dark` forces it.
    */
   colorScheme: 'auto' | 'light' | 'dark';
 }

@@ -241,21 +241,22 @@
 <h2>Color scheme (dark mode)</h2>
 
 <!--
-  By default (`colorScheme="auto"`) skeletons follow the user's color scheme preference
-  (OS and/or browser), switching to dark mode automatically
+  Dark mode is opt-in: skeletons use light colors by default (`colorScheme="light"`),
+  regardless of the user's color scheme preference, as in previous versions
 -->
-<h3>Automatic (default)</h3>
+<h3>Light colors (default)</h3>
 
-<div class="item skeletons-color-scheme-auto">
+<div class="item skeletons-color-scheme-default">
   <ngx-skeleton-loader count="5" appearance="circle" />
   <ngx-skeleton-loader count="2" />
 </div>
 
-<h3>Forcing `light` color scheme</h3>
+<!-- `colorScheme="auto"` follows the user's color scheme preference (OS and/or browser) -->
+<h3>Automatic dark mode (`colorScheme="auto"`)</h3>
 
-<div class="item skeletons-color-scheme-light">
-  <ngx-skeleton-loader count="5" appearance="circle" colorScheme="light" />
-  <ngx-skeleton-loader count="2" colorScheme="light" />
+<div class="item skeletons-color-scheme-auto">
+  <ngx-skeleton-loader count="5" appearance="circle" colorScheme="auto" />
+  <ngx-skeleton-loader count="2" colorScheme="auto" />
 </div>
 
 <h3>Forcing `dark` color scheme</h3>
@@ -268,8 +269,8 @@
 <h3>Different colors per color scheme via CSS custom properties and `light-dark()`</h3>
 
 <div class="item skeletons-color-scheme-css-custom-properties">
-  <ngx-skeleton-loader count="5" appearance="circle" />
-  <ngx-skeleton-loader count="2" />
+  <ngx-skeleton-loader count="5" appearance="circle" colorScheme="auto" />
+  <ngx-skeleton-loader count="2" colorScheme="auto" />
 </div>
 
 <h2>Animations</h2>
