@@ -280,6 +280,8 @@ You can also define which CSS animation you want to use - even not use any, if i
 
 > `progress` is the default animation, used as the single one previously. If you don't pass the animation attribute, it defaults to `progress`.
 
+> `progress` and `progress-dark` animations support right-to-left (RTL) layouts: when the skeleton is rendered inside an element with `dir="rtl"` (e.g. `<html dir="rtl">`), the shimmer crosses the skeleton from right to left.
+
 ```html
 <!--
 If you need to change all the background wrapper

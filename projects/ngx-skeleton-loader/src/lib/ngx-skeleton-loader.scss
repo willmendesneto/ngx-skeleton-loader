@@ -100,6 +100,13 @@
       height: 100%;
       content: '';
     }
+
+    // Right-to-left support: reversing the animation makes the shimmer cross the skeleton
+    // from right to left, starting right after its right edge and finishing right before its
+    // left edge. More details in https://developer.mozilla.org/en-US/docs/Web/CSS/:dir
+    &:dir(rtl):before {
+      animation-direction: reverse;
+    }
   }
 
   &.progress {
