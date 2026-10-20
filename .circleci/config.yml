@@ -52,6 +52,9 @@ workflows:
       - end_to_end:
           requires:
             - build
+      - min_peer_dependency:
+          requires:
+            - build
 orbs:
   browser-tools: circleci/browser-tools@2.4.2
 jobs:
@@ -91,6 +94,15 @@ jobs:
             npm rebuild
             npm run build:pkg
             npm run bundlesize
+  min_peer_dependency:
+    <<: *docker_defaults
+    steps:
+      - *attach_workspace
+      - run:
+          name: Checking package in an app using the minimum peerDependencies version
+          command: |
+            npm rebuild
+            npm run check:min-peer
   end_to_end:
     <<: *docker_defaults
     steps:

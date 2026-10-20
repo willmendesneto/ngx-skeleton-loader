@@ -1,0 +1,22 @@
+{
+  "name": "ngx-skeleton-loader-angular-min-peer",
+  "description": "Angular app using the minimum `peerDependencies` version, to check the published package compatibility",
+  "private": true,
+  "scripts": {
+    "build": "ng build"
+  },
+  "dependencies": {
+    "@angular/common": "~19.2.0",
+    "@angular/compiler": "~19.2.0",
+    "@angular/core": "~19.2.0",
+    "@angular/platform-browser": "~19.2.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~19.2.0",
+    "@angular/cli": "~19.2.0",
+    "@angular/compiler-cli": "~19.2.0",
+    "typescript": "~5.7.0"
+  }
+}

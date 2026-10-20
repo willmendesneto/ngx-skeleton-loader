@@ -12,6 +12,7 @@
     "pree2e": "npx playwright install chromium",
     "e2e": "playwright test",
     "bundlesize": "bundlesize --config .bundlesize.config.json",
+    "check:min-peer": "./scripts/check-min-peer-dependency.sh",
     "build:pkg": "ng build ngx-skeleton-loader --configuration production",
     "update-library-version": "node ./scripts/build.js && cp -f *.md dist/ngx-skeleton-loader",
     "postversion": "git push && git push --tags",

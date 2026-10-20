@@ -516,6 +516,10 @@ You can apply theme changes in our stylesheet. At the end it will be
 
 1. Run `npm test` for run tests. In case you want to test using watch, please use `npm run tdd`
 
+### Check minimum peer dependency
+
+1. Run `npm run check:min-peer` to build the package and install it in an Angular app using the minimum `peerDependencies` version (`integration/angular-min-peer`). It also runs in CI
+
 ### Publish
 
 this project is using `np` package to publish, which makes things straightforward. EX: `npx np <patch|minor|major> --no-yarn --no-cleanup --contents=dist/ngx-skeleton-loader`
