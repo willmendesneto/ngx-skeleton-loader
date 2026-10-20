@@ -6,7 +6,6 @@ Thumbs.db
 # Folders
 .github/
 .prettierignore
-.circleci/
 coverage/
 .angular/
 

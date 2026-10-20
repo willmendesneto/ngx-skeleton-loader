@@ -7,7 +7,7 @@
 [![NPM](https://nodei.co/npm/ngx-skeleton-loader.png?downloads=true&downloadRank=true&stars=true)](https://npmjs.org/ngx-skeleton-loader)
 [![NPM](https://nodei.co/npm-dl/ngx-skeleton-loader.png?height=3&months=3)](https://npmjs.org/ngx-skeleton-loader)
 
-[![Build Status](https://circleci.com/gh/willmendesneto/ngx-skeleton-loader.svg?style=shield)](https://circleci.com/gh/willmendesneto/ngx-skeleton-loader)
+[![CI](https://github.com/willmendesneto/ngx-skeleton-loader/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/willmendesneto/ngx-skeleton-loader/actions/workflows/ci.yml)
 [![Coverage Status](https://coveralls.io/repos/willmendesneto/ngx-skeleton-loader/badge.svg?branch=main)](https://coveralls.io/r/willmendesneto/ngx-skeleton-loader?branch=main)
 [![npm bundle size (minified + gzip)](https://img.shields.io/bundlephobia/minzip/ngx-skeleton-loader.svg)](https://bundlephobia.com/result?p=ngx-skeleton-loader)
 [![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
@@ -570,7 +570,7 @@ You can apply theme changes in our stylesheet. At the end it will be
 
 ### Check minimum peer dependency
 
-1. Run `npm run check:min-peer` to build the package and install it in an Angular app using the minimum `peerDependencies` version (`integration/angular-min-peer`). It also runs in CI
+1. Run `npm run check:min-peer` to build the package and install it in an Angular app using the minimum `peerDependencies` version (`integration/angular-min-peer`). It also runs in CI (GitHub Actions)
 
 ### Publish
 

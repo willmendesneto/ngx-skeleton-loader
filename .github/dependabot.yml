@@ -1,0 +1,11 @@
+version: 2
+updates:
+  # Keeps the GitHub Actions pinned versions (commit SHAs) up to date
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      github-actions:
+        patterns:
+          - '*'
