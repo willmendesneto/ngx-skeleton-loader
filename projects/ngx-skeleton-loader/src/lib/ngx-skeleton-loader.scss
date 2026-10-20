@@ -27,6 +27,11 @@
   */
   overflow: hidden;
   position: relative;
+
+  // Isolates skeleton layout and paint from the rest of the page, so changes inside of it
+  // (e.g. animations or `custom-content`) don't trigger layout/paint work outside of it.
+  // More details in https://developer.mozilla.org/en-US/docs/Web/CSS/contain
+  contain: layout paint;
   background: var(--ngx-skeleton-loader-base-color) no-repeat;
   border-radius: 4px;
   width: 100%;
