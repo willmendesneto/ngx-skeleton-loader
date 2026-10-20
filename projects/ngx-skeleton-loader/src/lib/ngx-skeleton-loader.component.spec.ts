@@ -1,6 +1,6 @@
 import { Component, PLATFORM_ID } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NGX_SKELETON_LOADER_CONFIG } from './ngx-skeleton-loader-config.types';
+import { NGX_SKELETON_LOADER_CONFIG, NgxSkeletonLoaderConfigTheme } from './ngx-skeleton-loader-config.types';
 
 import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
 
@@ -444,6 +444,34 @@ describe('NgxSkeletonLoaderComponent', () => {
       expect(console.error).not.toHaveBeenCalledWith(
         `\`NgxSkeletonLoaderComponent\` enforces elements with "custom-content" appearance as DOM nodes. Forcing "count" to "1".`,
       );
+    });
+  });
+
+  describe('When `theme` is typed', () => {
+    it('should accept the same entries accepted by `[style]` binding', () => {
+      const theme: NgxSkeletonLoaderConfigTheme = {
+        extendsFromRoot: true,
+        width: '70px',
+        'border-radius': '10px',
+        borderRadius: '10px',
+        'height.px': 50,
+        '--ngx-skeleton-loader-base-color': 'red',
+        background: null,
+        color: undefined,
+      };
+
+      expect(theme).toBeTruthy();
+    });
+
+    it('should NOT accept values which are not valid for `[style]` binding', () => {
+      const theme: NgxSkeletonLoaderConfigTheme = {
+        // @ts-expect-error CSS values must be strings or numbers
+        width: { value: 70, unit: 'px' },
+        // @ts-expect-error CSS values must be strings or numbers
+        height: ['70px'],
+      };
+
+      expect(theme).toBeTruthy();
     });
   });
 
