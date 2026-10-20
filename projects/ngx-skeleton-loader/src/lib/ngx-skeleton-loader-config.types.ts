@@ -41,6 +41,7 @@ export interface NgxSkeletonLoaderConfig {
     | 'progress-dark'
     | 'pulse'
     | 'pulse-dark'
+    | 'wave'
     | 'false'
     | false
     | Extract<keyof NgxSkeletonLoaderCustomAnimations, string>;

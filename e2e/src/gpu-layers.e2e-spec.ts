@@ -10,7 +10,8 @@ const getWillChange = (page: Page, selector: string) =>
       before: getComputedStyle(element, '::before').willChange,
     }));
 
-const WITHOUT_ANIMATION = '.skeleton-loader:not(.progress):not(.progress-dark):not(.pulse):not(.pulse-dark)';
+const WITHOUT_ANIMATION =
+  '.skeleton-loader:not(.progress):not(.progress-dark):not(.pulse):not(.pulse-dark):not(.wave):not([class*="animation-"])';
 
 test.describe('Skeleton GPU layers', () => {
   test.describe('When user has no preference for reduced motion', () => {
@@ -23,7 +24,7 @@ test.describe('Skeleton GPU layers', () => {
       expect(await getWillChange(page, WITHOUT_ANIMATION)).toEqual({ element: 'auto', before: 'auto' });
     });
 
-    for (const animation of ['progress', 'progress-dark']) {
+    for (const animation of ['progress', 'progress-dark', 'wave']) {
       test(`should promote only the animated shimmer of \`${animation}\` animation`, async ({ page }) => {
         expect(await getWillChange(page, `.skeleton-loader.${animation}`)).toEqual({
           element: 'auto',
@@ -48,7 +49,7 @@ test.describe('Skeleton GPU layers', () => {
       await new AppPage(page).navigateTo();
     });
 
-    for (const animation of ['progress', 'progress-dark', 'pulse', 'pulse-dark']) {
+    for (const animation of ['progress', 'progress-dark', 'pulse', 'pulse-dark', 'wave']) {
       test(`should NOT promote skeletons with \`${animation}\` animation to their own layer`, async ({ page }) => {
         expect(await getWillChange(page, `.skeleton-loader.${animation}`)).toEqual({ element: 'auto', before: 'auto' });
       });

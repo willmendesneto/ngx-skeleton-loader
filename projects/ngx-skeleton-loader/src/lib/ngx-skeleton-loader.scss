@@ -76,7 +76,8 @@
   * animations only if needed
   */
   &.progress,
-  &.progress-dark {
+  &.progress-dark,
+  &.wave {
     // Creates a stacking context, so the animated `:before` is clipped by `border-radius`
     // in every browser (e.g. Safari) without promoting the skeleton to its own GPU layer
     isolation: isolate;
@@ -112,6 +113,18 @@
           var(--ngx-skeleton-loader-light-mode-color, light-dark(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1))),
           var(--ngx-skeleton-loader-light-mode-color-to, rgba(255, 255, 255, 0))
         )
+      );
+    }
+  }
+
+  // `wave` uses the same shimmer of `progress` animation, but with an oblique gradient
+  &.wave {
+    &:before {
+      background-image: linear-gradient(
+        120deg,
+        transparent 30%,
+        var(--ngx-skeleton-loader-light-mode-color, light-dark(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1))),
+        transparent 70%
       );
     }
   }
@@ -164,7 +177,8 @@
     &.pulse,
     &.pulse-dark,
     &.progress::before,
-    &.progress-dark::before {
+    &.progress-dark::before,
+    &.wave::before {
       animation: none;
       will-change: auto;
     }
@@ -181,7 +195,8 @@
     }
 
     &.progress::before,
-    &.progress-dark::before {
+    &.progress-dark::before,
+    &.wave::before {
       background-image: none;
     }
   }

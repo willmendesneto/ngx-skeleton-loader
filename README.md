@@ -275,6 +275,7 @@ You can also define which CSS animation you want to use - even not use any, if i
 - `progress-dark`: it will use it `progress-dark` as animation. Recommended if your color schema is darken;
 - `pulse`: it will use `pulse` as animation;
 - `pulse-dark`: it will use `pulse-dark` as animation. Recommended if your color schema is darken;
+- `wave`: it will use `wave` as animation. Similar to `progress`, but with an oblique shimmer;
 
 > `progress` is the default animation, used as the single one previously. If you don't pass the animation attribute, it defaults to `progress`.
 
@@ -295,6 +296,8 @@ you need to apply the style changes on the
   <ngx-skeleton-loader />
   <!-- Uses `pulse` as animation -->
   <ngx-skeleton-loader animation="pulse" />
+  <!-- Uses `wave` as animation -->
+  <ngx-skeleton-loader animation="wave" />
 </div>
 ```
 

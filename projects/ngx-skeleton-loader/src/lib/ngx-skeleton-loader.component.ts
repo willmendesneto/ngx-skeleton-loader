@@ -151,7 +151,7 @@ export class NgxSkeletonLoaderComponent {
     return `${/^(circle|square|custom-content)$/.test(appearance) ? appearance : ''} ${
       !animation || animation === 'false'
         ? ''
-        : /^(progress|pulse)(-dark)?$/.test(animation)
+        : /^(wave|(progress|pulse)(-dark)?)$/.test(animation)
           ? animation
           : `animation-${animation}`
     }`;
