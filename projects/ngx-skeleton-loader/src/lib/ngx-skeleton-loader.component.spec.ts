@@ -67,6 +67,19 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader appearance="square" size="10" measureUnit="%"> </ngx-skeleton-loader>
       </div>
 
+      <div class="test-wrapper skeletons-appearance-square-with-decimal-size">
+        <ngx-skeleton-loader appearance="square" size="1.5" measureUnit="rem"> </ngx-skeleton-loader>
+      </div>
+      <div class="test-wrapper skeletons-appearance-square-with-unit-in-size">
+        <ngx-skeleton-loader appearance="square" size="10rem"> </ngx-skeleton-loader>
+      </div>
+      <div class="test-wrapper skeletons-appearance-square-with-unit-in-size-and-measureUnit">
+        <ngx-skeleton-loader appearance="square" size="50%" measureUnit="px"> </ngx-skeleton-loader>
+      </div>
+      <div class="test-wrapper skeletons-appearance-square-with-invalid-size">
+        <ngx-skeleton-loader appearance="square" [size]="invalidSize"> </ngx-skeleton-loader>
+      </div>
+
       <div class="test-wrapper skeletons-appearance-custom-content">
         <ngx-skeleton-loader appearance="custom-content">
           <svg viewBox="0 0 312 103" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,6 +113,7 @@ class ContainerComponent {
   invalidValueInCount: any = 'two';
   invalidAnimation: any = 'invalid-option';
   invalidAppearance: any = 'invalid-appearance';
+  invalidSize: any = '1.5.5px';
 }
 
 describe('NgxSkeletonLoaderComponent', () => {
@@ -179,6 +193,39 @@ describe('NgxSkeletonLoaderComponent', () => {
         const style = (skeletonWithMeasureUnit.getNamedItem('style') as Attr).value;
         expect(style).toContain('width: 10%');
         expect(style).toContain('height: 10%');
+      });
+    });
+
+    describe('When skeleton is created with square appearance and decimal or unit values in `size`', () => {
+      const getStyle = (selector: string) =>
+        fixture.nativeElement.querySelector(`${selector} .skeleton-loader.square`).getAttribute('style') || '';
+
+      it('should keep decimal values on width and height styles', () => {
+        const style = getStyle('.skeletons-appearance-square-with-decimal-size');
+
+        expect(style).toContain('width: 1.5rem');
+        expect(style).toContain('height: 1.5rem');
+      });
+
+      it('should use the CSS measure unit passed in `size` for width and height styles', () => {
+        const style = getStyle('.skeletons-appearance-square-with-unit-in-size');
+
+        expect(style).toContain('width: 10rem');
+        expect(style).toContain('height: 10rem');
+      });
+
+      it('should prioritize the CSS measure unit passed in `size` over `measureUnit`', () => {
+        const style = getStyle('.skeletons-appearance-square-with-unit-in-size-and-measureUnit');
+
+        expect(style).toContain('width: 50%');
+        expect(style).toContain('height: 50%');
+      });
+
+      it('should NOT add width and height styles if `size` is invalid', () => {
+        const style = getStyle('.skeletons-appearance-square-with-invalid-size');
+
+        expect(style).not.toContain('width');
+        expect(style).not.toContain('height');
       });
     });
 

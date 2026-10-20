@@ -125,25 +125,20 @@ export class NgxSkeletonLoaderComponent {
   /**
    * The `squareSize` property is a computed property that calculates the size of the skeleton
    * loader when the appearance is set to 'square'.
-   * It checks the `size` input and ensures that it is a valid number or string representing a
-   * valid pixel value. If the `size` is not a valid number or string, it returns `null`.
-   * If the `appearance` is not 'square', it also returns `null`.
+   * It checks the `size` input and ensures that it is a valid number, optionally with a CSS unit
+   * that takes precedence over `measureUnit` (e.g. '1.5', '10rem'). If the `size` is not valid,
+   * or the `appearance` is not 'square', it returns `null`.
    * This computed property is used to set the width and height of the skeleton loader when it
    * is displayed as a square.
    */
   readonly squareSize = computed(() => {
-    const size = this.size();
+    const [, value, unit] = `${this.size() ?? ''}`.trim().match(/^(\d*\.?\d+)(px|em|rem|%|vh|vw)?$/) || [];
 
-    if (this.appearance() !== 'square' || (typeof size !== 'number' && typeof size !== 'string')) {
+    if (this.appearance() !== 'square' || !value) {
       return null;
     }
 
-    const sizeValueInNumbersOnly = Number(size.toString().trim().replace(/\D/g, ''));
-    if (!Number.isInteger(sizeValueInNumbersOnly)) {
-      return null;
-    }
-
-    return `${sizeValueInNumbersOnly}${this.measureUnit()}`;
+    return `${Number(value)}${unit || this.measureUnit()}`;
   });
 
   /**

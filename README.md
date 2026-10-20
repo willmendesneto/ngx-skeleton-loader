@@ -247,7 +247,7 @@ You can also define which appearance want to use in your skeleton loader by pass
 ### Appearance props (specific for `square`)
 
 When setting `square` as appearance, your component can also use these other input attributes to configure it properly
-- `size` - default _40_: number to be passed as definition for `width` and `height`. If not passed, it defaults to `40`
+- `size` - default _40_: number to be passed as definition for `width` and `height`. If not passed, it defaults to `40`. It accepts decimal values (e.g. `1.5`) and also a CSS measure unit as suffix (e.g. `10rem`), which takes precedence over `measureUnit`
 - `measureUnit` - default _px_: CSS measure unit to be used for `width` and `height`. If not passed, it defaults to `px`. Valid options: `px`, `em`, `rem`, `%`, `vh`, `vw`
 
 ## Animations
