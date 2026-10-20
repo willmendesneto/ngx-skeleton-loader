@@ -3,9 +3,13 @@ import { InjectionToken } from '@angular/core';
 export type NgxSkeletonLoaderConfigTheme = {
   /** It enforces a combination of `fromRoot` styles with component `styles` attribute */
   extendsFromRoot?: boolean;
-  // This is required since [style] is using `any` as well
-  // More details in https://angular.dev/api/common/NgStyle
-  [k: string]: any;
+  /**
+   * Same entries accepted by `[style]` binding: CSS properties (dash-case or camelCase),
+   * CSS custom properties (e.g. `--ngx-skeleton-loader-base-color`) and CSS properties with
+   * unit suffix (e.g. `'height.px': 50`). Values are strings or numbers, and `null`/`undefined`
+   * remove the style. More details in https://angular.dev/guide/templates/binding#css-style-properties
+   */
+  [k: string]: string | number | boolean | null | undefined;
 } | null;
 
 type CSSMeasureUnit = 'px' | 'em' | 'rem' | '%' | 'vh' | 'vw';
