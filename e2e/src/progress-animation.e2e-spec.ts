@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import { AppPage, STABLE_SECTION } from './app.po';
 import { expect, test, type Locator } from '@playwright/test';
 
 const SHIMMER_WIDTH = 200;
@@ -36,19 +36,19 @@ test.describe('Skeleton `progress` animation', () => {
   for (const [name, selector] of Object.entries(SKELETONS)) {
     test.describe(`When skeleton is a ${name}`, () => {
       test('should start the shimmer right before the skeleton left edge', async ({ page }) => {
-        const { right } = await getShimmerPositionAt(page.locator(selector).first(), 0);
+        const { right } = await getShimmerPositionAt(page.locator(`${STABLE_SECTION} ${selector}`).first(), 0);
 
         expect(right).toBeCloseTo(0, 0);
       });
 
       test('should have the shimmer centered in the skeleton in the middle of the animation', async ({ page }) => {
-        const { left, right, skeletonWidth } = await getShimmerPositionAt(page.locator(selector).first(), 0.5);
+        const { left, right, skeletonWidth } = await getShimmerPositionAt(page.locator(`${STABLE_SECTION} ${selector}`).first(), 0.5);
 
         expect((left + right) / 2).toBeCloseTo(skeletonWidth / 2, 0);
       });
 
       test('should finish the shimmer right after the skeleton right edge', async ({ page }) => {
-        const { left, skeletonWidth } = await getShimmerPositionAt(page.locator(selector).first(), 0.9999);
+        const { left, skeletonWidth } = await getShimmerPositionAt(page.locator(`${STABLE_SECTION} ${selector}`).first(), 0.9999);
 
         expect(left).toBeCloseTo(skeletonWidth, 0);
       });

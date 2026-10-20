@@ -1,4 +1,4 @@
-import { AppPage } from './app.po';
+import { AppPage, STABLE_SECTION } from './app.po';
 import { expect, test } from '@playwright/test';
 
 test.describe('Skeleton host element layout', () => {
@@ -8,7 +8,7 @@ test.describe('Skeleton host element layout', () => {
 
   test('should render the host element as a block', async ({ page }) => {
     const display = await page
-      .locator('ngx-skeleton-loader')
+      .locator(`${STABLE_SECTION} ngx-skeleton-loader`)
       .first()
       .evaluate(element => getComputedStyle(element).display);
 
