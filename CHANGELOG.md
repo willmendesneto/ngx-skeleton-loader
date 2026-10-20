@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Replacing `transform: translate3d(0, 0, 0)` with `isolation: isolate` in `progress`/`progress-dark` skeletons, keeping the shimmer clipped by `border-radius` without an extra GPU layer
 - Replacing deprecated `min-device-width` media query with `(hover: hover) and (pointer: fine)` to show the `wait` cursor and disable text selection only on devices with mouse/trackpad. Desktop and touch devices keep the same behavior, but it now also covers laptops with smaller screens and tablets with mouse/trackpad
 - Removing unused and duplicated CSS rules (unused `:after` pseudo-element styles, duplicated `box-sizing`, and `prefers-reduced-motion` rules for `custom-content`/`pulse-dark` that had no effect), decreasing bundle size from 3.99KB to 3.96KB (gzip)
+- Adding CSS containment (`contain: layout paint`) to skeletons. It isolates the skeleton layout and paint work from the rest of the page, so changes inside of a skeleton (e.g. animations or `custom-content`) don't trigger layout/paint work outside of it. There are no visual changes, since skeletons were already using `overflow: hidden` and `position: relative`
 
 ## [13.0.0][] - 2026-06-05
 
