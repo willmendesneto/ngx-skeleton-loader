@@ -13,6 +13,10 @@
   --ngx-skeleton-loader-animation-duration: 1s;
 }
 
+.skeletons-color-scheme-css-custom-properties {
+  --ngx-skeleton-loader-base-color: light-dark(rgb(254, 243, 199), rgb(120, 53, 15));
+}
+
 .fb-item {
   width: auto;
   height: auto;

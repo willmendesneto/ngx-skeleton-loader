@@ -98,6 +98,8 @@ export class NgxSkeletonLoaderComponent {
    * This allows the size to be specified in different units, such as 'px', 'em', etc.
    */
   readonly measureUnit = input<NgxSkeletonLoaderConfig['measureUnit']>(this.#config?.measureUnit || 'px');
+  /** Color scheme: 'auto' (default) follows the user's preference, 'light'/'dark' force it */
+  readonly colorScheme = input<NgxSkeletonLoaderConfig['colorScheme']>(this.#config?.colorScheme || 'auto');
   /**
    * The `items` property is a computed property that generates an array of indices based on the
    * `count` input.
@@ -156,7 +158,9 @@ export class NgxSkeletonLoaderComponent {
    */
   readonly styles = computed(() => {
     const size = this.squareSize();
+    const colorScheme = this.colorScheme();
     const { extendsFromRoot, ...styles } = {
+      ...(colorScheme !== 'auto' && { 'color-scheme': colorScheme }),
       ...(this.#config?.theme?.extendsFromRoot && this.#config.theme),
       ...this.theme(),
       ...(size && { width: size, height: size }),
