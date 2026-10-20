@@ -1,11 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-// Demo page follows the user's color scheme preference (OS and/or browser),
-// as `ngx-skeleton-loader` does by default
-:root {
-  color-scheme: light dark;
-}
-
 // Custom animation for `<ngx-skeleton-loader animation="stretch" />`.
 // It needs to be global, since `ngx-skeleton-loader` styles are encapsulated
 .skeleton-loader.animation-stretch {

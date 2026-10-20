@@ -10,7 +10,7 @@
   // (e.g. `:root`, `body` or a wrapper), making them customizable only via `[theme]` input.
   // Available CSS custom properties (and their default values, as `light-dark(<light>, <dark>)`
   // when they change based on the color scheme):
-  // - `--ngx-skeleton-loader-color-scheme`: light dark
+  // - `--ngx-skeleton-loader-color-scheme`: light (use `light dark` to follow the user's preference)
   // - `--ngx-skeleton-loader-base-color`: light-dark(rgb(239, 241, 246), rgb(48, 52, 61))
   // - `--ngx-skeleton-loader-light-mode-color`: light-dark(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1))
   // - `--ngx-skeleton-loader-light-mode-color-to`: rgba(255, 255, 255, 0)
@@ -23,11 +23,12 @@
   // - `--ngx-skeleton-loader-background-image-dark-mode`: gradient based on dark mode colors
   box-sizing: border-box;
 
-  // Automatic dark mode: `light dark` makes `light-dark()` default colors follow the user's
-  // color scheme preference (OS and/or browser). It can be forced via `colorScheme` config
-  // (inline `color-scheme` style) or `--ngx-skeleton-loader-color-scheme` (`light` or `dark`).
+  // Dark mode is opt-in: skeletons use light colors by default, as in previous versions.
+  // `colorScheme: 'auto'` config (inline `color-scheme: light dark` style) or
+  // `--ngx-skeleton-loader-color-scheme: light dark` make `light-dark()` default colors follow
+  // the user's color scheme preference (OS and/or browser), and `dark` forces dark colors.
   // More details in https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark
-  color-scheme: var(--ngx-skeleton-loader-color-scheme, light dark);
+  color-scheme: var(--ngx-skeleton-loader-color-scheme, light);
 
   /**
   * `overflow` and `position` are required steps to make sure

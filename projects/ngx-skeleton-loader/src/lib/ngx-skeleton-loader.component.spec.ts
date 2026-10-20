@@ -123,6 +123,10 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         <ngx-skeleton-loader colorScheme="dark"></ngx-skeleton-loader>
       </div>
 
+      <div class="test-wrapper skeletons-color-scheme-auto">
+        <ngx-skeleton-loader colorScheme="auto"></ngx-skeleton-loader>
+      </div>
+
       <div class="test-wrapper skeletons-with-dimension-inputs">
         <ngx-skeleton-loader width="100" height="20.5" borderRadius="8"></ngx-skeleton-loader>
       </div>
@@ -444,18 +448,24 @@ describe('NgxSkeletonLoaderComponent', () => {
     });
 
     describe('When skeleton is created using default color scheme', () => {
-      it('should follow the user color scheme preference, without forcing any color scheme', () => {
+      it('should keep light colors (CSS default), without inline color scheme', () => {
         const skeleton = fixture.nativeElement.querySelector('.skeletons-defaults .skeleton-loader');
 
         expect(skeleton.style.colorScheme).toBe('');
       });
     });
 
-    describe('When skeleton is created forcing a color scheme', () => {
-      it('should force light color scheme', () => {
+    describe('When skeleton is created with a specific color scheme', () => {
+      it('should NOT add inline color scheme for `light`, since it is the default', () => {
         const skeleton = fixture.nativeElement.querySelector('.skeletons-color-scheme-light .skeleton-loader');
 
-        expect(skeleton.style.colorScheme).toBe('light');
+        expect(skeleton.style.colorScheme).toBe('');
+      });
+
+      it('should follow the user color scheme preference for `auto`', () => {
+        const skeleton = fixture.nativeElement.querySelector('.skeletons-color-scheme-auto .skeleton-loader');
+
+        expect(skeleton.style.colorScheme).toBe('light dark');
       });
 
       it('should force dark color scheme', () => {
