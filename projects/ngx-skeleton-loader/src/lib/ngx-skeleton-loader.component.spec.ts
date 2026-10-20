@@ -84,6 +84,12 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         </ngx-skeleton-loader>
       </div>
 
+      <div class="test-wrapper skeletons-appearance-custom-content-with-count">
+        <ngx-skeleton-loader appearance="custom-content" count="3">
+          <span class="custom-content-item">Custom content</span>
+        </ngx-skeleton-loader>
+      </div>
+
       <div class="test-wrapper skeletons-with-theming">
         <ngx-skeleton-loader appearance="circle" [theme]="{ width: '70px', height: '70px', 'border-radius': '10px' }">
         </ngx-skeleton-loader>
@@ -106,6 +112,10 @@ describe('NgxSkeletonLoaderComponent', () => {
   let fixture: ComponentFixture<ContainerComponent>;
   beforeEach(() => {
     vi.spyOn(console, 'error').mockReturnValue(undefined);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 
   describe('When the component uses default configuration', () => {
@@ -191,6 +201,24 @@ describe('NgxSkeletonLoaderComponent', () => {
       });
     });
 
+    describe('When skeleton is created with custom-content appearance and count bigger than 1', () => {
+      it('should render a single skeleton with the content inside', () => {
+        const skeletons = fixture.nativeElement.querySelectorAll(
+          '.skeletons-appearance-custom-content-with-count .skeleton-loader.custom-content',
+        );
+
+        expect(skeletons.length).toBe(1);
+        expect(skeletons[0].querySelector('.custom-content-item').textContent).toBe('Custom content');
+      });
+
+      it('should show an error message in development mode', () => {
+        // eslint-disable-next-line no-console
+        expect(console.error).toHaveBeenCalledWith(
+          `\`NgxSkeletonLoaderComponent\` enforces elements with "custom-content" appearance as DOM nodes. Forcing "count" to "1".`,
+        );
+      });
+    });
+
     describe('When skeleton is created without animation', () => {
       it('should NOT add progress animation styles based on animation class on the skeleton components', () => {
         expect(
@@ -250,6 +278,41 @@ describe('NgxSkeletonLoaderComponent', () => {
         const style = (skeletonWithTheming.getNamedItem('style') as Attr).value;
         expect(style).toEqual('border-radius: 10px; height: 70px; width: 70px;');
       });
+    });
+  });
+
+  describe('When the application runs in production mode', () => {
+    let originalNgDevMode: unknown;
+
+    beforeEach(async () => {
+      originalNgDevMode = (globalThis as any).ngDevMode;
+      (globalThis as any).ngDevMode = false;
+
+      await TestBed.configureTestingModule({
+        imports: [NgxSkeletonLoaderComponent],
+        providers: [{ provide: PLATFORM_ID, useValue: 'browser' }],
+      }).compileComponents();
+      fixture = TestBed.createComponent(ContainerComponent);
+      fixture.detectChanges();
+    });
+
+    afterEach(() => {
+      (globalThis as any).ngDevMode = originalNgDevMode;
+    });
+
+    it('should render a single skeleton with custom-content appearance even if count is bigger than 1', () => {
+      expect(
+        fixture.nativeElement.querySelectorAll(
+          '.skeletons-appearance-custom-content-with-count .skeleton-loader.custom-content',
+        ).length,
+      ).toBe(1);
+    });
+
+    it('should NOT show an error message', () => {
+      // eslint-disable-next-line no-console
+      expect(console.error).not.toHaveBeenCalledWith(
+        `\`NgxSkeletonLoaderComponent\` enforces elements with "custom-content" appearance as DOM nodes. Forcing "count" to "1".`,
+      );
     });
   });
 
