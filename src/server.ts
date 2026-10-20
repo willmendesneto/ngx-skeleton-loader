@@ -10,7 +10,10 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const indexHtml = join(serverDistFolder, 'index.server.html');
 
 const app = express();
-const commonEngine = new CommonEngine();
+// Hostnames allowed to access the server, protecting it against Host header manipulation.
+// For other environments, set them via `NG_ALLOWED_HOSTS` environment variable
+// (comma separated, e.g. `NG_ALLOWED_HOSTS=example.com,www.example.com`), which takes precedence
+const commonEngine = new CommonEngine({ allowedHosts: ['localhost', '127.0.0.1'] });
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -18,7 +21,7 @@ const commonEngine = new CommonEngine();
  *
  * Example:
  * ```ts
- * app.get('/api/**', (req, res) => {
+ * app.get('/api/{*splat}', (req, res) => {
  *   // Handle API request
  * });
  * ```
@@ -26,19 +29,21 @@ const commonEngine = new CommonEngine();
 
 /**
  * Serve static files from /browser
+ *
+ * Middlewares are used instead of `app.get('**', ...)`, since Express 5 no longer accepts
+ * `**` as a wildcard path. More details in https://expressjs.com/en/guide/migrating-5.html
  */
-app.get(
-  '**',
+app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
-    index: 'index.html'
+    index: 'index.html',
   }),
 );
 
 /**
  * Handle all other requests by rendering the Angular application.
  */
-app.get('**', (req, res, next) => {
+app.use((req, res, next) => {
   const { protocol, originalUrl, baseUrl, headers } = req;
 
   commonEngine
