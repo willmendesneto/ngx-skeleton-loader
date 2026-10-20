@@ -111,6 +111,14 @@ import { NgxSkeletonLoaderComponent } from './ngx-skeleton-loader.component';
         </ngx-skeleton-loader>
       </div>
 
+      <div class="test-wrapper skeletons-color-scheme-light">
+        <ngx-skeleton-loader colorScheme="light"></ngx-skeleton-loader>
+      </div>
+
+      <div class="test-wrapper skeletons-color-scheme-dark">
+        <ngx-skeleton-loader colorScheme="dark"></ngx-skeleton-loader>
+      </div>
+
       <div class="test-wrapper skeletons-with-theming">
         <ngx-skeleton-loader appearance="circle" [theme]="{ width: '70px', height: '70px', 'border-radius': '10px' }">
         </ngx-skeleton-loader>
@@ -367,6 +375,28 @@ describe('NgxSkeletonLoaderComponent', () => {
           fixture.nativeElement.querySelectorAll('.skeletons-animation-no-animation-via-binding [class*="animation-"]')
             .length,
         ).toBe(0);
+      });
+    });
+
+    describe('When skeleton is created using default color scheme', () => {
+      it('should follow the user color scheme preference, without forcing any color scheme', () => {
+        const skeleton = fixture.nativeElement.querySelector('.skeletons-defaults .skeleton-loader');
+
+        expect(skeleton.style.colorScheme).toBe('');
+      });
+    });
+
+    describe('When skeleton is created forcing a color scheme', () => {
+      it('should force light color scheme', () => {
+        const skeleton = fixture.nativeElement.querySelector('.skeletons-color-scheme-light .skeleton-loader');
+
+        expect(skeleton.style.colorScheme).toBe('light');
+      });
+
+      it('should force dark color scheme', () => {
+        const skeleton = fixture.nativeElement.querySelector('.skeletons-color-scheme-dark .skeleton-loader');
+
+        expect(skeleton.style.colorScheme).toBe('dark');
       });
     });
 
