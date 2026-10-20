@@ -6,6 +6,13 @@
   padding: 10px;
 }
 
+.skeletons-with-css-custom-properties {
+  --ngx-skeleton-loader-base-color: rgb(224, 231, 255);
+  --ngx-skeleton-loader-light-mode-color: rgba(99, 102, 241, 0.25);
+  --ngx-skeleton-loader-dark-mode-color: rgb(165, 180, 252);
+  --ngx-skeleton-loader-animation-duration: 1s;
+}
+
 .fb-item {
   width: auto;
   height: auto;
