@@ -378,6 +378,19 @@ having `height.px` receiving a number and `background-color` receiving a HEX Col
 </div>
 ```
 
+### `width`, `height` and `borderRadius` shortcuts
+
+For the most common theming cases, you can use `width`, `height` and `borderRadius` attributes instead of `[theme]`. They accept the same values as `size` - numbers (e.g. `100`), decimals (e.g. `1.5`) or values with CSS measure unit (e.g. `50%`, `10rem`) - and values without unit use `measureUnit` (`px` by default). They override the same styles passed via `[theme]`.
+
+```html
+<!-- Same as [theme]="{ width: '100px', height: '20px', 'border-radius': '8px' }" -->
+<ngx-skeleton-loader width="100" height="20" borderRadius="8" />
+<!-- Using CSS measure units -->
+<ngx-skeleton-loader width="50%" height="1.5" measureUnit="rem" />
+```
+
+> For `square` appearance, `size` takes precedence over `width` and `height`.
+
 ### Theming via CSS custom properties
 
 You can also customize skeletons via CSS custom properties (CSS variables). They can be set in any ancestor element - such as `:root`, `body`, a wrapper element in your component stylesheet - or directly via `[theme]` attribute, and they are inherited by every `<ngx-skeleton-loader>` inside of it.
