@@ -1,3 +1,9 @@
+// The host element is a block, so it takes the full width of its container and its height is
+// based on its skeleton items only, instead of depending on the line height of an inline element
+:host {
+  display: block;
+}
+
 .skeleton-loader {
   // CSS custom properties are NOT declared in here, only consumed with a fallback value.
   // Declaring them in `.skeleton-loader` would override any value set in an ancestor element
