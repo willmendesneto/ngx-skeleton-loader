@@ -74,17 +74,22 @@
     // in every browser (e.g. Safari) without promoting the skeleton to its own GPU layer
     isolation: isolate;
 
+    // The shimmer is a 200px gradient aligned to the right of a `:before` element which is
+    // 200px wider than the skeleton. Translating it from -100% to 0 makes the shimmer cross
+    // the whole skeleton - and only the skeleton - regardless of its width
     &:before {
       // More details about CSS `will-change` property
       // in https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
       will-change: transform;
       animation: progress var(--ngx-skeleton-loader-animation-duration) ease-in-out infinite;
       background-size: 200px 100%;
+      background-repeat: no-repeat;
+      background-position: right;
       position: absolute;
       z-index: 1;
       top: 0;
       left: 0;
-      width: 200px;
+      width: calc(100% + 200px);
       height: 100%;
       content: '';
     }
@@ -160,10 +165,10 @@
 // CSS Animation Keyframes
 @keyframes progress {
   0% {
-    transform: translate3d(-200px, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
   100% {
-    transform: translate3d(calc(200px + 100vw), 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
