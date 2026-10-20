@@ -59,6 +59,14 @@ describe('provideNgxSkeletonLoader method', () => {
 
       expect((skeletonWithTheming.getNamedItem('style') as Attr).value).toBe('background: red; width: 70px;');
     });
+
+    it('should NOT pass `extendsFromRoot` flag to the skeleton styles', () => {
+      const skeletons = fixture.nativeElement.querySelectorAll('.skeleton-loader.circle');
+
+      skeletons.forEach((skeleton: HTMLElement) => {
+        expect((skeleton.style as any).extendsFromRoot).toBeUndefined();
+      });
+    });
   });
 
   it('should render the component properly using given `provideNgxSkeletonLoader()` config', () => {
