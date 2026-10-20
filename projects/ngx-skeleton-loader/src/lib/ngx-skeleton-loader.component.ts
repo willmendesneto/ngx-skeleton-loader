@@ -23,9 +23,8 @@ import {
 @Component({
   selector: 'ngx-skeleton-loader',
   templateUrl: './ngx-skeleton-loader.html',
-  styleUrls: ['./ngx-skeleton-loader.scss'],
+  styleUrl: './ngx-skeleton-loader.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
 })
 export class NgxSkeletonLoaderComponent {
   /**
