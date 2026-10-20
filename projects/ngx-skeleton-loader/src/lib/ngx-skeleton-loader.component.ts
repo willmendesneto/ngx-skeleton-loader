@@ -110,15 +110,15 @@ export class NgxSkeletonLoaderComponent {
     let count = this.count() || 1;
 
     // Force count to 1 when custom-content is used
-    if (this.appearance() === 'custom-content') {
+    if (this.appearance() === 'custom-content' && count !== 1) {
       // Shows error message only in Development
-      if (isDevMode() && count !== 1) {
+      if (isDevMode()) {
         // eslint-disable-next-line no-console
         console.error(
           `\`NgxSkeletonLoaderComponent\` enforces elements with "custom-content" appearance as DOM nodes. Forcing "count" to "1".`,
         );
-        count = 1;
       }
+      count = 1;
     }
     return [...Array(count)].map((_, index) => index);
   });
