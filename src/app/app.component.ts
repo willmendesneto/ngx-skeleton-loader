@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, inject, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderConfig } from '../../projects/ngx-skeleton-loader/src/public-api';
 
@@ -11,10 +11,11 @@ import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderConfig } from '../../proje
 export class AppComponent implements OnInit, OnDestroy {
   title = 'ngx-skeleton-loader-demo';
 
-  animation: NgxSkeletonLoaderConfig['animation'] = 'pulse';
-  contentLoaded = false;
-  count = 2;
-  widthHeightSizeInPixels = '50px';
+  // Signals keep the demo working with zoneless change detection
+  readonly animation = signal<NgxSkeletonLoaderConfig['animation']>('pulse');
+  readonly contentLoaded = signal(false);
+  readonly count = signal(2);
+  readonly widthHeightSizeInPixels = signal('50px');
 
   intervalId: number | null = null;
 
@@ -23,13 +24,13 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       window.setTimeout(() => {
-        this.contentLoaded = true;
+        this.contentLoaded.set(true);
       }, 2000);
 
       this.intervalId = window.setInterval(() => {
-        this.animation = this.animation === 'pulse' ? 'progress-dark' : 'pulse';
-        this.count = this.count === 2 ? 5 : 2;
-        this.widthHeightSizeInPixels = `${this.widthHeightSizeInPixels === '50px' ? '100px' : '50px'}`;
+        this.animation.update(animation => (animation === 'pulse' ? 'progress-dark' : 'pulse'));
+        this.count.update(count => (count === 2 ? 5 : 2));
+        this.widthHeightSizeInPixels.update(size => (size === '50px' ? '100px' : '50px'));
       }, 5000);
     }
   }
