@@ -17,6 +17,8 @@
   // - `--ngx-skeleton-loader-dark-mode-color`: rgba(0, 0, 0, 0.2)
   // - `--ngx-skeleton-loader-dark-mode-color-to`: transparent
   // - `--ngx-skeleton-loader-animation-duration`: 2s
+  // - `--ngx-skeleton-loader-animation-stagger`: 0s (delay between items, based on their index)
+  // - `--ngx-skeleton-loader-index`: item index, set per item (read-only, for custom animations)
   // - `--ngx-skeleton-loader-background-image-light-mode`: gradient based on light mode colors
   // - `--ngx-skeleton-loader-background-image-dark-mode`: gradient based on dark mode colors
   box-sizing: border-box;
@@ -90,6 +92,9 @@
       // in https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
       will-change: transform;
       animation: progress var(--ngx-skeleton-loader-animation-duration, 2s) ease-in-out infinite;
+      // Stagger effect: each item is delayed based on its index (`--ngx-skeleton-loader-index`,
+      // set per item) and `--ngx-skeleton-loader-animation-stagger` (`0s` by default: no delay)
+      animation-delay: calc(var(--ngx-skeleton-loader-index, 0) * var(--ngx-skeleton-loader-animation-stagger, 0s));
       background-size: 200px 100%;
       background-repeat: no-repeat;
       background-position: right;
@@ -158,7 +163,7 @@
   &.pulse {
     will-change: opacity;
     animation: pulse var(--ngx-skeleton-loader-animation-duration, 2s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    animation-delay: 0.5s;
+    animation-delay: calc(0.5s + var(--ngx-skeleton-loader-index, 0) * var(--ngx-skeleton-loader-animation-stagger, 0s));
   }
   /**
   * Added only when `animation` attribute is `pulse-dark`
@@ -169,7 +174,7 @@
     background: var(--ngx-skeleton-loader-dark-mode-color, rgba(0, 0, 0, 0.2));
     will-change: opacity;
     animation: pulse var(--ngx-skeleton-loader-animation-duration, 2s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    animation-delay: 0.5s;
+    animation-delay: calc(0.5s + var(--ngx-skeleton-loader-index, 0) * var(--ngx-skeleton-loader-animation-stagger, 0s));
   }
   //For custom-content mark height to 100% and remove the background
   &.custom-content {
