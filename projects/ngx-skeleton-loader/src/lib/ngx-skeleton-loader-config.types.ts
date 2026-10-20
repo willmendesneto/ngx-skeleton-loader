@@ -19,6 +19,11 @@ export interface NgxSkeletonLoaderConfig {
   ariaLabel: string;
   size: number | `${number}` | `${number}${CSSMeasureUnit}` | null;
   measureUnit: CSSMeasureUnit;
+  /**
+   * `auto` follows the user's color scheme preference (OS and/or browser), switching default
+   * colors to dark mode automatically. `light` or `dark` force the given color scheme.
+   */
+  colorScheme: 'auto' | 'light' | 'dark';
 }
 
 export const NGX_SKELETON_LOADER_CONFIG = new InjectionToken<NgxSkeletonLoaderConfig>('ngx-skeleton-loader.config');

@@ -84,3 +84,22 @@ describe('provideNgxSkeletonLoader method', () => {
     expect(console.error).toHaveBeenCalledTimes(0);
   });
 });
+
+describe('provideNgxSkeletonLoader method with `colorScheme`', () => {
+  let fixture: ComponentFixture<ContainerComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      providers: [{ provide: PLATFORM_ID, useValue: 'browser' }, provideNgxSkeletonLoader({ colorScheme: 'dark' })],
+    }).compileComponents();
+    fixture = TestBed.createComponent(ContainerComponent);
+    fixture.detectChanges();
+  });
+
+  it('should force the given color scheme in every skeleton', () => {
+    const skeletons: HTMLElement[] = Array.from(fixture.nativeElement.querySelectorAll('.skeleton-loader'));
+
+    expect(skeletons.length).toBeGreaterThan(0);
+    skeletons.forEach(skeleton => expect(skeleton.style.colorScheme).toBe('dark'));
+  });
+});
