@@ -345,6 +345,15 @@
   <ngx-skeleton-loader count="5" animation="progress-dark" appearance="circle" [theme]="{ height: '40px' }" />
 </div>
 
+<h3>Skeleton using `progress` animation in right-to-left (RTL) layout</h3>
+
+<!-- The shimmer crosses the skeleton from right to left when `dir="rtl"` is applied -->
+<div class="item skeletons-rtl" dir="rtl">
+  <ngx-skeleton-loader count="5" appearance="circle" />
+  <ngx-skeleton-loader count="2" />
+  <ngx-skeleton-loader count="2" animation="progress-dark" />
+</div>
+
 <h3>Skeleton using a custom animation (`stretch`)</h3>
 
 <!--
