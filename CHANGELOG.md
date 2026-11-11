@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- `ngx-skeleton-loader/testing` entry point with `NgxSkeletonLoaderHarness`, an [Angular CDK component harness](https://material.angular.dev/cdk/testing/overview) to assert on `<ngx-skeleton-loader>` in unit tests without querying its DOM. `@angular/cdk` (`>=19.0.0`) is an optional peer dependency, only required by consumers of the testing entry point - https://github.com/willmendesneto/ngx-skeleton-loader/issues/313
+- Add `NgxSkeletonLoaderHarness` in `ngx-skeleton-loader/testing` to test `<ngx-skeleton-loader>` without querying the component's DOM. This entry point requires the optional `@angular/cdk` peer dependency (`>=19.0.0`). https://github.com/willmendesneto/ngx-skeleton-loader/pull/314
+
 
 ## [14.0.0][] - 2026-10-20
 
