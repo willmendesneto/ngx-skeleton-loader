@@ -66,9 +66,9 @@ describe('NgxSkeletonLoaderHarness', () => {
   let fixture: ComponentFixture<ContainerComponent>;
   let loader: HarnessLoader;
 
-  const find = (id: string) =>
+  const find = (selector: string) =>
     TestbedHarnessEnvironment.loader(fixture)
-      .getChildLoader(`#${id}`)
+      .getChildLoader(selector)
       .then((childLoader) => childLoader.getHarness(NgxSkeletonLoaderHarness));
 
   beforeEach(() => {
@@ -84,62 +84,62 @@ describe('NgxSkeletonLoaderHarness', () => {
 
   describe('getItemCount()', () => {
     it('should return 1 by default', async () => {
-      expect(await (await find('defaults')).getItemCount()).toBe(1);
+      expect(await (await find('#defaults')).getItemCount()).toBe(1);
     });
 
     it('should return the rendered count', async () => {
-      expect(await (await find('count')).getItemCount()).toBe(3);
+      expect(await (await find('#count')).getItemCount()).toBe(3);
     });
 
     it('should return 1 for custom-content, since the component forces it', async () => {
-      expect(await (await find('custom-content')).getItemCount()).toBe(1);
+      expect(await (await find('#custom-content')).getItemCount()).toBe(1);
     });
   });
 
   describe('getAppearance()', () => {
     it.each([
-      ['defaults', 'line'],
-      ['circle', 'circle'],
-      ['square', 'square'],
-      ['empty-appearance', 'line'],
-      ['custom-content', 'custom-content'],
-    ])('should return the appearance of #%s', async (id, appearance) => {
-      expect(await (await find(id)).getAppearance()).toBe(appearance);
+      ['#defaults', 'line'],
+      ['#circle', 'circle'],
+      ['#square', 'square'],
+      ['#empty-appearance', 'line'],
+      ['#custom-content', 'custom-content'],
+    ])('should return the appearance of %s', async (selector, appearance) => {
+      expect(await (await find(selector)).getAppearance()).toBe(appearance);
     });
   });
 
   describe('getAnimation()', () => {
     it.each([
-      ['defaults', 'progress'],
-      ['square', 'pulse'],
-      ['wave', 'wave'],
-      ['progress-dark', 'progress-dark'],
-      ['pulse-dark', 'pulse-dark'],
-      ['custom-animation', 'harness-wave'],
-      ['no-animation-attribute', false],
-      ['no-animation-binding', false],
-    ])('should return the animation of #%s', async (id, animation) => {
-      expect(await (await find(id)).getAnimation()).toBe(animation);
+      ['#defaults', 'progress'],
+      ['#square', 'pulse'],
+      ['#wave', 'wave'],
+      ['#progress-dark', 'progress-dark'],
+      ['#pulse-dark', 'pulse-dark'],
+      ['#custom-animation', 'harness-wave'],
+      ['#no-animation-attribute', false],
+      ['#no-animation-binding', false],
+    ])('should return the animation of %s', async (selector, animation) => {
+      expect(await (await find(selector)).getAnimation()).toBe(animation);
     });
   });
 
   describe('getLoadingText()', () => {
     it('should return the default loading text', async () => {
-      expect(await (await find('defaults')).getLoadingText()).toBe('Loading...');
+      expect(await (await find('#defaults')).getLoadingText()).toBe('Loading...');
     });
 
     it('should return the custom loading text', async () => {
-      expect(await (await find('circle')).getLoadingText()).toBe('Loading profile');
+      expect(await (await find('#circle')).getLoadingText()).toBe('Loading profile');
     });
   });
 
   describe('getAriaLabel()', () => {
     it('should return the default ARIA label', async () => {
-      expect(await (await find('defaults')).getAriaLabel()).toBe('loading');
+      expect(await (await find('#defaults')).getAriaLabel()).toBe('loading');
     });
 
     it('should return the custom ARIA label', async () => {
-      expect(await (await find('square')).getAriaLabel()).toBe('loading square');
+      expect(await (await find('#square')).getAriaLabel()).toBe('loading square');
     });
   });
 
