@@ -1,7 +1,7 @@
 import { BaseHarnessFilters, ComponentHarness, HarnessPredicate } from '@angular/cdk/testing';
 import type { NgxSkeletonLoaderConfig } from 'ngx-skeleton-loader';
 
-type NgxSkeletonLoaderHarnessAppearance = 'line' | 'circle' | 'square' | 'custom-content';
+type NgxSkeletonLoaderHarnessAppearance = Exclude<NgxSkeletonLoaderConfig['appearance'], ''>;
 type NgxSkeletonLoaderHarnessAnimation = NgxSkeletonLoaderConfig['animation'];
 
 /** A set of criteria that can be used to filter a list of `NgxSkeletonLoaderHarness` instances */
@@ -14,7 +14,7 @@ export interface NgxSkeletonLoaderHarnessFilters extends BaseHarnessFilters {
   loadingText?: string | RegExp;
 }
 
-const APPEARANCES = ['circle', 'square', 'custom-content'] as const;
+const APPEARANCES: readonly NgxSkeletonLoaderHarnessAppearance[] = ['circle', 'square', 'custom-content'];
 const BUILT_IN_ANIMATIONS = /^(wave|(progress|pulse)(-dark)?)$/;
 const CUSTOM_ANIMATION_PREFIX = 'animation-';
 
