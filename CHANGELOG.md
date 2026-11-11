@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased][]
 
+### Added
+
+- Add `NgxSkeletonLoaderHarness` in `ngx-skeleton-loader/testing` to test `<ngx-skeleton-loader>` without querying the component's DOM. This entry point requires the optional `@angular/cdk` peer dependency (`>=19.0.0`). https://github.com/willmendesneto/ngx-skeleton-loader/pull/314
+
+
 ## [14.0.0][] - 2026-10-20
 
 ### Changed

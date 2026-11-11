@@ -559,6 +559,100 @@ You can apply theme changes in our stylesheet. At the end it will be
 
 > You should change the styles on the skeleton wrapper element in case you need to change the background color. You can check the code details in the [Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-sample?file=app%2Fapp.component.html) or check it out a content load simulation [in this Stackblitz Live Demo Link](https://stackblitz.com/edit/ngx-skeleton-loader-user-card-component-sample?file=app%2Fapp.component.html)
 
+## Testing
+
+Use `NgxSkeletonLoaderHarness` from `ngx-skeleton-loader/testing` to test a rendered `<ngx-skeleton-loader>` without querying its DOM. The harness maps internal classes, including `circle` and the `animation-` prefix for custom animations, to stable methods. Your tests do not depend on the component's markup.
+
+Install `@angular/cdk` (`>=19.0.0`) if you use `ngx-skeleton-loader/testing`. It is an optional peer dependency. The main entry point does not import it. The harness works with `TestbedHarnessEnvironment` in unit tests.
+
+```bash
+npm install --save-dev @angular/cdk
+```
+
+The harness reads the rendered DOM and reports resolved values:
+
+| Method | Component input | Returns |
+| --- | --- | --- |
+| `getItemCount()` | `count` | The number of rendered skeleton items. `custom-content` always returns `1`, since the component forces it |
+| `getAppearance()` | `appearance` | `'line'`, `'circle'`, `'square'` or `'custom-content'`. It returns `'line'` for both `'line'` and `''` |
+| `getAnimation()` | `animation` | The animation name, without the `animation-` prefix of custom animations, or `false` when there is no animation |
+| `getLoadingText()` | `loadingText` | The `aria-valuetext` of the host |
+| `getAriaLabel()` | `ariaLabel` | The `aria-label` of the host |
+
+`NgxSkeletonLoaderHarness.with()` filters by `appearance`, `animation`, and `loadingText`. The animation filter treats `'false'` and `false` as the same value. The loading text filter accepts a string or a `RegExp`. CDK base filters such as `selector` are also available.
+
+```ts
+import { TestBed } from '@angular/core/testing';
+import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
+import { NgxSkeletonLoaderHarness } from 'ngx-skeleton-loader/testing';
+
+it('shows a circular skeleton with the default loading text', async () => {
+	const fixture = TestBed.createComponent(UserCardComponent);
+	const loader = TestbedHarnessEnvironment.loader(fixture);
+
+	const skeleton = await loader.getHarness(NgxSkeletonLoaderHarness);
+
+	expect(await skeleton.getAppearance()).toBe('circle');
+	expect(await skeleton.getItemCount()).toBe(1);
+	expect(await skeleton.getLoadingText()).toBe('Loading...');
+});
+```
+
+Filter skeletons:
+
+```ts
+const avatar = await loader.getHarness(NgxSkeletonLoaderHarness.with({ appearance: 'circle' }));
+const rows = await loader.getAllHarnesses(NgxSkeletonLoaderHarness.with({ appearance: 'line' }));
+const profile = await loader.getHarness(NgxSkeletonLoaderHarness.with({ loadingText: /profile/i }));
+
+expect(await avatar.getItemCount()).toBe(1);
+expect(rows.length).toBe(3);
+expect(await profile.getAriaLabel()).toBe('loading');
+```
+
+Use `hasHarness()` from the CDK `HarnessLoader` to check whether a skeleton is present:
+
+```ts
+it('replaces the skeleton with the content once the request resolves', async () => {
+	const fixture = TestBed.createComponent(UserCardComponent);
+	const loader = TestbedHarnessEnvironment.loader(fixture);
+
+	expect(await loader.hasHarness(NgxSkeletonLoaderHarness)).toBe(true);
+
+	httpTesting.expectOne('/api/user').flush({ name: 'Ada' });
+
+	expect(await loader.hasHarness(NgxSkeletonLoaderHarness)).toBe(false);
+});
+```
+
+Check a [custom animation](#custom-animations) or confirm that animation is disabled:
+
+```ts
+// `my-wave` is registered through `NgxSkeletonLoaderCustomAnimations` declaration merging
+const skeleton = await loader.getHarness(NgxSkeletonLoaderHarness.with({ animation: 'my-wave' }));
+expect(await skeleton.getAnimation()).toBe('my-wave');
+
+const withoutAnimation = await loader.getHarness(NgxSkeletonLoaderHarness.with({ animation: false }));
+expect(await withoutAnimation.getAnimation()).toBe(false);
+```
+
+Use `NgxSkeletonLoaderHarness` inside your own component harness:
+
+```ts
+import { ComponentHarness } from '@angular/cdk/testing';
+import { NgxSkeletonLoaderHarness } from 'ngx-skeleton-loader/testing';
+
+export class UserCardHarness extends ComponentHarness {
+	static hostSelector = 'app-user-card';
+
+	private readonly skeleton = this.locatorForOptional(NgxSkeletonLoaderHarness);
+
+	async isLoading(): Promise<boolean> {
+		return (await this.skeleton()) !== null;
+	}
+}
+```
+
 ## Development
 
 ### Run demo locally
