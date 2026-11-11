@@ -1,6 +1,10 @@
 import { Component, provideExperimentalZonelessChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { NgxSkeletonLoaderComponent, provideNgxSkeletonLoader } from 'ngx-skeleton-loader';
+import { NgxSkeletonLoaderHarness } from 'ngx-skeleton-loader/testing';
+
+// Type-checks the testing entry point against the minimum `@angular/cdk` version
+export const circleSkeleton = NgxSkeletonLoaderHarness.with({ appearance: 'circle', animation: 'pulse' });
 
 // Uses the public API of the package, compiled with `strictTemplates`
 @Component({
