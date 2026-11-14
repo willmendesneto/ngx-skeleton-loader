@@ -561,6 +561,10 @@ You can apply theme changes in our stylesheet. At the end it will be
 
 ## Testing
 
+```
+import { NgxSkeletonLoaderHarness } from 'ngx-skeleton-loader/testing';
+```
+
 Use `NgxSkeletonLoaderHarness` from `ngx-skeleton-loader/testing` to test a rendered `<ngx-skeleton-loader>` without querying its DOM. The harness maps internal classes, including `circle` and the `animation-` prefix for custom animations, to stable methods. Your tests do not depend on the component's markup.
 
 Install `@angular/cdk` (`>=19.0.0`) if you use `ngx-skeleton-loader/testing`. It is an optional peer dependency. The main entry point does not import it. The harness works with `TestbedHarnessEnvironment` in unit tests.
