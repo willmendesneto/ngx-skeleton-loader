@@ -34,14 +34,11 @@ type CSSMeasureUnit = 'px' | 'em' | 'rem' | '%' | 'vh' | 'vw';
  */
 export interface NgxSkeletonLoaderCustomAnimations {}
 
+export type NgxSkeletonLoaderBuiltInAnimation = 'progress' | 'progress-dark' | 'pulse' | 'pulse-dark' | 'wave';
+
 export interface NgxSkeletonLoaderConfig {
   appearance: 'circle' | 'line' | 'custom-content' | 'square' | '';
-  animation:
-    | 'progress'
-    | 'progress-dark'
-    | 'pulse'
-    | 'pulse-dark'
-    | 'wave'
+  animation: NgxSkeletonLoaderBuiltInAnimation
     | 'false'
     | false
     | Extract<keyof NgxSkeletonLoaderCustomAnimations, string>;

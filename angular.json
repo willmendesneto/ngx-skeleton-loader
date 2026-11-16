@@ -125,7 +125,11 @@
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
-            "runner": "vitest"
+            "runner": "vitest",
+            "include": [
+              "**/*.spec.ts",
+              "../testing/**/*.spec.ts"
+            ]
           }
         },
         "lint": {

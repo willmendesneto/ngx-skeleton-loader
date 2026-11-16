@@ -3,8 +3,14 @@
   "description": "Make beautiful, animated loading skeletons that automatically adapt to your Angular apps",
   "version": "14.0.0",
   "peerDependencies": {
+    "@angular/cdk": ">=19.0.0",
     "@angular/common": ">=19.0.0",
     "@angular/core": ">=19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@angular/cdk": {
+      "optional": true
+    }
   },
   "license": "MIT",
   "keywords": [
