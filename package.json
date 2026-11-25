@@ -48,7 +48,7 @@
   "homepage": "https://github.com/willmendesneto/ngx-skeleton-loader#readme",
   "dependencies": {
     "@angular/common": "22.0.0",
-    "@angular/compiler": "22.0.0",
+    "@angular/compiler": "22.1.0",
     "@angular/core": "22.0.0",
     "@angular/platform-browser": "22.0.0",
     "@angular/platform-server": "22.0.0",
